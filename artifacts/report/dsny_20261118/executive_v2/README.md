@@ -23,6 +23,11 @@ provides an investigation button after selecting a segment; its enabled state an
 destination tooltip were inspected, while the executed navigation check used the
 context menu.
 
+The PBIX was saved again after the initial export. The exact release candidate
+was frozen, reopened without refresh, and passed all 179 checks again.
+[Candidate and download verification](release-preflight.json) identifies the
+published bytes; the PDF remains the unchanged, visually verified export.
+
 ## Verified delivery
 
 - Desktop refreshed the CSV Import model and saved
@@ -57,4 +62,5 @@ The data remains a fixed creation cohort observed November 18, 2026, not citywid
 workload or a current live queue. Targets are illustrative. No NYC operational
 improvement, staffing requirement, or fulfillment outcome is claimed. Earlier
 iteration outputs under `qa/` are retained; `qa/final_csv/` is the current model
-verification set.
+verification set for the source model. The later saved PBIX is independently
+verified under `qa/release_candidate/`.

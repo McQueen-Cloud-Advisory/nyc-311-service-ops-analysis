@@ -1,0 +1,963 @@
+{
+  "checked_at_utc": "2026-11-18T14:53:39.466703+00:00",
+  "release_id": "dsny_20261118",
+  "outcome": "passed",
+  "scope": "Executed Desktop DAX briefing measures versus independent Python reference over saved BigQuery release exports",
+  "checks_compared": 105,
+  "checks": [
+    {
+      "scenario": "overall",
+      "field": "release_id",
+      "expected": "dsny_20261118",
+      "actual": "dsny_20261118",
+      "difference": null,
+      "tolerance": 0,
+      "passed": true
+    },
+    {
+      "scenario": "overall",
+      "field": "priority_label",
+      "expected": "DSNY / Dirty Condition / QUEENS",
+      "actual": "DSNY / Dirty Condition / QUEENS",
+      "difference": null,
+      "tolerance": 0,
+      "passed": true
+    },
+    {
+      "scenario": "overall",
+      "field": "priority_aged_count",
+      "expected": 92,
+      "actual": 92,
+      "difference": 0,
+      "tolerance": 0,
+      "passed": true
+    },
+    {
+      "scenario": "overall",
+      "field": "priority_aged_display",
+      "expected": "92",
+      "actual": "92",
+      "difference": null,
+      "tolerance": 0,
+      "passed": true
+    },
+    {
+      "scenario": "overall",
+      "field": "priority_open_count",
+      "expected": 181,
+      "actual": 181,
+      "difference": 0,
+      "tolerance": 0,
+      "passed": true
+    },
+    {
+      "scenario": "overall",
+      "field": "priority_aged_share",
+      "expected": 0.24274406332453827,
+      "actual": 0.24274406332453827,
+      "difference": 0.0,
+      "tolerance": 1e-12,
+      "passed": true
+    },
+    {
+      "scenario": "overall",
+      "field": "priority_within_segment_aged_rate",
+      "expected": 0.5082872928176796,
+      "actual": 0.5082872928176796,
+      "difference": 0.0,
+      "tolerance": 1e-12,
+      "passed": true
+    },
+    {
+      "scenario": "overall",
+      "field": "selected_aged_count",
+      "expected": 379,
+      "actual": 379,
+      "difference": 0,
+      "tolerance": 0,
+      "passed": true
+    },
+    {
+      "scenario": "overall",
+      "field": "selected_open_count",
+      "expected": 728,
+      "actual": 728,
+      "difference": 0,
+      "tolerance": 0,
+      "passed": true
+    },
+    {
+      "scenario": "overall",
+      "field": "snapshot_open_30d_plus",
+      "expected": 171,
+      "actual": 171,
+      "difference": 0,
+      "tolerance": 0,
+      "passed": true
+    },
+    {
+      "scenario": "overall",
+      "field": "oldest_open_age_days",
+      "expected": 72.00726024231481,
+      "actual": 72.00726024231481,
+      "difference": 0.0,
+      "tolerance": 1e-06,
+      "passed": true
+    },
+    {
+      "scenario": "overall",
+      "field": "target_misses",
+      "expected": 8446,
+      "actual": 8446,
+      "difference": 0,
+      "tolerance": 0,
+      "passed": true
+    },
+    {
+      "scenario": "overall",
+      "field": "complete_week_count",
+      "expected": 10,
+      "actual": 10,
+      "difference": 0,
+      "tolerance": 0,
+      "passed": true
+    },
+    {
+      "scenario": "overall",
+      "field": "first_complete_week",
+      "expected": "2026-09-07",
+      "actual": "2026-09-07",
+      "difference": null,
+      "tolerance": 0,
+      "passed": true
+    },
+    {
+      "scenario": "overall",
+      "field": "last_complete_week",
+      "expected": "2026-11-09",
+      "actual": "2026-11-09",
+      "difference": null,
+      "tolerance": 0,
+      "passed": true
+    },
+    {
+      "scenario": "overall",
+      "field": "nov16_trend_intake",
+      "expected": null,
+      "actual": null,
+      "difference": null,
+      "tolerance": 0,
+      "passed": true
+    },
+    {
+      "scenario": "overall",
+      "field": "nov16_trend_recorded_closures",
+      "expected": null,
+      "actual": null,
+      "difference": null,
+      "tolerance": 0,
+      "passed": true
+    },
+    {
+      "scenario": "overall",
+      "field": "nov9_trend_intake",
+      "expected": 1817,
+      "actual": 1817,
+      "difference": 0,
+      "tolerance": 0,
+      "passed": true
+    },
+    {
+      "scenario": "overall",
+      "field": "nov9_trend_recorded_closures",
+      "expected": 1706,
+      "actual": 1706,
+      "difference": 0,
+      "tolerance": 0,
+      "passed": true
+    },
+    {
+      "scenario": "overall",
+      "field": "worklist_unfiltered_age_row_count",
+      "expected": 23017,
+      "actual": 23017,
+      "difference": 0,
+      "tolerance": 0,
+      "passed": true
+    },
+    {
+      "scenario": "overall",
+      "field": "worklist_age_7d_plus_row_count",
+      "expected": 379,
+      "actual": 379,
+      "difference": 0,
+      "tolerance": 0,
+      "passed": true
+    },
+    {
+      "scenario": "brooklyn_dirty",
+      "field": "release_id",
+      "expected": "dsny_20261118",
+      "actual": "dsny_20261118",
+      "difference": null,
+      "tolerance": 0,
+      "passed": true
+    },
+    {
+      "scenario": "brooklyn_dirty",
+      "field": "priority_label",
+      "expected": "DSNY / Dirty Condition / BROOKLYN",
+      "actual": "DSNY / Dirty Condition / BROOKLYN",
+      "difference": null,
+      "tolerance": 0,
+      "passed": true
+    },
+    {
+      "scenario": "brooklyn_dirty",
+      "field": "priority_aged_count",
+      "expected": 76,
+      "actual": 76,
+      "difference": 0,
+      "tolerance": 0,
+      "passed": true
+    },
+    {
+      "scenario": "brooklyn_dirty",
+      "field": "priority_aged_display",
+      "expected": "76",
+      "actual": "76",
+      "difference": null,
+      "tolerance": 0,
+      "passed": true
+    },
+    {
+      "scenario": "brooklyn_dirty",
+      "field": "priority_open_count",
+      "expected": 138,
+      "actual": 138,
+      "difference": 0,
+      "tolerance": 0,
+      "passed": true
+    },
+    {
+      "scenario": "brooklyn_dirty",
+      "field": "priority_aged_share",
+      "expected": 1.0,
+      "actual": 1,
+      "difference": 0.0,
+      "tolerance": 1e-12,
+      "passed": true
+    },
+    {
+      "scenario": "brooklyn_dirty",
+      "field": "priority_within_segment_aged_rate",
+      "expected": 0.5507246376811594,
+      "actual": 0.5507246376811594,
+      "difference": 0.0,
+      "tolerance": 1e-12,
+      "passed": true
+    },
+    {
+      "scenario": "brooklyn_dirty",
+      "field": "selected_aged_count",
+      "expected": 76,
+      "actual": 76,
+      "difference": 0,
+      "tolerance": 0,
+      "passed": true
+    },
+    {
+      "scenario": "brooklyn_dirty",
+      "field": "selected_open_count",
+      "expected": 138,
+      "actual": 138,
+      "difference": 0,
+      "tolerance": 0,
+      "passed": true
+    },
+    {
+      "scenario": "brooklyn_dirty",
+      "field": "snapshot_open_30d_plus",
+      "expected": 37,
+      "actual": 37,
+      "difference": 0,
+      "tolerance": 0,
+      "passed": true
+    },
+    {
+      "scenario": "brooklyn_dirty",
+      "field": "oldest_open_age_days",
+      "expected": 72.00726024231481,
+      "actual": 72.00726024231481,
+      "difference": 0.0,
+      "tolerance": 1e-06,
+      "passed": true
+    },
+    {
+      "scenario": "brooklyn_dirty",
+      "field": "target_misses",
+      "expected": 2083,
+      "actual": 2083,
+      "difference": 0,
+      "tolerance": 0,
+      "passed": true
+    },
+    {
+      "scenario": "brooklyn_dirty",
+      "field": "complete_week_count",
+      "expected": 10,
+      "actual": 10,
+      "difference": 0,
+      "tolerance": 0,
+      "passed": true
+    },
+    {
+      "scenario": "brooklyn_dirty",
+      "field": "first_complete_week",
+      "expected": "2026-09-07",
+      "actual": "2026-09-07",
+      "difference": null,
+      "tolerance": 0,
+      "passed": true
+    },
+    {
+      "scenario": "brooklyn_dirty",
+      "field": "last_complete_week",
+      "expected": "2026-11-09",
+      "actual": "2026-11-09",
+      "difference": null,
+      "tolerance": 0,
+      "passed": true
+    },
+    {
+      "scenario": "brooklyn_dirty",
+      "field": "nov16_trend_intake",
+      "expected": null,
+      "actual": null,
+      "difference": null,
+      "tolerance": 0,
+      "passed": true
+    },
+    {
+      "scenario": "brooklyn_dirty",
+      "field": "nov16_trend_recorded_closures",
+      "expected": null,
+      "actual": null,
+      "difference": null,
+      "tolerance": 0,
+      "passed": true
+    },
+    {
+      "scenario": "brooklyn_dirty",
+      "field": "nov9_trend_intake",
+      "expected": 353,
+      "actual": 353,
+      "difference": 0,
+      "tolerance": 0,
+      "passed": true
+    },
+    {
+      "scenario": "brooklyn_dirty",
+      "field": "nov9_trend_recorded_closures",
+      "expected": 284,
+      "actual": 284,
+      "difference": 0,
+      "tolerance": 0,
+      "passed": true
+    },
+    {
+      "scenario": "brooklyn_dirty",
+      "field": "worklist_unfiltered_age_row_count",
+      "expected": 5067,
+      "actual": 5067,
+      "difference": 0,
+      "tolerance": 0,
+      "passed": true
+    },
+    {
+      "scenario": "brooklyn_dirty",
+      "field": "worklist_age_7d_plus_row_count",
+      "expected": 76,
+      "actual": 76,
+      "difference": 0,
+      "tolerance": 0,
+      "passed": true
+    },
+    {
+      "scenario": "queens_dirty",
+      "field": "release_id",
+      "expected": "dsny_20261118",
+      "actual": "dsny_20261118",
+      "difference": null,
+      "tolerance": 0,
+      "passed": true
+    },
+    {
+      "scenario": "queens_dirty",
+      "field": "priority_label",
+      "expected": "DSNY / Dirty Condition / QUEENS",
+      "actual": "DSNY / Dirty Condition / QUEENS",
+      "difference": null,
+      "tolerance": 0,
+      "passed": true
+    },
+    {
+      "scenario": "queens_dirty",
+      "field": "priority_aged_count",
+      "expected": 92,
+      "actual": 92,
+      "difference": 0,
+      "tolerance": 0,
+      "passed": true
+    },
+    {
+      "scenario": "queens_dirty",
+      "field": "priority_aged_display",
+      "expected": "92",
+      "actual": "92",
+      "difference": null,
+      "tolerance": 0,
+      "passed": true
+    },
+    {
+      "scenario": "queens_dirty",
+      "field": "priority_open_count",
+      "expected": 181,
+      "actual": 181,
+      "difference": 0,
+      "tolerance": 0,
+      "passed": true
+    },
+    {
+      "scenario": "queens_dirty",
+      "field": "priority_aged_share",
+      "expected": 1.0,
+      "actual": 1,
+      "difference": 0.0,
+      "tolerance": 1e-12,
+      "passed": true
+    },
+    {
+      "scenario": "queens_dirty",
+      "field": "priority_within_segment_aged_rate",
+      "expected": 0.5082872928176796,
+      "actual": 0.5082872928176796,
+      "difference": 0.0,
+      "tolerance": 1e-12,
+      "passed": true
+    },
+    {
+      "scenario": "queens_dirty",
+      "field": "selected_aged_count",
+      "expected": 92,
+      "actual": 92,
+      "difference": 0,
+      "tolerance": 0,
+      "passed": true
+    },
+    {
+      "scenario": "queens_dirty",
+      "field": "selected_open_count",
+      "expected": 181,
+      "actual": 181,
+      "difference": 0,
+      "tolerance": 0,
+      "passed": true
+    },
+    {
+      "scenario": "queens_dirty",
+      "field": "snapshot_open_30d_plus",
+      "expected": 38,
+      "actual": 38,
+      "difference": 0,
+      "tolerance": 0,
+      "passed": true
+    },
+    {
+      "scenario": "queens_dirty",
+      "field": "oldest_open_age_days",
+      "expected": 70.52355653861112,
+      "actual": 70.52355653861112,
+      "difference": 0.0,
+      "tolerance": 1e-06,
+      "passed": true
+    },
+    {
+      "scenario": "queens_dirty",
+      "field": "target_misses",
+      "expected": 1153,
+      "actual": 1153,
+      "difference": 0,
+      "tolerance": 0,
+      "passed": true
+    },
+    {
+      "scenario": "queens_dirty",
+      "field": "complete_week_count",
+      "expected": 10,
+      "actual": 10,
+      "difference": 0,
+      "tolerance": 0,
+      "passed": true
+    },
+    {
+      "scenario": "queens_dirty",
+      "field": "first_complete_week",
+      "expected": "2026-09-07",
+      "actual": "2026-09-07",
+      "difference": null,
+      "tolerance": 0,
+      "passed": true
+    },
+    {
+      "scenario": "queens_dirty",
+      "field": "last_complete_week",
+      "expected": "2026-11-09",
+      "actual": "2026-11-09",
+      "difference": null,
+      "tolerance": 0,
+      "passed": true
+    },
+    {
+      "scenario": "queens_dirty",
+      "field": "nov16_trend_intake",
+      "expected": null,
+      "actual": null,
+      "difference": null,
+      "tolerance": 0,
+      "passed": true
+    },
+    {
+      "scenario": "queens_dirty",
+      "field": "nov16_trend_recorded_closures",
+      "expected": null,
+      "actual": null,
+      "difference": null,
+      "tolerance": 0,
+      "passed": true
+    },
+    {
+      "scenario": "queens_dirty",
+      "field": "nov9_trend_intake",
+      "expected": 287,
+      "actual": 287,
+      "difference": 0,
+      "tolerance": 0,
+      "passed": true
+    },
+    {
+      "scenario": "queens_dirty",
+      "field": "nov9_trend_recorded_closures",
+      "expected": 228,
+      "actual": 228,
+      "difference": 0,
+      "tolerance": 0,
+      "passed": true
+    },
+    {
+      "scenario": "queens_dirty",
+      "field": "worklist_unfiltered_age_row_count",
+      "expected": 3261,
+      "actual": 3261,
+      "difference": 0,
+      "tolerance": 0,
+      "passed": true
+    },
+    {
+      "scenario": "queens_dirty",
+      "field": "worklist_age_7d_plus_row_count",
+      "expected": 92,
+      "actual": 92,
+      "difference": 0,
+      "tolerance": 0,
+      "passed": true
+    },
+    {
+      "scenario": "empty_borough",
+      "field": "release_id",
+      "expected": "dsny_20261118",
+      "actual": "dsny_20261118",
+      "difference": null,
+      "tolerance": 0,
+      "passed": true
+    },
+    {
+      "scenario": "empty_borough",
+      "field": "priority_label",
+      "expected": null,
+      "actual": null,
+      "difference": null,
+      "tolerance": 0,
+      "passed": true
+    },
+    {
+      "scenario": "empty_borough",
+      "field": "priority_aged_count",
+      "expected": null,
+      "actual": null,
+      "difference": null,
+      "tolerance": 0,
+      "passed": true
+    },
+    {
+      "scenario": "empty_borough",
+      "field": "priority_aged_display",
+      "expected": "\u2014",
+      "actual": "\u2014",
+      "difference": null,
+      "tolerance": 0,
+      "passed": true
+    },
+    {
+      "scenario": "empty_borough",
+      "field": "priority_open_count",
+      "expected": null,
+      "actual": null,
+      "difference": null,
+      "tolerance": 0,
+      "passed": true
+    },
+    {
+      "scenario": "empty_borough",
+      "field": "priority_aged_share",
+      "expected": null,
+      "actual": null,
+      "difference": null,
+      "tolerance": 1e-12,
+      "passed": true
+    },
+    {
+      "scenario": "empty_borough",
+      "field": "priority_within_segment_aged_rate",
+      "expected": null,
+      "actual": null,
+      "difference": null,
+      "tolerance": 1e-12,
+      "passed": true
+    },
+    {
+      "scenario": "empty_borough",
+      "field": "selected_aged_count",
+      "expected": 0,
+      "actual": 0,
+      "difference": 0,
+      "tolerance": 0,
+      "passed": true
+    },
+    {
+      "scenario": "empty_borough",
+      "field": "selected_open_count",
+      "expected": 0,
+      "actual": 0,
+      "difference": 0,
+      "tolerance": 0,
+      "passed": true
+    },
+    {
+      "scenario": "empty_borough",
+      "field": "snapshot_open_30d_plus",
+      "expected": 0,
+      "actual": 0,
+      "difference": 0,
+      "tolerance": 0,
+      "passed": true
+    },
+    {
+      "scenario": "empty_borough",
+      "field": "oldest_open_age_days",
+      "expected": null,
+      "actual": null,
+      "difference": null,
+      "tolerance": 1e-06,
+      "passed": true
+    },
+    {
+      "scenario": "empty_borough",
+      "field": "target_misses",
+      "expected": 0,
+      "actual": 0,
+      "difference": 0,
+      "tolerance": 0,
+      "passed": true
+    },
+    {
+      "scenario": "empty_borough",
+      "field": "complete_week_count",
+      "expected": 10,
+      "actual": 10,
+      "difference": 0,
+      "tolerance": 0,
+      "passed": true
+    },
+    {
+      "scenario": "empty_borough",
+      "field": "first_complete_week",
+      "expected": "2026-09-07",
+      "actual": "2026-09-07",
+      "difference": null,
+      "tolerance": 0,
+      "passed": true
+    },
+    {
+      "scenario": "empty_borough",
+      "field": "last_complete_week",
+      "expected": "2026-11-09",
+      "actual": "2026-11-09",
+      "difference": null,
+      "tolerance": 0,
+      "passed": true
+    },
+    {
+      "scenario": "empty_borough",
+      "field": "nov16_trend_intake",
+      "expected": null,
+      "actual": null,
+      "difference": null,
+      "tolerance": 0,
+      "passed": true
+    },
+    {
+      "scenario": "empty_borough",
+      "field": "nov16_trend_recorded_closures",
+      "expected": null,
+      "actual": null,
+      "difference": null,
+      "tolerance": 0,
+      "passed": true
+    },
+    {
+      "scenario": "empty_borough",
+      "field": "nov9_trend_intake",
+      "expected": 0,
+      "actual": 0,
+      "difference": 0,
+      "tolerance": 0,
+      "passed": true
+    },
+    {
+      "scenario": "empty_borough",
+      "field": "nov9_trend_recorded_closures",
+      "expected": 0,
+      "actual": 0,
+      "difference": 0,
+      "tolerance": 0,
+      "passed": true
+    },
+    {
+      "scenario": "empty_borough",
+      "field": "worklist_unfiltered_age_row_count",
+      "expected": 0,
+      "actual": 0,
+      "difference": 0,
+      "tolerance": 0,
+      "passed": true
+    },
+    {
+      "scenario": "empty_borough",
+      "field": "worklist_age_7d_plus_row_count",
+      "expected": 0,
+      "actual": 0,
+      "difference": 0,
+      "tolerance": 0,
+      "passed": true
+    },
+    {
+      "scenario": "activity_week_2026_11_09",
+      "field": "release_id",
+      "expected": "dsny_20261118",
+      "actual": "dsny_20261118",
+      "difference": null,
+      "tolerance": 0,
+      "passed": true
+    },
+    {
+      "scenario": "activity_week_2026_11_09",
+      "field": "priority_label",
+      "expected": "DSNY / Dirty Condition / QUEENS",
+      "actual": "DSNY / Dirty Condition / QUEENS",
+      "difference": null,
+      "tolerance": 0,
+      "passed": true
+    },
+    {
+      "scenario": "activity_week_2026_11_09",
+      "field": "priority_aged_count",
+      "expected": 92,
+      "actual": 92,
+      "difference": 0,
+      "tolerance": 0,
+      "passed": true
+    },
+    {
+      "scenario": "activity_week_2026_11_09",
+      "field": "priority_aged_display",
+      "expected": "92",
+      "actual": "92",
+      "difference": null,
+      "tolerance": 0,
+      "passed": true
+    },
+    {
+      "scenario": "activity_week_2026_11_09",
+      "field": "priority_open_count",
+      "expected": 181,
+      "actual": 181,
+      "difference": 0,
+      "tolerance": 0,
+      "passed": true
+    },
+    {
+      "scenario": "activity_week_2026_11_09",
+      "field": "priority_aged_share",
+      "expected": 0.24274406332453827,
+      "actual": 0.24274406332453827,
+      "difference": 0.0,
+      "tolerance": 1e-12,
+      "passed": true
+    },
+    {
+      "scenario": "activity_week_2026_11_09",
+      "field": "priority_within_segment_aged_rate",
+      "expected": 0.5082872928176796,
+      "actual": 0.5082872928176796,
+      "difference": 0.0,
+      "tolerance": 1e-12,
+      "passed": true
+    },
+    {
+      "scenario": "activity_week_2026_11_09",
+      "field": "selected_aged_count",
+      "expected": 379,
+      "actual": 379,
+      "difference": 0,
+      "tolerance": 0,
+      "passed": true
+    },
+    {
+      "scenario": "activity_week_2026_11_09",
+      "field": "selected_open_count",
+      "expected": 728,
+      "actual": 728,
+      "difference": 0,
+      "tolerance": 0,
+      "passed": true
+    },
+    {
+      "scenario": "activity_week_2026_11_09",
+      "field": "snapshot_open_30d_plus",
+      "expected": 171,
+      "actual": 171,
+      "difference": 0,
+      "tolerance": 0,
+      "passed": true
+    },
+    {
+      "scenario": "activity_week_2026_11_09",
+      "field": "oldest_open_age_days",
+      "expected": 72.00726024231481,
+      "actual": 72.00726024231481,
+      "difference": 0.0,
+      "tolerance": 1e-06,
+      "passed": true
+    },
+    {
+      "scenario": "activity_week_2026_11_09",
+      "field": "target_misses",
+      "expected": 750,
+      "actual": 750,
+      "difference": 0,
+      "tolerance": 0,
+      "passed": true
+    },
+    {
+      "scenario": "activity_week_2026_11_09",
+      "field": "complete_week_count",
+      "expected": 1,
+      "actual": 1,
+      "difference": 0,
+      "tolerance": 0,
+      "passed": true
+    },
+    {
+      "scenario": "activity_week_2026_11_09",
+      "field": "first_complete_week",
+      "expected": "2026-11-09",
+      "actual": "2026-11-09",
+      "difference": null,
+      "tolerance": 0,
+      "passed": true
+    },
+    {
+      "scenario": "activity_week_2026_11_09",
+      "field": "last_complete_week",
+      "expected": "2026-11-09",
+      "actual": "2026-11-09",
+      "difference": null,
+      "tolerance": 0,
+      "passed": true
+    },
+    {
+      "scenario": "activity_week_2026_11_09",
+      "field": "nov16_trend_intake",
+      "expected": null,
+      "actual": null,
+      "difference": null,
+      "tolerance": 0,
+      "passed": true
+    },
+    {
+      "scenario": "activity_week_2026_11_09",
+      "field": "nov16_trend_recorded_closures",
+      "expected": null,
+      "actual": null,
+      "difference": null,
+      "tolerance": 0,
+      "passed": true
+    },
+    {
+      "scenario": "activity_week_2026_11_09",
+      "field": "nov9_trend_intake",
+      "expected": 1817,
+      "actual": 1817,
+      "difference": 0,
+      "tolerance": 0,
+      "passed": true
+    },
+    {
+      "scenario": "activity_week_2026_11_09",
+      "field": "nov9_trend_recorded_closures",
+      "expected": 1706,
+      "actual": 1706,
+      "difference": 0,
+      "tolerance": 0,
+      "passed": true
+    },
+    {
+      "scenario": "activity_week_2026_11_09",
+      "field": "worklist_unfiltered_age_row_count",
+      "expected": 1737,
+      "actual": 1737,
+      "difference": 0,
+      "tolerance": 0,
+      "passed": true
+    },
+    {
+      "scenario": "activity_week_2026_11_09",
+      "field": "worklist_age_7d_plus_row_count",
+      "expected": 69,
+      "actual": 69,
+      "difference": 0,
+      "tolerance": 0,
+      "passed": true
+    }
+  ],
+  "input_sha256": {
+    "reference": "60d2d70cb7ba78c8f0f6ef941a91edaeb5da0357ed06163180e40bed96d091a9",
+    "A": "efb372b307151560b62f38248ce35cc163a79f191748944e794b047235a224e6",
+    "B": "e63dc1c2fcf9304f8f402a4b7009eed0bfc7d85b3abf36559f3e7598a81de106",
+    "C": "bf63f65c26e89d22d53b4a63809e8616468c8f67fa0f670ad42e72af3531828d",
+    "D": "098193424ba5e7fcf35bfd9d34cf93188ca514b7e50740748c06cbd3f215304f",
+    "E": "67baac9551a9e68152545f7c1496d80a99a4398c7ac2b1c9201df42f1b6c4e57"
+  },
+  "visual_inspection": "separate Desktop check"
+}

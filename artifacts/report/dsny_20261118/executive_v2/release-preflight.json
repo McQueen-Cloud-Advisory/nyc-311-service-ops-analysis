@@ -1,0 +1,29 @@
+{
+  "checked_at_utc": "2026-11-18T14:54:39.200Z",
+  "release_tag": "dsny_20261118-executive-v2",
+  "source_change_commit": "475806f47c5aa46d5b8abcdcf4eb01ab11eea486",
+  "source_ci": {
+    "outcome": "success",
+    "url": "https://github.com/McQueen-Cloud-Advisory/nyc-311-service-ops-analysis/actions/runs/44328895469"
+  },
+  "release_candidate": "qa/release_candidate/candidate_verification.json",
+  "later_save_reverified": true,
+  "cached_reopen_without_refresh": "passed: both pages inspected; overall 23101 / 22369 / 728 / 131.5; Queens 181 / 92 / 38 / 70.5, target 2087 / 3240, immature 33",
+  "pdf_source_scope": "Unchanged, verified two-page export from the earlier 14:43 UTC PBIX; the later PBIX save is independently verified and recorded in artifact_files.json",
+  "downloads": [
+    {
+      "name": "NYC311_dsny_20261118_executive.pbix",
+      "bytes": 1391092,
+      "sha256": "44de5a1a825b1195e137ce0750de0bc686770578666bfb59428607067b4334eb",
+      "download_sha256_matches_verified_file": true
+    },
+    {
+      "name": "NYC311_dsny_20261118_executive.pdf",
+      "bytes": 213034,
+      "sha256": "39aef2afc0e4d00fb5369caa0020941eb73d28222f5d1b6cc88734c878ea6a04",
+      "download_sha256_matches_verified_file": true
+    }
+  ],
+  "release_visibility": "Private repository; repository access required",
+  "original_release_assets": "unchanged"
+}

@@ -20,7 +20,7 @@
   "power_bi_csv_import": {
     "outcome": "passed",
     "sql_dax_checks_passed": 41,
-    "p90_absolute_tolerance_hours": 1e-06,
+    "p90_absolute_tolerance_hours": 0.000001,
     "both_pages_and_queens_drillthrough_inspected": true,
     "cached_pbix_saved": true,
     "cached_pbix_reopen": "Original 12:22:01 UTC CSV file passed; subsequently saved current file has not completed Desktop revalidation and is excluded from release downloads",
@@ -44,13 +44,15 @@
     "both_pages_and_queens_drillthrough_inspected": true,
     "aging_selection_worklist_interaction_inspected": true,
     "cached_pbix_saved": true,
-    "cached_pbix_reopen": "Final 1,390,870-byte CSV PBIX closed and reopened from disk without refresh; both pages and retained Queens context passed",
+    "cached_pbix_reopen": "Published 1,391,092-byte CSV PBIX frozen and opened from disk without refresh; both pages and retained Queens context passed; all 179 checks repeated successfully",
     "pdf_pages_rendered_and_inspected": 2,
     "report_artifacts": "artifacts/report/dsny_20261118/executive_v2/artifact_files.json",
     "preview_verification": "artifacts/report/dsny_20261118/executive_v2/preview-verification.json",
     "native_bigquery_redesign": "Prepared source only; not refreshed or reverified in Desktop",
     "publication": "GitHub main source and executive-v2 release assets; original release assets unchanged",
-    "github_release": "https://github.com/McQueen-Cloud-Advisory/nyc-311-service-ops-analysis/releases/tag/dsny_20261118-executive-v2"
+    "github_release": "https://github.com/McQueen-Cloud-Advisory/nyc-311-service-ops-analysis/releases/tag/dsny_20261118-executive-v2",
+    "release_candidate_verification": "artifacts/report/dsny_20261118/executive_v2/qa/release_candidate/candidate_verification.json",
+    "release_download_verification": "artifacts/report/dsny_20261118/executive_v2/release-preflight.json"
   },
   "power_bi_native_bigquery": {
     "outcome": "passed",

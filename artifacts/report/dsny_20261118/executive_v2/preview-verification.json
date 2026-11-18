@@ -17,7 +17,8 @@
     "path": "artifacts/report/dsny_20261118/executive_v2/NYC311_dsny_20261118_executive.pbix",
     "bytes": 1390870,
     "last_modified_utc": "2026-11-18T14:43:34.905129+00:00",
-    "sha256": "2861fb74921a681de3d2d367ee63dd6b9a305ecde4206ffb443ee71549bdc055"
+    "sha256": "2861fb74921a681de3d2d367ee63dd6b9a305ecde4206ffb443ee71549bdc055",
+    "scope": "Original verified PDF source file, before the 14:51 UTC save. Published PBIX was separately reverified; see release-preflight.json and qa/release_candidate/candidate_verification.json."
   },
   "previews": [
     {
@@ -69,5 +70,6 @@
   },
   "visual_review": "Both complete PDF pages inspected at 2000px maximum dimension. Normal table scroll controls remain; PDF shows visible rows only. All headings, filter values, metrics, and explanatory text are readable.",
   "metric_evidence_directory": "qa/final_csv/",
-  "native_bigquery_connector": "Not established by these CSV-mode checks or previews"
+  "native_bigquery_connector": "Not established by these CSV-mode checks or previews",
+  "published_pbix_verification": "qa/release_candidate/candidate_verification.json"
 }

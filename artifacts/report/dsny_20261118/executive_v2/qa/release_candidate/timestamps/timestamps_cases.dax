@@ -1,0 +1,10 @@
+EVALUATE
+CALCULATETABLE(
+    SELECTCOLUMNS(
+        'Cases', "request_id", 'Cases'[request_id],
+        "observed_at", 'Cases'[observed_at],
+        "created_at", 'Cases'[created_at], "closed_at", 'Cases'[closed_at]
+    ),
+    TREATAS({"70317953", "70319372", "70320702", "70320732", "70321920", "71141101", "71141102", "71141103", "71141104", "71141105"}, 'Cases'[request_id])
+)
+ORDER BY [request_id]

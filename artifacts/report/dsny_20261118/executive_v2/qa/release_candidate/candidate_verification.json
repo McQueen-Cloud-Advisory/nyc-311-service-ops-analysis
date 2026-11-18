@@ -1,0 +1,29 @@
+{
+  "checked_at_utc": "2026-11-18T14:53:56.138048+00:00",
+  "outcome": "passed",
+  "release_id": "dsny_20261118",
+  "candidate_file": "NYC311_dsny_20261118_executive.pbix",
+  "bytes": 1391092,
+  "sha256": "44de5a1a825b1195e137ce0750de0bc686770578666bfb59428607067b4334eb",
+  "unchanged_since_prequery_hash": true,
+  "zip_integrity_passed": true,
+  "load": "Frozen staging PBIX opened in Desktop without refresh; confirmed by the UI-owning agent before read-only queries",
+  "engine": "Read-only ADOMD against the Desktop process launched with the frozen staging file",
+  "checks": {
+    "base": {
+      "outcome": "passed",
+      "count": 41
+    },
+    "briefing": {
+      "outcome": "passed",
+      "count": 105
+    },
+    "timestamps": {
+      "outcome": "passed",
+      "count": 33
+    }
+  },
+  "total_checks": 179,
+  "pdf_relationship": "PDF export predates this subsequent PBIX save; original PDF source hash and visual provenance are recorded separately by the release owner",
+  "native_bigquery_redesign": "Not tested; cached CSV candidate only"
+}

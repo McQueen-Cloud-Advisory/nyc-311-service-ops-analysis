@@ -1,12 +1,12 @@
 {
-  "checked_at_utc": "2026-11-18T14:46:20.080744+00:00",
+  "checked_at_utc": "2026-11-18T14:54:39.200Z",
   "release_id": "dsny_20261118",
   "snapshot_id": "dsny_20261118_a",
   "report_revision": "executive_v2",
   "desktop_version": "2.159.1231.0",
   "import_mode": "CSV",
   "creation": "Power BI Desktop Save as and native PDF export after successful CSV refresh",
-  "cached_pbix_reopen": "passed: saved file closed and reopened from disk without refresh; both pages and retained Queens investigation context inspected",
+  "cached_pbix_reopen": "passed: frozen copy of the later 14:51 UTC save opened without refresh; both pages and retained Queens context inspected; 179 read-only model checks passed",
   "cached_pbix_hash_unchanged_after_reopen": true,
   "pbix_zip_integrity": "passed",
   "pdf_render_inspection": "passed: two complete pages rendered by Poppler and visually inspected",
@@ -16,7 +16,7 @@
     "utc_timestamps": 33,
     "outcome": "passed"
   },
-  "model_evidence_directory": "qa/final_csv/",
+  "model_evidence_directory": "qa/release_candidate/",
   "semantic_source_equivalence": "qa/final_csv/source_equivalence.json",
   "publication": "GitHub release assets: dsny_20261118-executive-v2; PBIX remains excluded from Git history",
   "github_release_url": "https://github.com/McQueen-Cloud-Advisory/nyc-311-service-ops-analysis/releases/tag/dsny_20261118-executive-v2",
@@ -25,9 +25,9 @@
     {
       "name": "NYC311_dsny_20261118_executive.pbix",
       "path": "artifacts/report/dsny_20261118/executive_v2/NYC311_dsny_20261118_executive.pbix",
-      "bytes": 1390870,
-      "last_modified_utc": "2026-11-18T14:43:34.905129+00:00",
-      "sha256": "2861fb74921a681de3d2d367ee63dd6b9a305ecde4206ffb443ee71549bdc055"
+      "bytes": 1391092,
+      "last_modified_utc": "2026-11-18T14:51:02.3913232Z",
+      "sha256": "44de5a1a825b1195e137ce0750de0bc686770578666bfb59428607067b4334eb"
     },
     {
       "name": "NYC311_dsny_20261118_executive.pdf",
@@ -54,5 +54,16 @@
       "width_pixels": 2000,
       "height_pixels": 1355
     }
-  ]
+  ],
+  "previous_verified_pdf_source_pbix": {
+    "name": "NYC311_dsny_20261118_executive.pbix",
+    "path": "artifacts/report/dsny_20261118/executive_v2/NYC311_dsny_20261118_executive.pbix",
+    "bytes": 1390870,
+    "last_modified_utc": "2026-11-18T14:43:34.905129+00:00",
+    "sha256": "2861fb74921a681de3d2d367ee63dd6b9a305ecde4206ffb443ee71549bdc055",
+    "scope": "Original 14:43 UTC file used for PDF export and first cached reopen; superseded by separately reverified 14:51 UTC PBIX save"
+  },
+  "original_model_evidence_directory": "qa/final_csv/",
+  "release_candidate_verification": "qa/release_candidate/candidate_verification.json",
+  "download_verification": "release-preflight.json"
 }

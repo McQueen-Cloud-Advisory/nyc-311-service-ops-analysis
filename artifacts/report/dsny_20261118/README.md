@@ -35,10 +35,13 @@ request in Queens Dirty Condition. The selected target result remained
 | Redesigned artifact | Size | Verification |
 | --- | --- | --- |
 | Executive PDF | 213,034 bytes | Both pages rendered and visually inspected |
-| [Cached CSV executive PBIX](https://github.com/McQueen-Cloud-Advisory/nyc-311-service-ops-analysis/releases/download/dsny_20261118-executive-v2/NYC311_dsny_20261118_executive.pbix) | 1,390,870 bytes | Current saved file reopened successfully without refresh |
+| [Cached CSV executive PBIX](https://github.com/McQueen-Cloud-Advisory/nyc-311-service-ops-analysis/releases/download/dsny_20261118-executive-v2/NYC311_dsny_20261118_executive.pbix) | 1,391,092 bytes | Current saved file reopened successfully without refresh |
 
-See [file hashes](executive_v2/artifact_files.json) and
-[preview/reopen evidence](executive_v2/preview-verification.json). The native
+See [file hashes](executive_v2/artifact_files.json),
+[PDF preview evidence](executive_v2/preview-verification.json), and
+[release-candidate and download verification](executive_v2/release-preflight.json).
+The PBIX was saved again at 14:51 UTC; that exact file was frozen, reopened, and
+passed all 179 checks before publication. The PDF is the unchanged prior export. The native
 BigQuery working copy has been generated but not refreshed and reverified for
 this design. The [executive release](https://github.com/McQueen-Cloud-Advisory/nyc-311-service-ops-analysis/releases/tag/dsny_20261118-executive-v2)
 distributes the verified CSV PBIX and PDF. Repository access is required. The
