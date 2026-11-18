@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
   "name": "investigate_age",
   "position": {
-    "x": 28,
-    "y": 360,
-    "width": 570,
-    "height": 240,
-    "z": 20,
-    "tabOrder": 21
+    "x": 36,
+    "y": 438,
+    "width": 590,
+    "height": 198,
+    "z": 54,
+    "tabOrder": 55
   },
   "visual": {
     "visualType": "clusteredBarChart",
@@ -25,7 +25,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Open requests by age · observation time'"
+                  "Value": "'Aging distribution · click a bar to narrow the worklist'"
                 }
               }
             },
@@ -41,9 +41,16 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#16324F'"
+                      "Value": "'#17343D'"
                     }
                   }
+                }
+              }
+            },
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Segoe UI Semibold'"
                 }
               }
             },
@@ -72,7 +79,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#FFFFFF'"
+                      "Value": "'#FFFEFA'"
                     }
                   }
                 }
@@ -94,7 +101,80 @@
             "show": {
               "expr": {
                 "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "padding": [
+        {
+          "properties": {
+            "top": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
+                }
+              }
+            },
+            "bottom": {
+              "expr": {
+                "Literal": {
+                  "Value": "8D"
+                }
+              }
+            },
+            "left": {
+              "expr": {
+                "Literal": {
+                  "Value": "12D"
+                }
+              }
+            },
+            "right": {
+              "expr": {
+                "Literal": {
+                  "Value": "12D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "objects": {
+      "dataPoint": [
+        {
+          "properties": {
+            "defaultColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#087F86'"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "labels": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
                   "Value": "true"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
                 }
               }
             },
@@ -103,16 +183,82 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#E1E7EC'"
+                      "Value": "'#17343D'"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "categoryAxis": [
+        {
+          "properties": {
+            "showAxisTitle": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "11D"
+                }
+              }
+            },
+            "labelColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#63737A'"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "valueAxis": [
+        {
+          "properties": {
+            "showAxisTitle": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
+                }
+              }
+            },
+            "labelColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#63737A'"
                     }
                   }
                 }
               }
             },
-            "radius": {
-              "expr": {
-                "Literal": {
-                  "Value": "6D"
+            "gridlineColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#E4E6E0'"
+                    }
+                  }
                 }
               }
             }
@@ -120,7 +266,6 @@
         }
       ]
     },
-    "objects": {},
     "query": {
       "queryState": {
         "Category": {
@@ -137,7 +282,7 @@
                 }
               },
               "queryRef": "Age Bucket.bucket",
-              "displayName": "Age at observation"
+              "displayName": "Age"
             }
           ]
         },
@@ -154,7 +299,8 @@
                   "Property": "Backlog by age"
                 }
               },
-              "queryRef": "Metrics.Backlog by age"
+              "queryRef": "Metrics.Backlog by age",
+              "displayName": "Open requests"
             }
           ]
         }

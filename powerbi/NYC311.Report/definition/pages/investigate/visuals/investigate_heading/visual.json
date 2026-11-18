@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
   "name": "investigate_heading",
   "position": {
-    "x": 28,
-    "y": 12,
-    "width": 620,
-    "height": 56,
-    "z": 12,
-    "tabOrder": 13
+    "x": 36,
+    "y": 38,
+    "width": 600,
+    "height": 44,
+    "z": 36,
+    "tabOrder": 37
   },
   "visual": {
     "visualType": "textbox",
@@ -21,6 +21,45 @@
                   "Value": "false"
                 }
               }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "''"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "12D"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#17343D'"
+                    }
+                  }
+                }
+              }
+            },
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Segoe UI Semibold'"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
             }
           }
         }
@@ -32,6 +71,24 @@
               "expr": {
                 "Literal": {
                   "Value": "false"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#F5F3ED'"
+                    }
+                  }
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
                 }
               }
             }
@@ -94,11 +151,12 @@
               {
                 "textRuns": [
                   {
-                    "value": "BACKLOG INVESTIGATION  |  NYC 311",
+                    "value": "What should the analyst inspect?",
                     "textStyle": {
-                      "fontFamily": "Segoe UI",
-                      "fontSize": "25px",
-                      "color": "#16324F"
+                      "fontFamily": "Segoe UI Semibold",
+                      "fontSize": "29px",
+                      "color": "#FFFEFA",
+                      "fontWeight": "bold"
                     }
                   }
                 ]

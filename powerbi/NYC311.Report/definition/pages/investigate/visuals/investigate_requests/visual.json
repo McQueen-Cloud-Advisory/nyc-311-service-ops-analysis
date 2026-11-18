@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
   "name": "investigate_requests",
   "position": {
-    "x": 28,
-    "y": 616,
-    "width": 1384,
+    "x": 36,
+    "y": 650,
+    "width": 1368,
     "height": 238,
-    "z": 23,
-    "tabOrder": 24
+    "z": 75,
+    "tabOrder": 76
   },
   "visual": {
     "visualType": "tableEx",
@@ -25,7 +25,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Eligible request details · current observation · creation-period filter'"
+                  "Value": "'Request worklist · within selected creation dates · oldest open first'"
                 }
               }
             },
@@ -41,9 +41,16 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#16324F'"
+                      "Value": "'#17343D'"
                     }
                   }
+                }
+              }
+            },
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Segoe UI Semibold'"
                 }
               }
             },
@@ -72,7 +79,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#FFFFFF'"
+                      "Value": "'#FFFEFA'"
                     }
                   }
                 }
@@ -94,25 +101,41 @@
             "show": {
               "expr": {
                 "Literal": {
-                  "Value": "true"
+                  "Value": "false"
                 }
               }
-            },
-            "color": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "'#E1E7EC'"
-                    }
-                  }
-                }
-              }
-            },
-            "radius": {
+            }
+          }
+        }
+      ],
+      "padding": [
+        {
+          "properties": {
+            "top": {
               "expr": {
                 "Literal": {
-                  "Value": "6D"
+                  "Value": "10D"
+                }
+              }
+            },
+            "bottom": {
+              "expr": {
+                "Literal": {
+                  "Value": "8D"
+                }
+              }
+            },
+            "left": {
+              "expr": {
+                "Literal": {
+                  "Value": "12D"
+                }
+              }
+            },
+            "right": {
+              "expr": {
+                "Literal": {
+                  "Value": "12D"
                 }
               }
             }
@@ -121,6 +144,33 @@
       ]
     },
     "objects": {
+      "grid": [
+        {
+          "properties": {
+            "rowPadding": {
+              "expr": {
+                "Literal": {
+                  "Value": "3D"
+                }
+              }
+            },
+            "gridVertical": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "gridHorizontal": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
       "columnHeaders": [
         {
           "properties": {
@@ -131,10 +181,46 @@
                 }
               }
             },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#63737A'"
+                    }
+                  }
+                }
+              }
+            },
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#FFFEFA'"
+                    }
+                  }
+                }
+              }
+            },
             "wordWrap": {
               "expr": {
                 "Literal": {
-                  "Value": "true"
+                  "Value": "false"
+                }
+              }
+            },
+            "autoSizeColumnWidth": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "columnAdjustment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'fixedWidth'"
                 }
               }
             }
@@ -147,7 +233,163 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "11D"
+                  "Value": "12D"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#17343D'"
+                    }
+                  }
+                }
+              }
+            },
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#FFFEFA'"
+                    }
+                  }
+                }
+              }
+            },
+            "wordWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "total": [
+        {
+          "properties": {
+            "totals": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnWidth": [
+        {
+          "selector": {
+            "metadata": "Cases.request_id"
+          },
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "140D"
+                }
+              }
+            }
+          }
+        },
+        {
+          "selector": {
+            "metadata": "Cases.created_date"
+          },
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "155D"
+                }
+              }
+            }
+          }
+        },
+        {
+          "selector": {
+            "metadata": "Cases.status"
+          },
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "150D"
+                }
+              }
+            }
+          }
+        },
+        {
+          "selector": {
+            "metadata": "Metrics.Open request age hours"
+          },
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "155D"
+                }
+              }
+            }
+          }
+        },
+        {
+          "selector": {
+            "metadata": "Cases.closed_date"
+          },
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "175D"
+                }
+              }
+            }
+          }
+        },
+        {
+          "selector": {
+            "metadata": "Cases.elapsed_hours"
+          },
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "140D"
+                }
+              }
+            }
+          }
+        },
+        {
+          "selector": {
+            "metadata": "Cases.target_hours"
+          },
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "125D"
+                }
+              }
+            }
+          }
+        },
+        {
+          "selector": {
+            "metadata": "Metrics.Request eligibility label"
+          },
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "275D"
                 }
               }
             }
@@ -195,20 +437,6 @@
                       "Entity": "Cases"
                     }
                   },
-                  "Property": "closed_date"
-                }
-              },
-              "queryRef": "Cases.closed_date",
-              "displayName": "Recorded closure NYC"
-            },
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Cases"
-                    }
-                  },
                   "Property": "status"
                 }
               },
@@ -226,7 +454,8 @@
                   "Property": "Open request age hours"
                 }
               },
-              "queryRef": "Metrics.Open request age hours"
+              "queryRef": "Metrics.Open request age hours",
+              "displayName": "Open age · hours"
             },
             {
               "field": {
@@ -236,11 +465,11 @@
                       "Entity": "Cases"
                     }
                   },
-                  "Property": "target_hours"
+                  "Property": "closed_date"
                 }
               },
-              "queryRef": "Cases.target_hours",
-              "displayName": "Demo target hours"
+              "queryRef": "Cases.closed_date",
+              "displayName": "Recorded closure"
             },
             {
               "field": {
@@ -254,7 +483,7 @@
                 }
               },
               "queryRef": "Cases.elapsed_hours",
-              "displayName": "Elapsed closure hours"
+              "displayName": "Closure hours"
             },
             {
               "field": {
@@ -264,11 +493,25 @@
                       "Entity": "Cases"
                     }
                   },
-                  "Property": "target_eligibility_reason"
+                  "Property": "target_hours"
                 }
               },
-              "queryRef": "Cases.target_eligibility_reason",
-              "displayName": "Eligibility reason"
+              "queryRef": "Cases.target_hours",
+              "displayName": "Demo hours"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Metrics"
+                    }
+                  },
+                  "Property": "Request eligibility label"
+                }
+              },
+              "queryRef": "Metrics.Request eligibility label",
+              "displayName": "Eligibility"
             }
           ]
         }

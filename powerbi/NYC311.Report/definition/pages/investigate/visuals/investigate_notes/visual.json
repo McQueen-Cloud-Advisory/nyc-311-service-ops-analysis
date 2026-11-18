@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
   "name": "investigate_notes",
   "position": {
-    "x": 28,
-    "y": 870,
-    "width": 1384,
-    "height": 62,
-    "z": 24,
-    "tabOrder": 25
+    "x": 36,
+    "y": 902,
+    "width": 1368,
+    "height": 42,
+    "z": 76,
+    "tabOrder": 77
   },
   "visual": {
     "visualType": "textbox",
@@ -21,6 +21,45 @@
                   "Value": "false"
                 }
               }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "''"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "12D"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#17343D'"
+                    }
+                  }
+                }
+              }
+            },
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Segoe UI Semibold'"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
             }
           }
         }
@@ -32,6 +71,24 @@
               "expr": {
                 "Literal": {
                   "Value": "false"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#F5F3ED'"
+                    }
+                  }
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
                 }
               }
             }
@@ -94,11 +151,12 @@
               {
                 "textRuns": [
                   {
-                    "value": "Backlog is one actual capture, not a sum across dates. Details show open or mature target-eligible requests from that same capture. To inspect a different capture, load its published release ID. Missing and invalid coverage remain visible. All thresholds are DEMO TARGETS.",
+                    "value": "Aging cards use the fixed observation. Target diagnostics and request rows use the selected creation dates. Click an age bar to show open rows in that bucket; click again to clear. Requests are public records; no addresses or free text are included.",
                     "textStyle": {
                       "fontFamily": "Segoe UI",
-                      "fontSize": "14px",
-                      "color": "#425466"
+                      "fontSize": "12px",
+                      "color": "#63737A",
+                      "fontWeight": "normal"
                     }
                   }
                 ]

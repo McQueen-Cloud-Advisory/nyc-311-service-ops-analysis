@@ -1,0 +1,62 @@
+[
+    {
+        "request_id":  "70317953",
+        "observed_at":  "2026-11-18T11:31:28",
+        "created_at":  "2026-09-07T04:01:23",
+        "closed_at":  "2026-09-10T19:27:29"
+    },
+    {
+        "request_id":  "70319372",
+        "observed_at":  "2026-11-18T11:31:28",
+        "created_at":  "2026-09-07T04:54:07",
+        "closed_at":  "2026-09-09T19:23:21"
+    },
+    {
+        "request_id":  "70320702",
+        "observed_at":  "2026-11-18T11:31:28",
+        "created_at":  "2026-09-07T04:14:09",
+        "closed_at":  "2026-09-09T19:03:30"
+    },
+    {
+        "request_id":  "70320732",
+        "observed_at":  "2026-11-18T11:31:28",
+        "created_at":  "2026-09-07T04:27:27",
+        "closed_at":  "2026-09-09T19:23:25"
+    },
+    {
+        "request_id":  "70321920",
+        "observed_at":  "2026-11-18T11:31:28",
+        "created_at":  "2026-09-07T04:08:48",
+        "closed_at":  "2026-09-08T16:49:44"
+    },
+    {
+        "request_id":  "71141101",
+        "observed_at":  "2026-11-18T11:31:28",
+        "created_at":  "2026-11-15T12:48:54",
+        "closed_at":  null
+    },
+    {
+        "request_id":  "71141102",
+        "observed_at":  "2026-11-18T11:31:28",
+        "created_at":  "2026-11-15T14:31:24",
+        "closed_at":  null
+    },
+    {
+        "request_id":  "71141103",
+        "observed_at":  "2026-11-18T11:31:28",
+        "created_at":  "2026-11-15T17:23:20",
+        "closed_at":  null
+    },
+    {
+        "request_id":  "71141104",
+        "observed_at":  "2026-11-18T11:31:28",
+        "created_at":  "2026-11-16T02:44:38",
+        "closed_at":  "2026-11-16T19:42:08"
+    },
+    {
+        "request_id":  "71141105",
+        "observed_at":  "2026-11-18T11:31:28",
+        "created_at":  "2026-11-15T19:51:37",
+        "closed_at":  null
+    }
+]

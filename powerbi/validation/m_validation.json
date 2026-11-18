@@ -1,5 +1,5 @@
 {
-  "checked_at_utc": "2026-11-18T12:32:41.919Z",
+  "checked_at_utc": "2026-11-18T14:29:25.341Z",
   "outcome": "passed",
   "parser": "@microsoft/powerquery-parser@5.0.0",
   "node_version": "v24.15.0",

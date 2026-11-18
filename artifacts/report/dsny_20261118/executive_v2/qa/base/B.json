@@ -1,0 +1,10 @@
+{
+    "release_id":  "dsny_20261118",
+    "intake":  5081,
+    "recorded_closures":  4941,
+    "observed_backlog":  138,
+    "target_numerator":  2966,
+    "target_denominator":  5049,
+    "p90_eligible_count":  4941,
+    "p90_elapsed_hours":  147.0125
+}

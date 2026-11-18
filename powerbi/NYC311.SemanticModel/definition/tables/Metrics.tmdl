@@ -99,10 +99,13 @@ table Metrics
 		lineageTag: 762d0cb7-c3ce-f3a0-cc2d-212c180fa89a
 		formatString: #,0
 
-	/// Detail rows are open requests or mature target-eligible cases from this observation.
+	/// Detail rows are open or mature eligible; selecting an age bar narrows details to open requests in that bucket, while retaining creation-date filtering.
 	measure 'Request detail visible' =
 			VAR Snapshot = SELECTEDVALUE('Release'[snapshot_id])
-			RETURN IF(SELECTEDVALUE('Cases'[snapshot_id]) = Snapshot && (SELECTEDVALUE('Cases'[is_backlog]) = TRUE() || SELECTEDVALUE('Cases'[target_denominator]) = 1), 1, 0)
+			VAR IsOpen = SELECTEDVALUE('Cases'[is_backlog]) = TRUE()
+			VAR AgeOrder = SWITCH(SELECTEDVALUE('Cases'[age_bucket]), "Under 24 hours", 1, "24 to under 72 hours", 2, "72 to under 168 hours", 3, "168 hours or more", 4, "Unknown age", 5)
+			VAR AgeMatches = NOT ISFILTERED('Age Bucket') || (IsOpen && CONTAINS(VALUES('Age Bucket'[sort_order]), 'Age Bucket'[sort_order], AgeOrder))
+			RETURN IF(SELECTEDVALUE('Cases'[snapshot_id]) = Snapshot && AgeMatches && (IsOpen || SELECTEDVALUE('Cases'[target_denominator]) = 1), 1, 0)
 		lineageTag: cc4934ed-1b7f-e8c4-6df9-907c1a45ce61
 		formatString: 0
 
@@ -131,3 +134,129 @@ table Metrics
 	measure 'Period context' =
 			"Activity period: " & FORMAT(MIN('Date'[date_key]), "yyyy-MM-dd") & " to " & FORMAT(MAX('Date'[date_key]), "yyyy-MM-dd") & ". Intake/targets use creation; closures/p90 use closure; backlog uses the displayed observation."
 		lineageTag: 0c634361-56e8-1e66-2c82-05c502838e91
+
+	/// Segment with most observed open requests aged at least seven days; deterministic ties use open count then agency/problem/borough.
+	measure 'Priority segment' =
+			VAR Segments = CALCULATETABLE(SUMMARIZE('Backlog', 'Agency'[agency], 'Problem'[problem], 'Borough'[borough], "__Aged", [Backlog 7d+], "__Open", [Observed backlog]), REMOVEFILTERS('Date'))
+			VAR Ranked = TOPN(1, FILTER(Segments, [__Aged] > 0), [__Aged], DESC, [__Open], DESC, 'Agency'[agency], ASC, 'Problem'[problem], ASC, 'Borough'[borough], ASC)
+			RETURN IF(COUNTROWS(Ranked) > 0, MAXX(Ranked, 'Agency'[agency] & " / " & 'Problem'[problem] & " / " & 'Borough'[borough]))
+		lineageTag: 3708d890-7c28-439e-6c27-f284841501d3
+
+	/// Seven-day-plus open count of the recommended segment; BLANK when no aged backlog in the selected scope.
+	measure 'Priority aged count' =
+			VAR Segments = CALCULATETABLE(SUMMARIZE('Backlog', 'Agency'[agency], 'Problem'[problem], 'Borough'[borough], "__Aged", [Backlog 7d+], "__Open", [Observed backlog]), REMOVEFILTERS('Date'))
+			VAR Ranked = TOPN(1, FILTER(Segments, [__Aged] > 0), [__Aged], DESC, [__Open], DESC, 'Agency'[agency], ASC, 'Problem'[problem], ASC, 'Borough'[borough], ASC)
+			RETURN MAXX(Ranked, [__Aged])
+		lineageTag: ef987b91-36d5-abf9-d96b-4b30933a2338
+		formatString: #,0
+
+	/// Presentation-only priority count; an em dash denotes no recommended aged segment, while the numeric measure remains BLANK.
+	measure 'Priority aged display' =
+			IF(ISBLANK([Priority aged count]), "—", FORMAT([Priority aged count], "#,0"))
+		lineageTag: 5ffba40a-be59-8776-1774-7c2a44e3c1a7
+
+	/// All observed open requests in the recommended segment.
+	measure 'Priority open count' =
+			VAR Segments = CALCULATETABLE(SUMMARIZE('Backlog', 'Agency'[agency], 'Problem'[problem], 'Borough'[borough], "__Aged", [Backlog 7d+], "__Open", [Observed backlog]), REMOVEFILTERS('Date'))
+			VAR Ranked = TOPN(1, FILTER(Segments, [__Aged] > 0), [__Aged], DESC, [__Open], DESC, 'Agency'[agency], ASC, 'Problem'[problem], ASC, 'Borough'[borough], ASC)
+			RETURN MAXX(Ranked, [__Open])
+		lineageTag: e3255e47-001b-ae97-6e79-fb637d98b027
+		formatString: #,0
+
+	/// Recommended segment share of all aged backlog in the selected agency/problem/borough scope.
+	measure 'Priority aged share' =
+			DIVIDE([Priority aged count], [Backlog 7d+])
+		lineageTag: 17f726db-d667-d4e4-d872-ddf246fb5162
+		formatString: 0.0%
+
+	/// Share of the recommended segment open requests aged seven days or more.
+	measure 'Priority aged rate' =
+			DIVIDE([Priority aged count], [Priority open count])
+		lineageTag: 227a4990-ef14-1018-3487-52e57927f97b
+		formatString: 0.0%
+
+	/// Filter-aware recommendation; this does not assert operational cause.
+	measure 'Priority headline' =
+			IF(NOT ISBLANK([Priority segment]), "Review " & [Priority segment] & " first", "No requests aged 7+ days in this selection")
+		lineageTag: 89273b87-d653-4a0a-ce4d-a7cf4f763e54
+
+	/// Visible evidence behind the priority, always respecting the selected segment scope.
+	measure 'Priority evidence' =
+			IF(NOT ISBLANK([Priority aged count]), FORMAT([Priority aged count], "#,0") & " of " & FORMAT([Backlog 7d+], "#,0") & " requests in the filtered aged backlog (" & FORMAT([Priority aged share], "0.0%") & "). Start with the oldest IDs.", "Choose another segment or review the open-request worklist.")
+		lineageTag: 2c3de232-1bde-1aba-b451-c824897f8608
+
+	/// Only full Monday-to-Sunday weeks inside the creation cohort and selected activity dates.
+	measure 'Comparable week' =
+			VAR WeekStart = SELECTEDVALUE('Date'[week_start])
+			RETURN IF(NOT ISBLANK(WeekStart) && WeekStart >= SELECTEDVALUE('Release'[cohort_start]) && WeekStart + 7 <= SELECTEDVALUE('Release'[cohort_end]) && COUNTROWS(VALUES('Date'[date_key])) = 7, 1, 0)
+		lineageTag: 81491a7d-85c0-06a8-8ad4-4f18b8aaf44d
+		formatString: 0
+
+	/// Creation events within complete comparable weeks; out-of-cohort and partial selected weeks return BLANK.
+	measure 'Complete week intake' =
+			IF([Comparable week] = 1, [Intake])
+		lineageTag: a8be6a83-1e0e-3aa7-5abf-224e0e0492dd
+		formatString: #,0
+
+	/// Recorded closure events in the same complete weeks; limited to requests created in the pinned cohort.
+	measure 'Complete week closures' =
+			IF([Comparable week] = 1, [Recorded closures])
+		lineageTag: f89d43e3-1c3d-e2e3-9124-33f9ddeacbb6
+		formatString: #,0
+
+	/// Count of complete selected weeks eligible for the comparative trend.
+	measure 'Complete week count' =
+			COALESCE(COUNTROWS(FILTER(VALUES('Date'[week_start]), CALCULATE([Comparable week]) = 1)), 0)
+		lineageTag: 8d62d5c2-9c2e-cd90-4741-8c23151f1d8a
+		formatString: 0
+
+	/// Makes the comparable-week restriction explicit; intake uses creation dates and recorded closures use closure dates.
+	measure 'Trend context' =
+			FORMAT([Complete week count], "0") & " full cohort weeks · partial weeks omitted."
+		lineageTag: 7d4c2ca1-06bd-3993-6865-898ec14502e2
+
+	/// Open at least thirty elapsed days at the observed snapshot; ignores activity date.
+	measure 'Open 30d+' =
+			VAR Snapshot = SELECTEDVALUE('Release'[snapshot_id])
+			RETURN COALESCE(CALCULATE(COUNTROWS('Cases'), REMOVEFILTERS('Date'), 'Cases'[snapshot_id] = Snapshot, 'Cases'[is_backlog] = TRUE(), 'Cases'[age_hours] >= 720), 0)
+		lineageTag: 85eaabeb-7956-0da0-2c40-daade4a1e6a4
+		formatString: #,0
+
+	/// Maximum open-request age in days at observation; BLANK if no open requests.
+	measure 'Oldest open days' =
+			VAR Snapshot = SELECTEDVALUE('Release'[snapshot_id])
+			RETURN DIVIDE(CALCULATE(MAX('Cases'[age_hours]), REMOVEFILTERS('Date'), 'Cases'[snapshot_id] = Snapshot, 'Cases'[is_backlog] = TRUE()), 24)
+		lineageTag: 43bd1f75-4793-0ca4-e821-96ccbcebf58e
+		formatString: 0.0
+
+	/// Eligible mature late-closed or overdue-open requests; creation-date period.
+	measure 'Demo target misses' =
+			[Demo target eligible] - [Demo target met]
+		lineageTag: 89e922dd-9d3d-d080-6174-686f1d68cb7d
+		formatString: #,0
+
+	/// Eligible denominator displayed alongside the p90 KPI.
+	measure 'P90 context' =
+			"hours · " & FORMAT([P90 eligible closures], "#,0") & " eligible closures"
+		lineageTag: 13d74c09-28f5-9adf-394d-20e391671b25
+
+	/// Keeps numerator, denominator, and misses visible with the demo-target rate.
+	measure 'Target evidence' =
+			IF([Demo target eligible] > 0, FORMAT([Demo target met], "#,0") & " / " & FORMAT([Demo target eligible], "#,0") & " mature eligible · " & FORMAT([Demo target misses], "#,0") & " misses", "No mature eligible requests in the selected creation period")
+		lineageTag: 818963c0-9d4c-0202-1912-db8cfe938a33
+
+	/// Visible selected-segment heading, including drillthrough filters.
+	measure 'Investigation headline' =
+			IF(HASONEVALUE('Problem'[problem]) && HASONEVALUE('Borough'[borough]), SELECTEDVALUE('Borough'[borough]) & " / " & SELECTEDVALUE('Problem'[problem]), "Investigate the selected request scope")
+		lineageTag: 5e3b5782-09db-bb91-eb5c-6cc46c350f4a
+
+	/// Human-readable request-level eligibility.
+	measure 'Request eligibility label' =
+			SWITCH(SELECTEDVALUE('Cases'[target_eligibility_reason]), "eligible_mature", "Mature · eligible", "immature", "Not yet mature", "missing_target", "Missing demo target", "invalid_outcome", "Invalid outcome", "unknown_outcome", "Unknown outcome")
+		lineageTag: e8ce79cb-28f5-2bc3-2921-4cea60d791e9
+
+	/// Count of request worklist rows after activity-period and optional open-age selection.
+	measure 'Visible worklist rows' =
+			COALESCE(SUMX(VALUES('Cases'[request_id]), [Request detail visible]), 0)
+		lineageTag: 88d9854d-e351-2596-74ab-46999656ad09
+		formatString: #,0

@@ -1,0 +1,27 @@
+EVALUATE
+CALCULATETABLE(
+ROW(
+    "release_id", SELECTEDVALUE('Release'[release_id]),
+    "scenario", "empty_borough",
+    "priority_label", [Priority segment],
+    "priority_aged_count", [Priority aged count],
+    "priority_aged_display", [Priority aged display],
+    "priority_open_count", [Priority open count],
+    "priority_aged_share", [Priority aged share],
+    "priority_within_segment_aged_rate", [Priority aged rate],
+    "selected_aged_count", [Backlog 7d+],
+    "selected_open_count", [Observed backlog],
+    "snapshot_open_30d_plus", [Open 30d+],
+    "oldest_open_age_days", [Oldest open days],
+    "target_misses", [Demo target misses],
+    "complete_week_count", [Complete week count],
+    "first_complete_week", FORMAT(MINX(FILTER(VALUES('Date'[week_start]), CALCULATE([Comparable week]) = 1), 'Date'[week_start]), "yyyy-MM-dd"),
+    "last_complete_week", FORMAT(MAXX(FILTER(VALUES('Date'[week_start]), CALCULATE([Comparable week]) = 1), 'Date'[week_start]), "yyyy-MM-dd"),
+    "nov16_trend_intake", CALCULATE([Complete week intake], REMOVEFILTERS('Date'), TREATAS({DATE(2026,11,16)}, 'Date'[week_start])),
+    "nov16_trend_recorded_closures", CALCULATE([Complete week closures], REMOVEFILTERS('Date'), TREATAS({DATE(2026,11,16)}, 'Date'[week_start])),
+    "nov9_trend_intake", CALCULATE([Complete week intake], REMOVEFILTERS('Date'), TREATAS({DATE(2026,11,9)}, 'Date'[week_start])),
+    "nov9_trend_recorded_closures", CALCULATE([Complete week closures], REMOVEFILTERS('Date'), TREATAS({DATE(2026,11,9)}, 'Date'[week_start])),
+    "worklist_unfiltered_age_row_count", [Visible worklist rows],
+    "worklist_age_7d_plus_row_count", CALCULATE([Visible worklist rows], TREATAS({"168h+"}, 'Age Bucket'[bucket]))
+), TREATAS({"__NO_SUCH_BOROUGH__"}, 'Borough'[borough])
+)

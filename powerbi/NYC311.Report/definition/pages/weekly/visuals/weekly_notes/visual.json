@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
   "name": "weekly_notes",
   "position": {
-    "x": 28,
-    "y": 852,
-    "width": 1384,
-    "height": 88,
-    "z": 11,
-    "tabOrder": 12
+    "x": 36,
+    "y": 900,
+    "width": 1368,
+    "height": 42,
+    "z": 33,
+    "tabOrder": 34
   },
   "visual": {
     "visualType": "textbox",
@@ -21,6 +21,45 @@
                   "Value": "false"
                 }
               }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "''"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "12D"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#17343D'"
+                    }
+                  }
+                }
+              }
+            },
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Segoe UI Semibold'"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
             }
           }
         }
@@ -32,6 +71,24 @@
               "expr": {
                 "Literal": {
                   "Value": "false"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#F5F3ED'"
+                    }
+                  }
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
                 }
               }
             }
@@ -94,11 +151,12 @@
               {
                 "textRuns": [
                   {
-                    "value": "Read the date roles before comparing KPIs. The activity period filters intake and demo targets by creation date, and closures/p90 by recorded closure date. Backlog stays fixed at the displayed observation. Closures and backlog cover only the pinned creation cohort. Demo targets are illustrative, not NYC commitments. Agency-recorded closure does not establish fulfillment, handle time, or staffing need.",
+                    "value": "Fixed cohort, not citywide workload. One observed backlog snapshot; no backlog trend is inferred. Demo targets are illustrative. Recorded closure is not proof of fulfillment or staffing need.",
                     "textStyle": {
                       "fontFamily": "Segoe UI",
-                      "fontSize": "14px",
-                      "color": "#425466"
+                      "fontSize": "12px",
+                      "color": "#63737A",
+                      "fontWeight": "normal"
                     }
                   }
                 ]

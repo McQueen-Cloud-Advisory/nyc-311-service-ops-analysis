@@ -1,83 +1,92 @@
-# NYC 311 Service Operations Intelligence
+# NYC 311 · Service Operations Intelligence
 
-A reproducible briefing for a hypothetical operations lead choosing which service-request segment needs the next backlog review. Python captures a bounded public cohort, dbt/GoogleSQL builds governed BigQuery marts, and Power BI shows the evidence behind the decision.
+**Scott McQueen · BI ownership, decision support, and reliable analytics**
 
-**Finding:** review DSNY **Dirty Condition / Queens** first. At the November 18, 2026 capture, it has **181 observed open requests, including 92 aged at least seven elapsed days**, the largest older backlog among the selected segments. These are requests created September 7–November 15, 2026, not the city's entire backlog. Executed BigQuery SQL matches the local reference calculation; [the query and actual results](artifacts/releases/dsny_20261118/sql_reconciliation.json) preserve the evidence.
+## Turn a weekly operations review into a decision
 
-## Review paths
+An operations lead has thousands of service requests and limited time to investigate. Where should the next backlog review start—and can the team trust the answer after the next refresh?
 
-| Time | Follow this path |
+This work sample demonstrates ownership of that whole problem: frame the decision, build the data product, explain the recommendation, and make the result reproducible. It combines an executive Power BI briefing with governed BigQuery metrics, tested recovery, and a practical handoff.
+
+> **Review Queens · Dirty Condition first.**
+> This segment holds **24.3% of the cohort's observed open requests aged seven days or more**, despite representing **14.2% of its intake**. Of its 181 open requests, **92 are at least seven days old and 38 are at least 30 days old**. Start with the oldest request IDs, check for later closure updates, and validate operational routing.
+
+*Real NYC 311 data; a hypothetical operations decision. Scope: 23,101 DSNY Dirty Condition / Illegal Dumping requests created September 7–November 15, 2026, observed November 18 at 11:31 UTC. This is a fixed cohort, not the city's entire backlog. [Reproduce the priority comparison](artifacts/analysis/priority-context.json).*
+
+**[See the Power BI briefing](artifacts/report/dsny_20261118/executive_v2/NYC311_dsny_20261118_executive.pdf)** · **[Read the one-page recommendation](docs/decision-memo.md)** · **[Inspect the implementation](docs/architecture.md)**
+
+![Power BI executive briefing: review Queens Dirty Condition first, supported by aged backlog, complete cohort weeks, and ranked segments](artifacts/report/dsny_20261118/executive_v2/NYC311_dsny_20261118_executive_page-1.png)
+
+## What this demonstrates for your team
+
+| A delivery problem | Judgment demonstrated here | Follow the evidence |
+| --- | --- | --- |
+| The weekly dashboard shows activity, but nobody knows what to do next. | Rank the aged workload, name the segment to review, and connect the recommendation to an oldest-first request worklist. Queens Dirty Condition has fewer cohort requests than Brooklyn, yet more requests still open after seven days. | [Priority analysis](artifacts/analysis/priority-context.json) · [Decision memo](docs/decision-memo.md) |
+| Two reports disagree about the same KPI. | Define eligibility once, distinguish creation / closure / observation dates, and reconcile Power BI with warehouse results. An overdue open request counts as a demo-target miss; an immature request does not enter the denominator. | [Metric contract](docs/metrics.md) · [Request-level SQL](dbt/models/intermediate/int_case_metrics.sql) · [SQL/DAX results](artifacts/releases/dsny_20261118/sql_dax_bigquery_comparison.json) |
+| A late source update or failed refresh undermines confidence. | Preserve captured observations, apply updates to stable request keys, and publish only a tested candidate. A demonstrated validation failure leaves the last good release available. | [Live replay and failure evidence](artifacts/replay/bigquery-replay.json) · [Recovery runbook](docs/runbook.md) |
+| A useful prototype becomes someone else's maintenance problem. | Leave readable source, one runnable validation command, scoped cloud access, and measured cost evidence. Make the boundaries and trade-offs inspectable. | [Power BI source](powerbi/NYC311.pbip) · [Security design](docs/security.md) · [Measured benchmark](docs/benchmark.md) |
+
+## Three choices worth discussing in an interview
+
+**Prioritize aged workload.** Queens Dirty Condition has 3,273 cohort requests versus Brooklyn's 5,081, but 92 requests aged seven days or more versus 76. The recommendation follows the concentration of unresolved older requests. It is an investigation priority, not a claim about staffing or service fulfillment. [Calculation and source hashes](artifacts/analysis/priority-context.json).
+
+**Test the answer across the full delivery path.** The original cloud-backed release passed 60 dbt data tests and 41 SQL/DAX comparisons in each Power BI mode. Matching counts initially concealed a connector timestamp defect; 33 explicit timestamp checks exposed it and verified the repair. That is why reconciliation includes dates, filters, empty slices, and eligible populations—not only headline totals. [Verification index](artifacts/verification-status.json).
+
+The executive briefing adds [105 independently referenced checks](artifacts/report/dsny_20261118/executive_v2/qa/final_csv/briefing_comparison.json) for priority selection, complete weeks, date roles, and the investigation worklist. The saved reviewer report also passed a reopen without refresh; [both exported pages were visually inspected](artifacts/report/dsny_20261118/executive_v2/preview-verification.json).
+
+**Make trade-offs explicit.** Immutable reporting tables use a little extra storage to give each import one consistent release. Keyless service accounts separate pipeline and reporting access. The query benchmark scanned 87.2% fewer bytes, but both jobs billed 10 MiB; the evidence supports a scan reduction, not a cost-saving claim. [Architecture](docs/architecture.md) · [Access checks](artifacts/security/gcp-reporter.json) · [Benchmark](docs/benchmark.md).
+
+## Explore in the time you have
+
+| Time | Start here |
 | --- | --- |
-| One minute | [Two-page Power BI preview](artifacts/report/dsny_20261118/NYC311_dsny_20261118_reviewer.pdf) → [decision memo](docs/decision-memo.md) → [portfolio case study](docs/portfolio-case-study.md) |
-| Three minutes | [Walkthrough](docs/walkthrough.md), with the finding, metric definition, recovery case, and security trade-off |
-| Five minutes | [Metric contracts](docs/metrics.md) → [request-level SQL](dbt/models/intermediate/int_case_metrics.sql) → [verification index](artifacts/verification-status.json) → [live replay/failure evidence](artifacts/replay/bigquery-replay.json) |
-| Engineering review | [Architecture](docs/architecture.md), [security design](docs/security.md), [runbook](docs/runbook.md), and [evidence map](docs/evidence-map.md) |
+| **One minute** | [Power BI PDF](artifacts/report/dsny_20261118/executive_v2/NYC311_dsny_20261118_executive.pdf) → [decision memo](docs/decision-memo.md). See the recommendation, the evidence, and the next action. |
+| **Three minutes** | [Guided walkthrough](docs/walkthrough.md). Follow the decision into a metric, a recovery case, and a design trade-off. |
+| **Five minutes** | [Warehouse model](dbt/models/intermediate/int_case_metrics.sql) → [DAX measures](powerbi/NYC311.SemanticModel/definition/tables/Metrics.tmdl) → [actual verification results](artifacts/verification-status.json). |
+| **Hands-on** | [Report setup](docs/powerbi.md) and the bounded checks below. The CSV reviewer path needs no GCP credentials or paid Power BI sharing license. |
 
-The public extract and CSV reviewer exports are included. Open the prepared CSV-mode Power BI project without GCP credentials; [instructions and actual validation status](docs/powerbi.md) distinguish source validation from Desktop refresh. No paid Power BI sharing license is required for that path. The editable [target Sheet](https://docs.google.com/spreadsheets/d/1n88jxFlbe-H2ZwDIAA-GAxsmxoEkQE6Hfz8JtoGrRn0) and [decision Doc](https://docs.google.com/document/d/1gXshrmescOyhcQ2xDN1RHLpTedZ_XVzDpJuDxVOiGo8) remain private to their owner; the repository includes CSV and Markdown copies for reviewers.
+Download the verified **[executive PBIX and PDF](https://github.com/McQueen-Cloud-Advisory/nyc-311-service-ops-analysis/releases/tag/dsny_20261118-executive-v2)** or inspect the [briefing verification record](artifacts/report/dsny_20261118/executive_v2/README.md). The cached CSV reviewer report needs no GCP connection to view. The [original release](https://github.com/McQueen-Cloud-Advisory/nyc-311-service-ops-analysis/releases/tag/dsny_20261118) preserves the original PDF and native BigQuery PBIX. This repository is currently private; files and downloads require repository access.
 
-Both Power BI pages were refreshed and inspected, including drill-through to Queens / Dirty Condition. [Actual report images and artifact details](artifacts/report/dsny_20261118/README.md) match the published release. The [versioned release](https://github.com/McQueen-Cloud-Advisory/nyc-311-service-ops-analysis/releases/tag/dsny_20261118) includes the PDF and native BigQuery PBIX. Use the PDF for immediate review or the [editable PBIP](powerbi/NYC311.pbip) to reproduce the interactive report. The native PBIX passed refresh and model checks before saving; reopening that saved file was not separately tested. The CSV reviewer PBIX was saved again after its original cached-reopen check and is held locally pending revalidation. This repository is private; its files and release downloads require repository access.
+## From source to a trusted briefing
 
-The real cloud release passed **all 60 dbt data tests**. Its [build results](artifacts/releases/dsny_20261118/dbt_results.json), [release audit](artifacts/releases/dsny_20261118/bigquery.json), and [SQL reconciliation](artifacts/releases/dsny_20261118/sql_reconciliation.json) identify the same release and snapshot. Power BI Desktop passed **41 SQL-to-DAX comparisons in each mode**: [CSV reviewer Import](artifacts/releases/dsny_20261118/sql_dax_comparison.json) and [native BigQuery Import](artifacts/releases/dsny_20261118/sql_dax_bigquery_comparison.json), including filtered, date-role, empty-slice, and p90 checks. Native Import also passed [33 UTC timestamp checks](artifacts/releases/dsny_20261118/powerbi_bigquery/timestamp_comparison.json) after a documented connector compatibility repair. The [measured benchmark](docs/benchmark.md) scanned **87.2% fewer bytes**, but both queries billed the same **10 MiB minimum**; this small demonstration establishes no billing or speed improvement.
+```mermaid
+flowchart LR
+    A[NYC Open Data] --> B[Python: bounded capture + audit]
+    B --> C[Private GCS + BigQuery]
+    T[Versioned demo targets] --> C
+    C --> D[dbt: governed metrics + tests]
+    D --> E{Candidate passes?}
+    E -->|Yes| F[Immutable reporting release]
+    E -->|No| G[Keep last good release]
+    F --> H[Power BI: prioritize → investigate]
+    H --> I[Decision memo + next review]
+```
 
-## Run the bounded local checks
+Python · GoogleSQL · dbt Core · BigQuery · Power BI Import · Google Sheets / Docs. The included target CSV and Markdown memo keep the review path usable without Workspace access. [Detailed architecture and lineage](docs/architecture.md).
 
-Python 3.12 is the verified runtime. From the repository root:
+For a shipment-exception queue, the same design would use an exception ID in place of the 311 request key, verified event codes for resolution, and agreed targets by exception class. The transferable capability is a consistent path from an operational question to an explainable answer and a maintainable system.
+
+## Run the bounded checks
+
+Python 3.12, from the repository root:
 
 ```powershell
 py -3.12 -m venv .venv
 .\.venv\Scripts\python.exe -m pip install -e .
 .\.venv\Scripts\python.exe -m nyc311 validate
-.\.venv\Scripts\python.exe -m nyc311 run --input data/public/dsny_20261118_a.json.gz --release-id dsny_20261118
-.\powerbi\Prepare-LocalReport.ps1 -ExportRoot .\data\demo_exports -ReleaseId dsny_20261118
 ```
 
-Open the PBIP path printed by the last command. If the Python launcher cannot find an existing interpreter, use its explicit executable path to create the environment. Local validation does not contact GCP. It verifies contracts, time conversion, eligibility, paging failure handling, security boundaries, and synthetic replay/recovery. The run command builds offline reference exports, clearly labeled as a Python reference rather than executed warehouse SQL.
+No GCP connection is required. For the interactive reviewer report, use the included CSV exports with [Power BI setup](docs/powerbi.md). For a cloud run, see [GCP setup](docs/cloud-setup.md) and the [runbook](docs/runbook.md); `requirements.lock.txt` records the verified environment.
 
-For the GCP path, install `.[cloud]` instead of `.` and follow [cloud setup](docs/cloud-setup.md). `requirements.lock.txt` records the exact verified environment. The same captured input and CLI command work with `--cloud-config .local/cloud.json`; machine settings and credentials never belong in Git.
+<details>
+<summary><strong>Evidence scope, controls, and limitations</strong></summary>
 
-## Data scope and lineage
+- **Source:** official [NYC 311 dataset `erm2-nwe9`](https://data.cityofnewyork.us/Social-Services/311-Service-Requests-from-2020-to-Present/erm2-nwe9). Release `dsny_20261118`, snapshot `dsny_20261118_a`; [capture profile](artifacts/source/profile.json), [public extract](data/public/dsny_20261118_a.json.gz), and [executed SQL](artifacts/releases/dsny_20261118/sql_reconciliation.json).
+- **Targets:** 72 elapsed hours for both selected problems, invented for this demonstration and labeled **demo targets**. Recorded closure does not establish field completion, handle time, or staffing need. Only actual captures establish observed backlog.
+- **Reliability:** 24 live BigQuery replay/recovery checks use explicitly labeled synthetic inputs. They test late updates, repeat input, retained historical observations, and a failed validation gate. [Actual results](artifacts/replay/bigquery-replay.json).
+- **Security:** private storage, minimal public fields, keyless pipeline access, and 26 passed reporting-role checks. The owner's Desktop OAuth login proves connector functionality; separate service-account probes establish reporting-role isolation. [Scope and evidence](docs/security.md).
+- **Cost:** manual runs, no recurring compute schedule, and a $10 alert budget within the stated allowance. Alerts are not a spending cap. [Cleanup and operation](docs/runbook.md).
+- **Workspace:** the native target Sheet and decision Doc have owner-only access. Repository CSV and Markdown copies are the reviewer path. The optional pipeline Sheets read returned HTTP 403; CSV is the working default. [Workspace artifact record](docs/workspace-artifacts.json).
+- **Attribution:** this is an AI-assisted work sample. The [contribution note](docs/contribution-note.md) distinguishes Scott's direction and decisions from assisted implementation and recorded checks. No NYC operational improvement or sole authorship is claimed.
 
-- **Source:** official [NYC 311 dataset `erm2-nwe9`](https://data.cityofnewyork.us/Social-Services/311-Service-Requests-from-2020-to-Present/erm2-nwe9).
-- **Cohort:** DSNY; Dirty Condition and Illegal Dumping; local creation dates `[2026-09-07, 2026-11-16)`.
-- **Capture:** November 18, 2026, 11:30:59–11:31:28 UTC; **23,101 requests**, with matching counts before and after extraction.
-- **Release:** `dsny_20261118`; observation `dsny_20261118_a`; [input profile](artifacts/source/profile.json), [captured input](data/public/dsny_20261118_a.json.gz), [metrics and exclusions](data/demo_exports/dsny_20261118/verification.json).
-- **Demo targets:** 72 elapsed hours for both categories, explicitly invented for this demonstration; [effective-dated CSV](data/targets/demo_targets.csv), optional read-only Sheets input.
-- **Privacy:** request key, dates, status, agency, problem, borough, and channel only. No address, coordinates, descriptor, or resolution text.
-
-```mermaid
-flowchart LR
-    NYC[NYC Open Data] --> PY[Python bounded capture]
-    PY --> RAW[Private GCS + BigQuery raw]
-    CSV[CSV or read-only Google Sheets] --> RAW
-    RAW --> DBT[dbt candidate marts + tests]
-    DBT --> GATE{Release gate}
-    GATE --> REPORT[Immutable reporting tables]
-    REPORT --> PBI[Power BI Import: one pinned release]
-    PBI --> MEMO[Decision memo + reviewer evidence]
-```
-
-Recorded closure is the agency's recorded outcome, not proof of fulfillment, staffing demand, handle time, or queue wait. Backlog exists only at actual captured observations. The source API does not promise an atomic snapshot; the extraction interval and stability checks are disclosed. Synthetic incidents are always labeled.
-
-## Reliability, security, and cost evidence
-
-| Claim | Implementation | Recorded evidence |
-| --- | --- | --- |
-| Late updates retain the request key and prior observations | [Local reference transactions](nyc311/release.py), [BigQuery runner](nyc311/cloud.py) | [24 passed live BigQuery checks using labeled synthetic inputs](artifacts/replay/bigquery-replay.json), [offline replay](artifacts/replay/local-replay.json) |
-| Metrics have explicit eligibility and date roles | [dbt metrics](dbt/models/intermediate/int_case_metrics.sql), [DAX measures](powerbi/NYC311.SemanticModel/definition/tables/Metrics.tmdl) | [Native BigQuery SQL/DAX matches](artifacts/releases/dsny_20261118/sql_dax_bigquery_comparison.json), [CSV reviewer matches](artifacts/releases/dsny_20261118/sql_dax_comparison.json), [local tests](artifacts/validation/local.json) |
-| Pipeline and reporting access are separated | [GCP setup](infra/Initialize-Gcp.ps1), [read-only verification](infra/Test-GcpSecurity.ps1) | [26 passed live checks](artifacts/security/gcp-reporter.json), [observed audit events](artifacts/security/audit-events.json), [scope limits](docs/security.md) |
-| No credential files or sensitive source fields are required | [Source allowlist](nyc311/source.py), [read-only targets](nyc311/targets.py), [.gitignore](.gitignore) | [Security regression tests](tests/test_security.py) |
-| Cost claims are measured on identical outputs | [Benchmark SQL](dbt/analyses/benchmark_optimized.sql), [bounded cloud runner](nyc311/cloud.py) | [Actual uncached jobs and equal outputs](artifacts/releases/dsny_20261118/benchmark.json), [interpretation and limits](docs/benchmark.md) |
-
-Runtime service accounts receive no project Owner/Editor role. Storage is private with public access prevention; authentication uses short-lived impersonation rather than downloaded keys. A separate reporter service account supports positive-read and denied-write/raw-access checks. With one Google user, owner-authenticated Desktop access is **not** proof of least privilege. The project uses manual runs and a $10 alert budget within the stated $30 allowance; alerts are not a hard spending cap. Optional cleanup is documented.
-
-## What this demonstrates
-
-| Hiring signal | Verifiable work sample |
-| --- | --- |
-| Operational BI and investigation | A dated segment recommendation, drill-through report, exact source scope, and reproducible query |
-| Analytics engineering and governed metrics | dbt lineage, request-level target matching, weighted rollups, case-level p90, and SQL/DAX reconciliation |
-| Pipeline ownership | Audited extraction, immutable inputs, release gates, late-update replay, and failure recovery |
-| Cloud engineering judgment | Scoped IAM, keyless access, private storage, measured query bytes, and bounded manual operation |
-| Stakeholder communication | One-page memo, one-minute portfolio copy, three-minute walkthrough, and [contribution note](docs/contribution-note.md) |
-
-This is a work sample using public data and a hypothetical stakeholder. Operational benefits are intended outcomes, not claimed improvements at NYC agencies. Review the contribution note before representing the work in an interview.
+</details>

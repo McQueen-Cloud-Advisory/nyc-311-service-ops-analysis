@@ -1,0 +1,73 @@
+{
+  "checked_at_utc": "2026-11-18T14:46:20.080744+00:00",
+  "release_id": "dsny_20261118",
+  "report_revision": "executive_v2",
+  "source_mode": "Power BI Desktop CSV Import",
+  "render_method": "Poppler pdftoppm -png -scale-to 2000 on the actual Desktop PDF export; no redrawing or retouching",
+  "pdf": {
+    "name": "NYC311_dsny_20261118_executive.pdf",
+    "path": "artifacts/report/dsny_20261118/executive_v2/NYC311_dsny_20261118_executive.pdf",
+    "bytes": 213034,
+    "last_modified_utc": "2026-11-18T14:43:57.406915+00:00",
+    "sha256": "39aef2afc0e4d00fb5369caa0020941eb73d28222f5d1b6cc88734c878ea6a04",
+    "page_count": 2
+  },
+  "pbix": {
+    "name": "NYC311_dsny_20261118_executive.pbix",
+    "path": "artifacts/report/dsny_20261118/executive_v2/NYC311_dsny_20261118_executive.pbix",
+    "bytes": 1390870,
+    "last_modified_utc": "2026-11-18T14:43:34.905129+00:00",
+    "sha256": "2861fb74921a681de3d2d367ee63dd6b9a305ecde4206ffb443ee71549bdc055"
+  },
+  "previews": [
+    {
+      "name": "NYC311_dsny_20261118_executive_page-1.png",
+      "path": "artifacts/report/dsny_20261118/executive_v2/NYC311_dsny_20261118_executive_page-1.png",
+      "bytes": 281256,
+      "last_modified_utc": "2026-11-18T14:44:14.959446+00:00",
+      "sha256": "f9df3b61ea92a72a87dbcdcec5f67890e27ab28a52abc05faeb016f3471684f8",
+      "width_pixels": 2000,
+      "height_pixels": 1355,
+      "page": 1,
+      "title": "Weekly operations",
+      "context": "Full cohort; categorical slicers All; activity dates 2026-09-07 through 2026-11-18",
+      "checks": [
+        "Priority Queens / Dirty Condition: 92 of 379 aged open requests, 24.3%",
+        "Intake 23101; closures 22369; observed open 728; closure p90 131.5 hours",
+        "Ten complete cohort weeks; partial weeks omitted",
+        "Demo target 14461 / 22907, 63.1%",
+        "Complete dropdown controls and full-width ranking columns; no clipped text or visual containers",
+        "Release, coverage, date roles, next action, and bounded claims visible"
+      ]
+    },
+    {
+      "name": "NYC311_dsny_20261118_executive_page-2.png",
+      "path": "artifacts/report/dsny_20261118/executive_v2/NYC311_dsny_20261118_executive_page-2.png",
+      "bytes": 258472,
+      "last_modified_utc": "2026-11-18T14:44:15.201267+00:00",
+      "sha256": "c94e249f190194d15e5333ad658ae9be24d59ef1a4f7da38ad29698e0012dbb5",
+      "width_pixels": 2000,
+      "height_pixels": 1355,
+      "page": 2,
+      "title": "Backlog investigation",
+      "context": "Drill-through DSNY / Dirty Condition / QUEENS; categorical slicers All within the retained drill context; no age selection",
+      "checks": [
+        "Selected segment heading visible",
+        "Observed open 181; 7d+ 92; 30d+ 38; oldest 70.5 days",
+        "Demo target 2087 / 3240, 64.4%; 1153 misses; 33 immature",
+        "Aging buckets 0 / 21 / 68 / 92 / 0",
+        "Six complete oldest-first request rows; first request 70349956, age 1692.6 hours",
+        "Complete dropdown controls, readable eligibility cells, and next-check guidance; no clipped text or visual containers"
+      ]
+    }
+  ],
+  "desktop_interactions": {
+    "context_menu_drillthrough": "passed on final delivery copy",
+    "aging_selection": "passed on polished copy with the same model: 24-72h selection narrowed worklist to open rows (71.9h, 70.7h, 69.9h...) while snapshot cards remained 181 / 92 / 38 / 70.5",
+    "investigate_button": "Enabled state and correct native destination tooltip inspected; direct button activation not separately executed",
+    "cached_reopen": "passed on exact PBIX hash above; both pages rendered without refresh and Queens context retained"
+  },
+  "visual_review": "Both complete PDF pages inspected at 2000px maximum dimension. Normal table scroll controls remain; PDF shows visible rows only. All headings, filter values, metrics, and explanatory text are readable.",
+  "metric_evidence_directory": "qa/final_csv/",
+  "native_bigquery_connector": "Not established by these CSV-mode checks or previews"
+}

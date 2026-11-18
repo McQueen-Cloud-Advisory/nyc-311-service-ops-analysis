@@ -1,0 +1,146 @@
+{
+  "outcome": "passed",
+  "generated_at_utc": "2026-11-18T14:11:40.911451+00:00",
+  "engine": "Independent Python standard-library CSV row counts and UTC arithmetic; no new BigQuery execution",
+  "release_id": "dsny_20261118",
+  "snapshot_id": "dsny_20261118_a",
+  "source_kind": "real",
+  "observed_at": "2026-11-18T11:31:28.284936+00:00",
+  "scope": {
+    "dataset_id": "erm2-nwe9",
+    "agency": "DSNY",
+    "problems": [
+      "Dirty Condition",
+      "Illegal Dumping"
+    ],
+    "cohort_start": "2026-09-07",
+    "cohort_end": "2026-11-16",
+    "source_timezone": "America/New_York"
+  },
+  "definitions": {
+    "intake": "Cases created in the pinned NYC-date cohort",
+    "open": "Reviewed source status maps to open and recorded closure instant is absent",
+    "age": "Observation UTC instant minus creation UTC instant; thresholds are inclusive elapsed 24-hour days",
+    "share_denominator": "All selected DSNY categories and boroughs in this single captured cohort, including unknown borough"
+  },
+  "sources": {
+    "case_rows": {
+      "path": "data/demo_exports/dsny_20261118/fct_cases.csv",
+      "size_bytes": 8850501,
+      "sha256": "313b6bf012a7454cb42aea06507f5eec91c51d90d425dfc2d399c3a6653ab2ca"
+    },
+    "release_metadata": {
+      "path": "data/demo_exports/dsny_20261118/release_metadata.csv",
+      "size_bytes": 391,
+      "sha256": "0cbd4d5f9539ffb138bd79e40d4307040a5a0f3a7966dcec4857092535f5b70d"
+    },
+    "warehouse_evidence": {
+      "path": "artifacts/releases/dsny_20261118/bigquery.json",
+      "size_bytes": 82596,
+      "sha256": "4183c4bf958fca16045e37c9a7512e0c28d6a56d31a366b23397c53f67833440"
+    },
+    "original_capture": {
+      "path": "data/public/dsny_20261118_a.json.gz",
+      "size_bytes": 341333,
+      "sha256": "f249fc5dbae77c2dff68b8d59e0257a057438e0a2d167a184c1891ed6039ee4b"
+    },
+    "analysis_script": {
+      "path": "scripts/analyze_priority_context.py",
+      "size_bytes": 10692,
+      "sha256": "700195c07f123808e03a8936d186f55d1b08322fca296658f7559fcc714a6aaa"
+    }
+  },
+  "overall": {
+    "intake": 23101,
+    "observed_open": 728,
+    "open_at_least_7_days": 379,
+    "open_at_least_14_days": 245,
+    "open_at_least_30_days": 171,
+    "open_at_least_42_days": 120,
+    "open_at_least_60_days": 54
+  },
+  "queens_dirty_condition": {
+    "intake": 3273,
+    "observed_open": 181,
+    "open_at_least_7_days": 92,
+    "open_at_least_14_days": 56,
+    "open_at_least_30_days": 38,
+    "open_at_least_42_days": 29,
+    "open_at_least_60_days": 11
+  },
+  "brooklyn_dirty_condition": {
+    "intake": 5081,
+    "observed_open": 138,
+    "open_at_least_7_days": 76,
+    "open_at_least_14_days": 50,
+    "open_at_least_30_days": 37,
+    "open_at_least_42_days": 24,
+    "open_at_least_60_days": 7
+  },
+  "comparisons": {
+    "queens_share_of_7_day_open": {
+      "numerator": 92,
+      "denominator": 379,
+      "fraction": 0.24274406332453827,
+      "percent": 24.274406332453825
+    },
+    "queens_share_of_intake": {
+      "numerator": 3273,
+      "denominator": 23101,
+      "fraction": 0.14168217826068136,
+      "percent": 14.168217826068135
+    },
+    "queens_7_day_share_divided_by_intake_share": 1.7132999104369564,
+    "queens_intake_change_relative_to_brooklyn": {
+      "numerator": -1808,
+      "denominator": 5081,
+      "fraction": -0.3558354654595552,
+      "percent": -35.58354654595552
+    },
+    "queens_7_day_open_change_relative_to_brooklyn": {
+      "numerator": 16,
+      "denominator": 76,
+      "fraction": 0.21052631578947367,
+      "percent": 21.052631578947366
+    },
+    "queens_share_of_own_open_at_least_7_days": {
+      "numerator": 92,
+      "denominator": 181,
+      "fraction": 0.5082872928176796,
+      "percent": 50.82872928176796
+    },
+    "queens_and_brooklyn_dirty_condition_share_of_7_day_open": {
+      "numerator": 168,
+      "denominator": 379,
+      "fraction": 0.44327176781002636,
+      "percent": 44.327176781002635
+    }
+  },
+  "oldest_open_queens_dirty_condition": {
+    "request_id": "70349956",
+    "created_at": "2026-09-08T22:57:33+00:00",
+    "status": "In Progress",
+    "elapsed_hours": 1692.5653569266667,
+    "elapsed_days": 70.52355653861112
+  },
+  "assertions": {
+    "unique_request_keys": true,
+    "single_release_snapshot_and_observation": true,
+    "source_kind_scope_and_capture_counts_match": true,
+    "backlog_flags_recomputed_from_status_and_closure": true,
+    "ages_recomputed_from_utc_instants": true,
+    "ages_checked": 23099,
+    "maximum_age_difference_hours": 2.22222222222e-13,
+    "age_tolerance_hours": 1e-06,
+    "overall_counts_match_recorded_warehouse": true,
+    "all_segment_counts_match_recorded_warehouse": true,
+    "pinned_headline_counts_match": true,
+    "queens_has_largest_7_day_open_count": true
+  },
+  "limitations": [
+    "One real observation; no observed backlog trend or causal inference.",
+    "Creation timing and case mix are not controlled; relative shares are descriptive, not risk-adjusted.",
+    "Recorded open status does not prove service is unfulfilled or establish staffing needs.",
+    "These comparisons cover only the pinned cohort, not citywide service demand or backlog."
+  ]
+}

@@ -1,0 +1,16 @@
+{
+    "checked_at_utc":  "2026-11-18T14:21:43.7558380Z",
+    "outcome":  "executed",
+    "engine":  "Power BI Desktop Analysis Services, read-only ADOMD queries",
+    "release_id":  "dsny_20261118",
+    "query_sections":  [
+                           "A",
+                           "B",
+                           "C",
+                           "D",
+                           "E"
+                       ],
+    "sql_reconciliation":  "not evaluated by exporter; see separate comparison output",
+    "visual_inspection":  "not established by this script",
+    "note":  "Actual DAX execution outputs; compare separately with the matching BigQuery release outputs."
+}

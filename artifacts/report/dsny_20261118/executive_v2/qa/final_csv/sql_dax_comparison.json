@@ -1,0 +1,388 @@
+{
+  "checked_at_utc": "2026-11-18T14:34:11.490204+00:00",
+  "release_id": "dsny_20261118",
+  "outcome": "passed",
+  "scope": "Executed BigQuery SQL versus executed Power BI Desktop DAX (CSV Import)",
+  "native_bigquery_connector": "not established by CSV Import reconciliation",
+  "checks_compared": 41,
+  "checks": [
+    {
+      "section": "A",
+      "metric": "release_id",
+      "sql": "dsny_20261118",
+      "dax": "dsny_20261118",
+      "absolute_difference": null,
+      "tolerance": 0,
+      "passed": true
+    },
+    {
+      "section": "A",
+      "metric": "snapshot_id",
+      "sql": "dsny_20261118_a",
+      "dax": "dsny_20261118_a",
+      "absolute_difference": null,
+      "tolerance": 0,
+      "passed": true
+    },
+    {
+      "section": "A",
+      "metric": "case_count",
+      "sql": 23101,
+      "dax": 23101,
+      "absolute_difference": 0,
+      "tolerance": 0,
+      "passed": true
+    },
+    {
+      "section": "A",
+      "metric": "intake",
+      "sql": 23101,
+      "dax": 23101,
+      "absolute_difference": 0,
+      "tolerance": 0,
+      "passed": true
+    },
+    {
+      "section": "A",
+      "metric": "recorded_closures",
+      "sql": 22369,
+      "dax": 22369,
+      "absolute_difference": 0,
+      "tolerance": 0,
+      "passed": true
+    },
+    {
+      "section": "A",
+      "metric": "observed_backlog",
+      "sql": 728,
+      "dax": 728,
+      "absolute_difference": 0,
+      "tolerance": 0,
+      "passed": true
+    },
+    {
+      "section": "A",
+      "metric": "target_numerator",
+      "sql": 14461,
+      "dax": 14461,
+      "absolute_difference": 0,
+      "tolerance": 0,
+      "passed": true
+    },
+    {
+      "section": "A",
+      "metric": "target_denominator",
+      "sql": 22907,
+      "dax": 22907,
+      "absolute_difference": 0,
+      "tolerance": 0,
+      "passed": true
+    },
+    {
+      "section": "A",
+      "metric": "target_rate",
+      "sql": 0.6312917448814773,
+      "dax": 0.6312917448814773,
+      "absolute_difference": 0.0,
+      "tolerance": 1e-12,
+      "passed": true
+    },
+    {
+      "section": "A",
+      "metric": "p90_eligible_count",
+      "sql": 22369,
+      "dax": 22369,
+      "absolute_difference": 0,
+      "tolerance": 0,
+      "passed": true
+    },
+    {
+      "section": "A",
+      "metric": "p90_elapsed_hours",
+      "sql": 131.5043888888889,
+      "dax": 131.50438888888894,
+      "absolute_difference": 2.842170943040401e-14,
+      "tolerance": 1e-06,
+      "passed": true
+    },
+    {
+      "section": "B",
+      "metric": "release_id",
+      "sql": "dsny_20261118",
+      "dax": "dsny_20261118",
+      "absolute_difference": null,
+      "tolerance": 0,
+      "passed": true
+    },
+    {
+      "section": "B",
+      "metric": "intake",
+      "sql": 5081,
+      "dax": 5081,
+      "absolute_difference": 0,
+      "tolerance": 0,
+      "passed": true
+    },
+    {
+      "section": "B",
+      "metric": "recorded_closures",
+      "sql": 4941,
+      "dax": 4941,
+      "absolute_difference": 0,
+      "tolerance": 0,
+      "passed": true
+    },
+    {
+      "section": "B",
+      "metric": "observed_backlog",
+      "sql": 138,
+      "dax": 138,
+      "absolute_difference": 0,
+      "tolerance": 0,
+      "passed": true
+    },
+    {
+      "section": "B",
+      "metric": "target_numerator",
+      "sql": 2966,
+      "dax": 2966,
+      "absolute_difference": 0,
+      "tolerance": 0,
+      "passed": true
+    },
+    {
+      "section": "B",
+      "metric": "target_denominator",
+      "sql": 5049,
+      "dax": 5049,
+      "absolute_difference": 0,
+      "tolerance": 0,
+      "passed": true
+    },
+    {
+      "section": "B",
+      "metric": "p90_eligible_count",
+      "sql": 4941,
+      "dax": 4941,
+      "absolute_difference": 0,
+      "tolerance": 0,
+      "passed": true
+    },
+    {
+      "section": "B",
+      "metric": "p90_elapsed_hours",
+      "sql": 147.0125,
+      "dax": 147.0125,
+      "absolute_difference": 0.0,
+      "tolerance": 1e-06,
+      "passed": true
+    },
+    {
+      "section": "C",
+      "metric": "intake_creation_slice",
+      "sql": 1817,
+      "dax": 1817,
+      "absolute_difference": 0,
+      "tolerance": 0,
+      "passed": true
+    },
+    {
+      "section": "C",
+      "metric": "closures_closure_slice",
+      "sql": 1706,
+      "dax": 1706,
+      "absolute_difference": 0,
+      "tolerance": 0,
+      "passed": true
+    },
+    {
+      "section": "C",
+      "metric": "target_numerator_creation_slice",
+      "sql": 877,
+      "dax": 877,
+      "absolute_difference": 0,
+      "tolerance": 0,
+      "passed": true
+    },
+    {
+      "section": "C",
+      "metric": "target_denominator_creation_slice",
+      "sql": 1627,
+      "dax": 1627,
+      "absolute_difference": 0,
+      "tolerance": 0,
+      "passed": true
+    },
+    {
+      "section": "C",
+      "metric": "p90_eligible_closure_slice",
+      "sql": 1706,
+      "dax": 1706,
+      "absolute_difference": 0,
+      "tolerance": 0,
+      "passed": true
+    },
+    {
+      "section": "C",
+      "metric": "p90_hours_closure_slice",
+      "sql": 140.19583333333335,
+      "dax": 140.19583333333333,
+      "absolute_difference": 2.842170943040401e-14,
+      "tolerance": 1e-06,
+      "passed": true
+    },
+    {
+      "section": "C",
+      "metric": "backlog_observation",
+      "sql": 728,
+      "dax": 728,
+      "absolute_difference": 0,
+      "tolerance": 0,
+      "passed": true
+    },
+    {
+      "section": "C",
+      "metric": "backlog_without_period",
+      "sql": 728,
+      "dax": 728,
+      "absolute_difference": 0,
+      "tolerance": 0,
+      "passed": true
+    },
+    {
+      "section": "D",
+      "metric": "intake",
+      "sql": 0,
+      "dax": 0,
+      "absolute_difference": 0,
+      "tolerance": 0,
+      "passed": true
+    },
+    {
+      "section": "D",
+      "metric": "recorded_closures",
+      "sql": 0,
+      "dax": 0,
+      "absolute_difference": 0,
+      "tolerance": 0,
+      "passed": true
+    },
+    {
+      "section": "D",
+      "metric": "observed_backlog",
+      "sql": 0,
+      "dax": 0,
+      "absolute_difference": 0,
+      "tolerance": 0,
+      "passed": true
+    },
+    {
+      "section": "D",
+      "metric": "target_numerator",
+      "sql": 0,
+      "dax": 0,
+      "absolute_difference": 0,
+      "tolerance": 0,
+      "passed": true
+    },
+    {
+      "section": "D",
+      "metric": "target_denominator",
+      "sql": 0,
+      "dax": 0,
+      "absolute_difference": 0,
+      "tolerance": 0,
+      "passed": true
+    },
+    {
+      "section": "D",
+      "metric": "target_rate",
+      "sql": null,
+      "dax": null,
+      "absolute_difference": null,
+      "tolerance": 1e-12,
+      "passed": true
+    },
+    {
+      "section": "D",
+      "metric": "p90_eligible_count",
+      "sql": 0,
+      "dax": 0,
+      "absolute_difference": 0,
+      "tolerance": 0,
+      "passed": true
+    },
+    {
+      "section": "D",
+      "metric": "p90_elapsed_hours",
+      "sql": null,
+      "dax": null,
+      "absolute_difference": null,
+      "tolerance": 1e-06,
+      "passed": true
+    },
+    {
+      "section": "E",
+      "metric": "release_rows",
+      "sql": 1,
+      "dax": 1,
+      "absolute_difference": 0,
+      "tolerance": 0,
+      "passed": true
+    },
+    {
+      "section": "E",
+      "metric": "case_release_count",
+      "sql": 1,
+      "dax": 1,
+      "absolute_difference": 0,
+      "tolerance": 0,
+      "passed": true
+    },
+    {
+      "section": "E",
+      "metric": "case_snapshot_count",
+      "sql": 1,
+      "dax": 1,
+      "absolute_difference": 0,
+      "tolerance": 0,
+      "passed": true
+    },
+    {
+      "section": "E",
+      "metric": "backlog_snapshot_count",
+      "sql": 1,
+      "dax": 1,
+      "absolute_difference": 0,
+      "tolerance": 0,
+      "passed": true
+    },
+    {
+      "section": "E",
+      "metric": "open_case_rows",
+      "sql": 728,
+      "dax": 728,
+      "absolute_difference": 0,
+      "tolerance": 0,
+      "passed": true
+    },
+    {
+      "section": "E",
+      "metric": "observed_backlog",
+      "sql": 728,
+      "dax": 728,
+      "absolute_difference": 0,
+      "tolerance": 0,
+      "passed": true
+    }
+  ],
+  "input_sha256": {
+    "sql": "42bfb399a564acb3d4efa0837ef04328de43c894cba033d8cbde7960b51a87e7",
+    "A": "8f8c1fc80d96ae9186958517a9e69d8dccafff72d5d8321735be45b27b4f71ff",
+    "B": "8163256f937b7e8aa7f661fe59f7c5af67856a814eb1f513b08e8a04191d5c40",
+    "C": "2aa6e4ff54633dea3bc95f539ee2eb91873976f84a74ee1dbcecfb39480b92eb",
+    "D": "583833fb3cd5f341d422caeaa064cbe5fff06d4432134e30587ec48d3758f87b",
+    "E": "45a515165799bfdd247a101be34112421f12f4f9419274f0e1ade0e950cd18cb"
+  },
+  "visual_inspection": "separate check; query execution does not validate visual layout"
+}

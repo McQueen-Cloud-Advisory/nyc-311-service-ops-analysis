@@ -1,0 +1,13 @@
+{
+    "release_id":  "dsny_20261118",
+    "snapshot_id":  "dsny_20261118_a",
+    "case_count":  23101,
+    "intake":  23101,
+    "recorded_closures":  22369,
+    "observed_backlog":  728,
+    "target_numerator":  14461,
+    "target_denominator":  22907,
+    "target_rate":  0.63129174488147732,
+    "p90_eligible_count":  22369,
+    "p90_elapsed_hours":  131.50438888888894
+}

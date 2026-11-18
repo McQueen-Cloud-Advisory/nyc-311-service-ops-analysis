@@ -3,6 +3,10 @@
 This implementation was produced with Codex assistance from Scott's project brief
 and review requirements. Scott selected the portfolio purpose, GCP/Power BI stack,
 dedicated-project approach, cost constraints, and additional security emphasis.
+Scott also requested the report and README redesign and chose Senior BIE ownership
+as the hiring story: decision-making, delivery, and reliable operations. Codex
+implemented the briefing layout, supporting analysis, and verification described
+in the executive report evidence.
 
 When presenting this work, Scott should review the code and recorded execution evidence and
 edit this note to distinguish decisions, implementation, and checks he personally

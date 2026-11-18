@@ -30,6 +30,28 @@
     "preview_verification": "artifacts/report/dsny_20261118/preview-verification.json",
     "current_cached_pbix_revalidation": "Not completed after later save; see artifacts/report/dsny_20261118/release-preflight.json"
   },
+  "power_bi_executive_v2": {
+    "outcome": "passed",
+    "import_mode": "CSV",
+    "sql_dax_checks_passed": 41,
+    "briefing_checks_passed": 105,
+    "utc_timestamp_checks_passed": 33,
+    "timestamp_scope": "Release observation/extraction times and ten sampled case rows, at whole-second precision",
+    "reconciliation": "artifacts/report/dsny_20261118/executive_v2/qa/final_csv/sql_dax_comparison.json",
+    "briefing_reconciliation": "artifacts/report/dsny_20261118/executive_v2/qa/final_csv/briefing_comparison.json",
+    "timestamp_reconciliation": "artifacts/report/dsny_20261118/executive_v2/qa/final_csv/timestamps/timestamp_comparison.json",
+    "briefing_reference": "powerbi/briefing-reference.json",
+    "both_pages_and_queens_drillthrough_inspected": true,
+    "aging_selection_worklist_interaction_inspected": true,
+    "cached_pbix_saved": true,
+    "cached_pbix_reopen": "Final 1,390,870-byte CSV PBIX closed and reopened from disk without refresh; both pages and retained Queens context passed",
+    "pdf_pages_rendered_and_inspected": 2,
+    "report_artifacts": "artifacts/report/dsny_20261118/executive_v2/artifact_files.json",
+    "preview_verification": "artifacts/report/dsny_20261118/executive_v2/preview-verification.json",
+    "native_bigquery_redesign": "Prepared source only; not refreshed or reverified in Desktop",
+    "publication": "GitHub main source and executive-v2 release assets; original release assets unchanged",
+    "github_release": "https://github.com/McQueen-Cloud-Advisory/nyc-311-service-ops-analysis/releases/tag/dsny_20261118-executive-v2"
+  },
   "power_bi_native_bigquery": {
     "outcome": "passed",
     "sql_dax_checks_passed": 41,
@@ -76,14 +98,15 @@
     "destination": "GitHub repository and versioned report release",
     "repository": "https://github.com/McQueen-Cloud-Advisory/nyc-311-service-ops-analysis",
     "branch": "main",
-    "release": "https://github.com/McQueen-Cloud-Advisory/nyc-311-service-ops-analysis/releases/tag/dsny_20261118",
+    "release": "https://github.com/McQueen-Cloud-Advisory/nyc-311-service-ops-analysis/releases/tag/dsny_20261118-executive-v2",
+    "original_release": "https://github.com/McQueen-Cloud-Advisory/nyc-311-service-ops-analysis/releases/tag/dsny_20261118",
     "repository_visibility": "PRIVATE",
     "access": "Repository files and release downloads require repository access",
     "portfolio_site": "Not published; separate viewer-accessible hosting is needed",
     "release_assets": [
-      "NYC311_dsny_20261118_reviewer.pdf",
-      "NYC311_dsny_20261118_bigquery.pbix"
+      "NYC311_dsny_20261118_executive.pdf",
+      "NYC311_dsny_20261118_executive.pbix"
     ],
-    "csv_reviewer_pbix": "Held locally pending Desktop revalidation after later save"
+    "csv_reviewer_pbix": "Executive v2 saved file passed cached reopen and is distributed as a release asset; original reviewer PBIX remains held locally"
   }
 }

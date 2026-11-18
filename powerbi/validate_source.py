@@ -27,6 +27,7 @@ def main() -> int:
     fields["Metrics"] = set()
     measure_source = (ROOT / "NYC311.SemanticModel/definition/tables/Metrics.tmdl").read_text(encoding="utf-8")
     import re
+    assert not re.search(r"\['(?:Cases|Backlog|Agency|Problem|Borough|Metrics)'", measure_source), "A table-name quoting pass corrupted a bracketed DAX measure identifier"
     fields["Metrics"] = set(re.findall(r"^\tmeasure '([^']+)' =", measure_source, re.MULTILINE))
     # Desktop rejected this reserved table name during the first actual open.
     assert all(name.lower() != "measures" for name in fields), "Power BI reserves the table name Measures"

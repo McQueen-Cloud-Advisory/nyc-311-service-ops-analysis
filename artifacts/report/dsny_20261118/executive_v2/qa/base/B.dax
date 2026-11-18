@@ -1,0 +1,13 @@
+EVALUATE
+CALCULATETABLE(
+    ROW(
+        "release_id", SELECTEDVALUE('Release'[release_id]),
+        "intake", [Intake], "recorded_closures", [Recorded closures],
+        "observed_backlog", [Observed backlog],
+        "target_numerator", [Demo target met], "target_denominator", [Demo target eligible],
+        "p90_eligible_count", [P90 eligible closures], "p90_elapsed_hours", [P90 hours to recorded closure]
+    ),
+    TREATAS({"DSNY"}, 'Agency'[agency]),
+    TREATAS({"Dirty Condition"}, 'Problem'[problem]),
+    TREATAS({"BROOKLYN"}, 'Borough'[borough])
+)

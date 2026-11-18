@@ -10,7 +10,42 @@ Both pages use a 1440 x 960 canvas with Fit to page. The report page order is:
 1. Weekly operations
 2. Backlog investigation
 
-## Current evidence
+## Executive briefing redesign
+
+The editable source now contains the executive briefing redesign: an explicit
+investigation priority, a complete-cohort-week trend, and an aging-driven request
+worklist. The redesigned CSV Desktop model passed
+[41/41 base SQL/DAX comparisons](executive_v2/qa/final_csv/sql_dax_comparison.json),
+[105/105 briefing comparisons](executive_v2/qa/final_csv/briefing_comparison.json),
+and [33/33 UTC timestamp checks](executive_v2/qa/final_csv/timestamps/timestamp_comparison.json).
+
+The final [two-page executive PDF](executive_v2/NYC311_dsny_20261118_executive.pdf)
+was exported by Desktop and independently rendered for full-page visual review.
+Both pages passed, including complete filter controls, the segment ranking, and
+the Queens request worklist. Previews: [page 1](executive_v2/NYC311_dsny_20261118_executive_page-1.png)
+and [page 2](executive_v2/NYC311_dsny_20261118_executive_page-2.png).
+
+The final local cached CSV file, `executive_v2/NYC311_dsny_20261118_executive.pbix`,
+was closed and reopened from disk without refresh. Both pages retained the
+correct values: 23,101 intake / 22,369 closures / 728 open / 131.5-hour p90 in the
+overall briefing; 181 open / 92 aged seven days / 38 aged 30 days / 70.5-day oldest
+request in Queens Dirty Condition. The selected target result remained
+2,087 / 3,240, with 33 immature requests outside its denominator.
+
+| Redesigned artifact | Size | Verification |
+| --- | --- | --- |
+| Executive PDF | 213,034 bytes | Both pages rendered and visually inspected |
+| [Cached CSV executive PBIX](https://github.com/McQueen-Cloud-Advisory/nyc-311-service-ops-analysis/releases/download/dsny_20261118-executive-v2/NYC311_dsny_20261118_executive.pbix) | 1,390,870 bytes | Current saved file reopened successfully without refresh |
+
+See [file hashes](executive_v2/artifact_files.json) and
+[preview/reopen evidence](executive_v2/preview-verification.json). The native
+BigQuery working copy has been generated but not refreshed and reverified for
+this design. The [executive release](https://github.com/McQueen-Cloud-Advisory/nyc-311-service-ops-analysis/releases/tag/dsny_20261118-executive-v2)
+distributes the verified CSV PBIX and PDF. Repository access is required. The
+original published artifacts and their verification history remain below;
+those downloads have not been replaced.
+
+## Original published design evidence
 
 - CSV Import refresh completed with Private source classification and the privacy
   firewall enabled. Overall counts and the Queens / Dirty Condition drill-through

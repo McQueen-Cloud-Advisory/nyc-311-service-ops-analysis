@@ -1,0 +1,10 @@
+{
+    "intake":  0,
+    "recorded_closures":  0,
+    "observed_backlog":  0,
+    "target_numerator":  0,
+    "target_denominator":  0,
+    "target_rate":  null,
+    "p90_eligible_count":  0,
+    "p90_elapsed_hours":  null
+}

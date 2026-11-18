@@ -1,0 +1,23 @@
+{
+    "release_id":  "dsny_20261118",
+    "scenario":  "overall",
+    "priority_label":  "DSNY / Dirty Condition / QUEENS",
+    "priority_aged_count":  92,
+    "priority_open_count":  181,
+    "priority_aged_share":  0.24274406332453827,
+    "priority_within_segment_aged_rate":  0.50828729281767959,
+    "selected_aged_count":  379,
+    "selected_open_count":  728,
+    "snapshot_open_30d_plus":  171,
+    "oldest_open_age_days":  72.007260242314814,
+    "target_misses":  8446,
+    "complete_week_count":  10,
+    "first_complete_week":  "2026-09-07",
+    "last_complete_week":  "2026-11-09",
+    "nov16_trend_intake":  null,
+    "nov16_trend_recorded_closures":  null,
+    "nov9_trend_intake":  1817,
+    "nov9_trend_recorded_closures":  1706,
+    "worklist_unfiltered_age_row_count":  23017,
+    "worklist_age_7d_plus_row_count":  379
+}

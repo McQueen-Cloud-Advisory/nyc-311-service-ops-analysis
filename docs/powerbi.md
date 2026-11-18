@@ -18,7 +18,34 @@ Native Power BI visuals only; no custom visual packages, embedded credentials,
 external images, Publish to web, or Power BI Service license is required for the
 Desktop reviewer path.
 
-## Verified reviewer release
+## Executive briefing and current verification
+
+The current two-page design leads with an investigation priority and connects it
+to a request worklist. The default recommendation is **DSNY / Dirty Condition /
+QUEENS**: 92 of the cohort's 379 requests open at least seven days (24.3%).
+The investigation shows 181 open requests, 92 aged seven days or more, 38 aged
+30 days or more, and a 70.5-day oldest open request. These are observations from
+the fixed release below, not a claim about today's citywide backlog.
+
+The redesigned CSV Import model passed fresh Desktop checks:
+
+| Check | Result | Actual evidence |
+| --- | --- | --- |
+| Base metrics against saved BigQuery SQL results | 41 / 41 | [SQL/DAX comparison](../artifacts/report/dsny_20261118/executive_v2/qa/final_csv/sql_dax_comparison.json) |
+| Priority, complete-week trends, aging, empty states, and worklist behavior against an independent CSV reference | 105 / 105 | [Briefing comparison](../artifacts/report/dsny_20261118/executive_v2/qa/final_csv/briefing_comparison.json) |
+| Release timestamps and ten case samples, at whole-second precision | 33 / 33 | [UTC timestamp comparison](../artifacts/report/dsny_20261118/executive_v2/qa/final_csv/timestamps/timestamp_comparison.json) |
+
+Both redesigned pages passed Desktop inspection and independent rendering of
+the exported two-page PDF. The final cached CSV PBIX was closed and reopened from
+disk without refresh: the overall briefing and retained Queens investigation
+both rendered correctly. See the
+[preview verification](../artifacts/report/dsny_20261118/executive_v2/preview-verification.json)
+and [file hashes](../artifacts/report/dsny_20261118/executive_v2/artifact_files.json).
+The redesigned native BigQuery working copy is prepared but has not been
+refreshed and reverified. The native connector results below apply to the
+original design and remain preserved as historical evidence.
+
+## Verified data release
 
 The real release `dsny_20261118` covers DSNY Dirty Condition and Illegal Dumping
 requests created in `[2026-09-07, 2026-11-16)` NYC local dates. Its observation ended
@@ -47,15 +74,24 @@ Power BI. The working PBIP is prepared under `powerbi/.local/` for Desktop refre
 
 ## Prepare and open the reviewer report
 
-For immediate review, [open the two-page PDF](../artifacts/report/dsny_20261118/NYC311_dsny_20261118_reviewer.pdf).
-The [release downloads](https://github.com/McQueen-Cloud-Advisory/nyc-311-service-ops-analysis/releases/tag/dsny_20261118)
-also include the native BigQuery PBIX, saved after verified refresh and model checks;
-reopening that saved file was not separately tested. The CSV reviewer PBIX was saved
-again after its original cached-reopen check and is held locally pending revalidation.
-These private GitHub downloads require repository access. For a reproducible CSV
-refresh, prepare the portable source project using the steps below.
+For immediate review, [open the executive briefing PDF](../artifacts/report/dsny_20261118/executive_v2/NYC311_dsny_20261118_executive.pdf).
+Download the [cached CSV executive PBIX](https://github.com/McQueen-Cloud-Advisory/nyc-311-service-ops-analysis/releases/download/dsny_20261118-executive-v2/NYC311_dsny_20261118_executive.pbix)
+from the [executive release](https://github.com/McQueen-Cloud-Advisory/nyc-311-service-ops-analysis/releases/tag/dsny_20261118-executive-v2).
+This exact file passed reopening without refresh and needs no GCP connection to
+view. PBIX binaries remain excluded from Git history and are distributed as
+release assets. A local copy is retained in the same `executive_v2` folder.
 
-1. Run the repository's bounded demo/export command described in its README.
+The existing [release downloads](https://github.com/McQueen-Cloud-Advisory/nyc-311-service-ops-analysis/releases/tag/dsny_20261118)
+still contain the original PDF and native BigQuery PBIX. The native file was saved
+after verified refresh and model checks; its cached reopen was not separately
+tested. The original CSV reviewer PBIX was saved again after its first reopen
+check and remains held locally pending revalidation. These historical files are
+separate from the verified executive CSV PBIX. Private GitHub downloads require
+repository access. For a reproducible CSV refresh, prepare the portable source
+project using the steps below.
+
+1. Use the included CSV exports under `data/demo_exports/dsny_20261118/`.
+   To regenerate them, follow the [bounded local runbook](runbook.md).
    Exports must follow [export-contract.json](../powerbi/export-contract.json).
 2. Run from the repository root:
 
@@ -153,17 +189,31 @@ passes reconciliation, then save the new cached PBIX under its release ID.
 
 ## Read the report
 
-**Weekly operations** shows intake and recorded closures by week, fixed observed
-backlog, p90 with its eligible count, and a segment table ranked by requests aged
-at least 168 hours. Right-click a segment row and select **Drill through > Backlog
-investigation**. Agency/problem/borough filters travel to that page.
+**Weekly operations** names the segment with the most requests aged at least
+168 hours within the selected scope. Ties use open count, then agency, problem,
+and borough. The evidence line states its share of that scope's aged backlog.
+The headline ignores activity dates, as all snapshot backlog measures do.
+When no aged segment exists, the priority is absent and its display is an em dash.
 
-**Backlog investigation** shows age buckets, the target numerator and denominator,
-excluded-case diagnostics, and open or mature target-eligible request details from
-the same capture. The visible segment heading shows agency, problem, and borough
-including drill-through filters, even when a slicer caption still says All.
-The activity period filters details by creation date; it does
-not change the backlog observation. Both pages state that restriction.
+The trend includes only Monday-based weeks fully inside both the creation cohort
+and selected activity dates. The default view has ten complete weeks; it omits
+the partial final week rather than presenting it as a collapse in demand.
+Individual cards show intake, recorded closures, fixed observed backlog, and p90
+with its eligible count. The segment table is ranked by requests aged at least
+168 hours. Right-click a row and select **Drill through > Backlog investigation**.
+Agency/problem/borough filters travel to that page. A selected row also enables
+the native investigation button; in Desktop edit mode, its tooltip specifies
+Ctrl+click. The recorded navigation check used the context-menu drill-through.
+
+**Backlog investigation** gives a next check, open / 7-day / 30-day counts, oldest
+open age, age buckets, target numerator and denominator, excluded-case diagnostics,
+and an oldest-first request worklist. The worklist initially includes open or
+mature target-eligible requests from the same capture. Clicking an age bar narrows
+it to open requests in that bucket; clicking again clears the selection. Snapshot
+cards retain their segment totals. The visible segment heading reflects
+drill-through filters, even when a slicer caption still says All. The activity
+period filters details and target eligibility by creation date; it does not
+change the backlog observation. Both pages state that restriction.
 
 Demo-target rates use sums of numerator and denominator. P90 uses
 `PERCENTILEX.INC` over eligible request rows. Empty count slices return zero;
@@ -228,6 +278,23 @@ After exporting the actual results, reproduce their comparison with:
 .\.venv\Scripts\python.exe powerbi/compare_sql_dax.py --sql artifacts/releases/dsny_20261118/sql_reconciliation.json --dax-directory artifacts/releases/dsny_20261118/powerbi --output artifacts/releases/dsny_20261118/sql_dax_comparison.json --import-mode CSV
 ```
 
+For the executive briefing, the same read-only exporter accepts
+`-QueryFile powerbi/reconciliation-briefing.dax`. Its five scenarios cover the
+overall scope, Brooklyn and Queens Dirty Condition, an empty slice, and a
+creation-date slice. Each includes age-filtered worklist checks. Rebuild the
+independent reference and compare the
+saved, executed results with:
+
+```powershell
+.\.venv\Scripts\python.exe powerbi/validate_briefing_reference.py --output powerbi/.local/briefing-reference.json
+.\.venv\Scripts\python.exe powerbi/compare_briefing_dax.py --reference powerbi/.local/briefing-reference.json --dax-directory artifacts/report/dsny_20261118/executive_v2/qa/final_csv/briefing --output powerbi/.local/briefing-comparison.json
+```
+
+The first command calculates expected values from saved release exports; it does
+not execute DAX. The second compares those expectations with the actual Desktop
+query outputs. Use a new evidence directory when rerunning Desktop queries so
+earlier observations remain available.
+
 Native BigQuery Import requires a separate working copy, refresh, and evidence
 directory. Use `--import-mode BigQuery` only after that actual connection and
 refresh succeeds; do not relabel the CSV checks as connector verification.
@@ -262,9 +329,11 @@ or alter it.
 The Desktop model also exposed two naming issues during execution: the measure
 table is now named `Metrics`, and DAX table references are quoted, including
 `'Cases'`. The refreshed model and the 41 executed comparisons validate those
-corrections. Both final CSV pages passed Desktop inspection, and Desktop saved a
-cached PBIX and exported a PDF after refresh. The cached PBIX also reopened from
-disk without refresh, with both pages rendering the correct values and context.
+corrections in the original design. Both original CSV pages passed Desktop
+inspection, and Desktop saved a cached PBIX and exported a PDF after refresh.
+That original saved PBIX reopened without refresh, with both pages rendering
+the correct values and context. A later save changed that file; the current
+original-design CSV PBIX remains held locally pending revalidation.
 Native BigQuery acceptance passed separately and is recorded in the
 [report artifact record](../artifacts/report/dsny_20261118/README.md). Both native
 pages and Queens drill-through passed Desktop inspection, then Desktop saved a

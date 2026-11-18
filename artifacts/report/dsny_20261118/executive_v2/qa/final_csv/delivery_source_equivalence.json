@@ -1,0 +1,87 @@
+﻿{
+    "checked_at_utc":  "2026-11-18T14:40:38.7112175Z",
+    "outcome":  "passed",
+    "scope":  "The refreshed polished CSV semantic model source and delivery CSV copy are byte-identical; only report visual geometry changed after the recorded DAX run.",
+    "tested_working_copy":  "executive_v2_polished",
+    "final_working_copy":  "executive_v2_delivery_csv",
+    "checks":  [
+                   {
+                       "file":  "database.tmdl",
+                       "tested_sha256":  "231e3acd851d78f5dbd53bb1b3fc702398cba373308fdb03c0288172b9759d8e",
+                       "final_sha256":  "231e3acd851d78f5dbd53bb1b3fc702398cba373308fdb03c0288172b9759d8e",
+                       "passed":  true
+                   },
+                   {
+                       "file":  "expressions.tmdl",
+                       "tested_sha256":  "669351af62aeb4e6028f31cc61b29a97a637b945df52710bff683ac4b9a1e804",
+                       "final_sha256":  "669351af62aeb4e6028f31cc61b29a97a637b945df52710bff683ac4b9a1e804",
+                       "passed":  true
+                   },
+                   {
+                       "file":  "model.tmdl",
+                       "tested_sha256":  "f38df13e9e3db9e7960accb27ae151d9bbc1d491e7e9e28d62641354195022cc",
+                       "final_sha256":  "f38df13e9e3db9e7960accb27ae151d9bbc1d491e7e9e28d62641354195022cc",
+                       "passed":  true
+                   },
+                   {
+                       "file":  "relationships.tmdl",
+                       "tested_sha256":  "3dca0f9ab0e15275f16f256ddd54903ff3a26bc937a4f9890a5e88a345d79f8f",
+                       "final_sha256":  "3dca0f9ab0e15275f16f256ddd54903ff3a26bc937a4f9890a5e88a345d79f8f",
+                       "passed":  true
+                   },
+                   {
+                       "file":  "tables/Age Bucket.tmdl",
+                       "tested_sha256":  "6799d6777dc72f5b4d573face5c930ce591c1b303b52e460ca7cafa1648a4a43",
+                       "final_sha256":  "6799d6777dc72f5b4d573face5c930ce591c1b303b52e460ca7cafa1648a4a43",
+                       "passed":  true
+                   },
+                   {
+                       "file":  "tables/Agency.tmdl",
+                       "tested_sha256":  "aa45131c79f52a2aaf491ef8316ceef0ae044af63ef32095a4c277fa9decbd8b",
+                       "final_sha256":  "aa45131c79f52a2aaf491ef8316ceef0ae044af63ef32095a4c277fa9decbd8b",
+                       "passed":  true
+                   },
+                   {
+                       "file":  "tables/Backlog.tmdl",
+                       "tested_sha256":  "3fb5e15d9c0353484465e87a917b4e72f58caa360af74f6fd10e438edf553adf",
+                       "final_sha256":  "3fb5e15d9c0353484465e87a917b4e72f58caa360af74f6fd10e438edf553adf",
+                       "passed":  true
+                   },
+                   {
+                       "file":  "tables/Borough.tmdl",
+                       "tested_sha256":  "4b6853d9c3d76cdb001a67d211753f12ccbe7853dd3dec2d37cc684b17aba435",
+                       "final_sha256":  "4b6853d9c3d76cdb001a67d211753f12ccbe7853dd3dec2d37cc684b17aba435",
+                       "passed":  true
+                   },
+                   {
+                       "file":  "tables/Cases.tmdl",
+                       "tested_sha256":  "57a938b6acb57d4777c4bc7872a280d766060437ce04340ea07542d9a40c38a4",
+                       "final_sha256":  "57a938b6acb57d4777c4bc7872a280d766060437ce04340ea07542d9a40c38a4",
+                       "passed":  true
+                   },
+                   {
+                       "file":  "tables/Date.tmdl",
+                       "tested_sha256":  "e57f90c3b67eca73a3e3784fee61a9e24fdb481fe2b236999daf701caf0aaed8",
+                       "final_sha256":  "e57f90c3b67eca73a3e3784fee61a9e24fdb481fe2b236999daf701caf0aaed8",
+                       "passed":  true
+                   },
+                   {
+                       "file":  "tables/Metrics.tmdl",
+                       "tested_sha256":  "f3f129958332221fcda0c4aa35436bd6a4153f53b4ee2a11d2f9301954f7378c",
+                       "final_sha256":  "f3f129958332221fcda0c4aa35436bd6a4153f53b4ee2a11d2f9301954f7378c",
+                       "passed":  true
+                   },
+                   {
+                       "file":  "tables/Problem.tmdl",
+                       "tested_sha256":  "82e534f352447bc6ee85d4daaadb59a7c0f816b9ad0740cc603e8f37f867445b",
+                       "final_sha256":  "82e534f352447bc6ee85d4daaadb59a7c0f816b9ad0740cc603e8f37f867445b",
+                       "passed":  true
+                   },
+                   {
+                       "file":  "tables/Release.tmdl",
+                       "tested_sha256":  "3dd4906cb295603930ff1be0ebe8c8b4071aee792768a6c62afe1ae90e10bc22",
+                       "final_sha256":  "3dd4906cb295603930ff1be0ebe8c8b4071aee792768a6c62afe1ae90e10bc22",
+                       "passed":  true
+                   }
+               ]
+}

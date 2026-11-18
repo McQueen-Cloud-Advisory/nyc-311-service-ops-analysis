@@ -1,78 +1,37 @@
-# Three-minute walkthrough
+# Three-minute Senior BIE walkthrough
 
-## 0:00–0:35 — The decision and its limits
+Open the executive report, [priority analysis](../artifacts/analysis/priority-context.json), [briefing checks](../artifacts/report/dsny_20261118/executive_v2/qa/final_csv/briefing_comparison.json), [core SQL/DAX comparison](../artifacts/report/dsny_20261118/executive_v2/qa/final_csv/sql_dax_comparison.json), and [replay evidence](../artifacts/replay/bigquery-replay.json) before starting. The [executive PDF](../artifacts/report/dsny_20261118/executive_v2/NYC311_dsny_20261118_executive.pdf) provides a static alternative; [artifact status](../artifacts/report/dsny_20261118/README.md) distinguishes saved files and executed checks. Review the [contribution note](contribution-note.md) so personal claims match work Scott performed or reviewed with Codex assistance.
 
-Open the [decision memo](decision-memo.md). State the segment selected for the next
-backlog review and quote its verified numbers directly from the memo's linked
-release evidence. Explain that the stakeholder is hypothetical and the source
-records are real NYC 311 service requests. Show the exact creation cohort and
-observation time. Agency-recorded closure is not proof of fulfillment or a staffing
-estimate.
+The executive CSV report passed 105 briefing checks, 41 core SQL/DAX comparisons, and [33 UTC timestamp checks](../artifacts/report/dsny_20261118/executive_v2/qa/final_csv/timestamps/timestamp_comparison.json). Both pages, Queens drill-through, age-to-worklist filtering, and the exported PDF passed visual review. The [original native BigQuery proof](../artifacts/releases/dsny_20261118/sql_dax_bigquery_comparison.json) covers 41 core comparisons and 33 timestamp checks; the new executive measures have not been reverified in native mode.
 
-The real release has executed BigQuery results and a **41/41 SQL/DAX match** in
-Desktop's CSV Import reviewer model. Native BigQuery Import independently passed
-the same 41 checks plus 33 UTC timestamp checks. The public PDF and cached
-reviewer PBIX use CSV mode; the native connection has separate evidence.
+## 0:00–0:35 — Make the decision clear
 
-## 0:35–1:15 — The report explains where to look
+**Show:** the priority headline, aged-backlog share, and segment ranking with the full cohort selected. Point to the as-of and coverage markers.
 
-Open the verified cached PBIX/export, or the editable
-[Power BI project](../powerbi/NYC311.pbip) after its documented refresh. On **Weekly
-operations**, point to the release ID, capture coverage, and as-of time. Explain
-that intake uses creation dates, closures/p90 use recorded closure dates, and
-backlog stays fixed at the observation.
+“The question is where an operations lead should investigate first. Queens Dirty Condition holds 24.3% of this cohort's week-old backlog but only 14.2% of its requests. It has 38 requests still recorded open after 30 days. Queens has fewer requests than Brooklyn for this problem, yet more week-old open requests. That concentration makes it the first review priority. These are 23,101 real DSNY requests in a fixed ten-week creation cohort, observed November 18, 2026.”
 
-Select the memo's agency/problem/borough segment. Drill through to **Backlog
-investigation**. Show aging, the demo-target numerator and denominator, exclusions,
-and eligible request details. Explain why late-closed and overdue-open mature
-cases count as misses, while immature cases do not enter the denominator.
+## 0:35–1:10 — Turn the finding into a bounded next action
 
-## 1:15–1:55 — Follow a KPI into its implementation
+**Show:** Queens / Dirty Condition drill-through, then select an aging bar to narrow the request worklist. Point out that the snapshot cards remain unchanged; clear the selection and show the oldest requests. In a PDF-only presentation, explain the interaction rather than claiming to perform it.
 
-Open [metric contracts](metrics.md), the corresponding
-[dbt reporting model](../dbt/models/marts/fct_cases.sql), and
-[explicit DAX measures](../powerbi/NYC311.SemanticModel/definition/tables/Metrics.tmdl).
-Use the recorded overall and filtered SQL/DAX results to show that counts,
-numerator, denominator, and p90 agree. P90 is calculated over eligible case rows;
-segment percentiles and percentages are not averaged.
-Open the [41-check comparison](../artifacts/releases/dsny_20261118/sql_dax_comparison.json)
-and point to its explicit CSV Import execution scope.
-Then show the [independent native result](../artifacts/releases/dsny_20261118/sql_dax_bigquery_comparison.json)
-and [timestamp verification](../artifacts/releases/dsny_20261118/powerbi_bigquery/timestamp_comparison.json).
-Matching counts alone would have missed the initial connector timestamp defect.
+“The investigation keeps the same capture: 181 open requests, including 92 aged at least seven days. Start with the 38 aged at least 30 days; the oldest is 70.5 days. Check later source closure updates and routing. A second capture of the same cohort would support a like-for-like follow-up. One observation cannot establish a backlog trend, fulfillment, or staffing need. The lead gets a specific worklist and a next check.”
 
-Run the bounded local check, or show its saved actual output if demonstration
-time is short:
+## 1:10–1:45 — Explain why the numbers deserve trust
 
-```powershell
-.\.venv\Scripts\python.exe -m nyc311 validate
-```
+**Show:** target numerator/denominator, the ten complete cohort weeks, the [metric contract](metrics.md), then the recorded comparisons. Distinguish the executive CSV checks from the original core/native checks.
 
-## 1:55–2:30 — Show recovery and security evidence
+“The 72-hour target is illustrative. Its denominator includes mature overdue-open and late-closed requests; 33 immature Queens cases are excluded. The result is 2,087 out of 3,240, or 64.4%. Intake, closures, and backlog use creation, closure, and observation dates respectively. The trend uses complete cohort weeks. This executive report passed 105 briefing checks and 41 core SQL/DAX comparisons. Separate timestamp checks caught a connector defect that matching counts alone would have missed.”
 
-Open the [24 passed live BigQuery replay/recovery checks](../artifacts/replay/bigquery-replay.json),
-which retain 33 executed SQL queries and their results. Explain that these use
-labeled synthetic inputs. Show an old open request becoming closed under the same
-request key, the unchanged original snapshot, identical replay, and a failed
-candidate retaining the last-good publication. The real release was restored
-after the exercise. Link the [runbook](runbook.md) for reproduction commands.
+## 1:45–2:25 — Show ownership when the source or refresh changes
 
-Open the [security model](security.md). Explain private storage, the allowlisted
-public fields, keyless pipeline impersonation, and the isolated reporting role.
-Show the [26 passed live reporting-role checks](../artifacts/security/gcp-reporter.json).
-Desktop uses the owner's OAuth account: its successful refresh establishes
-functionality. The separate keyless reporter probes establish scoped access,
-including allowed reporting reads and denied raw reads/reporting writes.
+**Show:** the synthetic replay's `backlog_by_captured_snapshot`, failed-candidate checks, and restoration result; link the [release design](architecture.md).
 
-## 2:30–3:00 — Cost, portability, and contribution
+“A weekly report must stay trustworthy after delivery. The live cloud exercise changes one old request from open to closed while keeping its key. The later backlog becomes five; the original capture remains six. Replaying adds no facts or metric changes. An injected validation failure leaves the last good release available. Immutable reporting tables pin every Power BI import to one release. Modest duplicated storage buys reproducibility and a clear recovery boundary. All 24 checks passed on labeled synthetic inputs.”
 
-Show the [executed same-output benchmark](../artifacts/releases/dsny_20261118/benchmark.json):
-processed bytes fell from 1,304,253 to 166,973 (87.2%), but both queries billed
-10 MiB. Claim no billed-byte savings or repeatable speed improvement. The report
-imports the full release, so the selective-query reduction does not describe its
-refresh cost. Explain the retained low-cost project and manual refresh tradeoff.
+## 2:25–3:00 — Connect the work to the hiring manager's team
 
-Finish with one concrete adaptation: replace the request key with a shipment
-exception ID, map closure to verified shipment events, and agree on effective-dated
-targets with the operations lead. Review Scott's contribution note before public
-use so he can substantiate the metric, recovery case, and architecture tradeoff.
+**Show:** [security evidence](security.md), the [benchmark conclusion](benchmark.md), and the [handoff runbook](runbook.md).
+
+“The operating choices are deliberate: private storage, keyless pipeline access, and tested reporter permissions. The owner's Desktop login demonstrates connectivity, not least privilege. The selective benchmark processed 87.2% fewer bytes, but billed bytes were unchanged. For shipment exceptions, the same approach would use verified resolution events and agreed targets. This AI-assisted work sample demonstrates ownership of the decision, metric definitions, delivery, and recovery. It claims no observed improvement at NYC.”
+
+For an engineering follow-up, reproduce the comparisons with `python scripts/analyze_priority_context.py` and use the [verification index](../artifacts/verification-status.json) to select deeper checks. Keep the three-minute presentation focused on the decision and the judgments that make its delivery dependable.

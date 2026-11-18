@@ -1,11 +1,11 @@
 {
-    "checked_at_utc":  "2026-11-18T12:32:42.4552008Z",
+    "checked_at_utc":  "2026-11-18T14:34:33.1852293Z",
     "outcome":  "passed",
     "check":  "Microsoft TmdlSerializer.DeserializeDatabaseFromFolder",
     "parser":  "Microsoft.AnalysisServices 19.120.1 (net472)",
     "table_count":  9,
     "relationship_count":  8,
-    "measure_count":  20,
+    "measure_count":  41,
     "tables":  [
                    "Agency",
                    "Problem",

@@ -1,0 +1,495 @@
+{
+  "computed_at_utc": "2026-11-18T14:30:33.757010+00:00",
+  "release_id": "dsny_20261118",
+  "snapshot_id": "dsny_20261118_a",
+  "engine": "Independent Python calculations over saved BigQuery release CSV exports; not DAX execution",
+  "dax_execution": "pending separate actual Desktop comparison",
+  "priority_order": "Candidates must have aged >=168h count >0; aged count descending, open count descending, agency/problem/borough ascending",
+  "date_contract": "Priority uses selected snapshot, independent of activity dates; trend includes Monday weeks fully contained in cohort and selected activity dates; target metrics use creation dates",
+  "empty_contract": "Additive counts are zero; priority identity, priority counts, and ratios are null when no ranked aged segment exists; activity counts for valid complete weeks are zero; the complete-week count follows the date selection; outside-cohort trend points are null",
+  "priority_display_contract": "An absent ranked aged segment has no priority count, not an observed zero; its presentation is an em dash while selected-scope additive counts remain zero",
+  "worklist_contract": "Without an age selection, show current-snapshot requests that are open OR target denominator=1, respecting the creation-date period; an age selection further narrows to OPEN requests in that exact Cases.age_bucket mapping",
+  "input_sha256": {
+    "release_metadata": "0cbd4d5f9539ffb138bd79e40d4307040a5a0f3a7966dcec4857092535f5b70d",
+    "fct_cases": "313b6bf012a7454cb42aea06507f5eec91c51d90d425dfc2d399c3a6653ab2ca",
+    "fct_backlog": "da01b8aafcaf83ed946640ce67820f7d8fb8ffc204a1f0b670d54b0ba11363f0",
+    "dim_date": "174b6645155ba98ad6bab51b539ae7419a1c81958efbe390bcc9c9f91c41529f"
+  },
+  "scenarios": [
+    {
+      "scenario": "overall",
+      "filters": {},
+      "activity_start": null,
+      "activity_end_exclusive": null,
+      "priority_agency": "DSNY",
+      "priority_problem": "Dirty Condition",
+      "priority_borough": "QUEENS",
+      "priority_label": "DSNY / Dirty Condition / QUEENS",
+      "priority_aged_count": 92,
+      "priority_open_count": 181,
+      "priority_aged_display": "92",
+      "priority_aged_share": 0.24274406332453827,
+      "priority_within_segment_aged_rate": 0.5082872928176796,
+      "selected_aged_count": 379,
+      "selected_open_count": 728,
+      "snapshot_open_30d_plus": 171,
+      "oldest_open_age_days": 72.00726024231481,
+      "target_met": 14461,
+      "target_eligible": 22907,
+      "target_misses": 8446,
+      "first_complete_week": "2026-09-07",
+      "last_complete_week": "2026-11-09",
+      "complete_week_count": 10,
+      "nov16_trend_intake": null,
+      "nov16_trend_recorded_closures": null,
+      "weekly": [
+        {
+          "week_start": "2026-09-07",
+          "intake": 2960,
+          "recorded_closures": 1564
+        },
+        {
+          "week_start": "2026-09-14",
+          "intake": 2692,
+          "recorded_closures": 2868
+        },
+        {
+          "week_start": "2026-09-21",
+          "intake": 2225,
+          "recorded_closures": 2395
+        },
+        {
+          "week_start": "2026-09-28",
+          "intake": 2493,
+          "recorded_closures": 2529
+        },
+        {
+          "week_start": "2026-10-05",
+          "intake": 2044,
+          "recorded_closures": 2125
+        },
+        {
+          "week_start": "2026-10-12",
+          "intake": 2306,
+          "recorded_closures": 2108
+        },
+        {
+          "week_start": "2026-10-19",
+          "intake": 2119,
+          "recorded_closures": 2067
+        },
+        {
+          "week_start": "2026-10-26",
+          "intake": 2222,
+          "recorded_closures": 2354
+        },
+        {
+          "week_start": "2026-11-02",
+          "intake": 2223,
+          "recorded_closures": 2103
+        },
+        {
+          "week_start": "2026-11-09",
+          "intake": 1817,
+          "recorded_closures": 1706
+        }
+      ],
+      "age_filter_open_counts_at_snapshot": {
+        "Under 24h": 0,
+        "24–72h": 110,
+        "72–168h": 239,
+        "168h+": 379,
+        "Unknown age": 0
+      },
+      "age_filter_open_counts_in_activity_period": {
+        "Under 24h": 0,
+        "24–72h": 110,
+        "72–168h": 239,
+        "168h+": 379,
+        "Unknown age": 0
+      },
+      "worklist_unfiltered_age_row_count": 23017,
+      "worklist_age_filtered_row_counts": {
+        "Under 24h": 0,
+        "24–72h": 110,
+        "72–168h": 239,
+        "168h+": 379,
+        "Unknown age": 0
+      },
+      "worklist_age_7d_plus_row_count": 379
+    },
+    {
+      "scenario": "brooklyn_dirty",
+      "filters": {
+        "agency_key": "DSNY",
+        "problem_key": "Dirty Condition",
+        "borough_key": "BROOKLYN"
+      },
+      "activity_start": null,
+      "activity_end_exclusive": null,
+      "priority_agency": "DSNY",
+      "priority_problem": "Dirty Condition",
+      "priority_borough": "BROOKLYN",
+      "priority_label": "DSNY / Dirty Condition / BROOKLYN",
+      "priority_aged_count": 76,
+      "priority_open_count": 138,
+      "priority_aged_display": "76",
+      "priority_aged_share": 1.0,
+      "priority_within_segment_aged_rate": 0.5507246376811594,
+      "selected_aged_count": 76,
+      "selected_open_count": 138,
+      "snapshot_open_30d_plus": 37,
+      "oldest_open_age_days": 72.00726024231481,
+      "target_met": 2966,
+      "target_eligible": 5049,
+      "target_misses": 2083,
+      "first_complete_week": "2026-09-07",
+      "last_complete_week": "2026-11-09",
+      "complete_week_count": 10,
+      "nov16_trend_intake": null,
+      "nov16_trend_recorded_closures": null,
+      "weekly": [
+        {
+          "week_start": "2026-09-07",
+          "intake": 712,
+          "recorded_closures": 353
+        },
+        {
+          "week_start": "2026-09-14",
+          "intake": 603,
+          "recorded_closures": 648
+        },
+        {
+          "week_start": "2026-09-21",
+          "intake": 502,
+          "recorded_closures": 614
+        },
+        {
+          "week_start": "2026-09-28",
+          "intake": 591,
+          "recorded_closures": 546
+        },
+        {
+          "week_start": "2026-10-05",
+          "intake": 482,
+          "recorded_closures": 495
+        },
+        {
+          "week_start": "2026-10-12",
+          "intake": 524,
+          "recorded_closures": 515
+        },
+        {
+          "week_start": "2026-10-19",
+          "intake": 437,
+          "recorded_closures": 373
+        },
+        {
+          "week_start": "2026-10-26",
+          "intake": 453,
+          "recorded_closures": 511
+        },
+        {
+          "week_start": "2026-11-02",
+          "intake": 424,
+          "recorded_closures": 443
+        },
+        {
+          "week_start": "2026-11-09",
+          "intake": 353,
+          "recorded_closures": 284
+        }
+      ],
+      "age_filter_open_counts_at_snapshot": {
+        "Under 24h": 0,
+        "24–72h": 18,
+        "72–168h": 44,
+        "168h+": 76,
+        "Unknown age": 0
+      },
+      "age_filter_open_counts_in_activity_period": {
+        "Under 24h": 0,
+        "24–72h": 18,
+        "72–168h": 44,
+        "168h+": 76,
+        "Unknown age": 0
+      },
+      "worklist_unfiltered_age_row_count": 5067,
+      "worklist_age_filtered_row_counts": {
+        "Under 24h": 0,
+        "24–72h": 18,
+        "72–168h": 44,
+        "168h+": 76,
+        "Unknown age": 0
+      },
+      "worklist_age_7d_plus_row_count": 76
+    },
+    {
+      "scenario": "queens_dirty",
+      "filters": {
+        "agency_key": "DSNY",
+        "problem_key": "Dirty Condition",
+        "borough_key": "QUEENS"
+      },
+      "activity_start": null,
+      "activity_end_exclusive": null,
+      "priority_agency": "DSNY",
+      "priority_problem": "Dirty Condition",
+      "priority_borough": "QUEENS",
+      "priority_label": "DSNY / Dirty Condition / QUEENS",
+      "priority_aged_count": 92,
+      "priority_open_count": 181,
+      "priority_aged_display": "92",
+      "priority_aged_share": 1.0,
+      "priority_within_segment_aged_rate": 0.5082872928176796,
+      "selected_aged_count": 92,
+      "selected_open_count": 181,
+      "snapshot_open_30d_plus": 38,
+      "oldest_open_age_days": 70.52355653861112,
+      "target_met": 2087,
+      "target_eligible": 3240,
+      "target_misses": 1153,
+      "first_complete_week": "2026-09-07",
+      "last_complete_week": "2026-11-09",
+      "complete_week_count": 10,
+      "nov16_trend_intake": null,
+      "nov16_trend_recorded_closures": null,
+      "weekly": [
+        {
+          "week_start": "2026-09-07",
+          "intake": 412,
+          "recorded_closures": 238
+        },
+        {
+          "week_start": "2026-09-14",
+          "intake": 343,
+          "recorded_closures": 349
+        },
+        {
+          "week_start": "2026-09-21",
+          "intake": 336,
+          "recorded_closures": 331
+        },
+        {
+          "week_start": "2026-09-28",
+          "intake": 348,
+          "recorded_closures": 387
+        },
+        {
+          "week_start": "2026-10-05",
+          "intake": 252,
+          "recorded_closures": 257
+        },
+        {
+          "week_start": "2026-10-12",
+          "intake": 300,
+          "recorded_closures": 258
+        },
+        {
+          "week_start": "2026-10-19",
+          "intake": 312,
+          "recorded_closures": 322
+        },
+        {
+          "week_start": "2026-10-26",
+          "intake": 348,
+          "recorded_closures": 337
+        },
+        {
+          "week_start": "2026-11-02",
+          "intake": 335,
+          "recorded_closures": 338
+        },
+        {
+          "week_start": "2026-11-09",
+          "intake": 287,
+          "recorded_closures": 228
+        }
+      ],
+      "age_filter_open_counts_at_snapshot": {
+        "Under 24h": 0,
+        "24–72h": 21,
+        "72–168h": 68,
+        "168h+": 92,
+        "Unknown age": 0
+      },
+      "age_filter_open_counts_in_activity_period": {
+        "Under 24h": 0,
+        "24–72h": 21,
+        "72–168h": 68,
+        "168h+": 92,
+        "Unknown age": 0
+      },
+      "worklist_unfiltered_age_row_count": 3261,
+      "worklist_age_filtered_row_counts": {
+        "Under 24h": 0,
+        "24–72h": 21,
+        "72–168h": 68,
+        "168h+": 92,
+        "Unknown age": 0
+      },
+      "worklist_age_7d_plus_row_count": 92
+    },
+    {
+      "scenario": "empty_borough",
+      "filters": {
+        "borough_key": "__NO_SUCH_BOROUGH__"
+      },
+      "activity_start": null,
+      "activity_end_exclusive": null,
+      "priority_agency": null,
+      "priority_problem": null,
+      "priority_borough": null,
+      "priority_label": null,
+      "priority_aged_count": null,
+      "priority_open_count": null,
+      "priority_aged_display": "—",
+      "priority_aged_share": null,
+      "priority_within_segment_aged_rate": null,
+      "selected_aged_count": 0,
+      "selected_open_count": 0,
+      "snapshot_open_30d_plus": 0,
+      "oldest_open_age_days": null,
+      "target_met": 0,
+      "target_eligible": 0,
+      "target_misses": 0,
+      "first_complete_week": "2026-09-07",
+      "last_complete_week": "2026-11-09",
+      "complete_week_count": 10,
+      "nov16_trend_intake": null,
+      "nov16_trend_recorded_closures": null,
+      "weekly": [
+        {
+          "week_start": "2026-09-07",
+          "intake": 0,
+          "recorded_closures": 0
+        },
+        {
+          "week_start": "2026-09-14",
+          "intake": 0,
+          "recorded_closures": 0
+        },
+        {
+          "week_start": "2026-09-21",
+          "intake": 0,
+          "recorded_closures": 0
+        },
+        {
+          "week_start": "2026-09-28",
+          "intake": 0,
+          "recorded_closures": 0
+        },
+        {
+          "week_start": "2026-10-05",
+          "intake": 0,
+          "recorded_closures": 0
+        },
+        {
+          "week_start": "2026-10-12",
+          "intake": 0,
+          "recorded_closures": 0
+        },
+        {
+          "week_start": "2026-10-19",
+          "intake": 0,
+          "recorded_closures": 0
+        },
+        {
+          "week_start": "2026-10-26",
+          "intake": 0,
+          "recorded_closures": 0
+        },
+        {
+          "week_start": "2026-11-02",
+          "intake": 0,
+          "recorded_closures": 0
+        },
+        {
+          "week_start": "2026-11-09",
+          "intake": 0,
+          "recorded_closures": 0
+        }
+      ],
+      "age_filter_open_counts_at_snapshot": {
+        "Under 24h": 0,
+        "24–72h": 0,
+        "72–168h": 0,
+        "168h+": 0,
+        "Unknown age": 0
+      },
+      "age_filter_open_counts_in_activity_period": {
+        "Under 24h": 0,
+        "24–72h": 0,
+        "72–168h": 0,
+        "168h+": 0,
+        "Unknown age": 0
+      },
+      "worklist_unfiltered_age_row_count": 0,
+      "worklist_age_filtered_row_counts": {
+        "Under 24h": 0,
+        "24–72h": 0,
+        "72–168h": 0,
+        "168h+": 0,
+        "Unknown age": 0
+      },
+      "worklist_age_7d_plus_row_count": 0
+    },
+    {
+      "scenario": "activity_week_2026_11_09",
+      "filters": {},
+      "activity_start": "2026-11-09",
+      "activity_end_exclusive": "2026-11-16",
+      "priority_agency": "DSNY",
+      "priority_problem": "Dirty Condition",
+      "priority_borough": "QUEENS",
+      "priority_label": "DSNY / Dirty Condition / QUEENS",
+      "priority_aged_count": 92,
+      "priority_open_count": 181,
+      "priority_aged_display": "92",
+      "priority_aged_share": 0.24274406332453827,
+      "priority_within_segment_aged_rate": 0.5082872928176796,
+      "selected_aged_count": 379,
+      "selected_open_count": 728,
+      "snapshot_open_30d_plus": 171,
+      "oldest_open_age_days": 72.00726024231481,
+      "target_met": 877,
+      "target_eligible": 1627,
+      "target_misses": 750,
+      "first_complete_week": "2026-11-09",
+      "last_complete_week": "2026-11-09",
+      "complete_week_count": 1,
+      "nov16_trend_intake": null,
+      "nov16_trend_recorded_closures": null,
+      "weekly": [
+        {
+          "week_start": "2026-11-09",
+          "intake": 1817,
+          "recorded_closures": 1706
+        }
+      ],
+      "age_filter_open_counts_at_snapshot": {
+        "Under 24h": 0,
+        "24–72h": 110,
+        "72–168h": 239,
+        "168h+": 379,
+        "Unknown age": 0
+      },
+      "age_filter_open_counts_in_activity_period": {
+        "Under 24h": 0,
+        "24–72h": 110,
+        "72–168h": 239,
+        "168h+": 69,
+        "Unknown age": 0
+      },
+      "worklist_unfiltered_age_row_count": 1737,
+      "worklist_age_filtered_row_counts": {
+        "Under 24h": 0,
+        "24–72h": 110,
+        "72–168h": 239,
+        "168h+": 69,
+        "Unknown age": 0
+      },
+      "worklist_age_7d_plus_row_count": 69
+    }
+  ]
+}
