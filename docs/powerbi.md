@@ -86,8 +86,8 @@ still contain the original PDF and native BigQuery PBIX. The native file was sav
 after verified refresh and model checks; its cached reopen was not separately
 tested. The original CSV reviewer PBIX was saved again after its first reopen
 check and remains held locally pending revalidation. These historical files are
-separate from the verified executive CSV PBIX. Private GitHub downloads require
-repository access. For a reproducible CSV refresh, prepare the portable source
+separate from the verified executive CSV PBIX. The GitHub release downloads are
+publicly available. For a reproducible CSV refresh, prepare the portable source
 project using the steps below.
 
 1. Use the included CSV exports under `data/demo_exports/dsny_20261118/`.
