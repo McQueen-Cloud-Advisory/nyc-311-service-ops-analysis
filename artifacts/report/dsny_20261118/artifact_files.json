@@ -1,0 +1,43 @@
+{
+    "checked_at_utc":  "2026-11-18T12:38:40.8922808Z",
+    "release_id":  "dsny_20261118",
+    "desktop_version":  "2.159.1231.0",
+    "creation":  "Power BI Desktop Save as and PDF export after successful refresh",
+    "visual_status":  "Both final CSV pages passed Desktop inspection, including visible segment context",
+    "cached_pbix_reopen":  "passed: saved PBIX reopened from disk without refresh; both pages rendered correct as-of, KPIs and retained Queens context",
+    "pdf_render_inspection":  "passed: 2 pages; see preview-verification.json",
+    "native_bigquery":  "passed: independent native refresh, 41 SQL/DAX comparisons and 33 UTC timestamp checks",
+    "files":  [
+                  {
+                      "name":  "NYC311_dsny_20261118_reviewer.pbix",
+                      "bytes":  1342279,
+                      "last_modified_utc":  "2026-11-18T12:22:01.7405259Z",
+                      "sha256":  "2998750f0678c0967fefa9ffbc9a562a3272fdd94bf1179322e1b65b70ab399e",
+                      "import_mode":  "CSV"
+                  },
+                  {
+                      "name":  "NYC311_dsny_20261118_reviewer.pdf",
+                      "bytes":  341136,
+                      "last_modified_utc":  "2026-11-18T12:22:36.2788999Z",
+                      "sha256":  "3c74c92be71c0cffc8c97614c1f99f502913571d8bf896d9cab624b90f3fe5ad",
+                      "import_mode":  "CSV"
+                  },
+                  {
+                      "name":  "NYC311_dsny_20261118_bigquery.pbix",
+                      "bytes":  1354254,
+                      "last_modified_utc":  "2026-11-18T12:37:14.9136857Z",
+                      "sha256":  "4dabdbc4a762557a673d5eeb376a6e5078366e791fa117ae359802d65126bcda",
+                      "import_mode":  "BigQuery"
+                  }
+              ],
+    "pdf_preview_evidence":  "preview-verification.json",
+    "cached_reopen_confirmed_at_utc":  "2026-11-18T12:33:02.7765814Z",
+    "native_connection_evidence":  "../../releases/dsny_20261118/powerbi_bigquery/connection_verification.json",
+    "native_visual_status":  "Passed: both pages, correct as-of and Queens drill-through; saved by Desktop after verified refresh",
+    "native_pbix_reopen":  "not tested; cached reopen evidence applies to the CSV reviewer PBIX",
+    "initial_file_check_at_utc":  "2026-11-18T12:23:45.6278390Z",
+    "import_modes":  [
+                         "CSV",
+                         "BigQuery"
+                     ]
+}

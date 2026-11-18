@@ -1,0 +1,29 @@
+table 'Borough'
+	lineageTag: 3d9539fd-117e-40e5-bb29-c89c50662aaa
+
+	column 'release_id'
+		dataType: string
+		sourceColumn: release_id
+		summarizeBy: none
+		lineageTag: f9b0ac7d-766f-60a1-a853-733b0da2711e
+		isHidden
+
+	column 'borough_key'
+		dataType: string
+		sourceColumn: borough_key
+		summarizeBy: none
+		lineageTag: 8269c822-ffcf-5807-f692-f73d39d2a3e4
+		isHidden
+
+	column 'borough'
+		dataType: string
+		sourceColumn: borough
+		summarizeBy: none
+		lineageTag: 5218e12c-e810-55bc-25aa-81f74c6b3e2a
+
+	partition 'Borough' = m
+		mode: import
+		source =
+				fnReadReporting("dim_borough", {{"release_id", type text}, {"borough_key", type text}, {"borough", type text}})
+
+	annotation PBI_ResultType = Table

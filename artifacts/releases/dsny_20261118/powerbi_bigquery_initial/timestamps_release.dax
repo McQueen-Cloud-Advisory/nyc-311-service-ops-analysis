@@ -1,0 +1,8 @@
+EVALUATE
+SELECTCOLUMNS(
+    'Release',
+    "release_id", 'Release'[release_id],
+    "observed_at", 'Release'[observed_at],
+    "extraction_started_at", 'Release'[extraction_started_at],
+    "extraction_ended_at", 'Release'[extraction_ended_at]
+)

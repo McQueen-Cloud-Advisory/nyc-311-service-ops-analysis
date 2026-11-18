@@ -1,0 +1,14 @@
+EVALUATE
+CALCULATETABLE(
+    ROW(
+        "intake_creation_slice", [Intake],
+        "closures_closure_slice", [Recorded closures],
+        "target_numerator_creation_slice", [Demo target met],
+        "target_denominator_creation_slice", [Demo target eligible],
+        "p90_eligible_closure_slice", [P90 eligible closures],
+        "p90_hours_closure_slice", [P90 hours to recorded closure],
+        "backlog_observation", [Observed backlog],
+        "backlog_without_period", CALCULATE([Observed backlog], REMOVEFILTERS('Date'))
+    ),
+    FILTER(ALL('Date'), 'Date'[date_key] >= DATE(2026, 11, 9) && 'Date'[date_key] < DATE(2026, 11, 16))
+)

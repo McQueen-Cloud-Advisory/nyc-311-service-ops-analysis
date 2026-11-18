@@ -1,0 +1,19 @@
+{
+    "checked_at_utc":  "2026-11-18T12:36:33.5628554Z",
+    "outcome":  "executed",
+    "engine":  "Power BI Desktop Analysis Services, read-only ADOMD queries",
+    "release_id":  "dsny_20261118",
+    "query_sections":  [
+                           "A",
+                           "B",
+                           "C",
+                           "D",
+                           "E"
+                       ],
+    "sql_reconciliation":  "passed: 41/41; see ../sql_dax_bigquery_comparison.json",
+    "visual_inspection":  "not established by this script",
+    "note":  "Actual DAX execution outputs; compare separately with the matching BigQuery release outputs.",
+    "import_mode":  "BigQuery",
+    "timestamp_reconciliation":  "passed: 33/33; see timestamp_comparison.json",
+    "connection_evidence":  "connection_verification.json"
+}

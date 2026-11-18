@@ -1,0 +1,87 @@
+table 'Release'
+	lineageTag: e020e3c6-7bd0-c312-2772-0bd8eb2c3a77
+
+	column 'release_id'
+		dataType: string
+		sourceColumn: release_id
+		summarizeBy: none
+		lineageTag: 138a7f44-14b8-2eab-f9cc-cc5e74975d93
+		isHidden
+
+	column 'snapshot_id'
+		dataType: string
+		sourceColumn: snapshot_id
+		summarizeBy: none
+		lineageTag: 92c2dfed-1201-c7bb-3d31-06e20e9cdc44
+		isHidden
+
+	column 'observed_at'
+		dataType: dateTime
+		sourceColumn: observed_at
+		summarizeBy: none
+		lineageTag: 32665095-51b8-819d-6e05-ab70a5d25264
+		formatString: yyyy-MM-dd HH:mm:ss
+
+	column 'extraction_started_at'
+		dataType: dateTime
+		sourceColumn: extraction_started_at
+		summarizeBy: none
+		lineageTag: 49bafd08-fb37-cbae-9cc7-1c8a1d7c7ff7
+		formatString: yyyy-MM-dd HH:mm:ss
+
+	column 'extraction_ended_at'
+		dataType: dateTime
+		sourceColumn: extraction_ended_at
+		summarizeBy: none
+		lineageTag: 5747e85a-9082-82e7-dc09-6fe3904b219d
+		formatString: yyyy-MM-dd HH:mm:ss
+
+	column 'source_kind'
+		dataType: string
+		sourceColumn: source_kind
+		summarizeBy: none
+		lineageTag: dd3204d7-3b65-17a1-2ec9-f999750f219a
+
+	column 'cohort_start'
+		dataType: dateTime
+		sourceColumn: cohort_start
+		summarizeBy: none
+		lineageTag: 4600823b-23aa-920a-54b4-d0aeca926a30
+		formatString: yyyy-MM-dd
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'cohort_end'
+		dataType: dateTime
+		sourceColumn: cohort_end
+		summarizeBy: none
+		lineageTag: c337e85f-4465-811b-6ad9-1eb5a3a969c9
+		formatString: yyyy-MM-dd
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'target_version'
+		dataType: string
+		sourceColumn: target_version
+		summarizeBy: none
+		lineageTag: ffeb3aff-5e04-9d06-08d0-fb169a2a0dbf
+		isHidden
+
+	column 'expected_count'
+		dataType: int64
+		sourceColumn: expected_count
+		summarizeBy: none
+		lineageTag: 8206e990-f5ed-e60e-ec6c-c7df31eaf5f0
+		formatString: #,0
+
+	column 'source_count'
+		dataType: int64
+		sourceColumn: source_count
+		summarizeBy: none
+		lineageTag: 0d3676b4-23c3-9ca2-e3eb-a4c7351d3e84
+		formatString: #,0
+
+	partition 'Release' = m
+		mode: import
+		source =
+				fnReadReporting("release_metadata", {{"release_id", type text}, {"snapshot_id", type text}, {"observed_at", type datetimezone}, {"extraction_started_at", type datetimezone}, {"extraction_ended_at", type datetimezone}, {"source_kind", type text}, {"cohort_start", type date}, {"cohort_end", type date}, {"target_version", type text}, {"expected_count", Int64.Type}, {"source_count", Int64.Type}})
+
+	annotation PBI_ResultType = Table

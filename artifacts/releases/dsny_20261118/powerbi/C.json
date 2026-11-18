@@ -1,0 +1,10 @@
+{
+    "intake_creation_slice":  1817,
+    "closures_closure_slice":  1706,
+    "target_numerator_creation_slice":  877,
+    "target_denominator_creation_slice":  1627,
+    "p90_eligible_closure_slice":  1706,
+    "p90_hours_closure_slice":  140.19583333333333,
+    "backlog_observation":  728,
+    "backlog_without_period":  728
+}

@@ -1,0 +1,58 @@
+{
+  "created_on": "2026-11-18",
+  "release_id": "dsny_20261118",
+  "snapshot_id": "dsny_20261118_a",
+  "observed_at": "2026-11-18T11:31:28.284936Z",
+  "source_kind": "real",
+  "folder": {
+    "id": "11FbXgR81W-oCvCqD6fUfTWG8vthJjxzu",
+    "url": "https://drive.google.com/drive/folders/11FbXgR81W-oCvCqD6fUfTWG8vthJjxzu",
+    "title": "ChatGPT"
+  },
+  "target_register": {
+    "id": "1n88jxFlbe-H2ZwDIAA-GAxsmxoEkQE6Hfz8JtoGrRn0",
+    "url": "https://docs.google.com/spreadsheets/d/1n88jxFlbe-H2ZwDIAA-GAxsmxoEkQE6Hfz8JtoGrRn0",
+    "mime_type": "application/vnd.google-apps.spreadsheet",
+    "title": "NYC 311 — Demo target register",
+    "tab": "Targets",
+    "sheet_id": 392749047,
+    "range": "Targets!A:E",
+    "populated_input_range": "Targets!A1:E3",
+    "columns": ["agency", "problem", "effective_start", "effective_end", "target_hours"],
+    "target_version": "0dcb6c73a6603ebf615012ea37a6267e24cb0a90d474804cb876a55c6699277d",
+    "source_csv": "data/targets/demo_targets.csv",
+    "purpose": "Business-editable portfolio assumptions; not official agency targets",
+    "validation": {
+      "native_values_checked": true,
+      "row_count": 2,
+      "headers_match_csv": true,
+      "dates_are_numeric_with_iso_date_format": true,
+      "target_hours_are_numeric": true,
+      "positive_integer_validation_range": "Targets!E2:E1000",
+      "overlaps_and_effective_intervals": "Validated by the release pipeline, not the spreadsheet UI",
+      "content_matches_csv_target_version": true,
+      "visual_check": "Exported native Sheet to XLSX, rendered with artifact-tool, and inspected populated tab",
+      "pipeline_adc_sheets_read": "Attempted 2026-11-18 using load_sheets; failed HTTP 403, response body omitted",
+      "pipeline_adc_sheets_read_cause": "Undetermined; connector access does not establish ADC access",
+      "pipeline_adc_sheets_read_next_check": "Verify Sheets API enablement, the ADC OAuth scopes, and access to this Sheet by the identity behind ADC; rerun the documented read-only Sheets path. CSV remains the complete working default."
+    }
+  },
+  "decision_memo": {
+    "id": "1gXshrmescOyhcQ2xDN1RHLpTedZ_XVzDpJuDxVOiGo8",
+    "url": "https://docs.google.com/document/d/1gXshrmescOyhcQ2xDN1RHLpTedZ_XVzDpJuDxVOiGo8",
+    "mime_type": "application/vnd.google-apps.document",
+    "title": "NYC 311 — Queens Dirty Condition decision memo — 18 Nov 2026",
+    "markdown_copy": "docs/decision-memo.md",
+    "native_content_checked": true,
+    "visual_check": "Google PDF export rendered and visually inspected; one US Letter page",
+    "page_count": 1,
+    "evidence_state": "BigQuery SQL matched the local reference; all 60 dbt data tests passed. Desktop CSV and native BigQuery Import each matched all 41 SQL comparisons; 33 native timestamp checks passed. Owner OAuth refresh is not proof of read-only access",
+    "warehouse_evidence": "artifacts/releases/dsny_20261118/sql_reconciliation.json",
+    "desktop_comparison": "artifacts/releases/dsny_20261118/sql_dax_comparison.json",
+    "native_bigquery_comparison": "artifacts/releases/dsny_20261118/sql_dax_bigquery_comparison.json",
+    "native_timestamp_comparison": "artifacts/releases/dsny_20261118/powerbi_bigquery/timestamp_comparison.json"
+  },
+  "sharing_actions": "No permissions added, public sharing enabled, or messages sent",
+  "sharing_verified": "Both native files have shared=false and one owner permission only",
+  "credential_policy": "IDs and URLs only; no credentials, access tokens, or signed export URLs retained"
+}

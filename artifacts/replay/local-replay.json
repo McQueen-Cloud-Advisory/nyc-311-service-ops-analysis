@@ -1,0 +1,188 @@
+{
+  "generated_at_utc": "2026-11-18T12:19:39.942370+00:00",
+  "source_kind": "synthetic",
+  "verification_engine": "SQLite persistence + Python reference; not BigQuery or Power BI",
+  "description": "Fabricated lifecycle, idempotent replay, failed validation, transactional rollback, and disappearance evidence.",
+  "fixture_files": {
+    "a": "data/fixtures/synthetic_a.json",
+    "b": "data/fixtures/synthetic_b.json"
+  },
+  "fixture_file_hashes": {
+    "a": "54c7b1ccd051d1478d1a7b2e0faeb50e0a26a51ef7291d2d65bbb394ae174541",
+    "b": "fee3c7db3e2bbcdcd0851167427e08ad27408b782b1df19f662b9b3829b6f6d8"
+  },
+  "observed_at": {
+    "a": "2026-11-14T17:00:00+00:00",
+    "b": "2026-11-16T17:00:00+00:00"
+  },
+  "first_publish": {
+    "outcome": "published",
+    "release_id": "replay_a",
+    "inserted_count": 13,
+    "changed_count": 0,
+    "overall": {
+      "case_count": 13,
+      "intake": 12,
+      "recorded_closures": 3,
+      "observed_backlog": 6,
+      "aged_168h_plus": 3,
+      "target_numerator": 3,
+      "target_denominator": 5,
+      "within_demo_target": 0.6,
+      "p90_elapsed_hours": 43.2,
+      "p90_eligible_count": 3,
+      "eligibility_counts": {
+        "eligible_mature": 5,
+        "immature": 1,
+        "invalid_outcome": 5,
+        "missing_target": 1,
+        "unknown_outcome": 1
+      }
+    },
+    "marts_hash": "8fa4307b1a76a89625feaa2d09b32514e894e7dcf9a0871f9d97c72960f1db13"
+  },
+  "later_publish": {
+    "outcome": "published",
+    "release_id": "replay_b",
+    "inserted_count": 0,
+    "changed_count": 1,
+    "overall": {
+      "case_count": 13,
+      "intake": 12,
+      "recorded_closures": 4,
+      "observed_backlog": 5,
+      "aged_168h_plus": 2,
+      "target_numerator": 3,
+      "target_denominator": 5,
+      "within_demo_target": 0.6,
+      "p90_elapsed_hours": 367.9000000000001,
+      "p90_eligible_count": 4,
+      "eligibility_counts": {
+        "eligible_mature": 5,
+        "immature": 1,
+        "invalid_outcome": 5,
+        "missing_target": 1,
+        "unknown_outcome": 1
+      }
+    },
+    "marts_hash": "4cc38a7f118a55c777b7b89e4d08386177605748a0d0a44e595ea9bad8cd9b23"
+  },
+  "later_replay": {
+    "outcome": "replayed",
+    "release_id": "replay_b",
+    "overall": {
+      "aged_168h_plus": 2,
+      "case_count": 13,
+      "eligibility_counts": {
+        "eligible_mature": 5,
+        "immature": 1,
+        "invalid_outcome": 5,
+        "missing_target": 1,
+        "unknown_outcome": 1
+      },
+      "intake": 12,
+      "observed_backlog": 5,
+      "p90_elapsed_hours": 367.9000000000001,
+      "p90_eligible_count": 4,
+      "recorded_closures": 4,
+      "target_denominator": 5,
+      "target_numerator": 3,
+      "within_demo_target": 0.6
+    },
+    "marts_hash": "4cc38a7f118a55c777b7b89e4d08386177605748a0d0a44e595ea9bad8cd9b23"
+  },
+  "current_request_before": {
+    "sqlite_rowid": 1,
+    "request_id": "synthetic_0001",
+    "status": "Open",
+    "closed_at": null,
+    "payload_hash": "df1d09c9fcf1a8080e2bdd9d66c95aa61a4d2967941308e33e8020da634057ea"
+  },
+  "current_request_after": {
+    "sqlite_rowid": 1,
+    "request_id": "synthetic_0001",
+    "status": "Closed",
+    "closed_at": "2026-11-15T17:00:00+00:00",
+    "payload_hash": "234f2a00ea2d752e4d7464e510bd9d9fc43c9ebaef721d01f0eb9204fdf478af"
+  },
+  "row_counts": {
+    "after_a": {
+      "observations": 1,
+      "current_requests": 13,
+      "releases": 1,
+      "publication": 1
+    },
+    "after_b": {
+      "observations": 2,
+      "current_requests": 13,
+      "releases": 2,
+      "publication": 1
+    },
+    "after_replay_b": {
+      "observations": 2,
+      "current_requests": 13,
+      "releases": 2,
+      "publication": 1
+    }
+  },
+  "backlog_by_captured_snapshot": {
+    "synthetic_a": 6,
+    "synthetic_b": 5
+  },
+  "failure_recovery": [
+    {
+      "simulated_failure": "validation",
+      "expected_error": "Simulated validation failure; publication unchanged",
+      "active_release_after": "replay_a",
+      "row_counts_after": {
+        "observations": 1,
+        "current_requests": 13,
+        "releases": 1,
+        "publication": 1
+      },
+      "last_good_preserved": true,
+      "request_update_rolled_back": true,
+      "publication_file_unchanged": true
+    },
+    {
+      "simulated_failure": "publication",
+      "expected_error": "Simulated publication failure; transaction rolled back",
+      "active_release_after": "replay_a",
+      "row_counts_after": {
+        "observations": 1,
+        "current_requests": 13,
+        "releases": 1,
+        "publication": 1
+      },
+      "last_good_preserved": true,
+      "request_update_rolled_back": true,
+      "publication_file_unchanged": true
+    }
+  ],
+  "disappearance": {
+    "error": "Requests disappeared from a complete extract; retain previous release and investigate",
+    "active_release_after": "replay_a",
+    "request_status_after": "Open",
+    "absence_did_not_imply_closure": true
+  },
+  "checks": {
+    "same_request_key_and_physical_current_row": true,
+    "old_open_became_closed": true,
+    "later_input_changed_one_current_row": true,
+    "original_capture_unchanged": true,
+    "original_release_unchanged": true,
+    "original_backlog_export_unchanged": true,
+    "later_backlog_changed_original_did_not": true,
+    "replay_row_counts_identical": true,
+    "replay_metrics_identical": true,
+    "replay_marts_hash_identical": true,
+    "replay_observation_time_unchanged": true,
+    "older_exact_replay_kept_newer_active_release": true,
+    "failed_validation_kept_last_good": true,
+    "failed_publication_rolled_back": true,
+    "disappearing_request_did_not_imply_closure": true
+  },
+  "passed_checks": 15,
+  "total_checks": 15,
+  "outcome": "pass"
+}

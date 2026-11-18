@@ -1,0 +1,75 @@
+// Execute in Power BI Desktop DAX Query View after refresh.
+// Save outputs with the same release_id alongside SQL outputs. Do not edit
+// an expected result to make a mismatch pass. Precision: 1e-6 hours for p90.
+
+// A. Overall pinned release: Date is unfiltered.
+EVALUATE
+ROW(
+    "release_id", SELECTEDVALUE('Release'[release_id]),
+    "snapshot_id", SELECTEDVALUE('Release'[snapshot_id]),
+    "case_count", COUNTROWS('Cases'),
+    "intake", [Intake],
+    "recorded_closures", [Recorded closures],
+    "observed_backlog", [Observed backlog],
+    "target_numerator", [Demo target met],
+    "target_denominator", [Demo target eligible],
+    "target_rate", [Within demo target %],
+    "p90_eligible_count", [P90 eligible closures],
+    "p90_elapsed_hours", [P90 hours to recorded closure]
+)
+
+// B. Meaningful operational slice; use these same values in SQL.
+EVALUATE
+CALCULATETABLE(
+    ROW(
+        "release_id", SELECTEDVALUE('Release'[release_id]),
+        "intake", [Intake], "recorded_closures", [Recorded closures],
+        "observed_backlog", [Observed backlog],
+        "target_numerator", [Demo target met], "target_denominator", [Demo target eligible],
+        "p90_eligible_count", [P90 eligible closures], "p90_elapsed_hours", [P90 hours to recorded closure]
+    ),
+    TREATAS({"DSNY"}, 'Agency'[agency]),
+    TREATAS({"Dirty Condition"}, 'Problem'[problem]),
+    TREATAS({"BROOKLYN"}, 'Borough'[borough])
+)
+
+// C. Date-role check: a single activity period means different fact dates.
+// 'Backlog' must equal the same segment's unfiltered snapshot backlog.
+EVALUATE
+CALCULATETABLE(
+    ROW(
+        "intake_creation_slice", [Intake],
+        "closures_closure_slice", [Recorded closures],
+        "target_numerator_creation_slice", [Demo target met],
+        "target_denominator_creation_slice", [Demo target eligible],
+        "p90_eligible_closure_slice", [P90 eligible closures],
+        "p90_hours_closure_slice", [P90 hours to recorded closure],
+        "backlog_observation", [Observed backlog],
+        "backlog_without_period", CALCULATE([Observed backlog], REMOVEFILTERS('Date'))
+    ),
+    FILTER(ALL('Date'), 'Date'[date_key] >= DATE(2026, 11, 9) && 'Date'[date_key] < DATE(2026, 11, 16))
+)
+
+// D. Empty slice: counts must be zero; target rate and p90 must be BLANK.
+EVALUATE
+CALCULATETABLE(
+    ROW(
+        "intake", [Intake], "recorded_closures", [Recorded closures],
+        "observed_backlog", [Observed backlog],
+        "target_numerator", [Demo target met], "target_denominator", [Demo target eligible],
+        "target_rate", [Within demo target %],
+        "p90_eligible_count", [P90 eligible closures], "p90_elapsed_hours", [P90 hours to recorded closure]
+    ),
+    TREATAS({"__NO_SUCH_BOROUGH__"}, 'Borough'[borough])
+)
+
+// E. Verify request details and backlog use the same observation.
+EVALUATE
+ROW(
+    "release_rows", COUNTROWS('Release'),
+    "case_release_count", DISTINCTCOUNT('Cases'[release_id]),
+    "case_snapshot_count", DISTINCTCOUNT('Cases'[snapshot_id]),
+    "backlog_snapshot_count", DISTINCTCOUNT('Backlog'[snapshot_id]),
+    "open_case_rows", CALCULATE(COUNTROWS('Cases'), 'Cases'[is_backlog] = TRUE()),
+    "observed_backlog", [Observed backlog]
+)

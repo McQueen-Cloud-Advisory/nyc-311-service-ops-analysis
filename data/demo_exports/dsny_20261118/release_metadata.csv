@@ -1,0 +1,2 @@
+release_id,snapshot_id,observed_at,extraction_started_at,extraction_ended_at,source_kind,cohort_start,cohort_end,target_version,expected_count,source_count
+dsny_20261118,dsny_20261118_a,2026-11-18T11:31:28.284936+00:00,2026-11-18T11:30:59.462626+00:00,2026-11-18T11:31:28.284936+00:00,real,2026-09-07,2026-11-16,0dcb6c73a6603ebf615012ea37a6267e24cb0a90d474804cb876a55c6699277d,23101,23101

@@ -1,0 +1,11 @@
+EVALUATE
+CALCULATETABLE(
+    ROW(
+        "intake", [Intake], "recorded_closures", [Recorded closures],
+        "observed_backlog", [Observed backlog],
+        "target_numerator", [Demo target met], "target_denominator", [Demo target eligible],
+        "target_rate", [Within demo target %],
+        "p90_eligible_count", [P90 eligible closures], "p90_elapsed_hours", [P90 hours to recorded closure]
+    ),
+    TREATAS({"__NO_SUCH_BOROUGH__"}, 'Borough'[borough])
+)

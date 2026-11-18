@@ -1,0 +1,15 @@
+version: 2
+sources:
+  - name: raw
+    description: 'Private captured observations. Python validates the field allowlist and time contract before loading.'
+    database: "{{ env_var('GCP_PROJECT_ID', 'unconfigured-project') }}"
+    schema: "{{ var('raw_dataset', 'nyc311_raw') }}"
+    tables:
+      - name: requests_current
+        description: 'Mutable current row per request, maintained by payload-hash MERGE. Reporting never reads this table.'
+      - name: observation_requests
+        description: 'Immutable snapshot_id × request_id capture; normalized UTC instants and source-local dates accompany source strings.'
+      - name: observations
+        description: 'One completed extraction per snapshot_id, including source kind, exact cohort, target version, and publication flag.'
+      - name: targets
+        description: 'Versioned demo target register; target_version × agency × problem × effective_start is the key.'

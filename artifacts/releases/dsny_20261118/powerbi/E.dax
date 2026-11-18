@@ -1,0 +1,9 @@
+EVALUATE
+ROW(
+    "release_rows", COUNTROWS('Release'),
+    "case_release_count", DISTINCTCOUNT('Cases'[release_id]),
+    "case_snapshot_count", DISTINCTCOUNT('Cases'[snapshot_id]),
+    "backlog_snapshot_count", DISTINCTCOUNT('Backlog'[snapshot_id]),
+    "open_case_rows", CALCULATE(COUNTROWS('Cases'), 'Cases'[is_backlog] = TRUE()),
+    "observed_backlog", [Observed backlog]
+)

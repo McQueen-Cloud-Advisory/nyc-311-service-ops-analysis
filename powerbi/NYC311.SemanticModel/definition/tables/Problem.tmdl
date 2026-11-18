@@ -1,0 +1,29 @@
+table 'Problem'
+	lineageTag: a1c5ae7b-cb34-bbf4-8104-488eff8deede
+
+	column 'release_id'
+		dataType: string
+		sourceColumn: release_id
+		summarizeBy: none
+		lineageTag: 4b708d93-e12c-835a-403f-48cbe3893888
+		isHidden
+
+	column 'problem_key'
+		dataType: string
+		sourceColumn: problem_key
+		summarizeBy: none
+		lineageTag: bdcc107c-de2e-a537-3ae1-89a864cc81b6
+		isHidden
+
+	column 'problem'
+		dataType: string
+		sourceColumn: problem
+		summarizeBy: none
+		lineageTag: b6272859-8705-d6a9-3fd4-63f63ba02d98
+
+	partition 'Problem' = m
+		mode: import
+		source =
+				fnReadReporting("dim_problem", {{"release_id", type text}, {"problem_key", type text}, {"problem", type text}})
+
+	annotation PBI_ResultType = Table

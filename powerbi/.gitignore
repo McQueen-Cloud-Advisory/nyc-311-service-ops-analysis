@@ -1,0 +1,6 @@
+.tools/
+.local/
+.schema-cache/
+**/.pbi/
+*.pbix
+*.pbit

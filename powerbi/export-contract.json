@@ -1,0 +1,15 @@
+{
+  "format": "UTF-8 CSV, header row, comma delimiter, RFC 4180 quoting; null is an empty field",
+  "path": "data/demo_exports/<release_id>/<source>.csv",
+  "release_parameter": "dsny_20261118",
+  "timestamp_format": "ISO 8601 UTC with Z or +00:00",
+  "tables": [
+    {"model":"Agency","source":"dim_agency","columns":{"release_id":"text","agency_key":"text","agency":"text"}},
+    {"model":"Problem","source":"dim_problem","columns":{"release_id":"text","problem_key":"text","problem":"text"}},
+    {"model":"Borough","source":"dim_borough","columns":{"release_id":"text","borough_key":"text","borough":"text"}},
+    {"model":"Date","source":"dim_date","columns":{"release_id":"text","date_key":"date","year":"int64","month":"int64","month_name":"text","week_start":"date"}},
+    {"model":"Cases","source":"fct_cases","columns":{"release_id":"text","request_id":"text","snapshot_id":"text","observed_at":"datetimezone","created_date":"date","closed_date":"date","created_at":"datetimezone","closed_at":"datetimezone","agency_key":"text","problem_key":"text","borough_key":"text","status":"text","status_class":"text","temporal_quality":"text","channel":"text","elapsed_hours":"number","age_hours":"number","age_bucket":"text","target_hours":"int64","target_version":"text","target_numerator":"int64","target_denominator":"int64","is_backlog":"logical","is_p90_eligible":"logical","is_recorded_closure":"logical","is_missing_target":"logical","is_immature":"logical","is_invalid_outcome":"logical","is_unknown_outcome":"logical","target_eligibility_reason":"text"}},
+    {"model":"Backlog","source":"fct_backlog","columns":{"release_id":"text","snapshot_id":"text","observed_at":"datetimezone","snapshot_date":"date","is_release_snapshot":"logical","agency_key":"text","problem_key":"text","borough_key":"text","open_count":"int64","age_under_24h_count":"int64","age_24_to_72h_count":"int64","age_72_to_168h_count":"int64","age_168h_plus_count":"int64","age_unknown_count":"int64"}},
+    {"model":"Release","source":"release_metadata","columns":{"release_id":"text","snapshot_id":"text","observed_at":"datetimezone","extraction_started_at":"datetimezone","extraction_ended_at":"datetimezone","source_kind":"text","cohort_start":"date","cohort_end":"date","target_version":"text","expected_count":"int64","source_count":"int64"}}
+  ]
+}

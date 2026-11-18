@@ -1,0 +1,133 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.0.0/schema.json",
+  "name": "investigate",
+  "displayName": "Backlog investigation",
+  "displayOption": "FitToPage",
+  "height": 960,
+  "width": 1440,
+  "objects": {
+    "background": [
+      {
+        "properties": {
+          "color": {
+            "solid": {
+              "color": {
+                "expr": {
+                  "Literal": {
+                    "Value": "'#F3F6F8'"
+                  }
+                }
+              }
+            }
+          },
+          "transparency": {
+            "expr": {
+              "Literal": {
+                "Value": "0D"
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "type": "Drillthrough",
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "drill_agency",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Agency"
+              }
+            },
+            "Property": "agency"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "Drillthrough"
+      },
+      {
+        "name": "drill_problem",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Problem"
+              }
+            },
+            "Property": "problem"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "Drillthrough"
+      },
+      {
+        "name": "drill_borough",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Borough"
+              }
+            },
+            "Property": "borough"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "Drillthrough"
+      }
+    ]
+  },
+  "pageBinding": {
+    "name": "segment_detail",
+    "type": "Drillthrough",
+    "acceptsFilterContext": "Default",
+    "parameters": [
+      {
+        "name": "agency",
+        "boundFilter": "drill_agency",
+        "fieldExpr": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Agency"
+              }
+            },
+            "Property": "agency"
+          }
+        }
+      },
+      {
+        "name": "problem",
+        "boundFilter": "drill_problem",
+        "fieldExpr": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Problem"
+              }
+            },
+            "Property": "problem"
+          }
+        }
+      },
+      {
+        "name": "borough",
+        "boundFilter": "drill_borough",
+        "fieldExpr": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Borough"
+              }
+            },
+            "Property": "borough"
+          }
+        }
+      }
+    ]
+  }
+}

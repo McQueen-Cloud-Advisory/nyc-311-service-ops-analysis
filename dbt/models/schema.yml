@@ -1,0 +1,131 @@
+version: 2
+models:
+  - name: stg_observations
+    description: 'Completed captures for the exact configured cohort/source kind, limited to previously published captures plus this candidate.'
+    columns:
+      - name: snapshot_id
+        data_tests: [not_null, unique]
+      - name: observed_at
+        data_tests: [not_null]
+      - name: source_kind
+        data_tests: [not_null]
+  - name: stg_requests
+    description: 'One row per captured snapshot and request. No deduplication conceals source key problems.'
+    columns:
+      - name: request_id
+        data_tests: [not_null]
+      - name: snapshot_id
+        data_tests:
+          - not_null
+          - relationships:
+              arguments: {to: "ref('stg_observations')", field: snapshot_id}
+      - name: temporal_quality
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: [valid, missing_created, invalid_created, invalid_closed, ambiguous_created, ambiguous_closed, nonexistent_created, nonexistent_closed, negative_elapsed, future_created, future_closed]
+      - name: status_class
+        data_tests:
+          - accepted_values:
+              arguments: {values: [open, closed, unknown]}
+  - name: stg_targets
+    description: 'One immutable target version with normalized business keys and half-open effective intervals.'
+    columns:
+      - name: target_key
+        data_tests: [not_null, unique]
+      - name: effective_start
+        data_tests: [not_null]
+      - name: target_hours
+        data_tests: [not_null]
+  - name: fct_cases
+    description: 'One row per request at the release snapshot. Business key request_id within the immutable release table. This is cohort-limited service-request state, not work effort or fulfillment.'
+    columns:
+      - name: request_id
+        data_tests: [not_null, unique]
+      - name: release_id
+        data_tests: [not_null]
+      - name: snapshot_id
+        data_tests: [not_null]
+      - name: agency_key
+        data_tests:
+          - not_null
+          - relationships:
+              arguments: {to: "ref('dim_agency')", field: agency_key}
+      - name: problem_key
+        data_tests:
+          - not_null
+          - relationships:
+              arguments: {to: "ref('dim_problem')", field: problem_key}
+      - name: borough_key
+        data_tests:
+          - not_null
+          - relationships:
+              arguments: {to: "ref('dim_borough')", field: borough_key}
+      - name: created_date
+        data_tests:
+          - relationships:
+              arguments: {to: "ref('dim_date')", field: date_key}
+      - name: closed_date
+        data_tests:
+          - relationships:
+              arguments: {to: "ref('dim_date')", field: date_key}
+      - name: target_numerator
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments: {values: [0, 1], quote: false}
+      - name: target_denominator
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments: {values: [0, 1], quote: false}
+      - name: target_eligibility_reason
+        data_tests:
+          - accepted_values:
+              arguments: {values: [eligible_mature, immature, missing_target, invalid_outcome, unknown_outcome]}
+  - name: fct_backlog
+    description: 'One row per captured snapshot × agency × problem × borough; only the configured cohort/source kind. Open counts are nonadditive across snapshots.'
+    columns:
+      - name: snapshot_id
+        data_tests: [not_null]
+      - name: observed_at
+        data_tests: [not_null]
+      - name: agency_key
+        data_tests:
+          - relationships:
+              arguments: {to: "ref('dim_agency')", field: agency_key}
+      - name: problem_key
+        data_tests:
+          - relationships:
+              arguments: {to: "ref('dim_problem')", field: problem_key}
+      - name: borough_key
+        data_tests:
+          - relationships:
+              arguments: {to: "ref('dim_borough')", field: borough_key}
+  - name: dim_agency
+    description: 'Conformed agency dimension; agency_key is the normalized agency code, including UNKNOWN.'
+    columns:
+      - name: agency_key
+        data_tests: [not_null, unique]
+  - name: dim_problem
+    description: 'Conformed problem dimension; problem_key is the source problem label, including UNKNOWN.'
+    columns:
+      - name: problem_key
+        data_tests: [not_null, unique]
+  - name: dim_borough
+    description: 'Conformed five-borough dimension plus UNKNOWN; UNKNOWN is preserved in total counts.'
+    columns:
+      - name: borough_key
+        data_tests: [not_null, unique]
+  - name: dim_date
+    description: 'Conformed local calendar date; Power BI uses explicit creation and closure relationships. Missing dates remain blank and are surfaced as invalid outcomes.'
+    columns:
+      - name: date_key
+        data_tests: [not_null, unique]
+  - name: release_metadata
+    description: 'Exactly one row containing the release scope, observation time, extraction interval, input version, and coverage counts.'
+    columns:
+      - name: release_id
+        data_tests: [not_null, unique]
+      - name: snapshot_id
+        data_tests: [not_null, unique]

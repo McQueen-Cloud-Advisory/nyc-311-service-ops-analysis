@@ -1,0 +1,188 @@
+{
+  "manifest": {
+    "snapshot_id": "synthetic_b",
+    "observed_at": "2026-11-16T17:00:00+00:00",
+    "extraction_started_at": "2026-11-16T17:00:00+00:00",
+    "extraction_ended_at": "2026-11-16T17:00:00+00:00",
+    "source_kind": "synthetic",
+    "scope": {
+      "dataset_id": "erm2-nwe9",
+      "agency": "DSNY",
+      "problems": [
+        "Dirty Condition",
+        "Illegal Dumping",
+        "Synthetic No Target"
+      ],
+      "cohort_start": "2026-09-07",
+      "cohort_end": "2026-11-16",
+      "source_timezone": "America/New_York"
+    },
+    "scope_hash": "775d55664d2f23371da36e7cb0f496dc20604dacf011ef31c4574acb22529fc8",
+    "expected_count": 13,
+    "source_count": 13,
+    "source_count_after": 13,
+    "payload_hash": "e40cbe6a332c4ec95c9577bfc4346fb97f02cfeacd70683d0fa76e5d460e0179",
+    "target_version": "e8d38696a95a4d3c43b7e4b21726eae143776dc662120c6bb938d4f3dd483843",
+    "complete": true,
+    "source_metadata": {
+      "id": "synthetic_fixture",
+      "name": "Fabricated lifecycle and boundary cases"
+    },
+    "capture_semantics": "SIMULATED fixture. Fixed observations and fictional request IDs; not NYC historical evidence."
+  },
+  "targets": [
+    {
+      "agency": "DSNY",
+      "problem": "Dirty Condition",
+      "effective_start": "2026-09-07",
+      "effective_end": "2026-11-01",
+      "target_hours": 24
+    },
+    {
+      "agency": "DSNY",
+      "problem": "Dirty Condition",
+      "effective_start": "2026-11-01",
+      "effective_end": "2026-11-16",
+      "target_hours": 48
+    },
+    {
+      "agency": "DSNY",
+      "problem": "Illegal Dumping",
+      "effective_start": "2026-09-07",
+      "effective_end": "2026-11-16",
+      "target_hours": 72
+    }
+  ],
+  "rows": [
+    {
+      "unique_key": "synthetic_0001",
+      "created_date": "2026-10-25T12:00:00",
+      "closed_date": "2026-11-15T12:00:00",
+      "agency": "DSNY",
+      "complaint_type": "Dirty Condition",
+      "status": "Closed",
+      "borough": "QUEENS",
+      "open_data_channel_type": "ONLINE"
+    },
+    {
+      "unique_key": "synthetic_0002",
+      "created_date": "2026-10-01T09:00:00",
+      "closed_date": "2026-10-02T09:00:00",
+      "agency": "DSNY",
+      "complaint_type": "Dirty Condition",
+      "status": "Closed",
+      "borough": "QUEENS",
+      "open_data_channel_type": "ONLINE"
+    },
+    {
+      "unique_key": "synthetic_0003",
+      "created_date": "2026-11-01T12:00:00",
+      "closed_date": null,
+      "agency": "DSNY",
+      "complaint_type": "Illegal Dumping",
+      "status": "Open",
+      "borough": "QUEENS",
+      "open_data_channel_type": "ONLINE"
+    },
+    {
+      "unique_key": "synthetic_0004",
+      "created_date": "2026-11-14T11:00:00",
+      "closed_date": null,
+      "agency": "DSNY",
+      "complaint_type": "Illegal Dumping",
+      "status": "Open",
+      "borough": "QUEENS",
+      "open_data_channel_type": "ONLINE"
+    },
+    {
+      "unique_key": "synthetic_0005",
+      "created_date": "2026-11-01T12:00:00",
+      "closed_date": null,
+      "agency": "DSNY",
+      "complaint_type": "Dirty Condition",
+      "status": "Unknown",
+      "borough": "QUEENS",
+      "open_data_channel_type": "ONLINE"
+    },
+    {
+      "unique_key": "synthetic_0006",
+      "created_date": "2026-10-10T09:00:00",
+      "closed_date": "2026-10-10T10:00:00",
+      "agency": "DSNY",
+      "complaint_type": "Dirty Condition",
+      "status": "Closed",
+      "borough": null,
+      "open_data_channel_type": "ONLINE"
+    },
+    {
+      "unique_key": "synthetic_0007",
+      "created_date": null,
+      "closed_date": null,
+      "agency": "DSNY",
+      "complaint_type": "Dirty Condition",
+      "status": "Open",
+      "borough": "QUEENS",
+      "open_data_channel_type": "ONLINE"
+    },
+    {
+      "unique_key": "synthetic_0008",
+      "created_date": "2026-11-01T01:30:00",
+      "closed_date": null,
+      "agency": "DSNY",
+      "complaint_type": "Dirty Condition",
+      "status": "Open",
+      "borough": "QUEENS",
+      "open_data_channel_type": "ONLINE"
+    },
+    {
+      "unique_key": "synthetic_0009",
+      "created_date": "2026-10-20T12:00:00",
+      "closed_date": "2026-10-19T12:00:00",
+      "agency": "DSNY",
+      "complaint_type": "Dirty Condition",
+      "status": "Closed",
+      "borough": "QUEENS",
+      "open_data_channel_type": "ONLINE"
+    },
+    {
+      "unique_key": "synthetic_0010",
+      "created_date": "2026-10-02T12:00:00",
+      "closed_date": null,
+      "agency": "DSNY",
+      "complaint_type": "Synthetic No Target",
+      "status": "Open",
+      "borough": "QUEENS",
+      "open_data_channel_type": "ONLINE"
+    },
+    {
+      "unique_key": "synthetic_0011",
+      "created_date": "2026-11-01T00:00:00",
+      "closed_date": "2026-11-02T23:00:00",
+      "agency": "DSNY",
+      "complaint_type": "Dirty Condition",
+      "status": "Closed",
+      "borough": "QUEENS",
+      "open_data_channel_type": "ONLINE"
+    },
+    {
+      "unique_key": "synthetic_0012",
+      "created_date": "2026-10-05T09:00:00",
+      "closed_date": null,
+      "agency": "DSNY",
+      "complaint_type": "Dirty Condition",
+      "status": "Closed",
+      "borough": "QUEENS",
+      "open_data_channel_type": "ONLINE"
+    },
+    {
+      "unique_key": "synthetic_0013",
+      "created_date": "2026-11-13T12:00:00",
+      "closed_date": "2026-11-17T12:00:00",
+      "agency": "DSNY",
+      "complaint_type": "Dirty Condition",
+      "status": "Closed",
+      "borough": "QUEENS",
+      "open_data_channel_type": "ONLINE"
+    }
+  ]
+}

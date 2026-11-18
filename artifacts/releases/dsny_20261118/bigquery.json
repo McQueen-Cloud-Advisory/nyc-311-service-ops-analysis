@@ -1,0 +1,2163 @@
+{
+  "release_id": "dsny_20261118",
+  "snapshot_id": "dsny_20261118_a",
+  "observed_at": "2026-11-18T11:31:28.284936+00:00",
+  "scope": {
+    "dataset_id": "erm2-nwe9",
+    "agency": "DSNY",
+    "problems": [
+      "Dirty Condition",
+      "Illegal Dumping"
+    ],
+    "cohort_start": "2026-09-07",
+    "cohort_end": "2026-11-16",
+    "source_timezone": "America/New_York"
+  },
+  "verification_engine": "Executed BigQuery SQL and passed dbt tests; DAX pending",
+  "source_kind": "real",
+  "overall": {
+    "case_count": 23101,
+    "intake": 23101,
+    "recorded_closures": 22369,
+    "observed_backlog": 728,
+    "aged_168h_plus": 379,
+    "target_numerator": 14461,
+    "target_denominator": 22907,
+    "within_demo_target": 0.6312917448814773,
+    "p90_elapsed_hours": 131.5043888888889,
+    "p90_eligible_count": 22369,
+    "eligibility_counts": {
+      "eligible_mature": 22907,
+      "immature": 190,
+      "invalid_outcome": 2,
+      "unknown_outcome": 2
+    }
+  },
+  "segments": [
+    {
+      "problem": "Dirty Condition",
+      "borough": "BRONX",
+      "case_count": 2247,
+      "intake": 2247,
+      "recorded_closures": 2179,
+      "observed_backlog": 68,
+      "aged_168h_plus": 49,
+      "target_numerator": 1427,
+      "target_denominator": 2232,
+      "within_demo_target": 0.639336917562724,
+      "p90_elapsed_hours": 124.05611111111111,
+      "p90_eligible_count": 2179,
+      "eligibility_counts": {
+        "eligible_mature": 2232,
+        "immature": 15
+      }
+    },
+    {
+      "problem": "Dirty Condition",
+      "borough": "BROOKLYN",
+      "case_count": 5081,
+      "intake": 5081,
+      "recorded_closures": 4941,
+      "observed_backlog": 138,
+      "aged_168h_plus": 76,
+      "target_numerator": 2966,
+      "target_denominator": 5049,
+      "within_demo_target": 0.5874430580312934,
+      "p90_elapsed_hours": 147.0125,
+      "p90_eligible_count": 4941,
+      "eligibility_counts": {
+        "eligible_mature": 5049,
+        "immature": 30,
+        "invalid_outcome": 2
+      }
+    },
+    {
+      "problem": "Dirty Condition",
+      "borough": "MANHATTAN",
+      "case_count": 2990,
+      "intake": 2990,
+      "recorded_closures": 2947,
+      "observed_backlog": 41,
+      "aged_168h_plus": 4,
+      "target_numerator": 2198,
+      "target_denominator": 2953,
+      "within_demo_target": 0.7443278022350153,
+      "p90_elapsed_hours": 100.12205555555556,
+      "p90_eligible_count": 2947,
+      "eligibility_counts": {
+        "eligible_mature": 2953,
+        "immature": 35,
+        "unknown_outcome": 2
+      }
+    },
+    {
+      "problem": "Dirty Condition",
+      "borough": "QUEENS",
+      "case_count": 3273,
+      "intake": 3273,
+      "recorded_closures": 3092,
+      "observed_backlog": 181,
+      "aged_168h_plus": 92,
+      "target_numerator": 2087,
+      "target_denominator": 3240,
+      "within_demo_target": 0.6441358024691358,
+      "p90_elapsed_hours": 126.68750000000001,
+      "p90_eligible_count": 3092,
+      "eligibility_counts": {
+        "eligible_mature": 3240,
+        "immature": 33
+      }
+    },
+    {
+      "problem": "Dirty Condition",
+      "borough": "STATEN ISLAND",
+      "case_count": 772,
+      "intake": 772,
+      "recorded_closures": 736,
+      "observed_backlog": 36,
+      "aged_168h_plus": 25,
+      "target_numerator": 534,
+      "target_denominator": 768,
+      "within_demo_target": 0.6953125,
+      "p90_elapsed_hours": 114.80166666666666,
+      "p90_eligible_count": 736,
+      "eligibility_counts": {
+        "eligible_mature": 768,
+        "immature": 4
+      }
+    },
+    {
+      "problem": "Dirty Condition",
+      "borough": "UNKNOWN",
+      "case_count": 2,
+      "intake": 2,
+      "recorded_closures": 2,
+      "observed_backlog": 0,
+      "aged_168h_plus": 0,
+      "target_numerator": 1,
+      "target_denominator": 2,
+      "within_demo_target": 0.5,
+      "p90_elapsed_hours": 188.1268611111111,
+      "p90_eligible_count": 2,
+      "eligibility_counts": {
+        "eligible_mature": 2
+      }
+    },
+    {
+      "problem": "Illegal Dumping",
+      "borough": "BRONX",
+      "case_count": 1526,
+      "intake": 1526,
+      "recorded_closures": 1488,
+      "observed_backlog": 38,
+      "aged_168h_plus": 22,
+      "target_numerator": 962,
+      "target_denominator": 1517,
+      "within_demo_target": 0.6341463414634146,
+      "p90_elapsed_hours": 122.29022222222221,
+      "p90_eligible_count": 1488,
+      "eligibility_counts": {
+        "eligible_mature": 1517,
+        "immature": 9
+      }
+    },
+    {
+      "problem": "Illegal Dumping",
+      "borough": "BROOKLYN",
+      "case_count": 3107,
+      "intake": 3107,
+      "recorded_closures": 3014,
+      "observed_backlog": 93,
+      "aged_168h_plus": 46,
+      "target_numerator": 1609,
+      "target_denominator": 3084,
+      "within_demo_target": 0.5217250324254216,
+      "p90_elapsed_hours": 180.7617222222225,
+      "p90_eligible_count": 3014,
+      "eligibility_counts": {
+        "eligible_mature": 3084,
+        "immature": 23
+      }
+    },
+    {
+      "problem": "Illegal Dumping",
+      "borough": "MANHATTAN",
+      "case_count": 1162,
+      "intake": 1162,
+      "recorded_closures": 1141,
+      "observed_backlog": 21,
+      "aged_168h_plus": 8,
+      "target_numerator": 873,
+      "target_denominator": 1150,
+      "within_demo_target": 0.7591304347826087,
+      "p90_elapsed_hours": 98.1025,
+      "p90_eligible_count": 1141,
+      "eligibility_counts": {
+        "eligible_mature": 1150,
+        "immature": 12
+      }
+    },
+    {
+      "problem": "Illegal Dumping",
+      "borough": "QUEENS",
+      "case_count": 2474,
+      "intake": 2474,
+      "recorded_closures": 2373,
+      "observed_backlog": 101,
+      "aged_168h_plus": 50,
+      "target_numerator": 1502,
+      "target_denominator": 2446,
+      "within_demo_target": 0.6140637775960752,
+      "p90_elapsed_hours": 142.91805555555555,
+      "p90_eligible_count": 2373,
+      "eligibility_counts": {
+        "eligible_mature": 2446,
+        "immature": 28
+      }
+    },
+    {
+      "problem": "Illegal Dumping",
+      "borough": "STATEN ISLAND",
+      "case_count": 461,
+      "intake": 461,
+      "recorded_closures": 453,
+      "observed_backlog": 8,
+      "aged_168h_plus": 5,
+      "target_numerator": 302,
+      "target_denominator": 460,
+      "within_demo_target": 0.6565217391304348,
+      "p90_elapsed_hours": 119.94483333333334,
+      "p90_eligible_count": 453,
+      "eligibility_counts": {
+        "eligible_mature": 460,
+        "immature": 1
+      }
+    },
+    {
+      "problem": "Illegal Dumping",
+      "borough": "UNKNOWN",
+      "case_count": 6,
+      "intake": 6,
+      "recorded_closures": 3,
+      "observed_backlog": 3,
+      "aged_168h_plus": 2,
+      "target_numerator": 0,
+      "target_denominator": 6,
+      "within_demo_target": 0.0,
+      "p90_elapsed_hours": 193.46172222222222,
+      "p90_eligible_count": 3,
+      "eligibility_counts": {
+        "eligible_mature": 6
+      }
+    }
+  ],
+  "marts_hash": "3e58d4f1e6d0f19c4e9c69bd935aee16f2724c4cc1de3d76aab797705ea20038",
+  "dbt": {
+    "release_id": "dsny_20261118",
+    "snapshot_id": "dsny_20261118_a",
+    "dbt_version": "1.12.7",
+    "generated_at": "2026-11-18T12:12:17.037055Z",
+    "elapsed_time": 154.55032539367676,
+    "results": [
+      {
+        "unique_id": "operation.nyc311.nyc311-on-run-start-0",
+        "status": "success",
+        "execution_time": 1.517219,
+        "failures": 0
+      },
+      {
+        "unique_id": "model.nyc311.dim_borough",
+        "status": "success",
+        "execution_time": 3.5434935092926025,
+        "failures": null
+      },
+      {
+        "unique_id": "model.nyc311.dim_date",
+        "status": "success",
+        "execution_time": 3.9306576251983643,
+        "failures": null
+      },
+      {
+        "unique_id": "model.nyc311.stg_observations",
+        "status": "success",
+        "execution_time": 2.6776671409606934,
+        "failures": null
+      },
+      {
+        "unique_id": "model.nyc311.stg_targets",
+        "status": "success",
+        "execution_time": 2.4269237518310547,
+        "failures": null
+      },
+      {
+        "unique_id": "test.nyc311.dst_elapsed_reference",
+        "status": "pass",
+        "execution_time": 1.6811401844024658,
+        "failures": 0
+      },
+      {
+        "unique_id": "test.nyc311.fixture_has_overdue_and_immature",
+        "status": "pass",
+        "execution_time": 1.4393105506896973,
+        "failures": 0
+      },
+      {
+        "unique_id": "test.nyc311.not_null_dim_borough_borough_key.1ecdd62dfb",
+        "status": "pass",
+        "execution_time": 1.8295469284057617,
+        "failures": 0
+      },
+      {
+        "unique_id": "test.nyc311.unique_dim_borough_borough_key.ff2296557b",
+        "status": "pass",
+        "execution_time": 1.8495662212371826,
+        "failures": 0
+      },
+      {
+        "unique_id": "test.nyc311.not_null_dim_date_date_key.881d0a31b6",
+        "status": "pass",
+        "execution_time": 1.8856282234191895,
+        "failures": 0
+      },
+      {
+        "unique_id": "test.nyc311.unique_dim_date_date_key.0869fd48f9",
+        "status": "pass",
+        "execution_time": 1.639484167098999,
+        "failures": 0
+      },
+      {
+        "unique_id": "test.nyc311.not_null_stg_observations_observed_at.c5e5f067fa",
+        "status": "pass",
+        "execution_time": 2.1655094623565674,
+        "failures": 0
+      },
+      {
+        "unique_id": "test.nyc311.not_null_stg_observations_snapshot_id.ffb671636b",
+        "status": "pass",
+        "execution_time": 2.0859744548797607,
+        "failures": 0
+      },
+      {
+        "unique_id": "test.nyc311.not_null_stg_observations_source_kind.93f437481c",
+        "status": "pass",
+        "execution_time": 2.126859188079834,
+        "failures": 0
+      },
+      {
+        "unique_id": "test.nyc311.unique_stg_observations_snapshot_id.e386ecc589",
+        "status": "pass",
+        "execution_time": 2.155608892440796,
+        "failures": 0
+      },
+      {
+        "unique_id": "test.nyc311.not_null_stg_targets_effective_start.dcb79d4f83",
+        "status": "pass",
+        "execution_time": 2.050858736038208,
+        "failures": 0
+      },
+      {
+        "unique_id": "test.nyc311.not_null_stg_targets_target_hours.1d7c2373b9",
+        "status": "pass",
+        "execution_time": 2.0944314002990723,
+        "failures": 0
+      },
+      {
+        "unique_id": "test.nyc311.not_null_stg_targets_target_key.b1ecffb57f",
+        "status": "pass",
+        "execution_time": 1.8757236003875732,
+        "failures": 0
+      },
+      {
+        "unique_id": "test.nyc311.target_intervals_do_not_overlap",
+        "status": "pass",
+        "execution_time": 2.008669137954712,
+        "failures": 0
+      },
+      {
+        "unique_id": "test.nyc311.target_register_valid",
+        "status": "pass",
+        "execution_time": 2.0002195835113525,
+        "failures": 0
+      },
+      {
+        "unique_id": "test.nyc311.unique_stg_targets_target_key.e8f73703fc",
+        "status": "pass",
+        "execution_time": 1.9570801258087158,
+        "failures": 0
+      },
+      {
+        "unique_id": "model.nyc311.release_metadata",
+        "status": "success",
+        "execution_time": 3.87862229347229,
+        "failures": null
+      },
+      {
+        "unique_id": "model.nyc311.stg_requests",
+        "status": "success",
+        "execution_time": 3.108386516571045,
+        "failures": null
+      },
+      {
+        "unique_id": "test.nyc311.not_null_release_metadata_release_id.8a07267b0a",
+        "status": "pass",
+        "execution_time": 1.749922275543213,
+        "failures": 0
+      },
+      {
+        "unique_id": "test.nyc311.not_null_release_metadata_snapshot_id.228ed98374",
+        "status": "pass",
+        "execution_time": 1.5369763374328613,
+        "failures": 0
+      },
+      {
+        "unique_id": "test.nyc311.unique_release_metadata_release_id.4e30372dcc",
+        "status": "pass",
+        "execution_time": 1.7979462146759033,
+        "failures": 0
+      },
+      {
+        "unique_id": "test.nyc311.unique_release_metadata_snapshot_id.f7b8f1d549",
+        "status": "pass",
+        "execution_time": 1.7699775695800781,
+        "failures": 0
+      },
+      {
+        "unique_id": "test.nyc311.accepted_values_stg_requests_status_class__open__closed__unknown.7f099de2ad",
+        "status": "pass",
+        "execution_time": 2.044928789138794,
+        "failures": 0
+      },
+      {
+        "unique_id": "test.nyc311.accepted_values_stg_requests_temporal_quality__valid__missing_created__invalid_created__invalid_closed__ambiguous_created__ambiguous_closed__nonexistent_created__nonexistent_closed__negative_elapsed__future_created__future_closed.767b385597",
+        "status": "pass",
+        "execution_time": 1.8729844093322754,
+        "failures": 0
+      },
+      {
+        "unique_id": "test.nyc311.not_null_stg_requests_request_id.6f6fb294c5",
+        "status": "pass",
+        "execution_time": 2.1612603664398193,
+        "failures": 0
+      },
+      {
+        "unique_id": "test.nyc311.not_null_stg_requests_snapshot_id.ad42902a3e",
+        "status": "pass",
+        "execution_time": 1.953974723815918,
+        "failures": 0
+      },
+      {
+        "unique_id": "test.nyc311.relationships_stg_requests_snapshot_id__snapshot_id__ref_stg_observations_.15ced1ae8a",
+        "status": "pass",
+        "execution_time": 1.867995262145996,
+        "failures": 0
+      },
+      {
+        "unique_id": "test.nyc311.request_observation_key",
+        "status": "pass",
+        "execution_time": 1.8536376953125,
+        "failures": 0
+      },
+      {
+        "unique_id": "test.nyc311.source_status_contract",
+        "status": "pass",
+        "execution_time": 1.9790692329406738,
+        "failures": 0
+      },
+      {
+        "unique_id": "test.nyc311.valid_timestamp_normalization",
+        "status": "pass",
+        "execution_time": 1.8413708209991455,
+        "failures": 0
+      },
+      {
+        "unique_id": "model.nyc311.dim_agency",
+        "status": "success",
+        "execution_time": 4.60845422744751,
+        "failures": null
+      },
+      {
+        "unique_id": "model.nyc311.dim_problem",
+        "status": "success",
+        "execution_time": 4.715922117233276,
+        "failures": null
+      },
+      {
+        "unique_id": "model.nyc311.fct_backlog",
+        "status": "success",
+        "execution_time": 4.640920400619507,
+        "failures": null
+      },
+      {
+        "unique_id": "test.nyc311.not_null_dim_agency_agency_key.0a87c2ca6f",
+        "status": "pass",
+        "execution_time": 1.7872295379638672,
+        "failures": 0
+      },
+      {
+        "unique_id": "test.nyc311.unique_dim_agency_agency_key.c20e439aff",
+        "status": "pass",
+        "execution_time": 1.8324565887451172,
+        "failures": 0
+      },
+      {
+        "unique_id": "test.nyc311.not_null_dim_problem_problem_key.1089b67d47",
+        "status": "pass",
+        "execution_time": 1.602238655090332,
+        "failures": 0
+      },
+      {
+        "unique_id": "test.nyc311.unique_dim_problem_problem_key.883febbd7c",
+        "status": "pass",
+        "execution_time": 1.7177865505218506,
+        "failures": 0
+      },
+      {
+        "unique_id": "test.nyc311.backlog_grain",
+        "status": "pass",
+        "execution_time": 1.9004707336425781,
+        "failures": 0
+      },
+      {
+        "unique_id": "test.nyc311.not_null_fct_backlog_observed_at.cf645f8634",
+        "status": "pass",
+        "execution_time": 1.7679903507232666,
+        "failures": 0
+      },
+      {
+        "unique_id": "test.nyc311.not_null_fct_backlog_snapshot_id.3b6737a5b5",
+        "status": "pass",
+        "execution_time": 1.845341682434082,
+        "failures": 0
+      },
+      {
+        "unique_id": "test.nyc311.relationships_fct_backlog_agency_key__agency_key__ref_dim_agency_.9e279d12ac",
+        "status": "pass",
+        "execution_time": 1.8711800575256348,
+        "failures": 0
+      },
+      {
+        "unique_id": "test.nyc311.relationships_fct_backlog_borough_key__borough_key__ref_dim_borough_.6596f90559",
+        "status": "pass",
+        "execution_time": 1.8196446895599365,
+        "failures": 0
+      },
+      {
+        "unique_id": "test.nyc311.relationships_fct_backlog_problem_key__problem_key__ref_dim_problem_.0bbcc8f72a",
+        "status": "pass",
+        "execution_time": 1.517305612564087,
+        "failures": 0
+      },
+      {
+        "unique_id": "test.nyc311.target_join_has_no_fanout",
+        "status": "pass",
+        "execution_time": 2.477712631225586,
+        "failures": 0
+      },
+      {
+        "unique_id": "model.nyc311.fct_cases",
+        "status": "success",
+        "execution_time": 5.817982912063599,
+        "failures": null
+      },
+      {
+        "unique_id": "test.nyc311.accepted_values_fct_cases_target_denominator__False__0__1.5bae57b1a7",
+        "status": "pass",
+        "execution_time": 1.6684696674346924,
+        "failures": 0
+      },
+      {
+        "unique_id": "test.nyc311.accepted_values_fct_cases_target_eligibility_reason__eligible_mature__immature__missing_target__invalid_outcome__unknown_outcome.5992800172",
+        "status": "pass",
+        "execution_time": 1.8539338111877441,
+        "failures": 0
+      },
+      {
+        "unique_id": "test.nyc311.accepted_values_fct_cases_target_numerator__False__0__1.96bc56f45f",
+        "status": "pass",
+        "execution_time": 2.040714740753174,
+        "failures": 0
+      },
+      {
+        "unique_id": "test.nyc311.backlog_reconciles",
+        "status": "pass",
+        "execution_time": 1.616234540939331,
+        "failures": 0
+      },
+      {
+        "unique_id": "test.nyc311.case_population_preserved",
+        "status": "pass",
+        "execution_time": 1.9173235893249512,
+        "failures": 0
+      },
+      {
+        "unique_id": "test.nyc311.metric_flags_are_consistent",
+        "status": "pass",
+        "execution_time": 1.6013844013214111,
+        "failures": 0
+      },
+      {
+        "unique_id": "test.nyc311.not_null_fct_cases_agency_key.f1a19ec3fc",
+        "status": "pass",
+        "execution_time": 2.0572497844696045,
+        "failures": 0
+      },
+      {
+        "unique_id": "test.nyc311.not_null_fct_cases_borough_key.c731fa98f9",
+        "status": "pass",
+        "execution_time": 1.8030614852905273,
+        "failures": 0
+      },
+      {
+        "unique_id": "test.nyc311.not_null_fct_cases_problem_key.0247045645",
+        "status": "pass",
+        "execution_time": 1.8092103004455566,
+        "failures": 0
+      },
+      {
+        "unique_id": "test.nyc311.not_null_fct_cases_release_id.e0dc347467",
+        "status": "pass",
+        "execution_time": 1.759458065032959,
+        "failures": 0
+      },
+      {
+        "unique_id": "test.nyc311.not_null_fct_cases_request_id.1aa67fbc69",
+        "status": "pass",
+        "execution_time": 1.7485861778259277,
+        "failures": 0
+      },
+      {
+        "unique_id": "test.nyc311.not_null_fct_cases_snapshot_id.1baf3a4872",
+        "status": "pass",
+        "execution_time": 1.6130108833312988,
+        "failures": 0
+      },
+      {
+        "unique_id": "test.nyc311.not_null_fct_cases_target_denominator.664000c443",
+        "status": "pass",
+        "execution_time": 1.6622200012207031,
+        "failures": 0
+      },
+      {
+        "unique_id": "test.nyc311.not_null_fct_cases_target_numerator.4013b77eda",
+        "status": "pass",
+        "execution_time": 1.6437935829162598,
+        "failures": 0
+      },
+      {
+        "unique_id": "test.nyc311.relationships_fct_cases_agency_key__agency_key__ref_dim_agency_.a22306a280",
+        "status": "pass",
+        "execution_time": 1.7790257930755615,
+        "failures": 0
+      },
+      {
+        "unique_id": "test.nyc311.relationships_fct_cases_borough_key__borough_key__ref_dim_borough_.a7bcf79e56",
+        "status": "pass",
+        "execution_time": 1.6722536087036133,
+        "failures": 0
+      },
+      {
+        "unique_id": "test.nyc311.relationships_fct_cases_closed_date__date_key__ref_dim_date_.46497c5d39",
+        "status": "pass",
+        "execution_time": 1.7668695449829102,
+        "failures": 0
+      },
+      {
+        "unique_id": "test.nyc311.relationships_fct_cases_created_date__date_key__ref_dim_date_.8c3c25b341",
+        "status": "pass",
+        "execution_time": 1.8165080547332764,
+        "failures": 0
+      },
+      {
+        "unique_id": "test.nyc311.relationships_fct_cases_problem_key__problem_key__ref_dim_problem_.525ebd6ffe",
+        "status": "pass",
+        "execution_time": 1.7950623035430908,
+        "failures": 0
+      },
+      {
+        "unique_id": "test.nyc311.release_metadata_matches_input",
+        "status": "pass",
+        "execution_time": 1.8400681018829346,
+        "failures": 0
+      },
+      {
+        "unique_id": "test.nyc311.unique_fct_cases_request_id.10d8617684",
+        "status": "pass",
+        "execution_time": 1.8374903202056885,
+        "failures": 0
+      }
+    ],
+    "compiled_analyses": {
+      "reconciliation": "-- dbt compile --select reconciliation --vars '<the release vars>'\n-- Execute the compiled query with cache disabled and a maximum-bytes-billed limit.\n-- This returns overall, a meaningful slice, an empty slice, and separate creation/\n-- closure date roles. P90 is continuous interpolation over case rows.\nwith slices as (\n    select 'overall' as slice, cast(null as string) as agency_filter,\n        cast(null as string) as problem_filter, cast(null as string) as borough_filter\n    union all select 'DSNY / Dirty Condition / BROOKLYN', 'DSNY', 'Dirty Condition', 'BROOKLYN'\n    union all select 'empty', null, null, '__NO_SUCH_BOROUGH__'\n), expanded as (\n    select s.slice, c.*\n    from slices s\n    left join `nyc311-service-ops-20261118`.`nyc311_work`.`fct_cases__r_dsny_20261118` c\n      on (s.agency_filter is null or c.agency_key = s.agency_filter)\n     and (s.problem_filter is null or c.problem_key = s.problem_filter)\n     and (s.borough_filter is null or c.borough_key = s.borough_filter)\n), percentiles as (\n    select distinct slice,\n        percentile_cont(if(is_p90_eligible, elapsed_hours, null), 0.9) over (partition by slice) as p90_elapsed_hours\n    from expanded\n), totals as (\n    select slice,\n        count(request_id) as case_count,\n        countif(created_date is not null) as intake,\n        countif(is_recorded_closure) as recorded_closures,\n        countif(is_backlog) as observed_backlog,\n        coalesce(sum(target_numerator), 0) as target_numerator,\n        coalesce(sum(target_denominator), 0) as target_denominator,\n        safe_divide(sum(target_numerator), sum(target_denominator)) as target_rate,\n        countif(is_p90_eligible) as p90_eligible_count,\n        countif(is_missing_target) as missing_target_cases,\n        countif(is_invalid_outcome) as invalid_outcome_cases,\n        countif(is_unknown_outcome) as unknown_outcome_cases,\n        countif(is_immature) as immature_cases\n    from expanded group by slice\n)\nselect 'dsny_20261118' as release_id, 'dsny_20261118_a' as snapshot_id,\n    totals.*, percentiles.p90_elapsed_hours\nfrom totals left join percentiles using (slice)\norder by slice",
+      "date_role_reconciliation": "-- Match the Date slicer in Power BI to this half-open local-date interval.\n-- Optional vars reconciliation_start/end default to the final full cohort week,\n-- matching the checked-in Power BI DAX reconciliation query.\nwith bounds as (\n    select date('2026-11-09') as from_date,\n           date('2026-11-16') as to_date\n), created_slice as (\n    select c.* from `nyc311-service-ops-20261118`.`nyc311_work`.`fct_cases__r_dsny_20261118` c cross join bounds b\n    where c.created_date >= b.from_date and c.created_date < b.to_date\n), closure_slice as (\n    select c.* from `nyc311-service-ops-20261118`.`nyc311_work`.`fct_cases__r_dsny_20261118` c cross join bounds b\n    where c.is_p90_eligible and c.closed_date >= b.from_date and c.closed_date < b.to_date\n), p90 as (\n    select percentile_cont(elapsed_hours, 0.9) over () as value from closure_slice\n)\nselect 'dsny_20261118' as release_id,\n    (select count(*) from created_slice) as intake_creation_slice,\n    (select count(*) from closure_slice) as closures_closure_slice,\n    (select coalesce(sum(target_numerator), 0) from created_slice) as target_numerator_creation_slice,\n    (select coalesce(sum(target_denominator), 0) from created_slice) as target_denominator_creation_slice,\n    (select count(*) from closure_slice) as p90_eligible_closure_slice,\n    (select value from p90 limit 1) as p90_hours_closure_slice,\n    (select coalesce(sum(open_count), 0) from `nyc311-service-ops-20261118`.`nyc311_work`.`fct_backlog__r_dsny_20261118` where is_release_snapshot) as backlog_observation,\n    (select coalesce(sum(open_count), 0) from `nyc311-service-ops-20261118`.`nyc311_work`.`fct_backlog__r_dsny_20261118` where is_release_snapshot) as backlog_without_period",
+      "release_integrity_reconciliation": "-- Matches section E of powerbi/reconciliation.dax.\nselect\n    'dsny_20261118' as release_id,\n    (select count(*) from `nyc311-service-ops-20261118`.`nyc311_work`.`release_metadata__r_dsny_20261118`) as release_rows,\n    (select count(distinct release_id) from `nyc311-service-ops-20261118`.`nyc311_work`.`fct_cases__r_dsny_20261118`) as case_release_count,\n    (select count(distinct snapshot_id) from `nyc311-service-ops-20261118`.`nyc311_work`.`fct_cases__r_dsny_20261118`) as case_snapshot_count,\n    (select count(distinct snapshot_id) from `nyc311-service-ops-20261118`.`nyc311_work`.`fct_backlog__r_dsny_20261118` where is_release_snapshot) as backlog_snapshot_count,\n    (select countif(is_backlog) from `nyc311-service-ops-20261118`.`nyc311_work`.`fct_cases__r_dsny_20261118`) as open_case_rows,\n    (select coalesce(sum(open_count), 0) from `nyc311-service-ops-20261118`.`nyc311_work`.`fct_backlog__r_dsny_20261118` where is_release_snapshot) as observed_backlog",
+      "segment_investigation": "-- Rank segments by observed open requests aged at least seven elapsed days.\n-- This identifies a review priority, not a causal explanation or staffing need.\nwith segment_p90 as (\n    select distinct agency_key, problem_key, borough_key,\n        percentile_cont(if(is_p90_eligible, elapsed_hours, null), 0.9)\n            over (partition by agency_key, problem_key, borough_key) as p90_elapsed_hours\n    from `nyc311-service-ops-20261118`.`nyc311_work`.`fct_cases__r_dsny_20261118`\n), cases as (\n    select agency_key, problem_key, borough_key,\n        countif(created_date is not null) as intake,\n        countif(is_recorded_closure) as recorded_closures,\n        countif(is_p90_eligible) as p90_eligible_count,\n        sum(target_numerator) as target_numerator,\n        sum(target_denominator) as target_denominator,\n        countif(is_missing_target) as missing_target_cases,\n        countif(is_invalid_outcome or is_unknown_outcome) as invalid_or_unknown_cases,\n        countif(is_immature) as immature_cases\n    from `nyc311-service-ops-20261118`.`nyc311_work`.`fct_cases__r_dsny_20261118`\n    group by agency_key, problem_key, borough_key\n)\nselect 'dsny_20261118' as release_id,\n    b.snapshot_id, b.observed_at, c.*, b.open_count, b.age_168h_plus_count, p.p90_elapsed_hours,\n    safe_divide(c.target_numerator, c.target_denominator) as within_demo_target\nfrom cases c\njoin `nyc311-service-ops-20261118`.`nyc311_work`.`fct_backlog__r_dsny_20261118` b using (agency_key, problem_key, borough_key)\nleft join segment_p90 p using (agency_key, problem_key, borough_key)\nwhere b.is_release_snapshot\norder by b.age_168h_plus_count desc, b.open_count desc, c.intake desc,\n    c.agency_key, c.problem_key, c.borough_key",
+      "weekly_demand_and_closures": "-- Creation and closure date series are separate event counts from the fixed cohort.\nwith created as (\n    select date_trunc(created_date, week(monday)) as week_start,\n        agency_key, problem_key, borough_key, count(*) as intake\n    from `nyc311-service-ops-20261118`.`nyc311_work`.`fct_cases__r_dsny_20261118`\n    where created_date is not null\n    group by week_start, agency_key, problem_key, borough_key\n), closed as (\n    select date_trunc(closed_date, week(monday)) as week_start,\n        agency_key, problem_key, borough_key, count(*) as recorded_closures\n    from `nyc311-service-ops-20261118`.`nyc311_work`.`fct_cases__r_dsny_20261118`\n    where is_recorded_closure\n    group by week_start, agency_key, problem_key, borough_key\n)\nselect 'dsny_20261118' as release_id,\n    week_start, agency_key, problem_key, borough_key,\n    coalesce(intake, 0) as intake, coalesce(recorded_closures, 0) as recorded_closures\nfrom created full outer join closed using (week_start, agency_key, problem_key, borough_key)\norder by week_start, agency_key, problem_key, borough_key"
+    },
+    "reconciliation_period": {
+      "start": "2026-11-09",
+      "end": "2026-11-16"
+    }
+  },
+  "sql_reconciliation": {
+    "reconciliation": {
+      "sql": "-- dbt compile --select reconciliation --vars '<the release vars>'\n-- Execute the compiled query with cache disabled and a maximum-bytes-billed limit.\n-- This returns overall, a meaningful slice, an empty slice, and separate creation/\n-- closure date roles. P90 is continuous interpolation over case rows.\nwith slices as (\n    select 'overall' as slice, cast(null as string) as agency_filter,\n        cast(null as string) as problem_filter, cast(null as string) as borough_filter\n    union all select 'DSNY / Dirty Condition / BROOKLYN', 'DSNY', 'Dirty Condition', 'BROOKLYN'\n    union all select 'empty', null, null, '__NO_SUCH_BOROUGH__'\n), expanded as (\n    select s.slice, c.*\n    from slices s\n    left join `nyc311-service-ops-20261118`.`nyc311_work`.`fct_cases__r_dsny_20261118` c\n      on (s.agency_filter is null or c.agency_key = s.agency_filter)\n     and (s.problem_filter is null or c.problem_key = s.problem_filter)\n     and (s.borough_filter is null or c.borough_key = s.borough_filter)\n), percentiles as (\n    select distinct slice,\n        percentile_cont(if(is_p90_eligible, elapsed_hours, null), 0.9) over (partition by slice) as p90_elapsed_hours\n    from expanded\n), totals as (\n    select slice,\n        count(request_id) as case_count,\n        countif(created_date is not null) as intake,\n        countif(is_recorded_closure) as recorded_closures,\n        countif(is_backlog) as observed_backlog,\n        coalesce(sum(target_numerator), 0) as target_numerator,\n        coalesce(sum(target_denominator), 0) as target_denominator,\n        safe_divide(sum(target_numerator), sum(target_denominator)) as target_rate,\n        countif(is_p90_eligible) as p90_eligible_count,\n        countif(is_missing_target) as missing_target_cases,\n        countif(is_invalid_outcome) as invalid_outcome_cases,\n        countif(is_unknown_outcome) as unknown_outcome_cases,\n        countif(is_immature) as immature_cases\n    from expanded group by slice\n)\nselect 'dsny_20261118' as release_id, 'dsny_20261118_a' as snapshot_id,\n    totals.*, percentiles.p90_elapsed_hours\nfrom totals left join percentiles using (slice)\norder by slice",
+      "sql_sha256": "4264cdaa27cea77d0f5d615c6969bd3e1e994299ad73899cecced4e110ab6521",
+      "dry_run_bytes": 1875922,
+      "job": {
+        "job_id": "d02c3c69-e81a-425b-8cf5-906c9299e049",
+        "bytes_processed": 1875922,
+        "bytes_billed": 10485760,
+        "cache_hit": false,
+        "statement_type": "SELECT",
+        "outcome": "completed"
+      },
+      "output_rows": [
+        {
+          "release_id": "dsny_20261118",
+          "snapshot_id": "dsny_20261118_a",
+          "slice": "DSNY / Dirty Condition / BROOKLYN",
+          "case_count": 5081,
+          "intake": 5081,
+          "recorded_closures": 4941,
+          "observed_backlog": 138,
+          "target_numerator": 2966,
+          "target_denominator": 5049,
+          "target_rate": 0.5874430580312934,
+          "p90_eligible_count": 4941,
+          "missing_target_cases": 0,
+          "invalid_outcome_cases": 2,
+          "unknown_outcome_cases": 0,
+          "immature_cases": 30,
+          "p90_elapsed_hours": 147.0125
+        },
+        {
+          "release_id": "dsny_20261118",
+          "snapshot_id": "dsny_20261118_a",
+          "slice": "empty",
+          "case_count": 0,
+          "intake": 0,
+          "recorded_closures": 0,
+          "observed_backlog": 0,
+          "target_numerator": 0,
+          "target_denominator": 0,
+          "target_rate": null,
+          "p90_eligible_count": 0,
+          "missing_target_cases": 0,
+          "invalid_outcome_cases": 0,
+          "unknown_outcome_cases": 0,
+          "immature_cases": 0,
+          "p90_elapsed_hours": null
+        },
+        {
+          "release_id": "dsny_20261118",
+          "snapshot_id": "dsny_20261118_a",
+          "slice": "overall",
+          "case_count": 23101,
+          "intake": 23101,
+          "recorded_closures": 22369,
+          "observed_backlog": 728,
+          "target_numerator": 14461,
+          "target_denominator": 22907,
+          "target_rate": 0.6312917448814773,
+          "p90_eligible_count": 22369,
+          "missing_target_cases": 0,
+          "invalid_outcome_cases": 2,
+          "unknown_outcome_cases": 2,
+          "immature_cases": 190,
+          "p90_elapsed_hours": 131.5043888888889
+        }
+      ]
+    },
+    "date_role_reconciliation": {
+      "sql": "-- Match the Date slicer in Power BI to this half-open local-date interval.\n-- Optional vars reconciliation_start/end default to the final full cohort week,\n-- matching the checked-in Power BI DAX reconciliation query.\nwith bounds as (\n    select date('2026-11-09') as from_date,\n           date('2026-11-16') as to_date\n), created_slice as (\n    select c.* from `nyc311-service-ops-20261118`.`nyc311_work`.`fct_cases__r_dsny_20261118` c cross join bounds b\n    where c.created_date >= b.from_date and c.created_date < b.to_date\n), closure_slice as (\n    select c.* from `nyc311-service-ops-20261118`.`nyc311_work`.`fct_cases__r_dsny_20261118` c cross join bounds b\n    where c.is_p90_eligible and c.closed_date >= b.from_date and c.closed_date < b.to_date\n), p90 as (\n    select percentile_cont(elapsed_hours, 0.9) over () as value from closure_slice\n)\nselect 'dsny_20261118' as release_id,\n    (select count(*) from created_slice) as intake_creation_slice,\n    (select count(*) from closure_slice) as closures_closure_slice,\n    (select coalesce(sum(target_numerator), 0) from created_slice) as target_numerator_creation_slice,\n    (select coalesce(sum(target_denominator), 0) from created_slice) as target_denominator_creation_slice,\n    (select count(*) from closure_slice) as p90_eligible_closure_slice,\n    (select value from p90 limit 1) as p90_hours_closure_slice,\n    (select coalesce(sum(open_count), 0) from `nyc311-service-ops-20261118`.`nyc311_work`.`fct_backlog__r_dsny_20261118` where is_release_snapshot) as backlog_observation,\n    (select coalesce(sum(open_count), 0) from `nyc311-service-ops-20261118`.`nyc311_work`.`fct_backlog__r_dsny_20261118` where is_release_snapshot) as backlog_without_period",
+      "sql_sha256": "1a281efec897ef245f5e7bafa5cb0504ed53b742ca7421571bc5c904be2ccfc7",
+      "dry_run_bytes": 935537,
+      "job": {
+        "job_id": "ce797fd6-4d4b-4a6c-b71e-82849d0bc9e2",
+        "bytes_processed": 311150,
+        "bytes_billed": 20971520,
+        "cache_hit": false,
+        "statement_type": "SELECT",
+        "outcome": "completed"
+      },
+      "output_rows": [
+        {
+          "release_id": "dsny_20261118",
+          "intake_creation_slice": 1817,
+          "closures_closure_slice": 1706,
+          "target_numerator_creation_slice": 877,
+          "target_denominator_creation_slice": 1627,
+          "p90_eligible_closure_slice": 1706,
+          "p90_hours_closure_slice": 140.19583333333335,
+          "backlog_observation": 728,
+          "backlog_without_period": 728
+        }
+      ]
+    },
+    "release_integrity_reconciliation": {
+      "sql": "-- Matches section E of powerbi/reconciliation.dax.\nselect\n    'dsny_20261118' as release_id,\n    (select count(*) from `nyc311-service-ops-20261118`.`nyc311_work`.`release_metadata__r_dsny_20261118`) as release_rows,\n    (select count(distinct release_id) from `nyc311-service-ops-20261118`.`nyc311_work`.`fct_cases__r_dsny_20261118`) as case_release_count,\n    (select count(distinct snapshot_id) from `nyc311-service-ops-20261118`.`nyc311_work`.`fct_cases__r_dsny_20261118`) as case_snapshot_count,\n    (select count(distinct snapshot_id) from `nyc311-service-ops-20261118`.`nyc311_work`.`fct_backlog__r_dsny_20261118` where is_release_snapshot) as backlog_snapshot_count,\n    (select countif(is_backlog) from `nyc311-service-ops-20261118`.`nyc311_work`.`fct_cases__r_dsny_20261118`) as open_case_rows,\n    (select coalesce(sum(open_count), 0) from `nyc311-service-ops-20261118`.`nyc311_work`.`fct_backlog__r_dsny_20261118` where is_release_snapshot) as observed_backlog",
+      "sql_sha256": "4536b55c19517818af9c63bc36ed29cecf7543a4b27aff971ca7fff652ef154a",
+      "dry_run_bytes": 762645,
+      "job": {
+        "job_id": "0c506c3d-8ad9-4ef4-9922-f60a6c14eb89",
+        "bytes_processed": 762645,
+        "bytes_billed": 31457280,
+        "cache_hit": false,
+        "statement_type": "SELECT",
+        "outcome": "completed"
+      },
+      "output_rows": [
+        {
+          "release_id": "dsny_20261118",
+          "release_rows": 1,
+          "case_release_count": 1,
+          "case_snapshot_count": 1,
+          "backlog_snapshot_count": 1,
+          "open_case_rows": 728,
+          "observed_backlog": 728
+        }
+      ]
+    },
+    "segment_investigation": {
+      "sql": "-- Rank segments by observed open requests aged at least seven elapsed days.\n-- This identifies a review priority, not a causal explanation or staffing need.\nwith segment_p90 as (\n    select distinct agency_key, problem_key, borough_key,\n        percentile_cont(if(is_p90_eligible, elapsed_hours, null), 0.9)\n            over (partition by agency_key, problem_key, borough_key) as p90_elapsed_hours\n    from `nyc311-service-ops-20261118`.`nyc311_work`.`fct_cases__r_dsny_20261118`\n), cases as (\n    select agency_key, problem_key, borough_key,\n        countif(created_date is not null) as intake,\n        countif(is_recorded_closure) as recorded_closures,\n        countif(is_p90_eligible) as p90_eligible_count,\n        sum(target_numerator) as target_numerator,\n        sum(target_denominator) as target_denominator,\n        countif(is_missing_target) as missing_target_cases,\n        countif(is_invalid_outcome or is_unknown_outcome) as invalid_or_unknown_cases,\n        countif(is_immature) as immature_cases\n    from `nyc311-service-ops-20261118`.`nyc311_work`.`fct_cases__r_dsny_20261118`\n    group by agency_key, problem_key, borough_key\n)\nselect 'dsny_20261118' as release_id,\n    b.snapshot_id, b.observed_at, c.*, b.open_count, b.age_168h_plus_count, p.p90_elapsed_hours,\n    safe_divide(c.target_numerator, c.target_denominator) as within_demo_target\nfrom cases c\njoin `nyc311-service-ops-20261118`.`nyc311_work`.`fct_backlog__r_dsny_20261118` b using (agency_key, problem_key, borough_key)\nleft join segment_p90 p using (agency_key, problem_key, borough_key)\nwhere b.is_release_snapshot\norder by b.age_168h_plus_count desc, b.open_count desc, c.intake desc,\n    c.agency_key, c.problem_key, c.borough_key",
+      "sql_sha256": "3072726af494bee26232076823bf1c2fbc1c4a3be56e469b700ca169618af574",
+      "dry_run_bytes": 1622711,
+      "job": {
+        "job_id": "b04424cf-55de-4f74-ad34-ae311d2c6121",
+        "bytes_processed": 1622711,
+        "bytes_billed": 20971520,
+        "cache_hit": false,
+        "statement_type": "SELECT",
+        "outcome": "completed"
+      },
+      "output_rows": [
+        {
+          "release_id": "dsny_20261118",
+          "snapshot_id": "dsny_20261118_a",
+          "observed_at": "2026-11-18T11:31:28.284936+00:00",
+          "agency_key": "DSNY",
+          "problem_key": "Dirty Condition",
+          "borough_key": "QUEENS",
+          "intake": 3273,
+          "recorded_closures": 3092,
+          "p90_eligible_count": 3092,
+          "target_numerator": 2087,
+          "target_denominator": 3240,
+          "missing_target_cases": 0,
+          "invalid_or_unknown_cases": 0,
+          "immature_cases": 33,
+          "open_count": 181,
+          "age_168h_plus_count": 92,
+          "p90_elapsed_hours": 126.6875,
+          "within_demo_target": 0.6441358024691358
+        },
+        {
+          "release_id": "dsny_20261118",
+          "snapshot_id": "dsny_20261118_a",
+          "observed_at": "2026-11-18T11:31:28.284936+00:00",
+          "agency_key": "DSNY",
+          "problem_key": "Dirty Condition",
+          "borough_key": "BROOKLYN",
+          "intake": 5081,
+          "recorded_closures": 4941,
+          "p90_eligible_count": 4941,
+          "target_numerator": 2966,
+          "target_denominator": 5049,
+          "missing_target_cases": 0,
+          "invalid_or_unknown_cases": 2,
+          "immature_cases": 30,
+          "open_count": 138,
+          "age_168h_plus_count": 76,
+          "p90_elapsed_hours": 147.0125,
+          "within_demo_target": 0.5874430580312934
+        },
+        {
+          "release_id": "dsny_20261118",
+          "snapshot_id": "dsny_20261118_a",
+          "observed_at": "2026-11-18T11:31:28.284936+00:00",
+          "agency_key": "DSNY",
+          "problem_key": "Illegal Dumping",
+          "borough_key": "QUEENS",
+          "intake": 2474,
+          "recorded_closures": 2373,
+          "p90_eligible_count": 2373,
+          "target_numerator": 1502,
+          "target_denominator": 2446,
+          "missing_target_cases": 0,
+          "invalid_or_unknown_cases": 0,
+          "immature_cases": 28,
+          "open_count": 101,
+          "age_168h_plus_count": 50,
+          "p90_elapsed_hours": 142.91805555555555,
+          "within_demo_target": 0.6140637775960752
+        },
+        {
+          "release_id": "dsny_20261118",
+          "snapshot_id": "dsny_20261118_a",
+          "observed_at": "2026-11-18T11:31:28.284936+00:00",
+          "agency_key": "DSNY",
+          "problem_key": "Dirty Condition",
+          "borough_key": "BRONX",
+          "intake": 2247,
+          "recorded_closures": 2179,
+          "p90_eligible_count": 2179,
+          "target_numerator": 1427,
+          "target_denominator": 2232,
+          "missing_target_cases": 0,
+          "invalid_or_unknown_cases": 0,
+          "immature_cases": 15,
+          "open_count": 68,
+          "age_168h_plus_count": 49,
+          "p90_elapsed_hours": 124.05611111111111,
+          "within_demo_target": 0.639336917562724
+        },
+        {
+          "release_id": "dsny_20261118",
+          "snapshot_id": "dsny_20261118_a",
+          "observed_at": "2026-11-18T11:31:28.284936+00:00",
+          "agency_key": "DSNY",
+          "problem_key": "Illegal Dumping",
+          "borough_key": "BROOKLYN",
+          "intake": 3107,
+          "recorded_closures": 3014,
+          "p90_eligible_count": 3014,
+          "target_numerator": 1609,
+          "target_denominator": 3084,
+          "missing_target_cases": 0,
+          "invalid_or_unknown_cases": 0,
+          "immature_cases": 23,
+          "open_count": 93,
+          "age_168h_plus_count": 46,
+          "p90_elapsed_hours": 180.7617222222223,
+          "within_demo_target": 0.5217250324254216
+        },
+        {
+          "release_id": "dsny_20261118",
+          "snapshot_id": "dsny_20261118_a",
+          "observed_at": "2026-11-18T11:31:28.284936+00:00",
+          "agency_key": "DSNY",
+          "problem_key": "Dirty Condition",
+          "borough_key": "STATEN ISLAND",
+          "intake": 772,
+          "recorded_closures": 736,
+          "p90_eligible_count": 736,
+          "target_numerator": 534,
+          "target_denominator": 768,
+          "missing_target_cases": 0,
+          "invalid_or_unknown_cases": 0,
+          "immature_cases": 4,
+          "open_count": 36,
+          "age_168h_plus_count": 25,
+          "p90_elapsed_hours": 114.80166666666666,
+          "within_demo_target": 0.6953125
+        },
+        {
+          "release_id": "dsny_20261118",
+          "snapshot_id": "dsny_20261118_a",
+          "observed_at": "2026-11-18T11:31:28.284936+00:00",
+          "agency_key": "DSNY",
+          "problem_key": "Illegal Dumping",
+          "borough_key": "BRONX",
+          "intake": 1526,
+          "recorded_closures": 1488,
+          "p90_eligible_count": 1488,
+          "target_numerator": 962,
+          "target_denominator": 1517,
+          "missing_target_cases": 0,
+          "invalid_or_unknown_cases": 0,
+          "immature_cases": 9,
+          "open_count": 38,
+          "age_168h_plus_count": 22,
+          "p90_elapsed_hours": 122.29022222222223,
+          "within_demo_target": 0.6341463414634146
+        },
+        {
+          "release_id": "dsny_20261118",
+          "snapshot_id": "dsny_20261118_a",
+          "observed_at": "2026-11-18T11:31:28.284936+00:00",
+          "agency_key": "DSNY",
+          "problem_key": "Illegal Dumping",
+          "borough_key": "MANHATTAN",
+          "intake": 1162,
+          "recorded_closures": 1141,
+          "p90_eligible_count": 1141,
+          "target_numerator": 873,
+          "target_denominator": 1150,
+          "missing_target_cases": 0,
+          "invalid_or_unknown_cases": 0,
+          "immature_cases": 12,
+          "open_count": 21,
+          "age_168h_plus_count": 8,
+          "p90_elapsed_hours": 98.1025,
+          "within_demo_target": 0.7591304347826087
+        },
+        {
+          "release_id": "dsny_20261118",
+          "snapshot_id": "dsny_20261118_a",
+          "observed_at": "2026-11-18T11:31:28.284936+00:00",
+          "agency_key": "DSNY",
+          "problem_key": "Illegal Dumping",
+          "borough_key": "STATEN ISLAND",
+          "intake": 461,
+          "recorded_closures": 453,
+          "p90_eligible_count": 453,
+          "target_numerator": 302,
+          "target_denominator": 460,
+          "missing_target_cases": 0,
+          "invalid_or_unknown_cases": 0,
+          "immature_cases": 1,
+          "open_count": 8,
+          "age_168h_plus_count": 5,
+          "p90_elapsed_hours": 119.94483333333334,
+          "within_demo_target": 0.6565217391304348
+        },
+        {
+          "release_id": "dsny_20261118",
+          "snapshot_id": "dsny_20261118_a",
+          "observed_at": "2026-11-18T11:31:28.284936+00:00",
+          "agency_key": "DSNY",
+          "problem_key": "Dirty Condition",
+          "borough_key": "MANHATTAN",
+          "intake": 2990,
+          "recorded_closures": 2947,
+          "p90_eligible_count": 2947,
+          "target_numerator": 2198,
+          "target_denominator": 2953,
+          "missing_target_cases": 0,
+          "invalid_or_unknown_cases": 2,
+          "immature_cases": 35,
+          "open_count": 41,
+          "age_168h_plus_count": 4,
+          "p90_elapsed_hours": 100.12205555555556,
+          "within_demo_target": 0.7443278022350153
+        },
+        {
+          "release_id": "dsny_20261118",
+          "snapshot_id": "dsny_20261118_a",
+          "observed_at": "2026-11-18T11:31:28.284936+00:00",
+          "agency_key": "DSNY",
+          "problem_key": "Illegal Dumping",
+          "borough_key": "UNKNOWN",
+          "intake": 6,
+          "recorded_closures": 3,
+          "p90_eligible_count": 3,
+          "target_numerator": 0,
+          "target_denominator": 6,
+          "missing_target_cases": 0,
+          "invalid_or_unknown_cases": 0,
+          "immature_cases": 0,
+          "open_count": 3,
+          "age_168h_plus_count": 2,
+          "p90_elapsed_hours": 193.46172222222222,
+          "within_demo_target": 0.0
+        },
+        {
+          "release_id": "dsny_20261118",
+          "snapshot_id": "dsny_20261118_a",
+          "observed_at": "2026-11-18T11:31:28.284936+00:00",
+          "agency_key": "DSNY",
+          "problem_key": "Dirty Condition",
+          "borough_key": "UNKNOWN",
+          "intake": 2,
+          "recorded_closures": 2,
+          "p90_eligible_count": 2,
+          "target_numerator": 1,
+          "target_denominator": 2,
+          "missing_target_cases": 0,
+          "invalid_or_unknown_cases": 0,
+          "immature_cases": 0,
+          "open_count": 0,
+          "age_168h_plus_count": 0,
+          "p90_elapsed_hours": 188.1268611111111,
+          "within_demo_target": 0.5
+        }
+      ]
+    },
+    "weekly_demand_and_closures": {
+      "sql": "-- Creation and closure date series are separate event counts from the fixed cohort.\nwith created as (\n    select date_trunc(created_date, week(monday)) as week_start,\n        agency_key, problem_key, borough_key, count(*) as intake\n    from `nyc311-service-ops-20261118`.`nyc311_work`.`fct_cases__r_dsny_20261118`\n    where created_date is not null\n    group by week_start, agency_key, problem_key, borough_key\n), closed as (\n    select date_trunc(closed_date, week(monday)) as week_start,\n        agency_key, problem_key, borough_key, count(*) as recorded_closures\n    from `nyc311-service-ops-20261118`.`nyc311_work`.`fct_cases__r_dsny_20261118`\n    where is_recorded_closure\n    group by week_start, agency_key, problem_key, borough_key\n)\nselect 'dsny_20261118' as release_id,\n    week_start, agency_key, problem_key, borough_key,\n    coalesce(intake, 0) as intake, coalesce(recorded_closures, 0) as recorded_closures\nfrom created full outer join closed using (week_start, agency_key, problem_key, borough_key)\norder by week_start, agency_key, problem_key, borough_key",
+      "sql_sha256": "612ff5b2b38d447a3c1f3bf3beed9d4b01401e1a120696c22bc3112f106edf77",
+      "dry_run_bytes": 1136690,
+      "job": {
+        "job_id": "97006d0d-21dc-4147-8042-e751714660cd",
+        "bytes_processed": 1136690,
+        "bytes_billed": 10485760,
+        "cache_hit": false,
+        "statement_type": "SELECT",
+        "outcome": "completed"
+      },
+      "output_rows": [
+        {
+          "release_id": "dsny_20261118",
+          "week_start": "2026-09-07",
+          "agency_key": "DSNY",
+          "problem_key": "Dirty Condition",
+          "borough_key": "BRONX",
+          "intake": 318,
+          "recorded_closures": 196
+        },
+        {
+          "release_id": "dsny_20261118",
+          "week_start": "2026-09-07",
+          "agency_key": "DSNY",
+          "problem_key": "Dirty Condition",
+          "borough_key": "BROOKLYN",
+          "intake": 712,
+          "recorded_closures": 353
+        },
+        {
+          "release_id": "dsny_20261118",
+          "week_start": "2026-09-07",
+          "agency_key": "DSNY",
+          "problem_key": "Dirty Condition",
+          "borough_key": "MANHATTAN",
+          "intake": 354,
+          "recorded_closures": 174
+        },
+        {
+          "release_id": "dsny_20261118",
+          "week_start": "2026-09-07",
+          "agency_key": "DSNY",
+          "problem_key": "Dirty Condition",
+          "borough_key": "QUEENS",
+          "intake": 412,
+          "recorded_closures": 238
+        },
+        {
+          "release_id": "dsny_20261118",
+          "week_start": "2026-09-07",
+          "agency_key": "DSNY",
+          "problem_key": "Dirty Condition",
+          "borough_key": "STATEN ISLAND",
+          "intake": 97,
+          "recorded_closures": 54
+        },
+        {
+          "release_id": "dsny_20261118",
+          "week_start": "2026-09-07",
+          "agency_key": "DSNY",
+          "problem_key": "Illegal Dumping",
+          "borough_key": "BRONX",
+          "intake": 185,
+          "recorded_closures": 122
+        },
+        {
+          "release_id": "dsny_20261118",
+          "week_start": "2026-09-07",
+          "agency_key": "DSNY",
+          "problem_key": "Illegal Dumping",
+          "borough_key": "BROOKLYN",
+          "intake": 379,
+          "recorded_closures": 179
+        },
+        {
+          "release_id": "dsny_20261118",
+          "week_start": "2026-09-07",
+          "agency_key": "DSNY",
+          "problem_key": "Illegal Dumping",
+          "borough_key": "MANHATTAN",
+          "intake": 127,
+          "recorded_closures": 70
+        },
+        {
+          "release_id": "dsny_20261118",
+          "week_start": "2026-09-07",
+          "agency_key": "DSNY",
+          "problem_key": "Illegal Dumping",
+          "borough_key": "QUEENS",
+          "intake": 322,
+          "recorded_closures": 146
+        },
+        {
+          "release_id": "dsny_20261118",
+          "week_start": "2026-09-07",
+          "agency_key": "DSNY",
+          "problem_key": "Illegal Dumping",
+          "borough_key": "STATEN ISLAND",
+          "intake": 53,
+          "recorded_closures": 32
+        },
+        {
+          "release_id": "dsny_20261118",
+          "week_start": "2026-09-07",
+          "agency_key": "DSNY",
+          "problem_key": "Illegal Dumping",
+          "borough_key": "UNKNOWN",
+          "intake": 1,
+          "recorded_closures": 0
+        },
+        {
+          "release_id": "dsny_20261118",
+          "week_start": "2026-09-14",
+          "agency_key": "DSNY",
+          "problem_key": "Dirty Condition",
+          "borough_key": "BRONX",
+          "intake": 301,
+          "recorded_closures": 335
+        },
+        {
+          "release_id": "dsny_20261118",
+          "week_start": "2026-09-14",
+          "agency_key": "DSNY",
+          "problem_key": "Dirty Condition",
+          "borough_key": "BROOKLYN",
+          "intake": 603,
+          "recorded_closures": 648
+        },
+        {
+          "release_id": "dsny_20261118",
+          "week_start": "2026-09-14",
+          "agency_key": "DSNY",
+          "problem_key": "Dirty Condition",
+          "borough_key": "MANHATTAN",
+          "intake": 335,
+          "recorded_closures": 385
+        },
+        {
+          "release_id": "dsny_20261118",
+          "week_start": "2026-09-14",
+          "agency_key": "DSNY",
+          "problem_key": "Dirty Condition",
+          "borough_key": "QUEENS",
+          "intake": 343,
+          "recorded_closures": 349
+        },
+        {
+          "release_id": "dsny_20261118",
+          "week_start": "2026-09-14",
+          "agency_key": "DSNY",
+          "problem_key": "Dirty Condition",
+          "borough_key": "STATEN ISLAND",
+          "intake": 117,
+          "recorded_closures": 116
+        },
+        {
+          "release_id": "dsny_20261118",
+          "week_start": "2026-09-14",
+          "agency_key": "DSNY",
+          "problem_key": "Illegal Dumping",
+          "borough_key": "BRONX",
+          "intake": 180,
+          "recorded_closures": 187
+        },
+        {
+          "release_id": "dsny_20261118",
+          "week_start": "2026-09-14",
+          "agency_key": "DSNY",
+          "problem_key": "Illegal Dumping",
+          "borough_key": "BROOKLYN",
+          "intake": 344,
+          "recorded_closures": 347
+        },
+        {
+          "release_id": "dsny_20261118",
+          "week_start": "2026-09-14",
+          "agency_key": "DSNY",
+          "problem_key": "Illegal Dumping",
+          "borough_key": "MANHATTAN",
+          "intake": 121,
+          "recorded_closures": 135
+        },
+        {
+          "release_id": "dsny_20261118",
+          "week_start": "2026-09-14",
+          "agency_key": "DSNY",
+          "problem_key": "Illegal Dumping",
+          "borough_key": "QUEENS",
+          "intake": 287,
+          "recorded_closures": 307
+        },
+        {
+          "release_id": "dsny_20261118",
+          "week_start": "2026-09-14",
+          "agency_key": "DSNY",
+          "problem_key": "Illegal Dumping",
+          "borough_key": "STATEN ISLAND",
+          "intake": 61,
+          "recorded_closures": 58
+        },
+        {
+          "release_id": "dsny_20261118",
+          "week_start": "2026-09-14",
+          "agency_key": "DSNY",
+          "problem_key": "Illegal Dumping",
+          "borough_key": "UNKNOWN",
+          "intake": 0,
+          "recorded_closures": 1
+        },
+        {
+          "release_id": "dsny_20261118",
+          "week_start": "2026-09-21",
+          "agency_key": "DSNY",
+          "problem_key": "Dirty Condition",
+          "borough_key": "BRONX",
+          "intake": 192,
+          "recorded_closures": 166
+        },
+        {
+          "release_id": "dsny_20261118",
+          "week_start": "2026-09-21",
+          "agency_key": "DSNY",
+          "problem_key": "Dirty Condition",
+          "borough_key": "BROOKLYN",
+          "intake": 502,
+          "recorded_closures": 614
+        },
+        {
+          "release_id": "dsny_20261118",
+          "week_start": "2026-09-21",
+          "agency_key": "DSNY",
+          "problem_key": "Dirty Condition",
+          "borough_key": "MANHATTAN",
+          "intake": 273,
+          "recorded_closures": 311
+        },
+        {
+          "release_id": "dsny_20261118",
+          "week_start": "2026-09-21",
+          "agency_key": "DSNY",
+          "problem_key": "Dirty Condition",
+          "borough_key": "QUEENS",
+          "intake": 336,
+          "recorded_closures": 331
+        },
+        {
+          "release_id": "dsny_20261118",
+          "week_start": "2026-09-21",
+          "agency_key": "DSNY",
+          "problem_key": "Dirty Condition",
+          "borough_key": "STATEN ISLAND",
+          "intake": 73,
+          "recorded_closures": 87
+        },
+        {
+          "release_id": "dsny_20261118",
+          "week_start": "2026-09-21",
+          "agency_key": "DSNY",
+          "problem_key": "Illegal Dumping",
+          "borough_key": "BRONX",
+          "intake": 142,
+          "recorded_closures": 125
+        },
+        {
+          "release_id": "dsny_20261118",
+          "week_start": "2026-09-21",
+          "agency_key": "DSNY",
+          "problem_key": "Illegal Dumping",
+          "borough_key": "BROOKLYN",
+          "intake": 315,
+          "recorded_closures": 355
+        },
+        {
+          "release_id": "dsny_20261118",
+          "week_start": "2026-09-21",
+          "agency_key": "DSNY",
+          "problem_key": "Illegal Dumping",
+          "borough_key": "MANHATTAN",
+          "intake": 106,
+          "recorded_closures": 102
+        },
+        {
+          "release_id": "dsny_20261118",
+          "week_start": "2026-09-21",
+          "agency_key": "DSNY",
+          "problem_key": "Illegal Dumping",
+          "borough_key": "QUEENS",
+          "intake": 243,
+          "recorded_closures": 254
+        },
+        {
+          "release_id": "dsny_20261118",
+          "week_start": "2026-09-21",
+          "agency_key": "DSNY",
+          "problem_key": "Illegal Dumping",
+          "borough_key": "STATEN ISLAND",
+          "intake": 43,
+          "recorded_closures": 50
+        },
+        {
+          "release_id": "dsny_20261118",
+          "week_start": "2026-09-28",
+          "agency_key": "DSNY",
+          "problem_key": "Dirty Condition",
+          "borough_key": "BRONX",
+          "intake": 232,
+          "recorded_closures": 254
+        },
+        {
+          "release_id": "dsny_20261118",
+          "week_start": "2026-09-28",
+          "agency_key": "DSNY",
+          "problem_key": "Dirty Condition",
+          "borough_key": "BROOKLYN",
+          "intake": 591,
+          "recorded_closures": 546
+        },
+        {
+          "release_id": "dsny_20261118",
+          "week_start": "2026-09-28",
+          "agency_key": "DSNY",
+          "problem_key": "Dirty Condition",
+          "borough_key": "MANHATTAN",
+          "intake": 310,
+          "recorded_closures": 267
+        },
+        {
+          "release_id": "dsny_20261118",
+          "week_start": "2026-09-28",
+          "agency_key": "DSNY",
+          "problem_key": "Dirty Condition",
+          "borough_key": "QUEENS",
+          "intake": 348,
+          "recorded_closures": 387
+        },
+        {
+          "release_id": "dsny_20261118",
+          "week_start": "2026-09-28",
+          "agency_key": "DSNY",
+          "problem_key": "Dirty Condition",
+          "borough_key": "STATEN ISLAND",
+          "intake": 71,
+          "recorded_closures": 64
+        },
+        {
+          "release_id": "dsny_20261118",
+          "week_start": "2026-09-28",
+          "agency_key": "DSNY",
+          "problem_key": "Illegal Dumping",
+          "borough_key": "BRONX",
+          "intake": 150,
+          "recorded_closures": 188
+        },
+        {
+          "release_id": "dsny_20261118",
+          "week_start": "2026-09-28",
+          "agency_key": "DSNY",
+          "problem_key": "Illegal Dumping",
+          "borough_key": "BROOKLYN",
+          "intake": 334,
+          "recorded_closures": 337
+        },
+        {
+          "release_id": "dsny_20261118",
+          "week_start": "2026-09-28",
+          "agency_key": "DSNY",
+          "problem_key": "Illegal Dumping",
+          "borough_key": "MANHATTAN",
+          "intake": 133,
+          "recorded_closures": 133
+        },
+        {
+          "release_id": "dsny_20261118",
+          "week_start": "2026-09-28",
+          "agency_key": "DSNY",
+          "problem_key": "Illegal Dumping",
+          "borough_key": "QUEENS",
+          "intake": 275,
+          "recorded_closures": 314
+        },
+        {
+          "release_id": "dsny_20261118",
+          "week_start": "2026-09-28",
+          "agency_key": "DSNY",
+          "problem_key": "Illegal Dumping",
+          "borough_key": "STATEN ISLAND",
+          "intake": 49,
+          "recorded_closures": 39
+        },
+        {
+          "release_id": "dsny_20261118",
+          "week_start": "2026-10-05",
+          "agency_key": "DSNY",
+          "problem_key": "Dirty Condition",
+          "borough_key": "BRONX",
+          "intake": 189,
+          "recorded_closures": 203
+        },
+        {
+          "release_id": "dsny_20261118",
+          "week_start": "2026-10-05",
+          "agency_key": "DSNY",
+          "problem_key": "Dirty Condition",
+          "borough_key": "BROOKLYN",
+          "intake": 482,
+          "recorded_closures": 495
+        },
+        {
+          "release_id": "dsny_20261118",
+          "week_start": "2026-10-05",
+          "agency_key": "DSNY",
+          "problem_key": "Dirty Condition",
+          "borough_key": "MANHATTAN",
+          "intake": 227,
+          "recorded_closures": 307
+        },
+        {
+          "release_id": "dsny_20261118",
+          "week_start": "2026-10-05",
+          "agency_key": "DSNY",
+          "problem_key": "Dirty Condition",
+          "borough_key": "QUEENS",
+          "intake": 252,
+          "recorded_closures": 257
+        },
+        {
+          "release_id": "dsny_20261118",
+          "week_start": "2026-10-05",
+          "agency_key": "DSNY",
+          "problem_key": "Dirty Condition",
+          "borough_key": "STATEN ISLAND",
+          "intake": 70,
+          "recorded_closures": 62
+        },
+        {
+          "release_id": "dsny_20261118",
+          "week_start": "2026-10-05",
+          "agency_key": "DSNY",
+          "problem_key": "Dirty Condition",
+          "borough_key": "UNKNOWN",
+          "intake": 1,
+          "recorded_closures": 0
+        },
+        {
+          "release_id": "dsny_20261118",
+          "week_start": "2026-10-05",
+          "agency_key": "DSNY",
+          "problem_key": "Illegal Dumping",
+          "borough_key": "BRONX",
+          "intake": 161,
+          "recorded_closures": 127
+        },
+        {
+          "release_id": "dsny_20261118",
+          "week_start": "2026-10-05",
+          "agency_key": "DSNY",
+          "problem_key": "Illegal Dumping",
+          "borough_key": "BROOKLYN",
+          "intake": 305,
+          "recorded_closures": 279
+        },
+        {
+          "release_id": "dsny_20261118",
+          "week_start": "2026-10-05",
+          "agency_key": "DSNY",
+          "problem_key": "Illegal Dumping",
+          "borough_key": "MANHATTAN",
+          "intake": 96,
+          "recorded_closures": 114
+        },
+        {
+          "release_id": "dsny_20261118",
+          "week_start": "2026-10-05",
+          "agency_key": "DSNY",
+          "problem_key": "Illegal Dumping",
+          "borough_key": "QUEENS",
+          "intake": 213,
+          "recorded_closures": 233
+        },
+        {
+          "release_id": "dsny_20261118",
+          "week_start": "2026-10-05",
+          "agency_key": "DSNY",
+          "problem_key": "Illegal Dumping",
+          "borough_key": "STATEN ISLAND",
+          "intake": 46,
+          "recorded_closures": 48
+        },
+        {
+          "release_id": "dsny_20261118",
+          "week_start": "2026-10-05",
+          "agency_key": "DSNY",
+          "problem_key": "Illegal Dumping",
+          "borough_key": "UNKNOWN",
+          "intake": 2,
+          "recorded_closures": 0
+        },
+        {
+          "release_id": "dsny_20261118",
+          "week_start": "2026-10-12",
+          "agency_key": "DSNY",
+          "problem_key": "Dirty Condition",
+          "borough_key": "BRONX",
+          "intake": 227,
+          "recorded_closures": 172
+        },
+        {
+          "release_id": "dsny_20261118",
+          "week_start": "2026-10-12",
+          "agency_key": "DSNY",
+          "problem_key": "Dirty Condition",
+          "borough_key": "BROOKLYN",
+          "intake": 524,
+          "recorded_closures": 515
+        },
+        {
+          "release_id": "dsny_20261118",
+          "week_start": "2026-10-12",
+          "agency_key": "DSNY",
+          "problem_key": "Dirty Condition",
+          "borough_key": "MANHATTAN",
+          "intake": 338,
+          "recorded_closures": 269
+        },
+        {
+          "release_id": "dsny_20261118",
+          "week_start": "2026-10-12",
+          "agency_key": "DSNY",
+          "problem_key": "Dirty Condition",
+          "borough_key": "QUEENS",
+          "intake": 300,
+          "recorded_closures": 258
+        },
+        {
+          "release_id": "dsny_20261118",
+          "week_start": "2026-10-12",
+          "agency_key": "DSNY",
+          "problem_key": "Dirty Condition",
+          "borough_key": "STATEN ISLAND",
+          "intake": 93,
+          "recorded_closures": 88
+        },
+        {
+          "release_id": "dsny_20261118",
+          "week_start": "2026-10-12",
+          "agency_key": "DSNY",
+          "problem_key": "Dirty Condition",
+          "borough_key": "UNKNOWN",
+          "intake": 0,
+          "recorded_closures": 1
+        },
+        {
+          "release_id": "dsny_20261118",
+          "week_start": "2026-10-12",
+          "agency_key": "DSNY",
+          "problem_key": "Illegal Dumping",
+          "borough_key": "BRONX",
+          "intake": 145,
+          "recorded_closures": 143
+        },
+        {
+          "release_id": "dsny_20261118",
+          "week_start": "2026-10-12",
+          "agency_key": "DSNY",
+          "problem_key": "Illegal Dumping",
+          "borough_key": "BROOKLYN",
+          "intake": 289,
+          "recorded_closures": 306
+        },
+        {
+          "release_id": "dsny_20261118",
+          "week_start": "2026-10-12",
+          "agency_key": "DSNY",
+          "problem_key": "Illegal Dumping",
+          "borough_key": "MANHATTAN",
+          "intake": 129,
+          "recorded_closures": 121
+        },
+        {
+          "release_id": "dsny_20261118",
+          "week_start": "2026-10-12",
+          "agency_key": "DSNY",
+          "problem_key": "Illegal Dumping",
+          "borough_key": "QUEENS",
+          "intake": 221,
+          "recorded_closures": 191
+        },
+        {
+          "release_id": "dsny_20261118",
+          "week_start": "2026-10-12",
+          "agency_key": "DSNY",
+          "problem_key": "Illegal Dumping",
+          "borough_key": "STATEN ISLAND",
+          "intake": 40,
+          "recorded_closures": 42
+        },
+        {
+          "release_id": "dsny_20261118",
+          "week_start": "2026-10-12",
+          "agency_key": "DSNY",
+          "problem_key": "Illegal Dumping",
+          "borough_key": "UNKNOWN",
+          "intake": 0,
+          "recorded_closures": 2
+        },
+        {
+          "release_id": "dsny_20261118",
+          "week_start": "2026-10-19",
+          "agency_key": "DSNY",
+          "problem_key": "Dirty Condition",
+          "borough_key": "BRONX",
+          "intake": 206,
+          "recorded_closures": 224
+        },
+        {
+          "release_id": "dsny_20261118",
+          "week_start": "2026-10-19",
+          "agency_key": "DSNY",
+          "problem_key": "Dirty Condition",
+          "borough_key": "BROOKLYN",
+          "intake": 437,
+          "recorded_closures": 373
+        },
+        {
+          "release_id": "dsny_20261118",
+          "week_start": "2026-10-19",
+          "agency_key": "DSNY",
+          "problem_key": "Dirty Condition",
+          "borough_key": "MANHATTAN",
+          "intake": 300,
+          "recorded_closures": 318
+        },
+        {
+          "release_id": "dsny_20261118",
+          "week_start": "2026-10-19",
+          "agency_key": "DSNY",
+          "problem_key": "Dirty Condition",
+          "borough_key": "QUEENS",
+          "intake": 312,
+          "recorded_closures": 322
+        },
+        {
+          "release_id": "dsny_20261118",
+          "week_start": "2026-10-19",
+          "agency_key": "DSNY",
+          "problem_key": "Dirty Condition",
+          "borough_key": "STATEN ISLAND",
+          "intake": 77,
+          "recorded_closures": 78
+        },
+        {
+          "release_id": "dsny_20261118",
+          "week_start": "2026-10-19",
+          "agency_key": "DSNY",
+          "problem_key": "Dirty Condition",
+          "borough_key": "UNKNOWN",
+          "intake": 1,
+          "recorded_closures": 1
+        },
+        {
+          "release_id": "dsny_20261118",
+          "week_start": "2026-10-19",
+          "agency_key": "DSNY",
+          "problem_key": "Illegal Dumping",
+          "borough_key": "BRONX",
+          "intake": 145,
+          "recorded_closures": 164
+        },
+        {
+          "release_id": "dsny_20261118",
+          "week_start": "2026-10-19",
+          "agency_key": "DSNY",
+          "problem_key": "Illegal Dumping",
+          "borough_key": "BROOKLYN",
+          "intake": 284,
+          "recorded_closures": 225
+        },
+        {
+          "release_id": "dsny_20261118",
+          "week_start": "2026-10-19",
+          "agency_key": "DSNY",
+          "problem_key": "Illegal Dumping",
+          "borough_key": "MANHATTAN",
+          "intake": 103,
+          "recorded_closures": 94
+        },
+        {
+          "release_id": "dsny_20261118",
+          "week_start": "2026-10-19",
+          "agency_key": "DSNY",
+          "problem_key": "Illegal Dumping",
+          "borough_key": "QUEENS",
+          "intake": 214,
+          "recorded_closures": 221
+        },
+        {
+          "release_id": "dsny_20261118",
+          "week_start": "2026-10-19",
+          "agency_key": "DSNY",
+          "problem_key": "Illegal Dumping",
+          "borough_key": "STATEN ISLAND",
+          "intake": 40,
+          "recorded_closures": 47
+        },
+        {
+          "release_id": "dsny_20261118",
+          "week_start": "2026-10-26",
+          "agency_key": "DSNY",
+          "problem_key": "Dirty Condition",
+          "borough_key": "BRONX",
+          "intake": 216,
+          "recorded_closures": 224
+        },
+        {
+          "release_id": "dsny_20261118",
+          "week_start": "2026-10-26",
+          "agency_key": "DSNY",
+          "problem_key": "Dirty Condition",
+          "borough_key": "BROOKLYN",
+          "intake": 453,
+          "recorded_closures": 511
+        },
+        {
+          "release_id": "dsny_20261118",
+          "week_start": "2026-10-26",
+          "agency_key": "DSNY",
+          "problem_key": "Dirty Condition",
+          "borough_key": "MANHATTAN",
+          "intake": 277,
+          "recorded_closures": 269
+        },
+        {
+          "release_id": "dsny_20261118",
+          "week_start": "2026-10-26",
+          "agency_key": "DSNY",
+          "problem_key": "Dirty Condition",
+          "borough_key": "QUEENS",
+          "intake": 348,
+          "recorded_closures": 337
+        },
+        {
+          "release_id": "dsny_20261118",
+          "week_start": "2026-10-26",
+          "agency_key": "DSNY",
+          "problem_key": "Dirty Condition",
+          "borough_key": "STATEN ISLAND",
+          "intake": 60,
+          "recorded_closures": 70
+        },
+        {
+          "release_id": "dsny_20261118",
+          "week_start": "2026-10-26",
+          "agency_key": "DSNY",
+          "problem_key": "Illegal Dumping",
+          "borough_key": "BRONX",
+          "intake": 150,
+          "recorded_closures": 141
+        },
+        {
+          "release_id": "dsny_20261118",
+          "week_start": "2026-10-26",
+          "agency_key": "DSNY",
+          "problem_key": "Illegal Dumping",
+          "borough_key": "BROOKLYN",
+          "intake": 293,
+          "recorded_closures": 364
+        },
+        {
+          "release_id": "dsny_20261118",
+          "week_start": "2026-10-26",
+          "agency_key": "DSNY",
+          "problem_key": "Illegal Dumping",
+          "borough_key": "MANHATTAN",
+          "intake": 113,
+          "recorded_closures": 120
+        },
+        {
+          "release_id": "dsny_20261118",
+          "week_start": "2026-10-26",
+          "agency_key": "DSNY",
+          "problem_key": "Illegal Dumping",
+          "borough_key": "QUEENS",
+          "intake": 259,
+          "recorded_closures": 272
+        },
+        {
+          "release_id": "dsny_20261118",
+          "week_start": "2026-10-26",
+          "agency_key": "DSNY",
+          "problem_key": "Illegal Dumping",
+          "borough_key": "STATEN ISLAND",
+          "intake": 53,
+          "recorded_closures": 46
+        },
+        {
+          "release_id": "dsny_20261118",
+          "week_start": "2026-11-02",
+          "agency_key": "DSNY",
+          "problem_key": "Dirty Condition",
+          "borough_key": "BRONX",
+          "intake": 204,
+          "recorded_closures": 157
+        },
+        {
+          "release_id": "dsny_20261118",
+          "week_start": "2026-11-02",
+          "agency_key": "DSNY",
+          "problem_key": "Dirty Condition",
+          "borough_key": "BROOKLYN",
+          "intake": 424,
+          "recorded_closures": 443
+        },
+        {
+          "release_id": "dsny_20261118",
+          "week_start": "2026-11-02",
+          "agency_key": "DSNY",
+          "problem_key": "Dirty Condition",
+          "borough_key": "MANHATTAN",
+          "intake": 319,
+          "recorded_closures": 319
+        },
+        {
+          "release_id": "dsny_20261118",
+          "week_start": "2026-11-02",
+          "agency_key": "DSNY",
+          "problem_key": "Dirty Condition",
+          "borough_key": "QUEENS",
+          "intake": 335,
+          "recorded_closures": 338
+        },
+        {
+          "release_id": "dsny_20261118",
+          "week_start": "2026-11-02",
+          "agency_key": "DSNY",
+          "problem_key": "Dirty Condition",
+          "borough_key": "STATEN ISLAND",
+          "intake": 54,
+          "recorded_closures": 46
+        },
+        {
+          "release_id": "dsny_20261118",
+          "week_start": "2026-11-02",
+          "agency_key": "DSNY",
+          "problem_key": "Illegal Dumping",
+          "borough_key": "BRONX",
+          "intake": 145,
+          "recorded_closures": 103
+        },
+        {
+          "release_id": "dsny_20261118",
+          "week_start": "2026-11-02",
+          "agency_key": "DSNY",
+          "problem_key": "Illegal Dumping",
+          "borough_key": "BROOKLYN",
+          "intake": 326,
+          "recorded_closures": 303
+        },
+        {
+          "release_id": "dsny_20261118",
+          "week_start": "2026-11-02",
+          "agency_key": "DSNY",
+          "problem_key": "Illegal Dumping",
+          "borough_key": "MANHATTAN",
+          "intake": 129,
+          "recorded_closures": 127
+        },
+        {
+          "release_id": "dsny_20261118",
+          "week_start": "2026-11-02",
+          "agency_key": "DSNY",
+          "problem_key": "Illegal Dumping",
+          "borough_key": "QUEENS",
+          "intake": 240,
+          "recorded_closures": 223
+        },
+        {
+          "release_id": "dsny_20261118",
+          "week_start": "2026-11-02",
+          "agency_key": "DSNY",
+          "problem_key": "Illegal Dumping",
+          "borough_key": "STATEN ISLAND",
+          "intake": 45,
+          "recorded_closures": 44
+        },
+        {
+          "release_id": "dsny_20261118",
+          "week_start": "2026-11-02",
+          "agency_key": "DSNY",
+          "problem_key": "Illegal Dumping",
+          "borough_key": "UNKNOWN",
+          "intake": 2,
+          "recorded_closures": 0
+        },
+        {
+          "release_id": "dsny_20261118",
+          "week_start": "2026-11-09",
+          "agency_key": "DSNY",
+          "problem_key": "Dirty Condition",
+          "borough_key": "BRONX",
+          "intake": 162,
+          "recorded_closures": 223
+        },
+        {
+          "release_id": "dsny_20261118",
+          "week_start": "2026-11-09",
+          "agency_key": "DSNY",
+          "problem_key": "Dirty Condition",
+          "borough_key": "BROOKLYN",
+          "intake": 353,
+          "recorded_closures": 284
+        },
+        {
+          "release_id": "dsny_20261118",
+          "week_start": "2026-11-09",
+          "agency_key": "DSNY",
+          "problem_key": "Dirty Condition",
+          "borough_key": "MANHATTAN",
+          "intake": 257,
+          "recorded_closures": 246
+        },
+        {
+          "release_id": "dsny_20261118",
+          "week_start": "2026-11-09",
+          "agency_key": "DSNY",
+          "problem_key": "Dirty Condition",
+          "borough_key": "QUEENS",
+          "intake": 287,
+          "recorded_closures": 228
+        },
+        {
+          "release_id": "dsny_20261118",
+          "week_start": "2026-11-09",
+          "agency_key": "DSNY",
+          "problem_key": "Dirty Condition",
+          "borough_key": "STATEN ISLAND",
+          "intake": 60,
+          "recorded_closures": 57
+        },
+        {
+          "release_id": "dsny_20261118",
+          "week_start": "2026-11-09",
+          "agency_key": "DSNY",
+          "problem_key": "Illegal Dumping",
+          "borough_key": "BRONX",
+          "intake": 123,
+          "recorded_closures": 161
+        },
+        {
+          "release_id": "dsny_20261118",
+          "week_start": "2026-11-09",
+          "agency_key": "DSNY",
+          "problem_key": "Illegal Dumping",
+          "borough_key": "BROOKLYN",
+          "intake": 238,
+          "recorded_closures": 215
+        },
+        {
+          "release_id": "dsny_20261118",
+          "week_start": "2026-11-09",
+          "agency_key": "DSNY",
+          "problem_key": "Illegal Dumping",
+          "borough_key": "MANHATTAN",
+          "intake": 105,
+          "recorded_closures": 97
+        },
+        {
+          "release_id": "dsny_20261118",
+          "week_start": "2026-11-09",
+          "agency_key": "DSNY",
+          "problem_key": "Illegal Dumping",
+          "borough_key": "QUEENS",
+          "intake": 200,
+          "recorded_closures": 157
+        },
+        {
+          "release_id": "dsny_20261118",
+          "week_start": "2026-11-09",
+          "agency_key": "DSNY",
+          "problem_key": "Illegal Dumping",
+          "borough_key": "STATEN ISLAND",
+          "intake": 31,
+          "recorded_closures": 38
+        },
+        {
+          "release_id": "dsny_20261118",
+          "week_start": "2026-11-09",
+          "agency_key": "DSNY",
+          "problem_key": "Illegal Dumping",
+          "borough_key": "UNKNOWN",
+          "intake": 1,
+          "recorded_closures": 0
+        },
+        {
+          "release_id": "dsny_20261118",
+          "week_start": "2026-11-16",
+          "agency_key": "DSNY",
+          "problem_key": "Dirty Condition",
+          "borough_key": "BRONX",
+          "intake": 0,
+          "recorded_closures": 25
+        },
+        {
+          "release_id": "dsny_20261118",
+          "week_start": "2026-11-16",
+          "agency_key": "DSNY",
+          "problem_key": "Dirty Condition",
+          "borough_key": "BROOKLYN",
+          "intake": 0,
+          "recorded_closures": 159
+        },
+        {
+          "release_id": "dsny_20261118",
+          "week_start": "2026-11-16",
+          "agency_key": "DSNY",
+          "problem_key": "Dirty Condition",
+          "borough_key": "MANHATTAN",
+          "intake": 0,
+          "recorded_closures": 82
+        },
+        {
+          "release_id": "dsny_20261118",
+          "week_start": "2026-11-16",
+          "agency_key": "DSNY",
+          "problem_key": "Dirty Condition",
+          "borough_key": "QUEENS",
+          "intake": 0,
+          "recorded_closures": 47
+        },
+        {
+          "release_id": "dsny_20261118",
+          "week_start": "2026-11-16",
+          "agency_key": "DSNY",
+          "problem_key": "Dirty Condition",
+          "borough_key": "STATEN ISLAND",
+          "intake": 0,
+          "recorded_closures": 14
+        },
+        {
+          "release_id": "dsny_20261118",
+          "week_start": "2026-11-16",
+          "agency_key": "DSNY",
+          "problem_key": "Illegal Dumping",
+          "borough_key": "BRONX",
+          "intake": 0,
+          "recorded_closures": 27
+        },
+        {
+          "release_id": "dsny_20261118",
+          "week_start": "2026-11-16",
+          "agency_key": "DSNY",
+          "problem_key": "Illegal Dumping",
+          "borough_key": "BROOKLYN",
+          "intake": 0,
+          "recorded_closures": 104
+        },
+        {
+          "release_id": "dsny_20261118",
+          "week_start": "2026-11-16",
+          "agency_key": "DSNY",
+          "problem_key": "Illegal Dumping",
+          "borough_key": "MANHATTAN",
+          "intake": 0,
+          "recorded_closures": 28
+        },
+        {
+          "release_id": "dsny_20261118",
+          "week_start": "2026-11-16",
+          "agency_key": "DSNY",
+          "problem_key": "Illegal Dumping",
+          "borough_key": "QUEENS",
+          "intake": 0,
+          "recorded_closures": 55
+        },
+        {
+          "release_id": "dsny_20261118",
+          "week_start": "2026-11-16",
+          "agency_key": "DSNY",
+          "problem_key": "Illegal Dumping",
+          "borough_key": "STATEN ISLAND",
+          "intake": 0,
+          "recorded_closures": 9
+        }
+      ]
+    }
+  }
+}

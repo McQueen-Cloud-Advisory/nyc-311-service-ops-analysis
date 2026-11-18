@@ -1,0 +1,52 @@
+table 'Date'
+	lineageTag: 99c40ab4-0592-6cb5-ad1d-ef9cff4d7ce6
+
+	column 'release_id'
+		dataType: string
+		sourceColumn: release_id
+		summarizeBy: none
+		lineageTag: 7c2dd765-1ed2-07e7-1408-8623c2766fe2
+		isHidden
+
+	column 'date_key'
+		dataType: dateTime
+		sourceColumn: date_key
+		summarizeBy: none
+		lineageTag: 2a2a79f7-178e-d10f-2771-d0ce45d9b0b8
+		formatString: yyyy-MM-dd
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'year'
+		dataType: int64
+		sourceColumn: year
+		summarizeBy: none
+		lineageTag: c8cff3d9-d080-59ef-77d4-a24120c000bc
+		formatString: #,0
+
+	column 'month'
+		dataType: int64
+		sourceColumn: month
+		summarizeBy: none
+		lineageTag: 6e59b949-d147-9917-ab1a-1f1d12c61e90
+		formatString: #,0
+
+	column 'month_name'
+		dataType: string
+		sourceColumn: month_name
+		summarizeBy: none
+		lineageTag: 4a505ca5-327c-1f8c-9bf6-80b2e479ca56
+
+	column 'week_start'
+		dataType: dateTime
+		sourceColumn: week_start
+		summarizeBy: none
+		lineageTag: 53baa503-7d05-c5ed-76f9-9e5ded08eb53
+		formatString: yyyy-MM-dd
+		annotation UnderlyingDateTimeDataType = Date
+
+	partition 'Date' = m
+		mode: import
+		source =
+				fnReadReporting("dim_date", {{"release_id", type text}, {"date_key", type date}, {"year", Int64.Type}, {"month", Int64.Type}, {"month_name", type text}, {"week_start", type date}})
+
+	annotation PBI_ResultType = Table

@@ -1,0 +1,17 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-US
+
+	annotation PBI_QueryOrder = ["Agency","Problem","Borough","Date","Cases","Backlog","Release","Age Bucket","Metrics"]
+	annotation __PBI_TimeIntelligenceEnabled = 0
+
+ref table 'Agency'
+ref table 'Problem'
+ref table 'Borough'
+ref table 'Date'
+ref table 'Cases'
+ref table 'Backlog'
+ref table 'Release'
+ref table 'Age Bucket'
+ref table 'Metrics'

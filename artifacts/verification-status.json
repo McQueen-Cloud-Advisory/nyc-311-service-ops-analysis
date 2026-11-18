@@ -1,0 +1,83 @@
+{
+  "as_of_date": "2026-11-18",
+  "release_id": "dsny_20261118",
+  "snapshot_id": "dsny_20261118_a",
+  "source_kind": "real",
+  "local_validation": {
+    "outcome": "passed",
+    "tests_passed": 72,
+    "tests_skipped": 0,
+    "evidence": "artifacts/validation/local.json"
+  },
+  "bigquery_release": {
+    "outcome": "published",
+    "dbt_data_tests_passed": 60,
+    "dbt_total_successful_results": 71,
+    "evidence": "artifacts/releases/dsny_20261118/bigquery.json",
+    "dbt_results": "artifacts/releases/dsny_20261118/dbt_results.json",
+    "sql_outputs": "artifacts/releases/dsny_20261118/sql_reconciliation.json"
+  },
+  "power_bi_csv_import": {
+    "outcome": "passed",
+    "sql_dax_checks_passed": 41,
+    "p90_absolute_tolerance_hours": 0.000001,
+    "both_pages_and_queens_drillthrough_inspected": true,
+    "cached_pbix_saved": true,
+    "cached_pbix_reopen": "passed; both pages opened from the saved cache without refreshing",
+    "pdf_pages_rendered_and_inspected": 2,
+    "reconciliation": "artifacts/releases/dsny_20261118/sql_dax_comparison.json",
+    "report_artifacts": "artifacts/report/dsny_20261118/artifact_files.json",
+    "preview_verification": "artifacts/report/dsny_20261118/preview-verification.json"
+  },
+  "power_bi_native_bigquery": {
+    "outcome": "passed",
+    "sql_dax_checks_passed": 41,
+    "utc_timestamp_checks_passed": 33,
+    "timestamp_scope": "Release observation/extraction times and ten sampled case rows, at whole-second precision",
+    "both_pages_and_queens_drillthrough_inspected": true,
+    "cached_native_pbix_saved": true,
+    "reconciliation": "artifacts/releases/dsny_20261118/sql_dax_bigquery_comparison.json",
+    "timestamp_reconciliation": "artifacts/releases/dsny_20261118/powerbi_bigquery/timestamp_comparison.json",
+    "compatibility_fix": "Read-only native SELECT projections format TIMESTAMP columns as UTC ISO text before ADBC transport; parsing stays local with StopFolding. Original failed checks are retained separately.",
+    "owner_oauth_least_privilege": "not established; one-account owner setup"
+  },
+  "live_security": {
+    "checks_passed": 26,
+    "owner_desktop_least_privilege_unverified": 1,
+    "evidence": "artifacts/security/gcp-reporter.json",
+    "audit_events": "artifacts/security/audit-events.json",
+    "dependency_audit": "artifacts/security/dependency-audit-after.json",
+    "public_file_review": "artifacts/security/public-file-review.json"
+  },
+  "live_replay_recovery": {
+    "outcome": "passed",
+    "checks_passed": 24,
+    "source_kind": "synthetic",
+    "injected_failure": "Application validation gate after a real dbt build",
+    "real_release_restored": true,
+    "evidence": "artifacts/replay/bigquery-replay.json"
+  },
+  "benchmark": {
+    "outcome": "equal_outputs_verified",
+    "query_cache_enabled": false,
+    "baseline_processed_bytes": 1304253,
+    "optimized_processed_bytes": 166973,
+    "both_queries_billed_bytes": 10485760,
+    "billing_or_speed_improvement_established": false,
+    "evidence": "artifacts/releases/dsny_20261118/benchmark.json"
+  },
+  "workspace_artifacts": {
+    "native_sheet_and_doc": "Created, verified, owner-only sharing",
+    "optional_pipeline_adc_sheets_read": "Attempted; HTTP 403, cause undetermined; CSV default works",
+    "evidence": "docs/workspace-artifacts.json"
+  },
+  "publication": {
+    "destination": "GitHub repository and versioned report release",
+    "repository": "https://github.com/McQueen-Cloud-Advisory/nyc-311-service-ops-analysis",
+    "branch": "main",
+    "release": "https://github.com/McQueen-Cloud-Advisory/nyc-311-service-ops-analysis/releases/tag/dsny_20261118",
+    "repository_visibility": "PRIVATE",
+    "access": "Repository files and release downloads require repository access",
+    "portfolio_site": "Not published; separate viewer-accessible hosting is needed"
+  }
+}

@@ -1,0 +1,216 @@
+table 'Cases'
+	lineageTag: 2249bd50-3ec4-7d72-24fd-147948bbd6fc
+
+	column 'release_id'
+		dataType: string
+		sourceColumn: release_id
+		summarizeBy: none
+		lineageTag: abe0f400-2a25-607e-6426-c14d44b33c10
+		isHidden
+
+	column 'request_id'
+		dataType: string
+		sourceColumn: request_id
+		summarizeBy: none
+		lineageTag: 695c328d-4a7a-1249-0917-1cb0b179954e
+
+	column 'snapshot_id'
+		dataType: string
+		sourceColumn: snapshot_id
+		summarizeBy: none
+		lineageTag: 54a50b7c-ca4c-5100-555b-bff323d79fbf
+		isHidden
+
+	column 'observed_at'
+		dataType: dateTime
+		sourceColumn: observed_at
+		summarizeBy: none
+		lineageTag: ef37b347-8dfb-97c3-fcca-224fcc68cc1f
+		formatString: yyyy-MM-dd HH:mm:ss
+
+	column 'created_date'
+		dataType: dateTime
+		sourceColumn: created_date
+		summarizeBy: none
+		lineageTag: 97336e83-d66d-362f-fdea-d2b2e6c24788
+		formatString: yyyy-MM-dd
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'closed_date'
+		dataType: dateTime
+		sourceColumn: closed_date
+		summarizeBy: none
+		lineageTag: 97fc68ef-f455-3d1a-ff19-9746f0ffe5f9
+		formatString: yyyy-MM-dd
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'created_at'
+		dataType: dateTime
+		sourceColumn: created_at
+		summarizeBy: none
+		lineageTag: b363d198-811f-7e58-ad8b-1f58b615b328
+		formatString: yyyy-MM-dd HH:mm:ss
+
+	column 'closed_at'
+		dataType: dateTime
+		sourceColumn: closed_at
+		summarizeBy: none
+		lineageTag: d91927d4-8344-b02d-4297-8ecc771eff00
+		formatString: yyyy-MM-dd HH:mm:ss
+
+	column 'agency_key'
+		dataType: string
+		sourceColumn: agency_key
+		summarizeBy: none
+		lineageTag: a36dffa1-c210-1f3b-43e4-1cccb27833a3
+		isHidden
+
+	column 'problem_key'
+		dataType: string
+		sourceColumn: problem_key
+		summarizeBy: none
+		lineageTag: 5a4535a4-1385-2658-b58a-21993c5a6f1f
+		isHidden
+
+	column 'borough_key'
+		dataType: string
+		sourceColumn: borough_key
+		summarizeBy: none
+		lineageTag: 4c267fdf-6b91-cf37-853e-92eee80d1283
+		isHidden
+
+	column 'status'
+		dataType: string
+		sourceColumn: status
+		summarizeBy: none
+		lineageTag: f4b0c819-f609-0bdf-1ccd-1d061e3dea22
+
+	column 'status_class'
+		dataType: string
+		sourceColumn: status_class
+		summarizeBy: none
+		lineageTag: 9d1a5885-c8a1-73d5-1507-77ebcd4d4d4d
+
+	column 'temporal_quality'
+		dataType: string
+		sourceColumn: temporal_quality
+		summarizeBy: none
+		lineageTag: 62bd5be0-2f18-4e95-a244-9655cfd62584
+
+	column 'channel'
+		dataType: string
+		sourceColumn: channel
+		summarizeBy: none
+		lineageTag: 8e0d71d2-3287-0dc1-0b0e-3e45d9ecb6b2
+
+	column 'elapsed_hours'
+		dataType: double
+		sourceColumn: elapsed_hours
+		summarizeBy: none
+		lineageTag: 0a88acbe-84c1-1bce-1ac8-35c2fa6f295a
+		formatString: 0.0
+
+	column 'age_hours'
+		dataType: double
+		sourceColumn: age_hours
+		summarizeBy: none
+		lineageTag: 22a007eb-8b19-818b-87e2-8a2e37a1f63d
+		formatString: 0.0
+
+	column 'age_bucket'
+		dataType: string
+		sourceColumn: age_bucket
+		summarizeBy: none
+		lineageTag: 38eb6f31-6c52-70b3-151a-83a2a9502d3d
+
+	column 'target_hours'
+		dataType: int64
+		sourceColumn: target_hours
+		summarizeBy: none
+		lineageTag: 6c924472-e464-f04f-b2dc-048fd96675ac
+		formatString: #,0
+
+	column 'target_version'
+		dataType: string
+		sourceColumn: target_version
+		summarizeBy: none
+		lineageTag: 11630abe-f8f3-cf5c-02e6-89bbb87f37c7
+		isHidden
+
+	column 'target_numerator'
+		dataType: int64
+		sourceColumn: target_numerator
+		summarizeBy: none
+		lineageTag: 3f6340b9-2ff2-bb92-261d-ebff175d9f6b
+		isHidden
+		formatString: #,0
+
+	column 'target_denominator'
+		dataType: int64
+		sourceColumn: target_denominator
+		summarizeBy: none
+		lineageTag: 9372c9ea-72ac-0821-e71e-c96d7de7f798
+		isHidden
+		formatString: #,0
+
+	column 'is_backlog'
+		dataType: boolean
+		sourceColumn: is_backlog
+		summarizeBy: none
+		lineageTag: 7a84ac6d-ab26-f088-e45e-e76614801e9e
+		isHidden
+
+	column 'is_p90_eligible'
+		dataType: boolean
+		sourceColumn: is_p90_eligible
+		summarizeBy: none
+		lineageTag: d9aa7351-4876-03f2-a060-e7d84b31d0be
+		isHidden
+
+	column 'is_recorded_closure'
+		dataType: boolean
+		sourceColumn: is_recorded_closure
+		summarizeBy: none
+		lineageTag: 9f74f96b-3d34-7758-defe-0b5693e302d3
+		isHidden
+
+	column 'is_missing_target'
+		dataType: boolean
+		sourceColumn: is_missing_target
+		summarizeBy: none
+		lineageTag: 6bd69bb5-9068-f4f2-332c-6fd336388e9c
+		isHidden
+
+	column 'is_immature'
+		dataType: boolean
+		sourceColumn: is_immature
+		summarizeBy: none
+		lineageTag: 9a29cbc3-051e-1dae-c1e3-3d648ff69e98
+		isHidden
+
+	column 'is_invalid_outcome'
+		dataType: boolean
+		sourceColumn: is_invalid_outcome
+		summarizeBy: none
+		lineageTag: faffcccb-2e7a-65f5-b320-f8f5a1aee9de
+		isHidden
+
+	column 'is_unknown_outcome'
+		dataType: boolean
+		sourceColumn: is_unknown_outcome
+		summarizeBy: none
+		lineageTag: 3e45fde1-e263-a1c9-2a00-0ef298945526
+		isHidden
+
+	column 'target_eligibility_reason'
+		dataType: string
+		sourceColumn: target_eligibility_reason
+		summarizeBy: none
+		lineageTag: 17c378f7-77b2-b33e-f7ef-f10fa86f1cd4
+
+	partition 'Cases' = m
+		mode: import
+		source =
+				fnReadReporting("fct_cases", {{"release_id", type text}, {"request_id", type text}, {"snapshot_id", type text}, {"observed_at", type datetimezone}, {"created_date", type date}, {"closed_date", type date}, {"created_at", type datetimezone}, {"closed_at", type datetimezone}, {"agency_key", type text}, {"problem_key", type text}, {"borough_key", type text}, {"status", type text}, {"status_class", type text}, {"temporal_quality", type text}, {"channel", type text}, {"elapsed_hours", type number}, {"age_hours", type number}, {"age_bucket", type text}, {"target_hours", Int64.Type}, {"target_version", type text}, {"target_numerator", Int64.Type}, {"target_denominator", Int64.Type}, {"is_backlog", type logical}, {"is_p90_eligible", type logical}, {"is_recorded_closure", type logical}, {"is_missing_target", type logical}, {"is_immature", type logical}, {"is_invalid_outcome", type logical}, {"is_unknown_outcome", type logical}, {"target_eligibility_reason", type text}})
+
+	annotation PBI_ResultType = Table

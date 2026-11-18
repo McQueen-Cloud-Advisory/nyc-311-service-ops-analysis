@@ -1,0 +1,43 @@
+{
+  "checked_at_utc": "2026-11-18T11:49:09.527636+00:00",
+  "outcome": "passed",
+  "release_id": "dsny_20261118",
+  "snapshot_id": "dsny_20261118_a",
+  "source_kind": "real",
+  "observed_at": "2026-11-18T11:31:28.284936+00:00",
+  "checks": [
+    "CSV headers and typed values",
+    "UTC timestamp offsets",
+    "release and snapshot pin",
+    "case count and request-key uniqueness",
+    "dimension relationships",
+    "date-role coverage",
+    "open cases versus backlog",
+    "age bucket totals"
+  ],
+  "row_counts": {
+    "Agency": 2,
+    "Problem": 3,
+    "Borough": 6,
+    "Date": 73,
+    "Cases": 23101,
+    "Backlog": 12,
+    "Release": 1
+  },
+  "observed_backlog": 728,
+  "target_numerator": 14461,
+  "target_denominator": 22907,
+  "sha256": {
+    "dim_agency.csv": "2e4f69ee424b9dc26ecd1e269480433ada2336c209eea383313cc718cc790348",
+    "dim_problem.csv": "9e828daf6b6b5f16e9a4b5957d27e7bf121fc658c7678186a4d14aca24f1a6fb",
+    "dim_borough.csv": "7542030843dc78340aafbd0e96f896ab3c83398fb1eafc29714cbb72d4039bb2",
+    "dim_date.csv": "174b6645155ba98ad6bab51b539ae7419a1c81958efbe390bcc9c9f91c41529f",
+    "fct_cases.csv": "b97852666c7f8d648fe082ff2daa61bcb2f666742bea8678ef20e2f15a8349f5",
+    "fct_backlog.csv": "da01b8aafcaf83ed946640ce67820f7d8fb8ffc204a1f0b670d54b0ba11363f0",
+    "release_metadata.csv": "0cbd4d5f9539ffb138bd79e40d4307040a5a0f3a7966dcec4857092535f5b70d"
+  },
+  "power_query_execution": "unverified",
+  "desktop_refresh": "unverified",
+  "dax_execution": "unverified",
+  "note": "Typed CSV contract checks do not execute Power Query, Desktop, BigQuery, or DAX."
+}

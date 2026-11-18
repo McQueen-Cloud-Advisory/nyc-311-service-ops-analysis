@@ -1,0 +1,321 @@
+{
+  "reconciliation": {
+    "sql": "-- dbt compile --select reconciliation --vars '<the release vars>'\n-- Execute the compiled query with cache disabled and a maximum-bytes-billed limit.\n-- This returns overall, a meaningful slice, an empty slice, and separate creation/\n-- closure date roles. P90 is continuous interpolation over case rows.\nwith slices as (\n    select 'overall' as slice, cast(null as string) as agency_filter,\n        cast(null as string) as problem_filter, cast(null as string) as borough_filter\n    union all select 'DSNY / Dirty Condition / BROOKLYN', 'DSNY', 'Dirty Condition', 'BROOKLYN'\n    union all select 'empty', null, null, '__NO_SUCH_BOROUGH__'\n), expanded as (\n    select s.slice, c.*\n    from slices s\n    left join `nyc311-service-ops-20261118`.`nyc311_work`.`fct_cases__r_cloud_replay_b` c\n      on (s.agency_filter is null or c.agency_key = s.agency_filter)\n     and (s.problem_filter is null or c.problem_key = s.problem_filter)\n     and (s.borough_filter is null or c.borough_key = s.borough_filter)\n), percentiles as (\n    select distinct slice,\n        percentile_cont(if(is_p90_eligible, elapsed_hours, null), 0.9) over (partition by slice) as p90_elapsed_hours\n    from expanded\n), totals as (\n    select slice,\n        count(request_id) as case_count,\n        countif(created_date is not null) as intake,\n        countif(is_recorded_closure) as recorded_closures,\n        countif(is_backlog) as observed_backlog,\n        coalesce(sum(target_numerator), 0) as target_numerator,\n        coalesce(sum(target_denominator), 0) as target_denominator,\n        safe_divide(sum(target_numerator), sum(target_denominator)) as target_rate,\n        countif(is_p90_eligible) as p90_eligible_count,\n        countif(is_missing_target) as missing_target_cases,\n        countif(is_invalid_outcome) as invalid_outcome_cases,\n        countif(is_unknown_outcome) as unknown_outcome_cases,\n        countif(is_immature) as immature_cases\n    from expanded group by slice\n)\nselect 'cloud_replay_b' as release_id, 'synthetic_b' as snapshot_id,\n    totals.*, percentiles.p90_elapsed_hours\nfrom totals left join percentiles using (slice)\norder by slice",
+    "sql_sha256": "4efc418fe8d870bd4e23bc066ca6b92e5c154ec4dd37d454a5a160ad134999a6",
+    "dry_run_bytes": 1043,
+    "job": {
+      "job_id": "6da3c966-cc92-45e6-8f94-18c901ceebd7",
+      "bytes_processed": 1043,
+      "bytes_billed": 10485760,
+      "cache_hit": false,
+      "statement_type": "SELECT",
+      "outcome": "completed"
+    },
+    "output_rows": [
+      {
+        "release_id": "cloud_replay_b",
+        "snapshot_id": "synthetic_b",
+        "slice": "DSNY / Dirty Condition / BROOKLYN",
+        "case_count": 0,
+        "intake": 0,
+        "recorded_closures": 0,
+        "observed_backlog": 0,
+        "target_numerator": 0,
+        "target_denominator": 0,
+        "target_rate": null,
+        "p90_eligible_count": 0,
+        "missing_target_cases": 0,
+        "invalid_outcome_cases": 0,
+        "unknown_outcome_cases": 0,
+        "immature_cases": 0,
+        "p90_elapsed_hours": null
+      },
+      {
+        "release_id": "cloud_replay_b",
+        "snapshot_id": "synthetic_b",
+        "slice": "empty",
+        "case_count": 0,
+        "intake": 0,
+        "recorded_closures": 0,
+        "observed_backlog": 0,
+        "target_numerator": 0,
+        "target_denominator": 0,
+        "target_rate": null,
+        "p90_eligible_count": 0,
+        "missing_target_cases": 0,
+        "invalid_outcome_cases": 0,
+        "unknown_outcome_cases": 0,
+        "immature_cases": 0,
+        "p90_elapsed_hours": null
+      },
+      {
+        "release_id": "cloud_replay_b",
+        "snapshot_id": "synthetic_b",
+        "slice": "overall",
+        "case_count": 13,
+        "intake": 12,
+        "recorded_closures": 4,
+        "observed_backlog": 5,
+        "target_numerator": 3,
+        "target_denominator": 5,
+        "target_rate": 0.6,
+        "p90_eligible_count": 4,
+        "missing_target_cases": 1,
+        "invalid_outcome_cases": 5,
+        "unknown_outcome_cases": 1,
+        "immature_cases": 1,
+        "p90_elapsed_hours": 367.90000000000003
+      }
+    ]
+  },
+  "date_role_reconciliation": {
+    "sql": "-- Match the Date slicer in Power BI to this half-open local-date interval.\n-- Optional vars reconciliation_start/end default to the final full cohort week,\n-- matching the checked-in Power BI DAX reconciliation query.\nwith bounds as (\n    select date('2026-11-09') as from_date,\n           date('2026-11-16') as to_date\n), created_slice as (\n    select c.* from `nyc311-service-ops-20261118`.`nyc311_work`.`fct_cases__r_cloud_replay_b` c cross join bounds b\n    where c.created_date >= b.from_date and c.created_date < b.to_date\n), closure_slice as (\n    select c.* from `nyc311-service-ops-20261118`.`nyc311_work`.`fct_cases__r_cloud_replay_b` c cross join bounds b\n    where c.is_p90_eligible and c.closed_date >= b.from_date and c.closed_date < b.to_date\n), p90 as (\n    select percentile_cont(elapsed_hours, 0.9) over () as value from closure_slice\n)\nselect 'cloud_replay_b' as release_id,\n    (select count(*) from created_slice) as intake_creation_slice,\n    (select count(*) from closure_slice) as closures_closure_slice,\n    (select coalesce(sum(target_numerator), 0) from created_slice) as target_numerator_creation_slice,\n    (select coalesce(sum(target_denominator), 0) from created_slice) as target_denominator_creation_slice,\n    (select count(*) from closure_slice) as p90_eligible_closure_slice,\n    (select value from p90 limit 1) as p90_hours_closure_slice,\n    (select coalesce(sum(open_count), 0) from `nyc311-service-ops-20261118`.`nyc311_work`.`fct_backlog__r_cloud_replay_b` where is_release_snapshot) as backlog_observation,\n    (select coalesce(sum(open_count), 0) from `nyc311-service-ops-20261118`.`nyc311_work`.`fct_backlog__r_cloud_replay_b` where is_release_snapshot) as backlog_without_period",
+    "sql_sha256": "7439e9d99b56aad74e5b01db6c2ccac0bc99b91d41b7ebfa3e67fb05a021ad12",
+    "dry_run_bytes": 453,
+    "job": {
+      "job_id": "5b24fe2c-31cc-4453-b0f9-2daf5141cc7a",
+      "bytes_processed": 158,
+      "bytes_billed": 20971520,
+      "cache_hit": false,
+      "statement_type": "SELECT",
+      "outcome": "completed"
+    },
+    "output_rows": [
+      {
+        "release_id": "cloud_replay_b",
+        "intake_creation_slice": 2,
+        "closures_closure_slice": 1,
+        "target_numerator_creation_slice": 0,
+        "target_denominator_creation_slice": 0,
+        "p90_eligible_closure_slice": 1,
+        "p90_hours_closure_slice": 505.0,
+        "backlog_observation": 5,
+        "backlog_without_period": 5
+      }
+    ]
+  },
+  "release_integrity_reconciliation": {
+    "sql": "-- Matches section E of powerbi/reconciliation.dax.\nselect\n    'cloud_replay_b' as release_id,\n    (select count(*) from `nyc311-service-ops-20261118`.`nyc311_work`.`release_metadata__r_cloud_replay_b`) as release_rows,\n    (select count(distinct release_id) from `nyc311-service-ops-20261118`.`nyc311_work`.`fct_cases__r_cloud_replay_b`) as case_release_count,\n    (select count(distinct snapshot_id) from `nyc311-service-ops-20261118`.`nyc311_work`.`fct_cases__r_cloud_replay_b`) as case_snapshot_count,\n    (select count(distinct snapshot_id) from `nyc311-service-ops-20261118`.`nyc311_work`.`fct_backlog__r_cloud_replay_b` where is_release_snapshot) as backlog_snapshot_count,\n    (select countif(is_backlog) from `nyc311-service-ops-20261118`.`nyc311_work`.`fct_cases__r_cloud_replay_b`) as open_case_rows,\n    (select coalesce(sum(open_count), 0) from `nyc311-service-ops-20261118`.`nyc311_work`.`fct_backlog__r_cloud_replay_b` where is_release_snapshot) as observed_backlog",
+    "sql_sha256": "ab4ccac5609f114fda94dd27895e6649eb02473b777a270592d0656241daf9c1",
+    "dry_run_bytes": 566,
+    "job": {
+      "job_id": "940e7cbf-22b7-417e-9572-bc304cbbfdec",
+      "bytes_processed": 482,
+      "bytes_billed": 31457280,
+      "cache_hit": false,
+      "statement_type": "SELECT",
+      "outcome": "completed"
+    },
+    "output_rows": [
+      {
+        "release_id": "cloud_replay_b",
+        "release_rows": 1,
+        "case_release_count": 1,
+        "case_snapshot_count": 1,
+        "backlog_snapshot_count": 1,
+        "open_case_rows": 5,
+        "observed_backlog": 5
+      }
+    ]
+  },
+  "segment_investigation": {
+    "sql": "-- Rank segments by observed open requests aged at least seven elapsed days.\n-- This identifies a review priority, not a causal explanation or staffing need.\nwith segment_p90 as (\n    select distinct agency_key, problem_key, borough_key,\n        percentile_cont(if(is_p90_eligible, elapsed_hours, null), 0.9)\n            over (partition by agency_key, problem_key, borough_key) as p90_elapsed_hours\n    from `nyc311-service-ops-20261118`.`nyc311_work`.`fct_cases__r_cloud_replay_b`\n), cases as (\n    select agency_key, problem_key, borough_key,\n        countif(created_date is not null) as intake,\n        countif(is_recorded_closure) as recorded_closures,\n        countif(is_p90_eligible) as p90_eligible_count,\n        sum(target_numerator) as target_numerator,\n        sum(target_denominator) as target_denominator,\n        countif(is_missing_target) as missing_target_cases,\n        countif(is_invalid_outcome or is_unknown_outcome) as invalid_or_unknown_cases,\n        countif(is_immature) as immature_cases\n    from `nyc311-service-ops-20261118`.`nyc311_work`.`fct_cases__r_cloud_replay_b`\n    group by agency_key, problem_key, borough_key\n)\nselect 'cloud_replay_b' as release_id,\n    b.snapshot_id, b.observed_at, c.*, b.open_count, b.age_168h_plus_count, p.p90_elapsed_hours,\n    safe_divide(c.target_numerator, c.target_denominator) as within_demo_target\nfrom cases c\njoin `nyc311-service-ops-20261118`.`nyc311_work`.`fct_backlog__r_cloud_replay_b` b using (agency_key, problem_key, borough_key)\nleft join segment_p90 p using (agency_key, problem_key, borough_key)\nwhere b.is_release_snapshot\norder by b.age_168h_plus_count desc, b.open_count desc, c.intake desc,\n    c.agency_key, c.problem_key, c.borough_key",
+    "sql_sha256": "5ae859a3a5375911d531322b2835c1501a26f5ee94a1525bd835b0c0cbb7d64b",
+    "dry_run_bytes": 1384,
+    "job": {
+      "job_id": "396c28b9-d8eb-4b43-a27b-435c4e34c103",
+      "bytes_processed": 1384,
+      "bytes_billed": 20971520,
+      "cache_hit": false,
+      "statement_type": "SELECT",
+      "outcome": "completed"
+    },
+    "output_rows": [
+      {
+        "release_id": "cloud_replay_b",
+        "snapshot_id": "synthetic_b",
+        "observed_at": "2026-11-16T17:00:00+00:00",
+        "agency_key": "DSNY",
+        "problem_key": "Illegal Dumping",
+        "borough_key": "QUEENS",
+        "intake": 2,
+        "recorded_closures": 0,
+        "p90_eligible_count": 0,
+        "target_numerator": 0,
+        "target_denominator": 1,
+        "missing_target_cases": 0,
+        "invalid_or_unknown_cases": 0,
+        "immature_cases": 1,
+        "open_count": 2,
+        "age_168h_plus_count": 1,
+        "p90_elapsed_hours": null,
+        "within_demo_target": 0.0
+      },
+      {
+        "release_id": "cloud_replay_b",
+        "snapshot_id": "synthetic_b",
+        "observed_at": "2026-11-16T17:00:00+00:00",
+        "agency_key": "DSNY",
+        "problem_key": "Synthetic No Target",
+        "borough_key": "QUEENS",
+        "intake": 1,
+        "recorded_closures": 0,
+        "p90_eligible_count": 0,
+        "target_numerator": 0,
+        "target_denominator": 0,
+        "missing_target_cases": 1,
+        "invalid_or_unknown_cases": 0,
+        "immature_cases": 0,
+        "open_count": 1,
+        "age_168h_plus_count": 1,
+        "p90_elapsed_hours": null,
+        "within_demo_target": null
+      },
+      {
+        "release_id": "cloud_replay_b",
+        "snapshot_id": "synthetic_b",
+        "observed_at": "2026-11-16T17:00:00+00:00",
+        "agency_key": "DSNY",
+        "problem_key": "Dirty Condition",
+        "borough_key": "QUEENS",
+        "intake": 8,
+        "recorded_closures": 3,
+        "p90_eligible_count": 3,
+        "target_numerator": 2,
+        "target_denominator": 3,
+        "missing_target_cases": 0,
+        "invalid_or_unknown_cases": 6,
+        "immature_cases": 0,
+        "open_count": 2,
+        "age_168h_plus_count": 0,
+        "p90_elapsed_hours": 413.6,
+        "within_demo_target": 0.6666666666666666
+      },
+      {
+        "release_id": "cloud_replay_b",
+        "snapshot_id": "synthetic_b",
+        "observed_at": "2026-11-16T17:00:00+00:00",
+        "agency_key": "DSNY",
+        "problem_key": "Dirty Condition",
+        "borough_key": "UNKNOWN",
+        "intake": 1,
+        "recorded_closures": 1,
+        "p90_eligible_count": 1,
+        "target_numerator": 1,
+        "target_denominator": 1,
+        "missing_target_cases": 0,
+        "invalid_or_unknown_cases": 0,
+        "immature_cases": 0,
+        "open_count": 0,
+        "age_168h_plus_count": 0,
+        "p90_elapsed_hours": 1.0,
+        "within_demo_target": 1.0
+      }
+    ]
+  },
+  "weekly_demand_and_closures": {
+    "sql": "-- Creation and closure date series are separate event counts from the fixed cohort.\nwith created as (\n    select date_trunc(created_date, week(monday)) as week_start,\n        agency_key, problem_key, borough_key, count(*) as intake\n    from `nyc311-service-ops-20261118`.`nyc311_work`.`fct_cases__r_cloud_replay_b`\n    where created_date is not null\n    group by week_start, agency_key, problem_key, borough_key\n), closed as (\n    select date_trunc(closed_date, week(monday)) as week_start,\n        agency_key, problem_key, borough_key, count(*) as recorded_closures\n    from `nyc311-service-ops-20261118`.`nyc311_work`.`fct_cases__r_cloud_replay_b`\n    where is_recorded_closure\n    group by week_start, agency_key, problem_key, borough_key\n)\nselect 'cloud_replay_b' as release_id,\n    week_start, agency_key, problem_key, borough_key,\n    coalesce(intake, 0) as intake, coalesce(recorded_closures, 0) as recorded_closures\nfrom created full outer join closed using (week_start, agency_key, problem_key, borough_key)\norder by week_start, agency_key, problem_key, borough_key",
+    "sql_sha256": "aa2007f79ca9f3372da98f4a880e5935b981bb03b2383971de2e44f3e8dc62b8",
+    "dry_run_bytes": 549,
+    "job": {
+      "job_id": "27cf6a97-f755-43c9-85ab-6e3841935833",
+      "bytes_processed": 549,
+      "bytes_billed": 10485760,
+      "cache_hit": false,
+      "statement_type": "SELECT",
+      "outcome": "completed"
+    },
+    "output_rows": [
+      {
+        "release_id": "cloud_replay_b",
+        "week_start": "2026-09-28",
+        "agency_key": "DSNY",
+        "problem_key": "Dirty Condition",
+        "borough_key": "QUEENS",
+        "intake": 1,
+        "recorded_closures": 1
+      },
+      {
+        "release_id": "cloud_replay_b",
+        "week_start": "2026-09-28",
+        "agency_key": "DSNY",
+        "problem_key": "Synthetic No Target",
+        "borough_key": "QUEENS",
+        "intake": 1,
+        "recorded_closures": 0
+      },
+      {
+        "release_id": "cloud_replay_b",
+        "week_start": "2026-10-05",
+        "agency_key": "DSNY",
+        "problem_key": "Dirty Condition",
+        "borough_key": "QUEENS",
+        "intake": 1,
+        "recorded_closures": 0
+      },
+      {
+        "release_id": "cloud_replay_b",
+        "week_start": "2026-10-05",
+        "agency_key": "DSNY",
+        "problem_key": "Dirty Condition",
+        "borough_key": "UNKNOWN",
+        "intake": 1,
+        "recorded_closures": 1
+      },
+      {
+        "release_id": "cloud_replay_b",
+        "week_start": "2026-10-19",
+        "agency_key": "DSNY",
+        "problem_key": "Dirty Condition",
+        "borough_key": "QUEENS",
+        "intake": 2,
+        "recorded_closures": 0
+      },
+      {
+        "release_id": "cloud_replay_b",
+        "week_start": "2026-10-26",
+        "agency_key": "DSNY",
+        "problem_key": "Dirty Condition",
+        "borough_key": "QUEENS",
+        "intake": 3,
+        "recorded_closures": 0
+      },
+      {
+        "release_id": "cloud_replay_b",
+        "week_start": "2026-10-26",
+        "agency_key": "DSNY",
+        "problem_key": "Illegal Dumping",
+        "borough_key": "QUEENS",
+        "intake": 1,
+        "recorded_closures": 0
+      },
+      {
+        "release_id": "cloud_replay_b",
+        "week_start": "2026-11-02",
+        "agency_key": "DSNY",
+        "problem_key": "Dirty Condition",
+        "borough_key": "QUEENS",
+        "intake": 0,
+        "recorded_closures": 1
+      },
+      {
+        "release_id": "cloud_replay_b",
+        "week_start": "2026-11-09",
+        "agency_key": "DSNY",
+        "problem_key": "Dirty Condition",
+        "borough_key": "QUEENS",
+        "intake": 1,
+        "recorded_closures": 1
+      },
+      {
+        "release_id": "cloud_replay_b",
+        "week_start": "2026-11-09",
+        "agency_key": "DSNY",
+        "problem_key": "Illegal Dumping",
+        "borough_key": "QUEENS",
+        "intake": 1,
+        "recorded_closures": 0
+      }
+    ]
+  }
+}

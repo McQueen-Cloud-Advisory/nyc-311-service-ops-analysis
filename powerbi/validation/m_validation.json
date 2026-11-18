@@ -1,0 +1,92 @@
+{
+  "checked_at_utc": "2026-11-18T12:32:41.919Z",
+  "outcome": "passed",
+  "parser": "@microsoft/powerquery-parser@5.0.0",
+  "node_version": "v24.15.0",
+  "expressions_checked": 16,
+  "results": [
+    {
+      "name": "pMode",
+      "result": "passed",
+      "sha256": "5267911d350f9d9da2c909df8026efbd5ab61d35872c3eb59c0ddd84df3bc35b"
+    },
+    {
+      "name": "pExportRoot",
+      "result": "passed",
+      "sha256": "11bd29c2de97ee754800c9dc9c2bf8d8b49db6fcdb6f9a79abb023da1c6d6418"
+    },
+    {
+      "name": "pReleaseId",
+      "result": "passed",
+      "sha256": "e1d8162e1895b0098c9c64d1a6c76879636bad840271f53e2be42d6fd201d6e3"
+    },
+    {
+      "name": "pSourceProject",
+      "result": "passed",
+      "sha256": "d43009e88cecf25ff70ea5660679e318911786e1832163d73975e866cdf0515a"
+    },
+    {
+      "name": "pBillingProject",
+      "result": "passed",
+      "sha256": "2f551f7c644e4e3bd2f6a3d70b78e3eb9a6ba0afe2572aa65dd5a6393623f644"
+    },
+    {
+      "name": "pDataset",
+      "result": "passed",
+      "sha256": "b6c5e7093ef5235de538987af64f22131a1eb6696db5ffc0dd3cc48386935f1c"
+    },
+    {
+      "name": "fnReadReporting",
+      "result": "passed",
+      "sha256": "a2f6fcc5b5fc0a90fe0ba0c94c813f45cdc57e8dad54aef47067ff6c284ed8c2"
+    },
+    {
+      "name": "Age Bucket partition",
+      "result": "passed",
+      "sha256": "ba848886b7b173780648bbe0cb30e44cdc0cadd6514ddcab5560f244af02a6e7"
+    },
+    {
+      "name": "Agency partition",
+      "result": "passed",
+      "sha256": "4e8631d28d208063f9254ea13667734aaaee19a2ade7a0942b5a30c0d4d23e63"
+    },
+    {
+      "name": "Backlog partition",
+      "result": "passed",
+      "sha256": "dec83cdb73d433c44b56840b6972b0c348530608a9f7cc24b17c0d78da13be9e"
+    },
+    {
+      "name": "Borough partition",
+      "result": "passed",
+      "sha256": "a995376e6defa812d681fbd449232617a9c019d72565b9310a1bdabf948eb809"
+    },
+    {
+      "name": "Cases partition",
+      "result": "passed",
+      "sha256": "6a9aaccf4be5d7eee8d598671a502963ba876d66ccb084608b848da0f52fa39d"
+    },
+    {
+      "name": "Date partition",
+      "result": "passed",
+      "sha256": "bd650c1bcc534e02e8c2317b3d2f37bba0cd3f92b5020a2b3d44882c0b57b4c8"
+    },
+    {
+      "name": "Metrics partition",
+      "result": "passed",
+      "sha256": "a751a9e602b055f9e3f13505f1dcb08a7ed1ede3df71c9453b7e0d99968c7031"
+    },
+    {
+      "name": "Problem partition",
+      "result": "passed",
+      "sha256": "d6af80974f94b42bf5f800334c9fd29aa8ed33c0a8384178c301d6c8f5b30401"
+    },
+    {
+      "name": "Release partition",
+      "result": "passed",
+      "sha256": "68f074904243ca319bc88df86dfeedea2e432316a44a139a6d9f0ff0ee0fabdb"
+    }
+  ],
+  "power_query_execution": "unverified",
+  "desktop_refresh": "unverified",
+  "note": "Syntax parsing does not resolve library functions, evaluate M, contact data sources, or execute DAX."
+}

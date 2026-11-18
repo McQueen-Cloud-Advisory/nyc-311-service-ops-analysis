@@ -1,0 +1,18 @@
+table 'Age Bucket'
+	lineageTag: 73e248cc-e189-e033-617a-73abefcd3733
+
+	column bucket
+		dataType: string
+		sourceColumn: bucket
+		summarizeBy: none
+		sortByColumn: sort_order
+
+	column sort_order
+		dataType: int64
+		sourceColumn: sort_order
+		isHidden
+		summarizeBy: none
+
+	partition 'Age Bucket' = m
+		mode: import
+		source = #table(type table [bucket = text, sort_order = Int64.Type], {{"Under 24h", 1}, {"24–72h", 2}, {"72–168h", 3}, {"168h+", 4}, {"Unknown age", 5}})

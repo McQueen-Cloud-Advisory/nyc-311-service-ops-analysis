@@ -1,0 +1,19 @@
+{
+  "project_id": "nyc311-demo-change-me",
+  "organization_id": null,
+  "billing_account_id": "000000-000000-000000",
+  "operator_email": "operator@example.com",
+  "reporter_email": null,
+  "location": "us-central1",
+  "raw_bucket": "nyc311-demo-change-me-raw",
+  "pipeline_account_id": "nyc311-pipeline",
+  "reporter_account_id": "nyc311-reporter",
+  "dataset_ids": {
+    "raw": "nyc311_raw",
+    "work": "nyc311_work",
+    "reporting": "nyc311_reporting",
+    "control": "nyc311_control"
+  },
+  "budget_amount_usd": 10,
+  "enable_storage_data_access_logs": true
+}

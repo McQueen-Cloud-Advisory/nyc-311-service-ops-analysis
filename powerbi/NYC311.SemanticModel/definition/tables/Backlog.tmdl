@@ -1,0 +1,109 @@
+table 'Backlog'
+	lineageTag: bf986e9a-4f86-0eb0-f3d2-def12019dc81
+	isHidden
+
+	column 'release_id'
+		dataType: string
+		sourceColumn: release_id
+		summarizeBy: none
+		lineageTag: 172639a5-7215-b1f7-3eb9-03a795d23787
+		isHidden
+
+	column 'snapshot_id'
+		dataType: string
+		sourceColumn: snapshot_id
+		summarizeBy: none
+		lineageTag: ede13964-fd4a-b87a-a615-d331017fd931
+		isHidden
+
+	column 'observed_at'
+		dataType: dateTime
+		sourceColumn: observed_at
+		summarizeBy: none
+		lineageTag: 683db9ec-1e68-6735-d40f-7035cebd7df6
+		formatString: yyyy-MM-dd HH:mm:ss
+
+	column 'snapshot_date'
+		dataType: dateTime
+		sourceColumn: snapshot_date
+		summarizeBy: none
+		lineageTag: 10870a5f-b6ec-cc9d-104c-4e02c1791c23
+		formatString: yyyy-MM-dd
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'is_release_snapshot'
+		dataType: boolean
+		sourceColumn: is_release_snapshot
+		summarizeBy: none
+		lineageTag: aa76f1a9-8e52-0577-6754-7ef43106c602
+		isHidden
+
+	column 'agency_key'
+		dataType: string
+		sourceColumn: agency_key
+		summarizeBy: none
+		lineageTag: f8359d17-02f7-c9ca-d2ba-1ac082c1d1fa
+		isHidden
+
+	column 'problem_key'
+		dataType: string
+		sourceColumn: problem_key
+		summarizeBy: none
+		lineageTag: e5510470-5fcd-963e-1841-faa5a960f6f2
+		isHidden
+
+	column 'borough_key'
+		dataType: string
+		sourceColumn: borough_key
+		summarizeBy: none
+		lineageTag: 0133f7f8-2d4f-d744-a78b-22c638cad0e2
+		isHidden
+
+	column 'open_count'
+		dataType: int64
+		sourceColumn: open_count
+		summarizeBy: none
+		lineageTag: 491bfa29-d897-3e26-084c-ca9ce09450e9
+		formatString: #,0
+
+	column 'age_under_24h_count'
+		dataType: int64
+		sourceColumn: age_under_24h_count
+		summarizeBy: none
+		lineageTag: 49471bed-75bf-feff-2a0f-a5a44d571874
+		formatString: #,0
+
+	column 'age_24_to_72h_count'
+		dataType: int64
+		sourceColumn: age_24_to_72h_count
+		summarizeBy: none
+		lineageTag: e8a4a00f-579c-b1f2-913f-49d65d03239b
+		formatString: #,0
+
+	column 'age_72_to_168h_count'
+		dataType: int64
+		sourceColumn: age_72_to_168h_count
+		summarizeBy: none
+		lineageTag: daf5a3ab-dc34-1de6-2494-1eaf7bc64851
+		formatString: #,0
+
+	column 'age_168h_plus_count'
+		dataType: int64
+		sourceColumn: age_168h_plus_count
+		summarizeBy: none
+		lineageTag: b016ae4f-6351-f467-fbbc-5289a05ce03f
+		formatString: #,0
+
+	column 'age_unknown_count'
+		dataType: int64
+		sourceColumn: age_unknown_count
+		summarizeBy: none
+		lineageTag: ecd10a45-6453-144c-6b0b-8530b651f101
+		formatString: #,0
+
+	partition 'Backlog' = m
+		mode: import
+		source =
+				fnReadReporting("fct_backlog", {{"release_id", type text}, {"snapshot_id", type text}, {"observed_at", type datetimezone}, {"snapshot_date", type date}, {"is_release_snapshot", type logical}, {"agency_key", type text}, {"problem_key", type text}, {"borough_key", type text}, {"open_count", Int64.Type}, {"age_under_24h_count", Int64.Type}, {"age_24_to_72h_count", Int64.Type}, {"age_72_to_168h_count", Int64.Type}, {"age_168h_plus_count", Int64.Type}, {"age_unknown_count", Int64.Type}})
+
+	annotation PBI_ResultType = Table

@@ -1,0 +1,36 @@
+{
+    "executed_at_utc":  "2026-11-18T12:19:10.1334662Z",
+    "engine":  "Python unittest; credential-free local execution only",
+    "cloud_enabled":  {
+                          "command":  "python -m unittest discover -s tests -p test_cloud*.py -q",
+                          "discovered":  19,
+                          "passed":  19,
+                          "skipped":  0,
+                          "cloud_calls":  0,
+                          "simulation":  true,
+                          "optional_cloud_simulations":  12,
+                          "restoration_safety_tests":  7
+                      },
+    "minimal_install":  {
+                            "installation":  "pip install -e . in a separate clean virtual environment",
+                            "command":  "python -m unittest discover -s tests -v",
+                            "discovered":  72,
+                            "passed":  60,
+                            "skipped":  12,
+                            "skipped_reason":  "Optional cloud libraries absent",
+                            "security_tests_passed":  6,
+                            "cloud_calls":  0
+                        },
+    "limitation":  "Cloud simulation passes are not live IAM, SQL execution, dbt, or Power BI proof. Minimal-install skips are not counted as passes.",
+    "full_cloud_install":  {
+                               "evidence":  "artifacts/validation/local.json",
+                               "executed_at":  "2026-11-18T12:19:39.626145+00:00",
+                               "discovered":  72,
+                               "passed":  72,
+                               "skipped":  0,
+                               "failures":  0,
+                               "errors":  0,
+                               "cloud_calls":  0,
+                               "scope":  "Complete local unit-test suite with optional cloud libraries installed; cloud clients mocked"
+                           }
+}

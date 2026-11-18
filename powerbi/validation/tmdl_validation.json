@@ -1,0 +1,24 @@
+{
+    "checked_at_utc":  "2026-11-18T12:32:42.4552008Z",
+    "outcome":  "passed",
+    "check":  "Microsoft TmdlSerializer.DeserializeDatabaseFromFolder",
+    "parser":  "Microsoft.AnalysisServices 19.120.1 (net472)",
+    "table_count":  9,
+    "relationship_count":  8,
+    "measure_count":  20,
+    "tables":  [
+                   "Agency",
+                   "Problem",
+                   "Borough",
+                   "Date",
+                   "Cases",
+                   "Backlog",
+                   "Release",
+                   "Age Bucket",
+                   "Metrics"
+               ],
+    "desktop_open":  "unverified",
+    "refresh":  "unverified",
+    "dax_execution":  "unverified",
+    "note":  "Metadata deserialization does not execute M, validate DAX results, or render the report."
+}

@@ -1,0 +1,29 @@
+table 'Agency'
+	lineageTag: 86f357cf-b8c2-c100-2c12-28b554b8d008
+
+	column 'release_id'
+		dataType: string
+		sourceColumn: release_id
+		summarizeBy: none
+		lineageTag: de431567-7c0b-f9fd-036a-c92c81c7eef5
+		isHidden
+
+	column 'agency_key'
+		dataType: string
+		sourceColumn: agency_key
+		summarizeBy: none
+		lineageTag: 2ff55d86-259a-81dc-7acb-9ac4361c0fd8
+		isHidden
+
+	column 'agency'
+		dataType: string
+		sourceColumn: agency
+		summarizeBy: none
+		lineageTag: c0229b07-47c6-d2b1-c746-bbb826001b9a
+
+	partition 'Agency' = m
+		mode: import
+		source =
+				fnReadReporting("dim_agency", {{"release_id", type text}, {"agency_key", type text}, {"agency", type text}})
+
+	annotation PBI_ResultType = Table

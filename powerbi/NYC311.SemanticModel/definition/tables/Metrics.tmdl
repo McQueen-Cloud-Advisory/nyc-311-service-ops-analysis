@@ -1,0 +1,133 @@
+table Metrics
+	lineageTag: a58da793-c725-0f1b-3b8f-8710efd7c7ee
+
+	column placeholder
+		dataType: int64
+		sourceColumn: placeholder
+		isHidden
+		summarizeBy: none
+
+	partition Metrics = m
+		mode: import
+		source = #table(type table [placeholder = Int64.Type], {{1}})
+
+	/// Creation-date period; requests with a known local creation date within the pinned cohort.
+	measure 'Intake' =
+			COALESCE(COUNTROWS(FILTER('Cases', NOT ISBLANK('Cases'[created_date]))), 0)
+		lineageTag: 799672db-f026-f163-a3ba-c47c952dffb9
+		formatString: #,0
+
+	/// Closure-date period; only requests created within the pinned cohort.
+	measure 'Recorded closures' =
+			COALESCE(CALCULATE(COUNTROWS('Cases'), 'Cases'[is_recorded_closure] = TRUE(), USERELATIONSHIP('Date'[date_key], 'Cases'[closed_date])), 0)
+		lineageTag: 962fb0f0-6005-bb4d-23b7-31292882bae0
+		formatString: #,0
+
+	/// Selected release observation; independent of the activity date period.
+	measure 'Observed backlog' =
+			VAR Snapshot = SELECTEDVALUE('Release'[snapshot_id])
+			RETURN IF(NOT ISBLANK(Snapshot), COALESCE(CALCULATE(SUM('Backlog'[open_count]), 'Backlog'[snapshot_id] = Snapshot, 'Backlog'[is_release_snapshot] = TRUE()), 0))
+		lineageTag: af3915f3-dea1-b215-5649-d75391d5d2e9
+		formatString: #,0
+
+	/// Open for at least 168 elapsed hours at the selected observation.
+	measure 'Backlog 7d+' =
+			VAR Snapshot = SELECTEDVALUE('Release'[snapshot_id])
+			RETURN IF(NOT ISBLANK(Snapshot), COALESCE(CALCULATE(SUM('Backlog'[age_168h_plus_count]), 'Backlog'[snapshot_id] = Snapshot, 'Backlog'[is_release_snapshot] = TRUE()), 0))
+		lineageTag: a84e62cd-0b57-a22c-535b-2ebaf09558a5
+		formatString: #,0
+
+	/// Mature eligible cases recorded closed within the assigned demonstration target; creation-date period.
+	measure 'Demo target met' =
+			COALESCE(SUM('Cases'[target_numerator]), 0)
+		lineageTag: 32d07ba6-afde-522d-df1f-ba30c4f31c7c
+		formatString: #,0
+
+	/// All mature eligible cases in the creation-date period, including overdue open and late closed misses.
+	measure 'Demo target eligible' =
+			COALESCE(SUM('Cases'[target_denominator]), 0)
+		lineageTag: 0c074ee6-18f4-87d9-3a95-f656bf282b87
+		formatString: #,0
+
+	/// Ratio of summed numerator to summed denominator. BLANK when no eligible mature cases.
+	measure 'Within demo target %' =
+			DIVIDE([Demo target met], [Demo target eligible])
+		lineageTag: 0ef2d083-80f9-238c-9f02-ce19d4453ea8
+		formatString: 0.0%
+
+	/// Eligible case rows in the selected closure-date period.
+	measure 'P90 eligible closures' =
+			COALESCE(CALCULATE(COUNTROWS('Cases'), 'Cases'[is_p90_eligible] = TRUE(), USERELATIONSHIP('Date'[date_key], 'Cases'[closed_date])), 0)
+		lineageTag: a3f26c10-9d2e-130c-30b4-664d02ad1179
+		formatString: #,0
+
+	/// Continuous/interpolated percentile across eligible case rows, not an average of segment percentiles.
+	measure 'P90 hours to recorded closure' =
+			VAR Eligible = CALCULATETABLE(FILTER('Cases', 'Cases'[is_p90_eligible] = TRUE() && NOT ISBLANK('Cases'[elapsed_hours])), USERELATIONSHIP('Date'[date_key], 'Cases'[closed_date]))
+			RETURN IF(COUNTROWS(Eligible) > 0, PERCENTILEX.INC(Eligible, 'Cases'[elapsed_hours], 0.9))
+		lineageTag: f70ea0e0-5a69-0651-287f-8f6c6658414f
+		formatString: 0.0
+
+	/// Creation-date period. Missing-target diagnostic; not in the mature eligible denominator.
+	measure 'Missing demo target' =
+			COALESCE(CALCULATE(COUNTROWS('Cases'), 'Cases'[is_missing_target] = TRUE()), 0)
+		lineageTag: b8492003-b7e0-6859-2ca1-a2a8b364db12
+		formatString: #,0
+
+	/// Creation-date period. Assigned threshold has not elapsed by the observation.
+	measure 'Immature cases' =
+			COALESCE(CALCULATE(COUNTROWS('Cases'), 'Cases'[is_immature] = TRUE()), 0)
+		lineageTag: ad91078b-586c-6083-b8f1-2aaac6ba7639
+		formatString: #,0
+
+	/// Creation-date period. Invalid chronology or inconsistent outcome.
+	measure 'Invalid outcomes' =
+			COALESCE(CALCULATE(COUNTROWS('Cases'), 'Cases'[is_invalid_outcome] = TRUE()), 0)
+		lineageTag: 6d099835-0b14-274b-b677-d3eb5714b76a
+		formatString: #,0
+
+	/// Creation-date period. Status does not support a known open/closed outcome.
+	measure 'Unknown outcomes' =
+			COALESCE(CALCULATE(COUNTROWS('Cases'), 'Cases'[is_unknown_outcome] = TRUE()), 0)
+		lineageTag: 547bb089-a9f4-c6ec-564c-bc6e260972b5
+		formatString: #,0
+
+	/// Open requests by elapsed age at the single selected capture.
+	measure 'Backlog by age' =
+			VAR Snapshot = SELECTEDVALUE('Release'[snapshot_id])
+			RETURN IF(NOT ISBLANK(Snapshot), CALCULATE(SWITCH(SELECTEDVALUE('Age Bucket'[bucket]), "Under 24h", SUM('Backlog'[age_under_24h_count]), "24–72h", SUM('Backlog'[age_24_to_72h_count]), "72–168h", SUM('Backlog'[age_72_to_168h_count]), "168h+", SUM('Backlog'[age_168h_plus_count]), "Unknown age", SUM('Backlog'[age_unknown_count])), 'Backlog'[snapshot_id] = Snapshot, 'Backlog'[is_release_snapshot] = TRUE()))
+		lineageTag: 762d0cb7-c3ce-f3a0-cc2d-212c180fa89a
+		formatString: #,0
+
+	/// Detail rows are open requests or mature target-eligible cases from this observation.
+	measure 'Request detail visible' =
+			VAR Snapshot = SELECTEDVALUE('Release'[snapshot_id])
+			RETURN IF(SELECTEDVALUE('Cases'[snapshot_id]) = Snapshot && (SELECTEDVALUE('Cases'[is_backlog]) = TRUE() || SELECTEDVALUE('Cases'[target_denominator]) = 1), 1, 0)
+		lineageTag: cc4934ed-1b7f-e8c4-6df9-907c1a45ce61
+		formatString: 0
+
+	/// Elapsed age at observation for open requests only; closed request rows remain BLANK.
+	measure 'Open request age hours' =
+			IF(SELECTEDVALUE('Cases'[is_backlog]) = TRUE(), SELECTEDVALUE('Cases'[age_hours]))
+		lineageTag: d3fdeb1d-66f7-ccdf-189a-b0816460040b
+		formatString: 0.0
+
+	/// Visible segment context includes drill-through filters even when slicer captions say All.
+	measure 'Selected segment' =
+			"Agency: " & IF(HASONEVALUE('Agency'[agency]), SELECTEDVALUE('Agency'[agency]), "All") & " | Problem: " & IF(HASONEVALUE('Problem'[problem]), SELECTEDVALUE('Problem'[problem]), "All") & " | Borough: " & IF(HASONEVALUE('Borough'[borough]), SELECTEDVALUE('Borough'[borough]), "All")
+		lineageTag: 143bff17-9bda-7bf3-f75e-69e80de0ee94
+
+	/// Selected completed observation and provenance.
+	measure 'Release context' =
+			"Release " & SELECTEDVALUE('Release'[release_id], "INVALID") & " | " & SELECTEDVALUE('Release'[source_kind], "UNKNOWN") & " | As of " & FORMAT(SELECTEDVALUE('Release'[observed_at]), "yyyy-MM-dd HH:mm") & " UTC"
+		lineageTag: d6b9cf3a-d4fe-8aab-dcce-85191618223d
+
+	/// Pinned creation cohort and complete-extract count; not citywide workload.
+	measure 'Cohort coverage' =
+			"Created " & FORMAT(SELECTEDVALUE('Release'[cohort_start]), "yyyy-MM-dd") & " through " & FORMAT(SELECTEDVALUE('Release'[cohort_end]) - 1, "yyyy-MM-dd") & " (NYC) | Captured " & FORMAT(SELECTEDVALUE('Release'[source_count]), "#,0") & " / " & FORMAT(SELECTEDVALUE('Release'[expected_count]), "#,0") & " requests"
+		lineageTag: 5b317b73-dd9b-1107-22be-2beb0e0879c5
+
+	/// Explicit date roles; backlog does not respond to the activity period.
+	measure 'Period context' =
+			"Activity period: " & FORMAT(MIN('Date'[date_key]), "yyyy-MM-dd") & " to " & FORMAT(MAX('Date'[date_key]), "yyyy-MM-dd") & ". Intake/targets use creation; closures/p90 use closure; backlog uses the displayed observation."
+		lineageTag: 0c634361-56e8-1e66-2c82-05c502838e91

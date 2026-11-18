@@ -1,0 +1,38 @@
+relationship 32ca91df-d727-ba3d-e68b-911bce1d4809
+	fromColumn: 'Cases'.'agency_key'
+	toColumn: 'Agency'.'agency_key'
+	crossFilteringBehavior: oneDirection
+
+relationship 0fd0e7f2-0a64-fbb3-b28b-13ffd5edce4b
+	fromColumn: 'Cases'.'problem_key'
+	toColumn: 'Problem'.'problem_key'
+	crossFilteringBehavior: oneDirection
+
+relationship 6a48d4d5-8836-1cf9-219e-8830a5e37005
+	fromColumn: 'Cases'.'borough_key'
+	toColumn: 'Borough'.'borough_key'
+	crossFilteringBehavior: oneDirection
+
+relationship b96b2173-a98a-862f-c17b-f7166fd43850
+	fromColumn: 'Backlog'.'agency_key'
+	toColumn: 'Agency'.'agency_key'
+	crossFilteringBehavior: oneDirection
+
+relationship 0a46077a-cb5c-cdee-35fb-4e5444b9af28
+	fromColumn: 'Backlog'.'problem_key'
+	toColumn: 'Problem'.'problem_key'
+	crossFilteringBehavior: oneDirection
+
+relationship 8beced11-dad3-412c-5776-4680a7ed1fbf
+	fromColumn: 'Backlog'.'borough_key'
+	toColumn: 'Borough'.'borough_key'
+	crossFilteringBehavior: oneDirection
+
+relationship 323f600c-342e-67e1-3ffe-1304f33b3960
+	fromColumn: Cases.created_date
+	toColumn: 'Date'.date_key
+
+relationship d2467b38-3e11-0226-cf16-7d8308dc716e
+	isActive: false
+	fromColumn: Cases.closed_date
+	toColumn: 'Date'.date_key

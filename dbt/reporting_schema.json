@@ -1,0 +1,70 @@
+{
+  "contract_version": 1,
+  "physical_table_pattern": "<model>__r_<release_id>",
+  "tables": {
+    "fct_cases": {
+      "grain": "One row per request_id at the release snapshot",
+      "columns": [
+        {"name":"release_id","type":"STRING"}, {"name":"request_id","type":"STRING"},
+        {"name":"snapshot_id","type":"STRING"}, {"name":"observed_at","type":"TIMESTAMP"},
+        {"name":"created_date","type":"DATE"}, {"name":"closed_date","type":"DATE"},
+        {"name":"created_at","type":"TIMESTAMP"}, {"name":"closed_at","type":"TIMESTAMP"},
+        {"name":"agency_key","type":"STRING"}, {"name":"problem_key","type":"STRING"},
+        {"name":"borough_key","type":"STRING"}, {"name":"status","type":"STRING"},
+        {"name":"status_class","type":"STRING"}, {"name":"temporal_quality","type":"STRING"},
+        {"name":"channel","type":"STRING"}, {"name":"elapsed_hours","type":"FLOAT64"},
+        {"name":"age_hours","type":"FLOAT64"}, {"name":"age_bucket","type":"STRING"},
+        {"name":"target_hours","type":"INT64"}, {"name":"target_version","type":"STRING"},
+        {"name":"target_numerator","type":"INT64"}, {"name":"target_denominator","type":"INT64"},
+        {"name":"is_backlog","type":"BOOL"}, {"name":"is_p90_eligible","type":"BOOL"},
+        {"name":"is_recorded_closure","type":"BOOL"}, {"name":"is_missing_target","type":"BOOL"},
+        {"name":"is_immature","type":"BOOL"}, {"name":"is_invalid_outcome","type":"BOOL"},
+        {"name":"is_unknown_outcome","type":"BOOL"}, {"name":"target_eligibility_reason","type":"STRING"},
+        {"name":"payload_hash","type":"STRING"}
+      ]
+    },
+    "fct_backlog": {
+      "grain": "One row per snapshot_id x agency_key x problem_key x borough_key",
+      "columns": [
+        {"name":"release_id","type":"STRING"}, {"name":"snapshot_id","type":"STRING"},
+        {"name":"observed_at","type":"TIMESTAMP"}, {"name":"snapshot_date","type":"DATE"},
+        {"name":"is_release_snapshot","type":"BOOL"}, {"name":"agency_key","type":"STRING"},
+        {"name":"problem_key","type":"STRING"}, {"name":"borough_key","type":"STRING"},
+        {"name":"open_count","type":"INT64"}, {"name":"age_under_24h_count","type":"INT64"},
+        {"name":"age_24_to_72h_count","type":"INT64"}, {"name":"age_72_to_168h_count","type":"INT64"},
+        {"name":"age_168h_plus_count","type":"INT64"}, {"name":"age_unknown_count","type":"INT64"}
+      ]
+    },
+    "dim_agency": {
+      "grain": "One row per agency_key",
+      "columns": [{"name":"release_id","type":"STRING"},{"name":"agency_key","type":"STRING"},{"name":"agency","type":"STRING"}]
+    },
+    "dim_problem": {
+      "grain": "One row per problem_key",
+      "columns": [{"name":"release_id","type":"STRING"},{"name":"problem_key","type":"STRING"},{"name":"problem","type":"STRING"}]
+    },
+    "dim_borough": {
+      "grain": "One row per borough_key",
+      "columns": [{"name":"release_id","type":"STRING"},{"name":"borough_key","type":"STRING"},{"name":"borough","type":"STRING"}]
+    },
+    "dim_date": {
+      "grain": "One row per local calendar date",
+      "columns": [
+        {"name":"release_id","type":"STRING"},{"name":"date_key","type":"DATE"},
+        {"name":"year","type":"INT64"},{"name":"month","type":"INT64"},
+        {"name":"month_name","type":"STRING"},{"name":"week_start","type":"DATE"}
+      ]
+    },
+    "release_metadata": {
+      "grain": "Exactly one row per release",
+      "columns": [
+        {"name":"release_id","type":"STRING"},{"name":"snapshot_id","type":"STRING"},
+        {"name":"observed_at","type":"TIMESTAMP"},{"name":"extraction_started_at","type":"TIMESTAMP"},
+        {"name":"extraction_ended_at","type":"TIMESTAMP"},{"name":"source_kind","type":"STRING"},
+        {"name":"cohort_start","type":"DATE"},{"name":"cohort_end","type":"DATE"},
+        {"name":"target_version","type":"STRING"},{"name":"expected_count","type":"INT64"},
+        {"name":"source_count","type":"INT64"}
+      ]
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+    "checked_at_utc":  "2026-11-18T11:42:06.046295Z",
+    "scope":  "Offline dbt parsing and Jinja compilation using synthetic release variables and an unconfigured GCP project; no database queries executed",
+    "dbt_core":  "1.12.7",
+    "dbt_bigquery":  "1.12.4",
+    "models":  11,
+    "analyses":  7,
+    "data_tests":  60,
+    "parse":  "passed",
+    "compile_without_introspection":  "passed",
+    "compile_flags":  [
+                          "--no-introspect",
+                          "--no-populate-cache",
+                          "--no-partial-parse"
+                      ],
+    "send_anonymous_usage_stats":  false,
+    "managed_dbt_state":  "disabled with RUN_CACHE_DISABLED=true",
+    "google_sql_execution":  "not_run_missing_gcp_configuration",
+    "data_tests_execution":  "not_run_missing_gcp_configuration"
+}

@@ -1,0 +1,20 @@
+# Copy outside version control as profiles.yml, or have the runner render it.
+# OAuth here uses Application Default Credentials; no service-account key file.
+nyc311:
+  target: dev
+  outputs:
+    dev:
+      type: bigquery
+      method: oauth
+      project: "{{ env_var('GCP_PROJECT_ID', 'unconfigured-project') }}"
+      execution_project: "{{ env_var('GCP_BILLING_PROJECT_ID', env_var('GCP_PROJECT_ID', 'unconfigured-project')) }}"
+      dataset: "{{ env_var('DBT_DATASET', 'nyc311_work') }}"
+      location: "{{ env_var('GCP_LOCATION', 'US') }}"
+      threads: 1
+      priority: interactive
+      job_execution_timeout_seconds: 300
+      job_retries: 1
+      maximum_bytes_billed: "{{ env_var('NYC311_MAXIMUM_BYTES_BILLED', '1000000000') | int }}"
+      # Set this to the pipeline service account; the operator needs Token Creator
+      # on that account only. Never use this identity in Power BI.
+      impersonate_service_account: "{{ env_var('GCP_PIPELINE_SERVICE_ACCOUNT', 'unconfigured@unconfigured-project.iam.gserviceaccount.com') }}"

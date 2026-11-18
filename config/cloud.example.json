@@ -1,0 +1,12 @@
+{
+  "project_id": "replace-with-dedicated-project-id",
+  "billing_project_id": "replace-with-dedicated-project-id",
+  "location": "us-central1",
+  "raw_dataset": "nyc311_raw",
+  "work_dataset": "nyc311_work",
+  "reporting_dataset": "nyc311_reporting",
+  "control_dataset": "nyc311_control",
+  "raw_bucket": "replace-with-private-capture-bucket",
+  "impersonate_service_account": "nyc311-pipeline@replace-with-dedicated-project-id.iam.gserviceaccount.com",
+  "maximum_bytes_billed": 1000000000
+}

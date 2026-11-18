@@ -1,0 +1,446 @@
+{
+  "release_id": "cloud_replay_a",
+  "snapshot_id": "synthetic_a",
+  "dbt_version": "1.12.7",
+  "generated_at": "2026-11-18T12:17:37.767645Z",
+  "elapsed_time": 158.92884588241577,
+  "results": [
+    {
+      "unique_id": "operation.nyc311.nyc311-on-run-start-0",
+      "status": "success",
+      "execution_time": 1.82698,
+      "failures": 0
+    },
+    {
+      "unique_id": "model.nyc311.dim_borough",
+      "status": "success",
+      "execution_time": 4.114730596542358,
+      "failures": null
+    },
+    {
+      "unique_id": "model.nyc311.dim_date",
+      "status": "success",
+      "execution_time": 4.201364994049072,
+      "failures": null
+    },
+    {
+      "unique_id": "model.nyc311.stg_observations",
+      "status": "success",
+      "execution_time": 2.654738426208496,
+      "failures": null
+    },
+    {
+      "unique_id": "model.nyc311.stg_targets",
+      "status": "success",
+      "execution_time": 3.202617883682251,
+      "failures": null
+    },
+    {
+      "unique_id": "test.nyc311.dst_elapsed_reference",
+      "status": "pass",
+      "execution_time": 1.5259017944335938,
+      "failures": 0
+    },
+    {
+      "unique_id": "test.nyc311.not_null_dim_borough_borough_key.1ecdd62dfb",
+      "status": "pass",
+      "execution_time": 2.0169596672058105,
+      "failures": 0
+    },
+    {
+      "unique_id": "test.nyc311.unique_dim_borough_borough_key.ff2296557b",
+      "status": "pass",
+      "execution_time": 1.9645655155181885,
+      "failures": 0
+    },
+    {
+      "unique_id": "test.nyc311.not_null_dim_date_date_key.881d0a31b6",
+      "status": "pass",
+      "execution_time": 2.3798434734344482,
+      "failures": 0
+    },
+    {
+      "unique_id": "test.nyc311.unique_dim_date_date_key.0869fd48f9",
+      "status": "pass",
+      "execution_time": 2.272190809249878,
+      "failures": 0
+    },
+    {
+      "unique_id": "test.nyc311.not_null_stg_observations_observed_at.c5e5f067fa",
+      "status": "pass",
+      "execution_time": 2.158235788345337,
+      "failures": 0
+    },
+    {
+      "unique_id": "test.nyc311.not_null_stg_observations_snapshot_id.ffb671636b",
+      "status": "pass",
+      "execution_time": 2.5858359336853027,
+      "failures": 0
+    },
+    {
+      "unique_id": "test.nyc311.not_null_stg_observations_source_kind.93f437481c",
+      "status": "pass",
+      "execution_time": 2.3455708026885986,
+      "failures": 0
+    },
+    {
+      "unique_id": "test.nyc311.unique_stg_observations_snapshot_id.e386ecc589",
+      "status": "pass",
+      "execution_time": 2.665354013442993,
+      "failures": 0
+    },
+    {
+      "unique_id": "test.nyc311.not_null_stg_targets_effective_start.dcb79d4f83",
+      "status": "pass",
+      "execution_time": 2.179140329360962,
+      "failures": 0
+    },
+    {
+      "unique_id": "test.nyc311.not_null_stg_targets_target_hours.1d7c2373b9",
+      "status": "pass",
+      "execution_time": 1.9212350845336914,
+      "failures": 0
+    },
+    {
+      "unique_id": "test.nyc311.not_null_stg_targets_target_key.b1ecffb57f",
+      "status": "pass",
+      "execution_time": 1.7036614418029785,
+      "failures": 0
+    },
+    {
+      "unique_id": "test.nyc311.target_intervals_do_not_overlap",
+      "status": "pass",
+      "execution_time": 1.9993865489959717,
+      "failures": 0
+    },
+    {
+      "unique_id": "test.nyc311.target_register_valid",
+      "status": "pass",
+      "execution_time": 1.8797361850738525,
+      "failures": 0
+    },
+    {
+      "unique_id": "test.nyc311.unique_stg_targets_target_key.e8f73703fc",
+      "status": "pass",
+      "execution_time": 1.7784614562988281,
+      "failures": 0
+    },
+    {
+      "unique_id": "model.nyc311.release_metadata",
+      "status": "success",
+      "execution_time": 4.098630905151367,
+      "failures": null
+    },
+    {
+      "unique_id": "model.nyc311.stg_requests",
+      "status": "success",
+      "execution_time": 3.1189956665039062,
+      "failures": null
+    },
+    {
+      "unique_id": "test.nyc311.not_null_release_metadata_release_id.8a07267b0a",
+      "status": "pass",
+      "execution_time": 1.5656421184539795,
+      "failures": 0
+    },
+    {
+      "unique_id": "test.nyc311.not_null_release_metadata_snapshot_id.228ed98374",
+      "status": "pass",
+      "execution_time": 1.6483895778656006,
+      "failures": 0
+    },
+    {
+      "unique_id": "test.nyc311.unique_release_metadata_release_id.4e30372dcc",
+      "status": "pass",
+      "execution_time": 1.71120023727417,
+      "failures": 0
+    },
+    {
+      "unique_id": "test.nyc311.unique_release_metadata_snapshot_id.f7b8f1d549",
+      "status": "pass",
+      "execution_time": 2.026507616043091,
+      "failures": 0
+    },
+    {
+      "unique_id": "test.nyc311.accepted_values_stg_requests_status_class__open__closed__unknown.7f099de2ad",
+      "status": "pass",
+      "execution_time": 2.0974268913269043,
+      "failures": 0
+    },
+    {
+      "unique_id": "test.nyc311.accepted_values_stg_requests_temporal_quality__valid__missing_created__invalid_created__invalid_closed__ambiguous_created__ambiguous_closed__nonexistent_created__nonexistent_closed__negative_elapsed__future_created__future_closed.767b385597",
+      "status": "pass",
+      "execution_time": 2.293972969055176,
+      "failures": 0
+    },
+    {
+      "unique_id": "test.nyc311.not_null_stg_requests_request_id.6f6fb294c5",
+      "status": "pass",
+      "execution_time": 2.034464120864868,
+      "failures": 0
+    },
+    {
+      "unique_id": "test.nyc311.not_null_stg_requests_snapshot_id.ad42902a3e",
+      "status": "pass",
+      "execution_time": 1.757622241973877,
+      "failures": 0
+    },
+    {
+      "unique_id": "test.nyc311.relationships_stg_requests_snapshot_id__snapshot_id__ref_stg_observations_.15ced1ae8a",
+      "status": "pass",
+      "execution_time": 1.911086082458496,
+      "failures": 0
+    },
+    {
+      "unique_id": "test.nyc311.request_observation_key",
+      "status": "pass",
+      "execution_time": 2.2146799564361572,
+      "failures": 0
+    },
+    {
+      "unique_id": "test.nyc311.source_status_contract",
+      "status": "pass",
+      "execution_time": 1.7765789031982422,
+      "failures": 0
+    },
+    {
+      "unique_id": "test.nyc311.valid_timestamp_normalization",
+      "status": "pass",
+      "execution_time": 2.2489330768585205,
+      "failures": 0
+    },
+    {
+      "unique_id": "model.nyc311.dim_agency",
+      "status": "success",
+      "execution_time": 4.10843563079834,
+      "failures": null
+    },
+    {
+      "unique_id": "model.nyc311.dim_problem",
+      "status": "success",
+      "execution_time": 4.35770583152771,
+      "failures": null
+    },
+    {
+      "unique_id": "model.nyc311.fct_backlog",
+      "status": "success",
+      "execution_time": 4.221599102020264,
+      "failures": null
+    },
+    {
+      "unique_id": "test.nyc311.not_null_dim_agency_agency_key.0a87c2ca6f",
+      "status": "pass",
+      "execution_time": 2.010967493057251,
+      "failures": 0
+    },
+    {
+      "unique_id": "test.nyc311.unique_dim_agency_agency_key.c20e439aff",
+      "status": "pass",
+      "execution_time": 2.1984620094299316,
+      "failures": 0
+    },
+    {
+      "unique_id": "test.nyc311.not_null_dim_problem_problem_key.1089b67d47",
+      "status": "pass",
+      "execution_time": 1.7615280151367188,
+      "failures": 0
+    },
+    {
+      "unique_id": "test.nyc311.unique_dim_problem_problem_key.883febbd7c",
+      "status": "pass",
+      "execution_time": 2.037912368774414,
+      "failures": 0
+    },
+    {
+      "unique_id": "test.nyc311.backlog_grain",
+      "status": "pass",
+      "execution_time": 1.7843592166900635,
+      "failures": 0
+    },
+    {
+      "unique_id": "test.nyc311.not_null_fct_backlog_observed_at.cf645f8634",
+      "status": "pass",
+      "execution_time": 1.9518990516662598,
+      "failures": 0
+    },
+    {
+      "unique_id": "test.nyc311.not_null_fct_backlog_snapshot_id.3b6737a5b5",
+      "status": "pass",
+      "execution_time": 1.5200672149658203,
+      "failures": 0
+    },
+    {
+      "unique_id": "test.nyc311.relationships_fct_backlog_agency_key__agency_key__ref_dim_agency_.9e279d12ac",
+      "status": "pass",
+      "execution_time": 1.776702880859375,
+      "failures": 0
+    },
+    {
+      "unique_id": "test.nyc311.relationships_fct_backlog_borough_key__borough_key__ref_dim_borough_.6596f90559",
+      "status": "pass",
+      "execution_time": 1.7019660472869873,
+      "failures": 0
+    },
+    {
+      "unique_id": "test.nyc311.relationships_fct_backlog_problem_key__problem_key__ref_dim_problem_.0bbcc8f72a",
+      "status": "pass",
+      "execution_time": 1.775564193725586,
+      "failures": 0
+    },
+    {
+      "unique_id": "test.nyc311.target_join_has_no_fanout",
+      "status": "pass",
+      "execution_time": 2.67680287361145,
+      "failures": 0
+    },
+    {
+      "unique_id": "model.nyc311.fct_cases",
+      "status": "success",
+      "execution_time": 4.506338834762573,
+      "failures": null
+    },
+    {
+      "unique_id": "test.nyc311.accepted_values_fct_cases_target_denominator__False__0__1.5bae57b1a7",
+      "status": "pass",
+      "execution_time": 1.970283031463623,
+      "failures": 0
+    },
+    {
+      "unique_id": "test.nyc311.accepted_values_fct_cases_target_eligibility_reason__eligible_mature__immature__missing_target__invalid_outcome__unknown_outcome.5992800172",
+      "status": "pass",
+      "execution_time": 1.8635029792785645,
+      "failures": 0
+    },
+    {
+      "unique_id": "test.nyc311.accepted_values_fct_cases_target_numerator__False__0__1.96bc56f45f",
+      "status": "pass",
+      "execution_time": 1.6350674629211426,
+      "failures": 0
+    },
+    {
+      "unique_id": "test.nyc311.backlog_reconciles",
+      "status": "pass",
+      "execution_time": 1.9466092586517334,
+      "failures": 0
+    },
+    {
+      "unique_id": "test.nyc311.case_population_preserved",
+      "status": "pass",
+      "execution_time": 2.185556411743164,
+      "failures": 0
+    },
+    {
+      "unique_id": "test.nyc311.fixture_has_overdue_and_immature",
+      "status": "pass",
+      "execution_time": 2.0702109336853027,
+      "failures": 0
+    },
+    {
+      "unique_id": "test.nyc311.metric_flags_are_consistent",
+      "status": "pass",
+      "execution_time": 1.5591332912445068,
+      "failures": 0
+    },
+    {
+      "unique_id": "test.nyc311.not_null_fct_cases_agency_key.f1a19ec3fc",
+      "status": "pass",
+      "execution_time": 1.5901892185211182,
+      "failures": 0
+    },
+    {
+      "unique_id": "test.nyc311.not_null_fct_cases_borough_key.c731fa98f9",
+      "status": "pass",
+      "execution_time": 1.8256778717041016,
+      "failures": 0
+    },
+    {
+      "unique_id": "test.nyc311.not_null_fct_cases_problem_key.0247045645",
+      "status": "pass",
+      "execution_time": 1.7331244945526123,
+      "failures": 0
+    },
+    {
+      "unique_id": "test.nyc311.not_null_fct_cases_release_id.e0dc347467",
+      "status": "pass",
+      "execution_time": 1.7032051086425781,
+      "failures": 0
+    },
+    {
+      "unique_id": "test.nyc311.not_null_fct_cases_request_id.1aa67fbc69",
+      "status": "pass",
+      "execution_time": 1.6041271686553955,
+      "failures": 0
+    },
+    {
+      "unique_id": "test.nyc311.not_null_fct_cases_snapshot_id.1baf3a4872",
+      "status": "pass",
+      "execution_time": 1.52199387550354,
+      "failures": 0
+    },
+    {
+      "unique_id": "test.nyc311.not_null_fct_cases_target_denominator.664000c443",
+      "status": "pass",
+      "execution_time": 1.7856688499450684,
+      "failures": 0
+    },
+    {
+      "unique_id": "test.nyc311.not_null_fct_cases_target_numerator.4013b77eda",
+      "status": "pass",
+      "execution_time": 1.5875484943389893,
+      "failures": 0
+    },
+    {
+      "unique_id": "test.nyc311.relationships_fct_cases_agency_key__agency_key__ref_dim_agency_.a22306a280",
+      "status": "pass",
+      "execution_time": 1.7927513122558594,
+      "failures": 0
+    },
+    {
+      "unique_id": "test.nyc311.relationships_fct_cases_borough_key__borough_key__ref_dim_borough_.a7bcf79e56",
+      "status": "pass",
+      "execution_time": 1.5867984294891357,
+      "failures": 0
+    },
+    {
+      "unique_id": "test.nyc311.relationships_fct_cases_closed_date__date_key__ref_dim_date_.46497c5d39",
+      "status": "pass",
+      "execution_time": 1.6890935897827148,
+      "failures": 0
+    },
+    {
+      "unique_id": "test.nyc311.relationships_fct_cases_created_date__date_key__ref_dim_date_.8c3c25b341",
+      "status": "pass",
+      "execution_time": 1.7822411060333252,
+      "failures": 0
+    },
+    {
+      "unique_id": "test.nyc311.relationships_fct_cases_problem_key__problem_key__ref_dim_problem_.525ebd6ffe",
+      "status": "pass",
+      "execution_time": 1.6816322803497314,
+      "failures": 0
+    },
+    {
+      "unique_id": "test.nyc311.release_metadata_matches_input",
+      "status": "pass",
+      "execution_time": 1.6836211681365967,
+      "failures": 0
+    },
+    {
+      "unique_id": "test.nyc311.unique_fct_cases_request_id.10d8617684",
+      "status": "pass",
+      "execution_time": 2.508399248123169,
+      "failures": 0
+    }
+  ],
+  "compiled_analyses": {
+    "reconciliation": "-- dbt compile --select reconciliation --vars '<the release vars>'\n-- Execute the compiled query with cache disabled and a maximum-bytes-billed limit.\n-- This returns overall, a meaningful slice, an empty slice, and separate creation/\n-- closure date roles. P90 is continuous interpolation over case rows.\nwith slices as (\n    select 'overall' as slice, cast(null as string) as agency_filter,\n        cast(null as string) as problem_filter, cast(null as string) as borough_filter\n    union all select 'DSNY / Dirty Condition / BROOKLYN', 'DSNY', 'Dirty Condition', 'BROOKLYN'\n    union all select 'empty', null, null, '__NO_SUCH_BOROUGH__'\n), expanded as (\n    select s.slice, c.*\n    from slices s\n    left join `nyc311-service-ops-20261118`.`nyc311_work`.`fct_cases__r_cloud_replay_a` c\n      on (s.agency_filter is null or c.agency_key = s.agency_filter)\n     and (s.problem_filter is null or c.problem_key = s.problem_filter)\n     and (s.borough_filter is null or c.borough_key = s.borough_filter)\n), percentiles as (\n    select distinct slice,\n        percentile_cont(if(is_p90_eligible, elapsed_hours, null), 0.9) over (partition by slice) as p90_elapsed_hours\n    from expanded\n), totals as (\n    select slice,\n        count(request_id) as case_count,\n        countif(created_date is not null) as intake,\n        countif(is_recorded_closure) as recorded_closures,\n        countif(is_backlog) as observed_backlog,\n        coalesce(sum(target_numerator), 0) as target_numerator,\n        coalesce(sum(target_denominator), 0) as target_denominator,\n        safe_divide(sum(target_numerator), sum(target_denominator)) as target_rate,\n        countif(is_p90_eligible) as p90_eligible_count,\n        countif(is_missing_target) as missing_target_cases,\n        countif(is_invalid_outcome) as invalid_outcome_cases,\n        countif(is_unknown_outcome) as unknown_outcome_cases,\n        countif(is_immature) as immature_cases\n    from expanded group by slice\n)\nselect 'cloud_replay_a' as release_id, 'synthetic_a' as snapshot_id,\n    totals.*, percentiles.p90_elapsed_hours\nfrom totals left join percentiles using (slice)\norder by slice",
+    "date_role_reconciliation": "-- Match the Date slicer in Power BI to this half-open local-date interval.\n-- Optional vars reconciliation_start/end default to the final full cohort week,\n-- matching the checked-in Power BI DAX reconciliation query.\nwith bounds as (\n    select date('2026-11-09') as from_date,\n           date('2026-11-16') as to_date\n), created_slice as (\n    select c.* from `nyc311-service-ops-20261118`.`nyc311_work`.`fct_cases__r_cloud_replay_a` c cross join bounds b\n    where c.created_date >= b.from_date and c.created_date < b.to_date\n), closure_slice as (\n    select c.* from `nyc311-service-ops-20261118`.`nyc311_work`.`fct_cases__r_cloud_replay_a` c cross join bounds b\n    where c.is_p90_eligible and c.closed_date >= b.from_date and c.closed_date < b.to_date\n), p90 as (\n    select percentile_cont(elapsed_hours, 0.9) over () as value from closure_slice\n)\nselect 'cloud_replay_a' as release_id,\n    (select count(*) from created_slice) as intake_creation_slice,\n    (select count(*) from closure_slice) as closures_closure_slice,\n    (select coalesce(sum(target_numerator), 0) from created_slice) as target_numerator_creation_slice,\n    (select coalesce(sum(target_denominator), 0) from created_slice) as target_denominator_creation_slice,\n    (select count(*) from closure_slice) as p90_eligible_closure_slice,\n    (select value from p90 limit 1) as p90_hours_closure_slice,\n    (select coalesce(sum(open_count), 0) from `nyc311-service-ops-20261118`.`nyc311_work`.`fct_backlog__r_cloud_replay_a` where is_release_snapshot) as backlog_observation,\n    (select coalesce(sum(open_count), 0) from `nyc311-service-ops-20261118`.`nyc311_work`.`fct_backlog__r_cloud_replay_a` where is_release_snapshot) as backlog_without_period",
+    "release_integrity_reconciliation": "-- Matches section E of powerbi/reconciliation.dax.\nselect\n    'cloud_replay_a' as release_id,\n    (select count(*) from `nyc311-service-ops-20261118`.`nyc311_work`.`release_metadata__r_cloud_replay_a`) as release_rows,\n    (select count(distinct release_id) from `nyc311-service-ops-20261118`.`nyc311_work`.`fct_cases__r_cloud_replay_a`) as case_release_count,\n    (select count(distinct snapshot_id) from `nyc311-service-ops-20261118`.`nyc311_work`.`fct_cases__r_cloud_replay_a`) as case_snapshot_count,\n    (select count(distinct snapshot_id) from `nyc311-service-ops-20261118`.`nyc311_work`.`fct_backlog__r_cloud_replay_a` where is_release_snapshot) as backlog_snapshot_count,\n    (select countif(is_backlog) from `nyc311-service-ops-20261118`.`nyc311_work`.`fct_cases__r_cloud_replay_a`) as open_case_rows,\n    (select coalesce(sum(open_count), 0) from `nyc311-service-ops-20261118`.`nyc311_work`.`fct_backlog__r_cloud_replay_a` where is_release_snapshot) as observed_backlog",
+    "segment_investigation": "-- Rank segments by observed open requests aged at least seven elapsed days.\n-- This identifies a review priority, not a causal explanation or staffing need.\nwith segment_p90 as (\n    select distinct agency_key, problem_key, borough_key,\n        percentile_cont(if(is_p90_eligible, elapsed_hours, null), 0.9)\n            over (partition by agency_key, problem_key, borough_key) as p90_elapsed_hours\n    from `nyc311-service-ops-20261118`.`nyc311_work`.`fct_cases__r_cloud_replay_a`\n), cases as (\n    select agency_key, problem_key, borough_key,\n        countif(created_date is not null) as intake,\n        countif(is_recorded_closure) as recorded_closures,\n        countif(is_p90_eligible) as p90_eligible_count,\n        sum(target_numerator) as target_numerator,\n        sum(target_denominator) as target_denominator,\n        countif(is_missing_target) as missing_target_cases,\n        countif(is_invalid_outcome or is_unknown_outcome) as invalid_or_unknown_cases,\n        countif(is_immature) as immature_cases\n    from `nyc311-service-ops-20261118`.`nyc311_work`.`fct_cases__r_cloud_replay_a`\n    group by agency_key, problem_key, borough_key\n)\nselect 'cloud_replay_a' as release_id,\n    b.snapshot_id, b.observed_at, c.*, b.open_count, b.age_168h_plus_count, p.p90_elapsed_hours,\n    safe_divide(c.target_numerator, c.target_denominator) as within_demo_target\nfrom cases c\njoin `nyc311-service-ops-20261118`.`nyc311_work`.`fct_backlog__r_cloud_replay_a` b using (agency_key, problem_key, borough_key)\nleft join segment_p90 p using (agency_key, problem_key, borough_key)\nwhere b.is_release_snapshot\norder by b.age_168h_plus_count desc, b.open_count desc, c.intake desc,\n    c.agency_key, c.problem_key, c.borough_key",
+    "weekly_demand_and_closures": "-- Creation and closure date series are separate event counts from the fixed cohort.\nwith created as (\n    select date_trunc(created_date, week(monday)) as week_start,\n        agency_key, problem_key, borough_key, count(*) as intake\n    from `nyc311-service-ops-20261118`.`nyc311_work`.`fct_cases__r_cloud_replay_a`\n    where created_date is not null\n    group by week_start, agency_key, problem_key, borough_key\n), closed as (\n    select date_trunc(closed_date, week(monday)) as week_start,\n        agency_key, problem_key, borough_key, count(*) as recorded_closures\n    from `nyc311-service-ops-20261118`.`nyc311_work`.`fct_cases__r_cloud_replay_a`\n    where is_recorded_closure\n    group by week_start, agency_key, problem_key, borough_key\n)\nselect 'cloud_replay_a' as release_id,\n    week_start, agency_key, problem_key, borough_key,\n    coalesce(intake, 0) as intake, coalesce(recorded_closures, 0) as recorded_closures\nfrom created full outer join closed using (week_start, agency_key, problem_key, borough_key)\norder by week_start, agency_key, problem_key, borough_key"
+  },
+  "reconciliation_period": {
+    "start": "2026-11-09",
+    "end": "2026-11-16"
+  }
+}

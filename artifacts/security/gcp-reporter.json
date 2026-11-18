@@ -1,0 +1,146 @@
+{
+    "checked_at_utc":  "2026-11-18T12:16:28.5920441Z",
+    "scope":  "Project-local policy inspection and optional reporter-service-account dry runs; no claim about owner Desktop OAuth least privilege or uninspected inherited/group access.",
+    "cloud_resources_modified":  false,
+    "reporter_identity":  "Keyless impersonation of configured read-only reporter service account",
+    "reporting_table":  "nyc311_reporting.fct_cases__r_dsny_20261118",
+    "raw_table":  "nyc311_raw.observation_requests",
+    "functional_probes_are_dry_runs":  true,
+    "checks":  [
+                   {
+                       "check":  "project_no_public_binding",
+                       "outcome":  "pass",
+                       "detail":  "Inspects this project policy; inherited organization/folder and group membership require separate review."
+                   },
+                   {
+                       "check":  "reporter_service_account_project_roles",
+                       "outcome":  "pass",
+                       "detail":  "Unexpected=; missing=; conditional=0."
+                   },
+                   {
+                       "check":  "pipeline_project_roles",
+                       "outcome":  "pass",
+                       "detail":  "Unexpected=; missing=; conditional=0."
+                   },
+                   {
+                       "check":  "raw_region",
+                       "outcome":  "pass",
+                       "detail":  "Dataset and raw storage must use the configured region."
+                   },
+                   {
+                       "check":  "raw_explicit_dataset_access",
+                       "outcome":  "pass",
+                       "detail":  "Exact individual grants only; no special project groups, public domains, views, or group grants in this demo."
+                   },
+                   {
+                       "check":  "work_region",
+                       "outcome":  "pass",
+                       "detail":  "Dataset and raw storage must use the configured region."
+                   },
+                   {
+                       "check":  "work_explicit_dataset_access",
+                       "outcome":  "pass",
+                       "detail":  "Exact individual grants only; no special project groups, public domains, views, or group grants in this demo."
+                   },
+                   {
+                       "check":  "reporting_region",
+                       "outcome":  "pass",
+                       "detail":  "Dataset and raw storage must use the configured region."
+                   },
+                   {
+                       "check":  "reporting_explicit_dataset_access",
+                       "outcome":  "pass",
+                       "detail":  "Exact individual grants only; no special project groups, public domains, views, or group grants in this demo."
+                   },
+                   {
+                       "check":  "control_region",
+                       "outcome":  "pass",
+                       "detail":  "Dataset and raw storage must use the configured region."
+                   },
+                   {
+                       "check":  "control_explicit_dataset_access",
+                       "outcome":  "pass",
+                       "detail":  "Exact individual grants only; no special project groups, public domains, views, or group grants in this demo."
+                   },
+                   {
+                       "check":  "bucket_uniform_access",
+                       "outcome":  "pass",
+                       "detail":  "Object ACLs disabled."
+                   },
+                   {
+                       "check":  "bucket_public_access_prevention",
+                       "outcome":  "pass",
+                       "detail":  "Public access prevention enforced on this bucket."
+                   },
+                   {
+                       "check":  "bucket_region",
+                       "outcome":  "pass",
+                       "detail":  "Same region as BigQuery."
+                   },
+                   {
+                       "check":  "bucket_no_public_binding",
+                       "outcome":  "pass",
+                       "detail":  "No public IAM member in the bucket policy."
+                   },
+                   {
+                       "check":  "pipeline_capture_append_only",
+                       "outcome":  "pass",
+                       "detail":  "Pipeline may create and read captured objects; it has no bucket-scoped delete/overwrite role."
+                   },
+                   {
+                       "check":  "reporter_no_raw_bucket_grant",
+                       "outcome":  "pass",
+                       "detail":  "Reporter service account and optional human reporter receive no raw capture grant."
+                   },
+                   {
+                       "check":  "pipeline_no_user_managed_keys",
+                       "outcome":  "pass",
+                       "detail":  "Keyless impersonation is expected; Google-managed signing keys are not credential files."
+                   },
+                   {
+                       "check":  "pipeline_impersonation_scoped",
+                       "outcome":  "pass",
+                       "detail":  "Only the configured operator has an explicit token-creator binding on this service account."
+                   },
+                   {
+                       "check":  "reporter_no_user_managed_keys",
+                       "outcome":  "pass",
+                       "detail":  "Keyless impersonation is expected; Google-managed signing keys are not credential files."
+                   },
+                   {
+                       "check":  "reporter_impersonation_scoped",
+                       "outcome":  "pass",
+                       "detail":  "Only the configured operator has an explicit token-creator binding on this service account."
+                   },
+                   {
+                       "check":  "storage_audit_DATA_READ",
+                       "outcome":  "pass",
+                       "detail":  "Non-exempt project data access audit configuration is present."
+                   },
+                   {
+                       "check":  "storage_audit_DATA_WRITE",
+                       "outcome":  "pass",
+                       "detail":  "Non-exempt project data access audit configuration is present."
+                   },
+                   {
+                       "check":  "desktop_oauth_least_privilege",
+                       "outcome":  "unverified",
+                       "detail":  "One-account setup uses operator OAuth in Desktop. An owner retains broad access; service-account probes prove role design only, not owner-account least privilege."
+                   },
+                   {
+                       "check":  "reporter_reporting_select",
+                       "outcome":  "pass",
+                       "detail":  "Dry run only; expected HTTP 200, observed HTTP 200; accessDenied=False."
+                   },
+                   {
+                       "check":  "reporter_raw_select_denied",
+                       "outcome":  "pass",
+                       "detail":  "Dry run only; expected HTTP 403, observed HTTP 403; accessDenied=True."
+                   },
+                   {
+                       "check":  "reporter_reporting_write_denied",
+                       "outcome":  "pass",
+                       "detail":  "Dry run only; expected HTTP 403, observed HTTP 403; accessDenied=True."
+                   }
+               ]
+}

@@ -1,0 +1,58 @@
+{
+  "release_id": "dsny_20261118",
+  "source_kind": "real",
+  "source_mode": "Power BI Desktop CSV Import",
+  "render_method": "Read-only Poppler pdftoppm PNG rendering of the actual Power BI PDF; no redrawing or retouching",
+  "render_max_dimension_pixels": 2000,
+  "pdf": {
+    "path": "artifacts/report/dsny_20261118/NYC311_dsny_20261118_reviewer.pdf",
+    "size_bytes": 341136,
+    "sha256": "3c74c92be71c0cffc8c97614c1f99f502913571d8bf896d9cab624b90f3fe5ad",
+    "page_count": 2
+  },
+  "pbix": {
+    "path": "artifacts/report/dsny_20261118/NYC311_dsny_20261118_reviewer.pbix",
+    "size_bytes": 1342279,
+    "sha256": "2998750f0678c0967fefa9ffbc9a562a3272fdd94bf1179322e1b65b70ab399e"
+  },
+  "previews": [
+    {
+      "page": 1,
+      "path": "artifacts/report/dsny_20261118/NYC311_dsny_20261118_page-1.png",
+      "sha256": "937679097f17cce6d58d8d7a13fbe196aa2518c3ba5799909c98da25d245a80d",
+      "title": "Weekly operations",
+      "visible_filters": "Agency All, Problem All, Borough All",
+      "visual_checks": {
+        "release_and_real_source_visible": true,
+        "cohort_and_capture_count_visible": true,
+        "overall_intake_23101": true,
+        "recorded_closures_22369": true,
+        "backlog_728": true,
+        "queens_dirty_condition_ranks_first_181_open_92_aged": true,
+        "overall_target_14461_of_22907": true,
+        "date_roles_and_demo_target_limits_visible": true
+      }
+    },
+    {
+      "page": 2,
+      "path": "artifacts/report/dsny_20261118/NYC311_dsny_20261118_page-2.png",
+      "sha256": "61ce11f15851cf37cc7bf34c07a35ac7a478dd8e1a9dda4ba5fe14c06c3d2b7c",
+      "title": "Backlog investigation",
+      "visible_filters": "Agency DSNY, Problem Dirty Condition, Borough QUEENS",
+      "visual_checks": {
+        "release_and_as_of_visible": true,
+        "observed_backlog_181": true,
+        "aged_168h_plus_92": true,
+        "target_numerator_2087": true,
+        "target_denominator_3240": true,
+        "target_rate_64_4_percent": true,
+        "immature_exclusions_33": true,
+        "age_buckets_and_request_details_visible": true,
+        "snapshot_and_demo_target_limits_visible": true
+      }
+    }
+  ],
+  "visual_review": "Both complete pages inspected; metric values, filter context, release coverage, and explanatory text are readable. Table viewports show visible rows with scrolling controls; the cached PBIX contains the interactive report.",
+  "separate_metric_proof": "artifacts/releases/dsny_20261118/sql_dax_comparison.json",
+  "native_bigquery_connector": "Not established by these CSV-mode report previews"
+}

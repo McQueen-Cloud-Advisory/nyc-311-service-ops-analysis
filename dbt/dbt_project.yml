@@ -1,0 +1,38 @@
+name: nyc311
+version: '1.0.0'
+config-version: 2
+profile: nyc311
+require-dbt-version: ['>=1.10.5', '<2.0.0']
+flags:
+  send_anonymous_usage_stats: false
+model-paths: [models]
+analysis-paths: [analyses]
+test-paths: [tests]
+macro-paths: [macros]
+clean-targets: [target, dbt_packages]
+vars:
+  release_id: unconfigured
+  snapshot_id: unconfigured
+  target_version: unconfigured
+  scope_hash: unconfigured
+  observed_at: '1970-01-01T00:00:00Z'
+  source_kind: unconfigured
+  cohort_start: '1970-01-01'
+  cohort_end: '1970-01-02'
+  raw_dataset: nyc311_raw
+on-run-start:
+  - '{{ assert_release_vars() }}'
+models:
+  nyc311:
+    +persist_docs:
+      relation: true
+      columns: true
+    +labels:
+      application: nyc311
+      purpose: portfolio
+    staging:
+      +materialized: view
+    intermediate:
+      +materialized: ephemeral
+    marts:
+      +materialized: table

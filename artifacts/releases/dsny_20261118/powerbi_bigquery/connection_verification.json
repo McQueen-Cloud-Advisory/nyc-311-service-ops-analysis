@@ -1,0 +1,25 @@
+{
+    "checked_at_utc":  "2026-11-18T12:37:21.2632915Z",
+    "outcome":  "passed",
+    "scope":  "Read-only active Desktop model parameter inspection plus executed KPI and timestamp verification",
+    "desktop_version":  "2.159.1231.0",
+    "parameters":  {
+                       "pMode":  "BigQuery",
+                       "pReleaseId":  "dsny_20261118",
+                       "pSourceProject":  "nyc311-service-ops-20261118",
+                       "pBillingProject":  "nyc311-service-ops-20261118",
+                       "pDataset":  "nyc311_reporting"
+                   },
+    "connector":  "GoogleBigQuery.Database",
+    "implementation":  "2.0",
+    "use_storage_api":  false,
+    "timestamp_transport":  "FORMAT_TIMESTAMP to explicit UTC ISO text; Table.StopFolding before local datetimezone parsing",
+    "identity_scope":  "Operator Google OAuth; successful refresh is not proof of least-privileged Desktop access",
+    "query_consent":  "Read-only native SELECT projections accepted by the user",
+    "sql_dax_comparison":  "../sql_dax_bigquery_comparison.json",
+    "timestamp_comparison":  "timestamp_comparison.json",
+    "source_m_sha256":  "5e9cce2b57d3394a99dfbfc3b46e200df1d56b1eb17f904f4f27552e9717852f",
+    "visual_inspection":  "Passed in Desktop: both pages, correct as-of and Queens drill-through",
+    "cached_artifact":  "../../../report/dsny_20261118/NYC311_dsny_20261118_bigquery.pbix",
+    "cached_reopen":  "not tested"
+}

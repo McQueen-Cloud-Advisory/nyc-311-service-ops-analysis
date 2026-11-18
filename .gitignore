@@ -11,3 +11,24 @@ logs/
 .env.*
 !.env.example
 profiles.yml
+
+# Python, local captures, and credentials
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage
+.local/
+*.egg-info/
+credentials*.json
+*service-account*.json
+application_default_credentials.json
+*.pem
+*.key
+.env
+config/cloud.local.json
+infra/*.local.json
+
+# Binary report cache; publish verified exports separately
+*.pbix
+*.pbit

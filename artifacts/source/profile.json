@@ -1,0 +1,295 @@
+{
+  "captured_at": "2026-11-18T11:30:40.895302+00:00",
+  "metadata": {
+    "dataset_id": "erm2-nwe9",
+    "name": "311 Service Requests from 2020 to Present",
+    "rows_updated_at": 1794972626,
+    "view_last_modified": 1767021900,
+    "columns": [
+      {
+        "fieldName": "unique_key",
+        "name": "Unique Key",
+        "dataTypeName": "text",
+        "description": "Unique identifier of a Service Request (SR) in the open data set\n"
+      },
+      {
+        "fieldName": "created_date",
+        "name": "Created Date",
+        "dataTypeName": "calendar_date",
+        "description": "Date SR  was created\n"
+      },
+      {
+        "fieldName": "closed_date",
+        "name": "Closed Date",
+        "dataTypeName": "calendar_date",
+        "description": "Date SR was closed by responding agency\n"
+      },
+      {
+        "fieldName": "agency",
+        "name": "Agency",
+        "dataTypeName": "text",
+        "description": "Acronym of responding City Government Agency\n"
+      },
+      {
+        "fieldName": "complaint_type",
+        "name": "Problem (formerly Complaint Type)",
+        "dataTypeName": "text",
+        "description": "This is the first level of a hierarchy identifying the topic of the incident or condition.  Problem (formerly Complaint Type) broadly describes the topic of the incident or condition and are defined by the responding agencies. New Problems may be added in response to changes in customer demand."
+      },
+      {
+        "fieldName": "status",
+        "name": "Status",
+        "dataTypeName": "text",
+        "description": "Status of SR submitted \n"
+      },
+      {
+        "fieldName": "borough",
+        "name": "Borough",
+        "dataTypeName": "text",
+        "description": "Provided by the submitter and confirmed by geovalidation.\n"
+      },
+      {
+        "fieldName": "open_data_channel_type",
+        "name": "Open Data Channel Type",
+        "dataTypeName": "text",
+        "description": "Indicates how the SR was submitted to 311.  i.e. By Phone, Online, Mobile, Other or Unknown."
+      }
+    ]
+  },
+  "query": "SELECT complaint_type,status,count(*) AS request_count WHERE agency='DSNY' AND created_date >= '2026-09-07T00:00:00' AND created_date < '2026-11-16T00:00:00' GROUP BY complaint_type,status ORDER BY request_count DESC,complaint_type,status LIMIT 1000",
+  "cohort_start": "2026-09-07",
+  "cohort_end": "2026-11-16",
+  "agency": "DSNY",
+  "counts": [
+    {
+      "complaint_type": "Dirty Condition",
+      "status": "Closed",
+      "request_count": "13899"
+    },
+    {
+      "complaint_type": "Illegal Dumping",
+      "status": "Closed",
+      "request_count": "8472"
+    },
+    {
+      "complaint_type": "Derelict Vehicles",
+      "status": "Closed",
+      "request_count": "6829"
+    },
+    {
+      "complaint_type": "Missed Collection",
+      "status": "Closed",
+      "request_count": "6436"
+    },
+    {
+      "complaint_type": "Vendor Enforcement",
+      "status": "Closed",
+      "request_count": "5002"
+    },
+    {
+      "complaint_type": "Obstruction",
+      "status": "Closed",
+      "request_count": "4508"
+    },
+    {
+      "complaint_type": "Residential Disposal Complaint",
+      "status": "Closed",
+      "request_count": "2786"
+    },
+    {
+      "complaint_type": "Dead Animal",
+      "status": "Closed",
+      "request_count": "2665"
+    },
+    {
+      "complaint_type": "Street Sweeping Complaint",
+      "status": "Closed",
+      "request_count": "2162"
+    },
+    {
+      "complaint_type": "Graffiti",
+      "status": "Closed",
+      "request_count": "2009"
+    },
+    {
+      "complaint_type": "Illegal Posting",
+      "status": "Closed",
+      "request_count": "1210"
+    },
+    {
+      "complaint_type": "Graffiti",
+      "status": "Open",
+      "request_count": "951"
+    },
+    {
+      "complaint_type": "Litter Basket Request",
+      "status": "Closed",
+      "request_count": "906"
+    },
+    {
+      "complaint_type": "Sanitation Worker or Vehicle Complaint",
+      "status": "Closed",
+      "request_count": "604"
+    },
+    {
+      "complaint_type": "Dirty Condition",
+      "status": "In Progress",
+      "request_count": "464"
+    },
+    {
+      "complaint_type": "Abandoned Bike",
+      "status": "Closed",
+      "request_count": "432"
+    },
+    {
+      "complaint_type": "Litter Basket Complaint",
+      "status": "Closed",
+      "request_count": "399"
+    },
+    {
+      "complaint_type": "Dumpster Complaint",
+      "status": "Closed",
+      "request_count": "398"
+    },
+    {
+      "complaint_type": "Commercial Disposal Complaint",
+      "status": "Closed",
+      "request_count": "346"
+    },
+    {
+      "complaint_type": "Lot Condition",
+      "status": "In Progress",
+      "request_count": "323"
+    },
+    {
+      "complaint_type": "Illegal Dumping",
+      "status": "In Progress",
+      "request_count": "264"
+    },
+    {
+      "complaint_type": "Obstruction",
+      "status": "In Progress",
+      "request_count": "185"
+    },
+    {
+      "complaint_type": "Highway Condition",
+      "status": "Closed",
+      "request_count": "121"
+    },
+    {
+      "complaint_type": "Residential Disposal Complaint",
+      "status": "In Progress",
+      "request_count": "104"
+    },
+    {
+      "complaint_type": "Street Sweeping Complaint",
+      "status": "In Progress",
+      "request_count": "104"
+    },
+    {
+      "complaint_type": "Illegal Posting",
+      "status": "In Progress",
+      "request_count": "97"
+    },
+    {
+      "complaint_type": "Dead Animal",
+      "status": "In Progress",
+      "request_count": "57"
+    },
+    {
+      "complaint_type": "Missed Collection",
+      "status": "In Progress",
+      "request_count": "52"
+    },
+    {
+      "complaint_type": "Sanitation Worker or Vehicle Complaint",
+      "status": "In Progress",
+      "request_count": "34"
+    },
+    {
+      "complaint_type": "Recycling Basket Complaint",
+      "status": "Closed",
+      "request_count": "21"
+    },
+    {
+      "complaint_type": "Abandoned Bike",
+      "status": "In Progress",
+      "request_count": "19"
+    },
+    {
+      "complaint_type": "Litter Basket Request",
+      "status": "In Progress",
+      "request_count": "18"
+    },
+    {
+      "complaint_type": "Highway Condition",
+      "status": "In Progress",
+      "request_count": "16"
+    },
+    {
+      "complaint_type": "Derelict Vehicles",
+      "status": "Open",
+      "request_count": "13"
+    },
+    {
+      "complaint_type": "Dumpster Complaint",
+      "status": "In Progress",
+      "request_count": "12"
+    },
+    {
+      "complaint_type": "Litter Basket Complaint",
+      "status": "In Progress",
+      "request_count": "12"
+    },
+    {
+      "complaint_type": "Incorrect Data",
+      "status": "In Progress",
+      "request_count": "8"
+    },
+    {
+      "complaint_type": "Institution Disposal Complaint",
+      "status": "Closed",
+      "request_count": "8"
+    },
+    {
+      "complaint_type": "Transfer Station Complaint",
+      "status": "Closed",
+      "request_count": "5"
+    },
+    {
+      "complaint_type": "Snow or Ice",
+      "status": "Closed",
+      "request_count": "4"
+    },
+    {
+      "complaint_type": "Commercial Disposal Complaint",
+      "status": "In Progress",
+      "request_count": "3"
+    },
+    {
+      "complaint_type": "Dirty Condition",
+      "status": "Unspecified",
+      "request_count": "2"
+    },
+    {
+      "complaint_type": "DSNY Internal",
+      "status": "Closed",
+      "request_count": "1"
+    },
+    {
+      "complaint_type": "Recycling Basket Complaint",
+      "status": "In Progress",
+      "request_count": "1"
+    },
+    {
+      "complaint_type": "Sanitation Worker or Vehicle Complaint",
+      "status": "Unspecified",
+      "request_count": "1"
+    },
+    {
+      "complaint_type": "Vendor Enforcement",
+      "status": "Unspecified",
+      "request_count": "1"
+    }
+  ]
+}

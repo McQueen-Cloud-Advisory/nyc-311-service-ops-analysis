@@ -1,0 +1,15 @@
+{
+  "dataset_id": "erm2-nwe9",
+  "agency": "DSNY",
+  "problems": ["Dirty Condition", "Illegal Dumping"],
+  "cohort_start": "2026-09-07",
+  "cohort_end": "2026-11-16",
+  "source_timezone": "America/New_York",
+  "page_size": 5000,
+  "maximum_rows": 100000,
+  "request_timeout_seconds": 60,
+  "maximum_attempts": 5,
+  "targets_csv": "data/targets/demo_targets.csv",
+  "state_directory": ".local",
+  "maximum_bytes_billed": 1000000000
+}
