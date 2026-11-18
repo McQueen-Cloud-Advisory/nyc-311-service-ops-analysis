@@ -1,0 +1,13 @@
+# Power BI local settings and data cache
+**/.pbi/localSettings.json
+**/.pbi/cache.abf
+
+# dbt build artifacts
+target/
+dbt_packages/
+logs/
+
+# Local configuration
+.env.*
+!.env.example
+profiles.yml
