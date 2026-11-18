@@ -2,6 +2,8 @@
 
 **Scott McQueen · BI ownership, decision support, and reliable analytics**
 
+[![CI](https://github.com/McQueen-Cloud-Advisory/nyc-311-service-ops-analysis/actions/workflows/local-checks.yml/badge.svg?branch=main)](https://github.com/McQueen-Cloud-Advisory/nyc-311-service-ops-analysis/actions/workflows/local-checks.yml)
+
 ## Turn a weekly operations review into a decision
 
 An operations lead has thousands of service requests and limited time to investigate. Where should the next backlog review start—and can the team trust the answer after the next refresh?
@@ -45,7 +47,7 @@ The executive briefing adds [105 independently referenced checks](artifacts/repo
 | **Five minutes** | [Warehouse model](dbt/models/intermediate/int_case_metrics.sql) → [DAX measures](powerbi/NYC311.SemanticModel/definition/tables/Metrics.tmdl) → [actual verification results](artifacts/verification-status.json). |
 | **Hands-on** | [Report setup](docs/powerbi.md) and the bounded checks below. The CSV reviewer path needs no GCP credentials or paid Power BI sharing license. |
 
-Download the verified **[executive PBIX and PDF](https://github.com/McQueen-Cloud-Advisory/nyc-311-service-ops-analysis/releases/tag/dsny_20261118-executive-v2)** or inspect the [briefing verification record](artifacts/report/dsny_20261118/executive_v2/README.md). The cached CSV reviewer report needs no GCP connection to view. The [original release](https://github.com/McQueen-Cloud-Advisory/nyc-311-service-ops-analysis/releases/tag/dsny_20261118) preserves the original PDF and native BigQuery PBIX. This repository is currently private; files and downloads require repository access.
+Download the verified **[executive PBIX and PDF](https://github.com/McQueen-Cloud-Advisory/nyc-311-service-ops-analysis/releases/tag/dsny_20261118-executive-v2)** or inspect the [briefing verification record](artifacts/report/dsny_20261118/executive_v2/README.md). The cached CSV reviewer report needs no GCP connection to view. The [original release](https://github.com/McQueen-Cloud-Advisory/nyc-311-service-ops-analysis/releases/tag/dsny_20261118) preserves the original PDF and native BigQuery PBIX. This public repository and its release downloads are available for review.
 
 ## From source to a trusted briefing
 
@@ -77,6 +79,8 @@ py -3.12 -m venv .venv
 ```
 
 No GCP connection is required. For the interactive reviewer report, use the included CSV exports with [Power BI setup](docs/powerbi.md). For a cloud run, see [GCP setup](docs/cloud-setup.md) and the [runbook](docs/runbook.md); `requirements.lock.txt` records the verified environment.
+
+Changes use feature branches and pull requests, with automated Python, dbt/SQL, and configuration checks. See [Contributing](CONTRIBUTING.md) for the checks, their limits, and the solo-contributor merge policy.
 
 <details>
 <summary><strong>Evidence scope, controls, and limitations</strong></summary>
