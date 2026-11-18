@@ -20,14 +20,15 @@
   "power_bi_csv_import": {
     "outcome": "passed",
     "sql_dax_checks_passed": 41,
-    "p90_absolute_tolerance_hours": 0.000001,
+    "p90_absolute_tolerance_hours": 1e-06,
     "both_pages_and_queens_drillthrough_inspected": true,
     "cached_pbix_saved": true,
-    "cached_pbix_reopen": "passed; both pages opened from the saved cache without refreshing",
+    "cached_pbix_reopen": "Original 12:22:01 UTC CSV file passed; subsequently saved current file has not completed Desktop revalidation and is excluded from release downloads",
     "pdf_pages_rendered_and_inspected": 2,
     "reconciliation": "artifacts/releases/dsny_20261118/sql_dax_comparison.json",
     "report_artifacts": "artifacts/report/dsny_20261118/artifact_files.json",
-    "preview_verification": "artifacts/report/dsny_20261118/preview-verification.json"
+    "preview_verification": "artifacts/report/dsny_20261118/preview-verification.json",
+    "current_cached_pbix_revalidation": "Not completed after later save; see artifacts/report/dsny_20261118/release-preflight.json"
   },
   "power_bi_native_bigquery": {
     "outcome": "passed",
@@ -78,6 +79,11 @@
     "release": "https://github.com/McQueen-Cloud-Advisory/nyc-311-service-ops-analysis/releases/tag/dsny_20261118",
     "repository_visibility": "PRIVATE",
     "access": "Repository files and release downloads require repository access",
-    "portfolio_site": "Not published; separate viewer-accessible hosting is needed"
+    "portfolio_site": "Not published; separate viewer-accessible hosting is needed",
+    "release_assets": [
+      "NYC311_dsny_20261118_reviewer.pdf",
+      "NYC311_dsny_20261118_bigquery.pbix"
+    ],
+    "csv_reviewer_pbix": "Held locally pending Desktop revalidation after later save"
   }
 }

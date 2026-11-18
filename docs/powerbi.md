@@ -47,11 +47,13 @@ Power BI. The working PBIP is prepared under `powerbi/.local/` for Desktop refre
 
 ## Prepare and open the reviewer report
 
-For immediate review, [download the cached reviewer PBIX](https://github.com/McQueen-Cloud-Advisory/nyc-311-service-ops-analysis/releases/download/dsny_20261118/NYC311_dsny_20261118_reviewer.pbix)
-and open it in Power BI Desktop without refreshing. Both pages were verified from
-the saved cache. This private GitHub download requires repository access, but
-viewing the cached report needs no GCP credentials. For a reproducible refresh,
-prepare the portable source project using the steps below.
+For immediate review, [open the two-page PDF](../artifacts/report/dsny_20261118/NYC311_dsny_20261118_reviewer.pdf).
+The [release downloads](https://github.com/McQueen-Cloud-Advisory/nyc-311-service-ops-analysis/releases/tag/dsny_20261118)
+also include the native BigQuery PBIX, saved after verified refresh and model checks;
+reopening that saved file was not separately tested. The CSV reviewer PBIX was saved
+again after its original cached-reopen check and is held locally pending revalidation.
+These private GitHub downloads require repository access. For a reproducible CSV
+refresh, prepare the portable source project using the steps below.
 
 1. Run the repository's bounded demo/export command described in its README.
    Exports must follow [export-contract.json](../powerbi/export-contract.json).

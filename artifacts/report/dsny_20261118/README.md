@@ -39,11 +39,11 @@ Both pages use a 1440 x 960 canvas with Fit to page. The report page order is:
 
 | Artifact | Filename | Status |
 | --- | --- | --- |
-| Cached CSV reviewer report | [NYC311_dsny_20261118_reviewer.pbix](https://github.com/McQueen-Cloud-Advisory/nyc-311-service-ops-analysis/releases/download/dsny_20261118/NYC311_dsny_20261118_reviewer.pbix) | Saved by Desktop after successful refresh; 1,342,279 bytes; both cached pages reopened successfully without refresh |
+| Cached CSV reviewer report | `NYC311_dsny_20261118_reviewer.pbix` (local only) | Current file: 1,342,309 bytes, saved again at 12:47:33 UTC; archive integrity passes, but current-file Desktop revalidation was interrupted; excluded from release assets |
 | Two-page reviewer PDF | [NYC311_dsny_20261118_reviewer.pdf](NYC311_dsny_20261118_reviewer.pdf) | Exported by Desktop; 341,136 bytes; both rendered pages independently inspected |
 | Native BigQuery cached report | [NYC311_dsny_20261118_bigquery.pbix](https://github.com/McQueen-Cloud-Advisory/nyc-311-service-ops-analysis/releases/download/dsny_20261118/NYC311_dsny_20261118_bigquery.pbix) | Saved by Desktop; 1,354,254 bytes; native refresh, 41+33 comparisons, both pages and drill-through passed; cached reopen not tested |
 
-The saved PBIX file time is 2026-11-18 12:22:01 UTC; the PDF file time is
+The originally verified CSV PBIX file time was 2026-11-18 12:22:01 UTC; the PDF file time is
 2026-11-18 12:22:36 UTC. These are filesystem modification times, not evidence of
 a fresh source observation. The cached reopen was checked separately after save.
 File hashes are recorded in
@@ -58,10 +58,18 @@ and [page 2](NYC311_dsny_20261118_page-2.png). Native table viewports retain nor
 scroll controls and partial final visible rows; the exported page boundaries do
 not clip whole visuals.
 
-The PBIX files are distributed as assets of [release `dsny_20261118`](https://github.com/McQueen-Cloud-Advisory/nyc-311-service-ops-analysis/releases/tag/dsny_20261118)
-and remain excluded from Git history. The repository and its release assets are
-private; downloads require repository access. File hashes above identify the
-verified Desktop exports. CSV refresh requires configuring the local export path;
-native BigQuery refresh requires access to the configured GCP project. Neither is
-needed to view the cached reviewer report. Do not store authentication material
-beside these artifacts.
+The PDF and native BigQuery PBIX are distributed as assets of [release `dsny_20261118`](https://github.com/McQueen-Cloud-Advisory/nyc-311-service-ops-analysis/releases/tag/dsny_20261118).
+PBIX files remain excluded from Git history. The repository and its release assets
+are private; downloads require repository access. Their release hashes still match
+the verified Desktop exports. Native BigQuery refresh requires access to the
+configured GCP project; the PDF needs no GCP credentials.
+
+The original CSV PBIX was 1,342,279 bytes with SHA-256
+`2998750f0678c0967fefa9ffbc9a562a3272fdd94bf1179322e1b65b70ab399e`.
+The cached-reopen and PDF-source evidence above applies to that original file.
+A subsequent save at 2026-11-18 12:47:33 UTC changed the CSV PBIX checksum. Its
+archive integrity passes, but the attempted Desktop recheck was interrupted;
+the current file is held locally and is not a release download. Current and
+historical hashes are recorded in `artifact_files.json`. Use the editable PBIP
+and included CSV exports for a reproducible reviewer refresh. Do not store
+authentication material beside these artifacts.

@@ -1,0 +1,23 @@
+{
+  "checked_at_utc": "2026-11-18T12:58:53.949371+00:00",
+  "release_id": "dsny_20261118",
+  "release_assets_matching_recorded_checksums": [
+    "NYC311_dsny_20261118_reviewer.pdf",
+    "NYC311_dsny_20261118_bigquery.pbix"
+  ],
+  "reviewer_pbix": {
+    "current_bytes": 1342309,
+    "current_sha256": "015e99bccc4296bfadeef758d4487f307000a9279466df9448c4b4f358c42fa2",
+    "zip_crc": "passed",
+    "report_pages": 2,
+    "embedded_data_model_present": true,
+    "desktop_revalidation": "not completed; launch/recheck interrupted",
+    "distribution": "Local only; excluded from GitHub release assets",
+    "scope_limit": "Archive integrity does not establish report rendering or metric correctness after the later save"
+  },
+  "github_initial_source_commit": "339ac30629f14ceaa44b01534105bd7b70a0dc6a",
+  "github_initial_validation": {
+    "outcome": "success",
+    "url": "https://github.com/McQueen-Cloud-Advisory/nyc-311-service-ops-analysis/actions/runs/44308331235"
+  }
+}

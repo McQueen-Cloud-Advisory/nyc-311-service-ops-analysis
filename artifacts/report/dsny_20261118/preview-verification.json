@@ -13,7 +13,8 @@
   "pbix": {
     "path": "artifacts/report/dsny_20261118/NYC311_dsny_20261118_reviewer.pbix",
     "size_bytes": 1342279,
-    "sha256": "2998750f0678c0967fefa9ffbc9a562a3272fdd94bf1179322e1b65b70ab399e"
+    "sha256": "2998750f0678c0967fefa9ffbc9a562a3272fdd94bf1179322e1b65b70ab399e",
+    "scope": "Original file used for the verified PDF export; subsequent CSV PBIX save is recorded separately in artifact_files.json and is not included in the release"
   },
   "previews": [
     {
