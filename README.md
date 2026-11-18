@@ -28,7 +28,7 @@ This work sample demonstrates ownership of that whole problem: frame the decisio
 | A late source update or failed refresh undermines confidence. | Preserve captured observations, apply updates to stable request keys, and publish only a tested candidate. A demonstrated validation failure leaves the last good release available. | [Live replay and failure evidence](artifacts/replay/bigquery-replay.json) · [Recovery runbook](docs/runbook.md) |
 | A useful prototype becomes someone else's maintenance problem. | Leave readable source, one runnable validation command, scoped cloud access, and measured cost evidence. Make the boundaries and trade-offs inspectable. | [Power BI source](powerbi/NYC311.pbip) · [Security design](docs/security.md) · [Measured benchmark](docs/benchmark.md) |
 
-## Three choices worth discussing in an interview
+## Three choices worth discussing
 
 **Prioritize aged workload.** Queens Dirty Condition has 3,273 cohort requests versus Brooklyn's 5,081, but 92 requests aged seven days or more versus 76. The recommendation follows the concentration of unresolved older requests. It is an investigation priority, not a claim about staffing or service fulfillment. [Calculation and source hashes](artifacts/analysis/priority-context.json).
 
